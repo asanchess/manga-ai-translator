@@ -1,0 +1,33 @@
+# Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Node & Next.js
+node_modules/
+.next/
+.vercel/
+build/
+dist/
+
+# Temporary debug crops and slices
+*.png
+backend/slice_*.jpg
+backend/check_*.png
+backend/panel_*.png
+backend/eval_*.png
+backend/debug_*.txt
+backend/eval_crops/
+backend/*.webp
+!backend/assets/**
+!backend/data/**
+!frontend/public/**
+*.zip
+
+# System
+.DS_Store
+Thumbs.db

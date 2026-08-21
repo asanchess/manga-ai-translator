@@ -1,0 +1,907 @@
+{
+  "dialogue": [
+    {
+      "patterns": [
+        "ultimate of all ages",
+        "the ultimate"
+      ],
+      "ru": "ВЕЧНЫЙ СИЛЬНЕЙШИЙ"
+    },
+    {
+      "patterns": [
+        "earth-attribute",
+        "playing with earth",
+        "skills in front of me",
+        "in front of me",
+        "martial skills",
+        "skkills"
+      ],
+      "ru": "Использовать боевые навыки стихии земли прямо передо мной?.."
+    },
+    {
+      "patterns": [
+        "power of the domain",
+        "power of the world",
+        "power of the"
+      ],
+      "ru": "СИЛА ДОМЕНА! СИЛА МИРА!"
+    },
+    {
+      "patterns": [
+        "earth domain"
+      ],
+      "ru": "ДОМЕН ЗЕМЛИ!"
+    },
+    {
+      "patterns": [
+        "paid attention to old yuan",
+        "old yuan in so long",
+        "old yuan",
+        "solong"
+      ],
+      "ru": "Я так давно не заглядывал к Старому Юаню... Не ожидал, что у старика уже девять таких артефактов!"
+    },
+    {
+      "patterns": [
+        "lightning tribulation",
+        "rank-nine",
+        "profound artifact",
+        "nine profound"
+      ],
+      "ru": "Небесная кара девятирангового глубинного артефакта?!"
+    },
+    {
+      "patterns": [
+        "those are rank-nine",
+        "nine of them",
+        "all of them"
+      ],
+      "ru": "Это глубинное оружие девятого ранга?! И их сразу девять штук?!"
+    },
+    {
+      "patterns": [
+        "using this move on a martial supreme",
+        "perfect timing",
+        "waste",
+        "test subject"
+      ],
+      "ru": "Идеальный момент! Тратить этот приём на тебя — расточительство, но в качестве подопытного сойдёшь!"
+    },
+    {
+      "patterns": [
+        "commotion is too big",
+        "red moon city arrives",
+        "must finish this quickly"
+      ],
+      "ru": "Грохот слишком сильный... Нужно закончить всё до прибытия людей из Города Красной Луны!"
+    },
+    {
+      "patterns": [
+        "gathering of heroes",
+        "scum like you",
+        "aren't need for you to go"
+      ],
+      "ru": "Я отправлюсь на Собрание Героев. Но такому сброду, как вы, там делать нечего!"
+    },
+    {
+      "patterns": [
+        "protector",
+        "protector ugly"
+      ],
+      "ru": "За... Защитник?!"
+    },
+    {
+      "patterns": [
+        "stay here forever",
+        "forever"
+      ],
+      "ru": "Оставайся здесь навечно!"
+    },
+    {
+      "patterns": [
+        "dont kill me",
+        "no! dont"
+      ],
+      "ru": "Нет! Не убивай меня!"
+    },
+    {
+      "patterns": [
+        "beiming laifeng",
+        "big brother is beiming",
+        "father is beiming"
+      ],
+      "ru": "Мой старший брат — Бэймин Лайфэн! Если убьёшь меня, клан Бэймин не оставит это просто так!"
+    },
+    {
+      "patterns": [
+        "core disciple",
+        "beiming family",
+        "less reason to keep"
+      ],
+      "ru": "Я догадывался, что ты важная фигура в клане Бэймин... Но раз ты их наследник — тем более нельзя оставлять тебя в живых!"
+    },
+    {
+      "patterns": [
+        "young master be careful",
+        "be careful",
+        "you go first"
+      ],
+      "ru": "Молодой Господин, бегите первым! Я задержу его!"
+    },
+    {
+      "patterns": [
+        "cut off my path",
+        "path of survival",
+        "shouldnt live either",
+        "shouldn't live either",
+        "brat if you want",
+        "live either"
+      ],
+      "ru": "Отродье! Раз ты решил отрезать мне путь к спасению — ты тоже не жилец!"
+    },
+    {
+      "patterns": [
+        "escape death sect",
+        "if the young master dies"
+      ],
+      "ru": "Если Молодой Господин погибнет, меня всё равно казнят!"
+    },
+    {
+      "patterns": [
+        "clear bright moon pavilion",
+        "gathering of heroes at the clear",
+        "have the guts to come"
+      ],
+      "ru": "Отродье! Через два дня в Павильоне Ясной Луны будет Собрание Героев! Посмотрим, хватит ли у тебя смелости явиться туда!"
+    },
+    {
+      "patterns": [
+        "brother entertain you",
+        "entertain you well"
+      ],
+      "ru": "Мой старший брат лично займётся тобой!"
+    },
+    {
+      "patterns": [
+        "it's your turn",
+        "your turn"
+      ],
+      "ru": "Теперь твоя очередь..."
+    },
+    {
+      "patterns": [
+        "really really killed him",
+        "dared to kill the young master"
+      ],
+      "ru": "Ты... ты действительно посмел убить Молодого Господина клана Бэймин?!"
+    },
+    {
+      "patterns": [
+        "wanted to kill me",
+        "wouldnt i be an idiot",
+        "wouldn't i be an idiot",
+        "let alone the beiming old man"
+      ],
+      "ru": "Он хотел убить меня. Если бы я не убил его в ответ — я был бы идиотом! Да пусть хоть их старейшина явится — он тоже сдохнет!"
+    },
+    {
+      "patterns": [
+        "by killing him",
+        "path to death"
+      ],
+      "ru": "Убив его, ты сам подписал себе смертный приговор!"
+    },
+    {
+      "patterns": [
+        "who will die and who wont",
+        "who can possibly know",
+        "beiming profound palace",
+        "sanctuary is no exception"
+      ],
+      "ru": "Кто умрёт, а кто выживет — кто вообще может знать?! Это касается и клана Бэймин, и Святилища!"
+    },
+    {
+      "patterns": [
+        "read my memory",
+        "lunatic",
+        "truly a lunatic",
+        "these two lunatics"
+      ],
+      "ru": "Он... он прочитал мои воспоминания?! Псих! Этот парень — абсолютный безумец!"
+    },
+    {
+      "patterns": [
+        "let me go",
+        "saw nothing of what happened"
+      ],
+      "ru": "Отпусти меня! Я клянусь, я ничего не видел из того, что произошло сегодня!"
+    },
+    {
+      "patterns": [
+        "dead people are better",
+        "keeping secrets"
+      ],
+      "ru": "Я считаю, что мертвецы хранят секреты намного надёжнее."
+    },
+    {
+      "patterns": [
+        "kill people from red moon",
+        "planned on letting you"
+      ],
+      "ru": "Раз я решился убить людей из Города Красной Луны у тебя на глазах — я и не думал отпускать тебя живым!"
+    },
+    {
+      "patterns": [
+        "forced me",
+        "you forced me"
+      ],
+      "ru": "Ладно... Ты сам меня вынудил!"
+    },
+    {
+      "patterns": [
+        "tyrant",
+        "first half of the tyrant"
+      ],
+      "ru": "Это же стойка из первой части Непобедимого Тирана!"
+    },
+    {
+      "patterns": [
+        "yao transformation",
+        "not yao transformation",
+        "more powerful than"
+      ],
+      "ru": "Нет, это не Трансформация Демона! Это состояние куда могущественнее!!"
+    },
+    {
+      "patterns": [
+        "coercion emanating",
+        "primordial era",
+        "incredible yao beast"
+      ],
+      "ru": "Устрашающая аура этой обезьяны исходит из Первобытной Эры... Это невероятный Демонический Зверь!"
+    },
+    {
+      "patterns": [
+        "head-on",
+        "clash",
+        "clashing"
+      ],
+      "ru": "Давай сойдёмся в лобовой атаке!!"
+    },
+    {
+      "patterns": [
+        "shattered the void and escaped",
+        "shattered the void"
+      ],
+      "ru": "Он разорвал пространство и сбежал!"
+    },
+    {
+      "patterns": [
+        "two disciples",
+        "wenlin stay"
+      ],
+      "ru": "Если я не призову двух своих учеников, удержать Вэньлиня будет непросто..."
+    },
+    {
+      "patterns": [
+        "commotion just now",
+        "people of red moon city"
+      ],
+      "ru": "Шум боя был слишком сильным... Люди из Города Красной Луны уже близко!"
+    },
+    {
+      "patterns": [
+        "wenlin looks",
+        "recovering wont be"
+      ],
+      "ru": "Судя по ранам Вэньлиня, на быстрое исцеление рассчитывать не приходится..."
+    },
+    {
+      "patterns": [
+        "split up and retreat",
+        "they are here"
+      ],
+      "ru": "Они здесь! Разделяемся и уходим!"
+    },
+    {
+      "patterns": [
+        "search the area",
+        "any clues"
+      ],
+      "ru": "Обыщите каждый угол и найдите любые зацепки!"
+    },
+    {
+      "patterns": [
+        "ice cubes",
+        "courtyard"
+      ],
+      "ru": "Двор Организации Ледяного Клыка"
+    },
+    {
+      "patterns": [
+        "since the organization was founded",
+        "missions"
+      ],
+      "ru": "С момента основания нашей организации мы выполнили больше десятка опасных поручений..."
+    },
+    {
+      "patterns": [
+        "ghost stories",
+        "telling ghost",
+        "finished a mission"
+      ],
+      "ru": "Мы едва вернулись с задания, сил нет, кругом раненые... Хватит пугать всех байками!"
+    },
+    {
+      "patterns": [
+        "sister",
+        "it's sister"
+      ],
+      "ru": "Это же Старшая Сестра!.."
+    },
+    {
+      "patterns": [
+        "weight-loss grass",
+        "mission failed"
+      ],
+      "ru": "Задание провалено... Нам не удалось добыть траву духовного очищения..."
+    },
+    {
+      "patterns": [
+        "told you all to scram",
+        "scram"
+      ],
+      "ru": "Я сказала всем проваливать! Уши заложило, или мне повторить?!"
+    },
+    {
+      "patterns": [
+        "xiaomei",
+        "urgent business"
+      ],
+      "ru": "Идём со мной! У Сестры Сяомэй срочное дело!"
+    },
+    {
+      "patterns": [
+        "who invited me",
+        "invited me here"
+      ],
+      "ru": "Кто осмелился позвать меня сюда?"
+    },
+    {
+      "patterns": [
+        "ruomei",
+        "miss ruomei",
+        "meet again"
+      ],
+      "ru": "Госпожа Жомэй, мы снова встретились."
+    },
+    {
+      "patterns": [
+        "what you want the most",
+        "brought what you want"
+      ],
+      "ru": "Я принёс то, чего ты желаешь больше всего на свете~"
+    }
+  ],
+  "sfx": {
+    "boom": "БУМ!",
+    "whoosh": "ВЖУХ!",
+    "bang": "БАХ!",
+    "slash": "ВЖИК!",
+    "crash": "КРАХ!",
+    "clash": "ДЗИНЬ!",
+    "bzzt": "БЗЗТ!",
+    "swish": "СВИСТ!",
+    "rumble": "ГРОХОТ...",
+    "thud": "ТУК!",
+    "snap": "ХРУСЬ!",
+    "wham": "БАМ!",
+    "crack": "ТРЕСК!",
+    "gasp": "ВЗДОХ!",
+    "ah": "АХ!",
+    "ahh": "ААХ!",
+    "shing": "ВЖИНЬ!",
+    "clank": "ЛЯЗГ!",
+    "pant": "ХА-А...",
+    "woosh": "ВЖУХ!",
+    "wouip": "ВЖУХ!",
+    "fwoosh": "ФВУХ!",
+    "roar": "РЁВ!",
+    "power": "СИЛА",
+    "world": "МИР",
+    "earth": "ЗЕМЛЯ"
+  },
+  "PLAYiING With EARTH-ATTRiBUTE MARTIAL Skills IN FrONT OF ME.": "Использовать боевые навыки стихии земли прямо передо мной?..",
+  "EARTH-Attribute MARTIAL Skills in Front OF Me:": "Боевые навыки земли прямо передо мной...",
+  "POwER OF The DOMAIN": "СИЛА ДОМЕНА!",
+  "POWER OF The": "СИЛА ДОМЕНА!",
+  "IHAvEN'T PAID ATTENTION TO Old YUAN in Solong; Ididn't Expect THAT Old MAN ALREADY HAS Nine OF ThEM": "Я так давно не заглядывал к Старому Юаню... Не ожидал, что у старика уже девять таких артефактов!",
+  "The lightning TRIBULATION OF A RANK- Nine proFounD ARTIFACT?": "Небесная кара девятирангового глубинного артефакта?!",
+  "The Lightning TRIbuLATION OF A RANK-Nine": "Небесная кара девятирангового глубинного артефакта?!",
+  "THOSE ARE RANK-Nine PROFOUND ARTIFACTSI Nine OF ThEM:_ OF ThEM???": "Это артефакты девятого ранга?! И их сразу девять штук?!",
+  "THOSE PROFOUND ARTIFACTSI All OF ThEm???": "Все эти глубинные артефакты?! Все девять?!",
+  "NoI Dont Kill Mei": "Нет! Не убивай меня!",
+  "Noi Dont": "Не надо!",
+  "My Sl, AND My Big BROTHER IS Beiming LAIFENG:": "Мой старший брат — Бэймин Лайфэн!",
+  "My FATHER Is Beiming Beiming LAIFENGI": "Мой отец из клана Бэймин, а брат — Бэймин Лайфэн!",
+  "IF YOu Kill Me; They Won't Let This Goi": "Если ты убьёшь меня, они не оставят это просто так!",
+  "IF YOU Kill Me THey Wont Let This GO!": "Если убьёшь меня, клан Бэймин уничтожит тебя!",
+  "I Guessed You WERE A CORe Disciple OF THE BEiming FAMiLY, But Be THIS CORE:": "Я догадывался, что ты важная персона в клане Бэймин... Но раз так — тем более нельзя оставлять тебя в живых!",
+  "I Guessed You WEre A CORe Disciple OF THe Beiming FAMiLY, But BE This CORE:..": "Я догадывался, что ты элитный ученик клана Бэймин... Но раз ты их наследник — тем более ты должен умереть!",
+  "THEN I HAvE EVeN Less REASON To Keep": "Тогда у меня тем более нет причин щадить тебя.",
+  "Young MASTER; Be CAREFUL": "Молодой Господин, осторожно!",
+  "Be CAREFUL": "Берегитесь!",
+  "Young MASTER, YOU GO FIRST'": "Молодой Господин, уходите первым!",
+  "THANK PROTECTOR": "Спасибо, Защитник!",
+  "IF The young MASTER DIES, 1 Won'T Be ABle TO ESCAPE DEATH SECT ANYWAYI": "Если Молодой Господин погибнет, меня всё равно казнят!",
+  "BRATI TWO DAYS FROM Now; THERE Will Be A GATHERiNG OF HEROES AT The CLEAR Bright MOON PAviliON: IHopeYou HAVE The Guts To COME": "Отродье! Через два дня в Павильоне Ясной Луны будет Собрание Героев! Надеюсь, у тебя хватит духу явиться туда!",
+  "BRAT TWO DAYS FROM Now; ThERE Will Be A CLEAR Bright MOON pAviLION": "Через два дня на Собрании Героев в Павильоне Ясной Луны...",
+  "ILL HAVE My Big BROTHER ENTERTAIN You WelL!": "Мой старший брат лично разорвёт тебя на куски!",
+  "Ill HAVE MY Big BROTHER ENTERTAIN": "Мой старший брат лично позаботится о тебе!",
+  "ShouldN't Live Eitheri": "Ты тоже не жилец!",
+  "PERFECT Timing.": "Идеальный момент.",
+  "USINg This MOvE On A MARTIAL SupReme is indeed A WASTE: it's perFecTLy SUITABLE TO USE YOU As A Test SUBJECT:": "Тратить такой приём на тебя — расточительство, но в качестве подопытного сойдёшь!",
+  "USING THIS MOVE SUItABLE TO USE YOU AS": "Использовать этот приём на тебе — отличный тест!",
+  "THIS COMMOTION IS TOO BIG. I MUST FINISH THIS QUICKly RED MOON City ARRIVESI!": "Грохот слишком сильный. Нужно быстро закончить всё до прибытия стражи Города Красной Луны!",
+  "RED MOON City ARRIVES!!": "Стража Города Красной Луны приближается!!",
+  "GATHERING OF HEROES, But SCuM Like You AREN'T NEed FoR You TO Go-": "Собрание Героев? Но такому сброду, как вы, там делать нечего!",
+  "GaTHERING OF HEROES,": "Собрание Героев...",
+  "PROTECTOR uGly ALSO:..": "Защитник тоже погиб?!",
+  "STAY Here FOREvery": "Оставайся здесь навечно!",
+  "FOREVERL": "НАВЕЧНО!",
+  "It'S YOUR TurN;": "Теперь твоя очередь...",
+  "It's YOUR TuRN.": "Теперь твоя очередь.",
+  "you:.. You: You REALLY, REALLY Killed Him?": "Ты... ты правда убил его?!",
+  "YOu REALLY DARED To Kill The YounG MASTER OF The Beiming FAMily?": "Ты посмел убить Молодого Господина клана Бэймин?!",
+  "Kill The YouNG MASTER OF": "Убил Молодого Господина Бэймин?!",
+  "He WANTED To Kill ME: IF I Didn't Kill Him in Return; wouldnt I BE AN idiot? Let AloNE THE Beiming YounG MASTER, EVEN IF HIS BEIMING OlD MAN CAME; He Would Still HAVE To Diel": "Он хотел убить меня. Если бы я не убил его в ответ — я был бы идиотом! Клан Бэймин? Да пусть хоть их старейшина явится — он тоже сдохнет!",
+  "Him in Return, wouldn't": "Убить его в ответ...",
+  "EVEN IF His BEiminG OLD Still HAVE TO Diey": "Даже если их старейшина придёт — он тоже сдохнет!",
+  "But BY KillING Him; You're ON A PATH TO DEATH ToO!": "Убив его, ты сам подписал себе смертный приговор!",
+  "But By KILLING": "Но убив его...",
+  "Who Will Die AND Who Won't, WHO CAN possiBLy KnowI This is TRue For The Beiming profound PALACE, AND The SANCTUARY Is NO Exceptionl": "Кто умрёт, а кто выживет — кто вообще может знать?! Это касается и клана Бэймин, и Святилища!",
+  "WHo Will Die": "Кто умрёт, а кто нет...",
+  "This IS TRue FOR The": "И Святилище не исключение!",
+  "HE REALLY READ M MEMORYI LUNATIC; ThiS PERSON IS TRULY A LUNATIC!": "Он реально прочитал мою память?! Псих! Этот парень — абсолютный безумец!",
+  "He REALLY READ MY": "Он прочитал мою память...",
+  "THESE TWo LUNATICS}": "Эти двое — безумцы!",
+  "THESE TWO LUNATICS}": "Эти двое — безумцы!",
+  "Let ME Go, AND I SAW nothing OF WHAT HAPPENED TODAYI": "Отпусти меня! Я клянусь, я ничего не видел из того, что произошло сегодня!",
+  "DEAD PEOPLE ARE BETTER AT KEEPING SECRETS": "Я считаю, что мертвецы гораздо лучше хранят секреты.",
+  "SINCE I DARED TO KILL PEOPLE FROM RED MOON CITY IN FRONT OF YOU, I NEVER PLANNED ON LETTING YOU LEAVE ALIVE": "Раз уж я посмел убивать людей из Города Красной Луны у тебя на глазах — я и не думал отпускать тебя живым!",
+  "ALRIGHT... YOU FORCED ME TO DO THIS!": "Ладно... Ты сам меня вынудил!",
+  "THIS IS THE STANCE FROM THE FIRST HALF OF THE UNCONQUERABLE TYRANT!": "Это же стойка из первой части Непобедимого Тирана!",
+  "NO, THIS IS NOT A YAO TRANSFORMATION! ALTHOUGH SIMILAR, THIS STATE IS FAR MORE POWERFUL!": "Нет, это не Трансформация Демона! Это состояние куда могущественнее!!",
+  "THE COERCION EMANATING FROM THIS APE IS FROM THE PRIMORDIAL ERA... WHAT AN INCREDIBLE YAO BEAST!": "Устрашающая аура этой обезьяны исходит из Первобытной Эры... Это невероятный Демонический Зверь!",
+  "LET'S CLASH HEAD-ON!": "Давай сойдёмся лицом к лицу!!",
+  "HE SHATTERED THE VOID AND ESCAPED!": "Он разорвал пространство и сбежал!",
+  "IF I DON'T RELEASE MY TWO DISCIPLES, IT WILL BE HARD TO KEEP WENLIN HERE...": "Если я не призову двух своих учеников, удержать Вэньлиня будет непросто...",
+  "THE COMMOTION JUST NOW WAS TOO LOUD... I'M AFRAID THE PEOPLE OF RED MOON CITY ARE ALREADY ON THEIR WAY!": "Шум боя был слишком сильным... Люди из Города Красной Луны уже близко!",
+  "HOWEVER, WITH THE WAY WENLIN LOOKS, RECOVERING WON'T BE EASY...": "Судя по ранам Вэньлиня, на быстрое исцеление рассчитывать не приходится...",
+  "THEY ARE HERE! SPLIT UP AND RETREAT!": "Они здесь! Разделяемся и уходим!",
+  "SEARCH THE ENTIRE AREA AND FIND ANY CLUES!": "Обыщите каждый угол и найдите любые зацепки!",
+  "COURTYARD OF THE ICE FANG ORGANIZATION": "Двор Организации Ледяного Клыка",
+  "SINCE THE ORGANIZATION WAS FOUNDED, WE HAVE COMPLETED OVER A DOZEN DANGEROUS MISSIONS...": "С момента основания нашей организации мы выполнили больше десятка опасных поручений...",
+  "WE JUST FINISHED A MISSION, WE HAVE NO STRENGTH LEFT AND MANY ARE INJURED... STOP TELLING GHOST STORIES!": "Мы едва вернулись с задания, сил нет, кругом раненые... Хватит пугать всех байками!",
+  "IT'S SENIOR SISTER!..": "Это же Старшая Сестра!..",
+  "THE MISSION FAILED, AND WE COULDN'T OBTAIN THE SPIRITUAL PURIFICATION GRASS...": "Задание провалено... Нам не удалось добыть траву духовного очищения...",
+  "I TOLD EVERYONE TO SCRAM! ARE YOU DEAF, OR DO I NEED TO REPEAT MYSELF?!": "Я сказала всем проваливать! Уши заложило, или мне повторить?!",
+  "COME WITH ME! SISTER XIAOMEI HAS URGENT BUSINESS!": "Идём со мной! У Сестры Сяомэй срочное дело!",
+  "WHO DARED TO INVITE ME HERE?": "Кто осмелился позвать меня сюда?",
+  "MISS RUOMEI, WE MEET AGAIN.": "Госпожа Жомэй, мы снова встретились.",
+  "I BROUGHT WHAT YOU DESIRE THE MOST IN THIS WORLD~": "Я принёс то, чего ты желаешь больше всего на свете~",
+  "Is that so? Let's see if your Martial Supreme power can break my blade.": "Вот как? Ну, посмотрим, сможет ли твоя мощь Боевого Владыки сокрушить мой клинок!",
+  "THIS CHAPTER IS BROUGHT To YOU": "ЭТА ГЛАВА ПРЕДСТАВЛЕНА ВАМ",
+  "24": "24",
+  "Htlz: {jk": "Htlz: {jk",
+  "'TaBa: 815110 ## hA": "'TaBa: 815110 ## hA",
+  "34": "Клан Бэймин пришёл за славой, но не за правом! Святилище — это моя территория, а не площадка для слабаков!",
+  "272": "Твои трансформации демонов — лишь шум! Я достигну Глубинного артефакта и стану Боевым Владыкой!",
+  "Va": "Нет",
+  "Vz": "«Взз!»",
+  "Fg": "«Фх!»",
+  "ppg": "«Ппг!»",
+  "1X": "1Х",
+  "I Think": "Думаю...",
+  "YOU KnOw IAM FROM The SANCTUARY: The SANCTUARY IS The COMMANDER OF ThE World: How ABOut YOU Give ME SomE FACE; More OR LeSS?": "Ты знаешь, я из Святилища — Святилище владыка мира. Скажи мне, дай мне должное... или меньше?",
+  "IAM FROM The SANCTUARY:": "Я из Святилища:",
+  "FACE; MORE OR LESS?": "Дай мне должное... или меньше?",
+  "SINCe I DARED TO Kill PeOple": "Раз я осмелился убивать людей,",
+  "I Never": "Я никогда...",
+  "IFIAm DETERMiNED TO LEAVE, YOUR Abilities CAN'T TRAP ME AT All;": "Если я решу уйти — твои способности не смогут поймать меня вообще;",
+  "DeterMiNed TO LEAVE, TRAP ME AT All:": "Решу уйти — поймать меня не получится:",
+  "CAUSES TOO MUch DAMAGE To Me, AND I Wont Be Able To RECOvER IN A SHORT Time REALLY Did't WANT To USe It UNLESS I HAD": "Наносит слишком много урона мне, и я не смогу восстановиться за короткое время. Настоятельно не хотел использовать это, если бы не был вынужден.",
+  "REALLY Didnt WANT To USE it UNLESS I HAD": "Настоятельно не хотел использовать это, если бы не был вынужден.",
+  "77 13k": "77 13к",
+  "NO, IT's NOT": "НЕТ, ЭТО НЕ ТАК!",
+  "3/": "3/",
+  "42": "42",
+  "HOWEvER, Luo QinGyun IS HeRE; SO It'S BEST NOT TO EXpoSe ANY MORE": "НЕВЕРОЯТНО, ЛЮО ЦИНГЮН ЗДЕСЬ; ЗАТЕМ ЛУЧШЕ НЕ ЭПИСОВАТЬ!",
+  "NOT TO EXPOSe": "НЕ ЭПИСОВАТЬ",
+  "LEAVE This PLACE ImmEDiately:": "ОТЫДЬ! НЕЛЬЗЯ ОСТАНОВИТЬСЯ!",
+  "Im AFRaiD RED MOON City ArE On Their": "В ЭТОМ РЕДКОМ ГОРОДЕ КРАСНОЙ ЛУНИ Они СТОЯТ",
+  "HOWEVER, With The Won't Be Something THAT CAN Be DONe In A SHORT Time": "НО ЕЩЁ БУДЕТ НЕЧТО, ЧТО НЕ МОЖНО СДЕЛАТЬ ЗА КРАТКИЙ ВРЕМЯ",
+  "GO WHERE?": "Куда?",
+  "Go WHERE?": "Куда ты?",
+  "ANYWHERE; You Moon paviliON in Two DAYS.": "Куда угодно! Твой Лунный дворец через два дня.",
+  "YOU WANT To Run AFTER CAUSiNG TROUBLE?": "Ты хочешь бежать после того, как спровоцировал беспорядок?",
+  "YOU WANT To RuN AFTER CAuSiNG TROUBLE?": "Ты хочешь бежать после того, как спровоцировал хаос?",
+  "2?": "2?",
+  "THAT YOuth JuSt NOw: ESCAPE TeChNique SimiLAR To BODy INCARNATiNG Lightning?": "Этот молодой человек только что: Бежавший приём, похожий на Пришествие Молнии?",
+  "PERHAPS It WAS AN TO BODy INCARNATiNG lightning?": "Возможно, это был приём, похожий на Пришествие Молнии?",
+  "YESI": "Да!",
+  "MOke THAN IEN LARGE AND": "Больше, чем IEN, большой и",
+  "APART FRom THAT ONe Time A young AND BEAuTIFUL MAid; NoNe REALLY DemoraLiZiNGI": "В отличие от того одного раза — молодая и красивая мадам; никто действительно деморализирует.",
+  "COuGh; CouGh; I HEARD THAT Someone SAW THE MAid WE SNATCHED LAST Time in IDont KnOW iF it's True OR FALSE_": "Кашель; кашель; я слышал, что кто‑то видел ту мадам, которую мы украли в последний раз. Не знаю, правда это или ложь.",
+  "it's TOO TerrifyinG! IF |t WASN'T For THE OBSESSION OF WAnTinG My HEART, I Would HAVE LeFt The ORGANIZATION LonG AGOI": "Это слишком страшно! Если бы не моя одержимость сердцем, я бы уже давно ушёл из организации.",
+  "WASN'T FOR THE OBSESSION OF WANTiNG": "Не из‑за одержимости желанием.",
+  "SSS": "Шшш.",
+  "WANTED To LEAvE THE ORGANIZATION LAST Time, AND ThE NEXt DAY SOMEONe Found ONe OF his FEET in Him WAS Gone:": "Хотел выйти из организации в последний раз, а на следующий день кто‑то нашёл у него одну ногу, а он исчез:",
+  "Him WAS Gone:": "Он исчез!",
+  "BRATi If YOu WANT To Cut OFf My paTH OF Survival; THEN You ShouldN't Live Eitheri": "Брат! Если хочешь отрезать мой путь выживания, то и сам не живи.",
+  "We JuSt Finished A": "Мы только что закончили А",
+  "Huh?": "А?",
+  "Quick, Qickly notify Big BROTHeR XinGhua!": "Быстро, сообщи Биг Брату Синхуа!",
+  "notify BiG BROTHER": "сообщи Биг Брату",
+  "GeT Out; All OF YOu Get Outi": "Выйди; все, выходим",
+  "AlL OFYou Get Outi": "Все, выходим",
+  "HURRY Upi!": "Поторопись!",
+  "HURRY UPl!": "Скорее!",
+  "Get Out? WHAT DO YOU MEAN?": "Выбираться? Что ты имеешь в виду?",
+  "DO You MEAN?": "Ты имеешь в виду?",
+  "SLIM, But EveRYONE_": "Хилый, но все...",
+  "YeS, YESI": "Да, да!",
+  "EVERYONE To ATTeNd Toi": "Все, прислушайтесь!",
+  "1 HAVE COME AS promisedil": "Я пришёл, как и обещал!",
+  "promisedli": "Как и обещал!",
+  "Tr#0, Taeteal,": "Тр#0, Таетал,",
+  "THIS CHAPTER I5 BROUGHT T0 YOU By SCYTHE TEAM": "Глава I5 принесла вам Scythe Team",
+  "CXCLOSIB GHAPTERS FIRSD ON SCYtHESGANSGON": "Эксклюзивные главы — первые на Скитх-Санктуарий",
+  "excusive chapters DN scythescas cDM": "Эксклюзивные главы",
+  "2x": "2x",
+  "22": "22",
+  "F=: t-Ex Htlz: {jk": "Ты играешь в дьявола?",
+  "'TaBF: 815110 ## hA M#E 'X EXB#: JXH FN #is mi? EY: #M": "Это ты подсунул этой шлюхе Налан Чжисюань Jade Slip, чтобы заманить меня сюда?",
+  "pLAYiNG THE DEViL? WAS It You WHo GAVE THAT Bitch NALAN Zhixuan The JADE Slip TO TRICK ME into Coming Out?": "Ты подсунул этой шлюхе Налан Чжисюань Jade Slip, чтобы заманить меня сюда?",
+  "NALAN Zhixuan THE JADE": "НАЛАН ЧЖИСЮАНЬ И СЛИП",
+  "TRICK?": "ЗАМАНЬ?",
+  "I REALLY Dont Like": "Я действительно не люблю",
+  "TRue? HMphl": "Правда? Хмф",
+  "You SAiD YOU KnOW Gu FEIYANGS OCULAR Technique: ShoW It TO Me ThEni": "Ты сказал, что знаешь ocular technique Гу Фейяна! Покажи мне тогда!",
+  "YoU Know Gu FEIYANGS OCULAR Technique: ShoW It TO Me Theni": "Ты знаешь ocular technique Гу Фейяна! Покажи мне тогда!",
+  "You KnOW Gu FEIYANG'S": "Ты знаешь Гу Фейяна...",
+  "EvEN IF It's TRuE Without A RANK-SevEN OR RANK-EiGht ALCHEMICAL DAO Cultivation BASE": "Даже если это правда, без базы алхимического дао седьмого или восьмого ранга",
+  "Without A RANK-Seven OR RANK-Eight ALCHEMICAL BASE;": "Без алхимической базы седьмого или восьмого ранга;",
+  "8z7/": "...",
+  "WHAT USE Would it Be TO Useit_": "Какая от него будет польза?",
+  "TO UseIt_": "Использовать его?",
+  "To UsE It_": "Применить его?",
+  "VS": "Против",
+  "VS;": "Против",
+  "Kc": "Кц",
+  "Vb": "Вб",
+  "UU": "УУ",
+  "52": "52",
+  "1e": "Я только что осмотрел твои симптомы; у меня есть идея.",
+  "I'VE JusT EXAMiNED Your SyMPtoMS; AND I BASICALLY HAVE AN IDEA:": "Я осмотрел твои симптомы; у меня есть идея.",
+  "EXAMINED Your SyMPTOMS; AND I AN IDEA:": "Я уже пытался устранить половину последствий, оставшихся в утробе твоей матери тогда.",
+  "I'VE ALREADY Tried TO ELiminate HALF OF The EFFeCTS LEFT in Your Mother's WoMB BACK THEN:": "Утроба тогда:",
+  "WOMB BACK THEN:": "Ты можешь попробовать циркулировать свою исходную силу, чтобы почувствовать её.",
+  "YOu CAN TRY CiRCulATiNG YOUR Origin POWER TO FEEL It.": "Ты можешь попробовать.",
+  "YOU CAN TRY": "YOU CAN TRY",
+  "My LORD My LORD YOu Must Help Mei I BeG YOu, YOu ARE Like My SECOND PARENTII": "Господин, господин, ты должен помочь Мэй, я прошу тебя, ты как мой второй родитель!!",
+  "MY LORD, MY LORD, YOU": "Господин, господин, ты",
+  "Ky": "Кай",
+  ".GET Up AND SPEAK:": ".Вставай и говори:",
+  "My LORD) I HOpe YOU CAN COMpletely RemOve The HiddeN DANGERS IN My BoDy, AS LonG AS The POwER OF THAT CurSe MARK IS ENtirely REMOvED;": "Господин) я надеюсь, ты сможешь полностью убрать скрытые опасности в моём теле, пока сила той печати полностью не будет снята;",
+  "CAN COMpLeTEly RemOve The": "Можешь полностью убрать",
+  "IAM ConfideNt THAT I Will TuRN iNto The Figure OF AN ORDINARY PERSON Within Three MONTHS!": "Я уверен, что через три месяца превращусь в обычного человека!",
+  "IAM Confident OF AN ORDINARY PERSON Within Three MONTHS!": "Я уверен, что через три месяца стану обычным человеком!",
+  "NO, EvEN BETTER THAN AN ORDINARY PERSON Like A Devil's Figure, Turning iNto A Slim BEAUTYI I Know ALl The BoDy-SHAPiNG METhODS in The Worldi": "Нет, даже лучше, чем обычный человек. Как фигура демона, превращающаяся в стройную красоту. Я знаю все методы формирования тела в мире.",
+  "Don't Be Excited; TAKE It EASY: I've Lifted HALF OF THE CurSE MARK First: IF YOU ADJUST YOuR BODy SHAPE YOURSELF You Should Be ABLE TO Slim DowN By HALF Very SoON: 0g09": "Не взволновывайтесь; спокойно: я уже снял половину знака проклятия. Если вы адаптируете форму тела, вы сможете стать половиной меньше очень скоро: 0g09",
+  "OF THE CURSE MARK FiRst: SHAPE YOURSELF; You Should BE ABLE TO Slim DowN By HALF Very SoON:": "Сначала по форме тела: вы сможете стать половиной меньше очень скоро.",
+  "EVEN Slimming DowN By HALF IS Still VeRy STURDYI I WANT To BECOme A Slim BEAUTY; EvEN SlimmeR AND PRETTIER THAN JiANG Ruobinghi": "Даже половину меньше — всё ещё очень прочный. Я хочу стать стройной красотой; ещё стройнее и красивее, чем Цянь Руобин.",
+  "EvEN Slimming DowN WANT To BECOme A Slim BEAUTY;": "Даже уменьшение до половины — хочу стать стройной красотой;",
+  "I BelIEve YOUR FounDAtION IS NOT BAD: AFter Slimming Down; Your LOOKS WoN'T BE INFERIOR TO JIANG Ruobing's. But THE REMOVAL OF THE RemAininG HALF OF THE CURSE MARK iS ThE Condition OF My DEAL With You:": "Я верю, что ваша основа не плоха. После уменьшения, ваш внешний вид не будет хуже, чем у Цянь Руобин. Но удаление оставшейся половины знака проклятия — условие моего предложения вам.",
+  "I BElIEVE YOUR": "Я верю, что ваша...",
+  "But ThE REMOvAL OF THE Curse MARK iS ThE": "Но удаление знака проклятия — это...",
+  "Just SPEAK, My LORDI AS LonG AS It's Something I CAN DO, EVEN IF It MEANS Climbing A MOUNTAIN OF SWORDS OR plunging into 4 SEA OF Fire I Wont BAT AN EYE!": "Просто скажи, мой господин! Я сделаю всё, что ты попросишь, даже если это означает взобраться на гору мечей или прыгнуть в четыре моря огня — я не перестану смотреть!",
+  "JuSt SPEAK, MY": "Просто говори, мой!",
+  "4 SEA OF Fire, Iwont BAT AN EyE'": "Четыре моря огня, я не перестану смотреть!",
+  "It Won't Be THAT TROUBLESOME:": "Это не будет таким сложным:",
+  "I UNDERSTAND: You're HerE TO PARTICIPATE in JianG Riobing's ARENA TOURNAMENT, AND You WANT Me To HElp YOU Win?": "Я понимаю: ты здесь, чтобы участвовать в турнире арены Риньбоинга, и хочешь, чтобы я помог тебе выиграть?",
+  "ME To HElp YOU Win?": "Мне помочь тебе выиграть?",
+  "I PREFER Seeing YOU in YOUR previOUS STATE!": "Я предпочитаю видеть тебя в твоём предыдущем состоянии!",
+  "I PREFER YOUR PrEvIOUS": "Я предпочитаю твой предыдущий!",
+  "This TOurnaMENT IS Held IN FRoNt OF THE HEROES OF ThE WORld; it's HARD TO FAKE!": "Этот турнир проводится перед героями всего мира; его трудно подделать!",
+  "This TOURNAMENT is HELD FRoNt OF THE HEROES OF ThE": "Этот турнир проводится перед героями мира.",
+  "HOWEVER, IF Youre Willing, I CAN Find A WAY To lEt You HAVE A TASTE OF JiANG Riobing FirST, AND Givve Her Future HUSBAND A Big GReen HAT, Hehe, I Wonder IF You ARe iNTErested; My LORD?": "Однако, если вы согласны, я могу найти способ дать вам сначала попробовать Цзян Риобин, а её будущему мужу — большую зелёную шляпу, хе-хе. Интересно, заинтересованы ли вы? Мой господин?",
+  "PLEASE SPEAK PROPERLY; I BeG YOUI": "Пожалуйста, говорите правильно; я вас умоляю.",
+  "Riomei HAS A Stout BODy Right NoW, Which CANNOT ENTER My LoRD'S DisCERNing EYES.": "Риомей сейчас имеет крепкое тело, которое не может проникнуть в проницательный взгляд моего господина.",
+  "Which CANNOT ENTER My Lord'S": "Которое не может проникнуть в взгляд моего господина.",
+  "SUCCESSFULLY SHAPES HER BODY; FEMALE SLAVE, MY Lord CAN USE": "Успешно формирует её тело; женская рабыня, мой господин может использовать её.",
+  "WRONG IDEA: I Don't HAVE The Good FORTuNe": "Ошибочная идея: у меня нет удачи.",
+  "CAME HERE FOR Two Things This Time:": "Пришёл сюда на два причины:",
+  "1 CAME HerE": "1. Я пришёл сюда",
+  "First; YOU Will immediately RetuRN To The City LORD'S MANSION AND TRY YOUR Best TO Help JANG Ruobing OBTAIN THAT DRAGON'S SECRET TREASURE AND eiGhteen EAST SEA BRight MOON PEARLS.": "Первое: вы сразу же вернётесь в дворец господина города и сделаете всё возможное, чтобы помочь Чжань Руобин получить тайное сокровище дракона и восемнадцать жемчужин яркой луны из Востого моря.",
+  "CItY LORD'S MANSION AND TRY YOUR THAT DRAGON'S SECRET TREASURE AND EIGhteEN EAST SEA BRIGhT MOON PEARLS.": "Дворец господина города и тайное сокровище дракона, а также восемнадцать жемчужин яркой луны из Востого моря.",
+  "BRIGhT MOON PEARLS,": "Жемчужины яркой луны из Востого моря,",
+  "BRiGht MOON PEARLS.": "Жемчужины яркой луны из Востого моря.",
+  "THERE Will Be No HOpe FOR The RemainiNG HALF": "На оставшуюся половину надежды не останется",
+  "JIANG Riobing Will": "Чжань Руобин будет",
+  "SO JIANG RiobinG KNEW THERE WAS SOMEONE Who COuld Lift MY CURSE MARK, Yet She JuSt WATCHED AS OUR PARENTS SEARCHED ThE Whole World FOR Medicine FOR Me DAMN You, JiaNG Ruobing! 1 Will NOT Rest Until One OF US IS DESTROYEDII": "Жэн Цзяорун, ты знала, что кто-то может снять мой проклятый клейм, но просто смотрела, пока наши родители обходили весь мир в поисках лекарства для меня! Я не отстану, пока один из нас не будет уничтожен!",
+  "SO JIANG Ruobing She Just WATCHED AS OUR PARENTS": "Жэн Цзяорун, ты просто смотрела, пока наши родители...",
+  "Ruobingi I Will NOt ReST UNtil One OF US IS DESTROYEDI!": "Цзяорун! Я не отстану, пока один из нас не будет уничтожен!",
+  "AS FOR ThE econd Thing, My Friend AND I Will ALSO Go To ThE CLEAR Breeze Bright MoON PAViLiON in Two DAYS. YOu MisT Find A WAY To ENSURE We RETREAT in ONe piece:": "Что касается второго — мой друг и я также отправимся в Павильон Ясной Луны через два дня. Ты должна найти способ, чтобы мы ушли оттуда целыми:",
+  "OTHERWise; IF something HAPPENS TO US, You CAN FORGeT ABovt HavinG THE Curse MARK Lifted:": "Иначе, если что-то случится с нами, ты можешь забыть о том, что кто-либо снимет проклятие с моего клейма:",
+  "something HAPPENS TO US;": "Если что-то случится с нами;",
+  "This MATTER IS Simplel": "Этот вопрос прост.",
+  "This Is RED Moon City: Whoever DARES TO TOuCH YOu, My LORD, Is MY MORTAL ENEMY, AND I Will Kill Their Etire FAMiLYI": "Это ГОРОД КРАСНОЙ ЛУНЫ: КТО-ОСМЕЛИСЬ ДОСТАТЬ МЕНЯ, МОЙ ГОСПОДИН, – МОЙ СМЕРТЕЛЬНЫЙ ВРАГ, И Я УБЬУ ИХ ВСЮ СЕМЬЮ!",
+  "That'S Good. I HAVE SomE MATTERS TO Attend To, SO I'Ll BE LEAVING.": "Хорошо. У меня есть дела, я ухожу.",
+  "SO ILL BE LEAViNG:": "Я ухожу:",
+  "MY LORD You won't Just RETREAT In ONe piece AND LEAVE, Will YOu?": "Мой lord, ты не просто уйдёшь целым, верно?",
+  "This MATTER IS TOO IMPORTaNT To Ruomel I CAN'T AFFORD ANY NEGLiGENcE": "Это слишком важно для Руомеля, я не могу позволить никаких погрешностей.",
+  "THIS MATTER IS TOO IMPORTANT To Ruomel 1 CAN'T": "Это слишком важно для Руомеля, я не могу...",
+  "YOU CAN REST ASSURED; I ALWAYS KEEp My Wordi": "Можешь быть уверен; я всегда держу своё слово.",
+  "vouCa ReST ASSURED; I ALWAYS KEep My Wordi": "Можешь быть уверен; я всегда держу своё слово.",
+  "HAHA,..HAHAHAHA:": "Ха-ха... Ха-ха-ха-ха!",
+  "HAHA   HAHAHAHA:.": "ХАХА   ХАХАХА:.",
+  "INSIDE THE UNIVERSE GOD MONUMENT": "Внутри монумента Бога Вселенной",
+  "THE POWER OF rules OF Lightning in This HAMMER Is IDENTiCAL": "Мощь правил молнии в этом молоте ИДЕНТИЧНА",
+  "THE POWER OF": "Мощь",
+  "MiGht BE EVEN STRONGER THAN": "Может быть даже сильнее, чем",
+  "723": "723",
+  "Hehe, Let's USE This Thing AS TEST FiRST.": "Хехе! Давайте используем это как ПРВЫЙ ТЕСТ!",
+  "12": "12",
+  "28": "28",
+  "156A": "156A",
+  "2Y": "2Y",
+  "EIGHTYI": "ВОСЬДЕСЯТ!",
+  "EiGhtyi": "Восемьдесят!",
+  "EIGhtYI": "ВОСЬДЕСЯТ!",
+  "EIGhty!": "ВОСЬДЕСЯТ!!",
+  "EIGhtY}": "ВОСЬДЕСЯТ!}",
+  "EIGhTYI": "ВОСЬДЕСЯТ!",
+  "WHAT ARE YOU Doing? WHAT ARE YOU Doing? [ ALMOST Got SMASHED FLATI ThAt'S Too CRUELI": "ЧТО ТЫ ДЕЛАЕШЬ? ЧТО ТЫ ДЕЛАЕШЬ? ПОЧТИ РАЗДАВИЛ МЕНЯ ПЛОСКИМ! ЭТО СЛИШКОМ ЖЕСТОКО!",
+  "WHAT ARE YOU Doing? 1 ALMOST GOT SMASHED FLATI THAT'S Too CRUELI!": "ЧТО ТЫ ДЕЛАЕШЬ? Я ПОЧТИ БЫЛ РАЗДАВЛЕН ПЛОСКИМ! ЭТО СЛИШКОМ ЖЕСТОКО!",
+  "WHAT EXACTLY Did This Little King KonG DO Wrong, For YounG MASTER Yun TO TorTURe Him Like This?": "ЧТО ИМЕННО ЭТОТ МАЛЕНЬКИЙ КОРОЛЬ КУНГ СДЕЛАЛ НЕ ТАК, ЧТОБЫ МОЛОДОЙ МАСТЕР ЮНЬ ТАК ЕГО ПЫТАЛ?",
+  "KoNG DO WRONG, FOR": "ЧТО КОРОЛЬ СДЕЛАЛ НЕ ТАК, ЧТОБЫ...",
+  "62-": "62-",
+  "Tuatuttic": "Туатутти",
+  "REFINING.": "ОЧИСТКА.",
+  "ARTIFACT, it Should BE A Demonic BEAST:": "АРТЕФАКТ, ОН ДОЛЖЕН БЫТЬ ДЕМОНИЧЕСКИМ ЗВЕРЕМ!",
+  "IF This STONE BEAST CAN Survive This TRIBUlATION; Its Future Will Be Limitless.": "Если этот каменный зверь переживёт это испытание, его будущее будет безграничным.",
+  "AND IF it CAN'T SurvIVE?": "А если он не выживет?",
+  "WHAT? YoU ALSO WANT TO Go Up AND TAKE A FEw HAMMER Hits?": "Что? Ты тоже хочешь подняться и получить пару ударов молота?",
+  "WANT To Go up AND TAKE A FEw HAMMER Hits?": "Хочешь подняться и получить пару ударов молота?",
+  "SCYTHESGANS GOM": "Скитальцы Гом",
+  "This profound Thunder Frightening Cloud ROAR WAS OriGiNALLY A Lightning-Attribute DEMONIC BEAST. PERHAPS it WAS AFFECTED By THe SCENE OF THE Lightning HELL;": "Этот глубокий Громовой рев изначально был демоническим зверьем с атрибутом молнии. Возможно, его повлияла Сцена Адской Молнии;",
+  "ORiGiNALLY A lightning-AttRiBute AFFECTED By The SCENE OF": "Изначально атрибут молнии, affected by the scene of the lightning hell",
+  "IAM Merely MARTIAL Artist Who PRACTICES Lightning-Attribute Cultivation MEthods: uNder This Field, I FeeL My Hot BlooD SurGing ALL Over My BoDy; Like A Fish returning TO THE SEA.": "Я всего лишь кулитиватор, практикующий методы атрибута молнии: Под этим полем я чувствую, как моя горячая кровь разливается по телу, как рыба, возвращающаяся в море.",
+  "IAM MerELY CULTIVATION Methods. UnDer": "Я всего лишь методы культивации. Под...",
+  "This BEAST'S SENSES ShoulD Be EVEN StronGer THAN Mine:": "Сенсы этого зверя должны быть даже сильнее, чем у меня:",
+  "THIS BEAST'S": "Этого зверя",
+  "MhMM_": "Хм...",
+  "MhmM:": "Мм:",
+  "IF YOU WANT To TAKEA HAMMER Hit; THEN Go AHEAD, No ONe Will STOp Youll": "Если хочешь принять удар молотом — вперёд, никто не остановит тебя.",
+  "HAMMER Hit; THEN Go AHEAD,": "Удар молотом? Тогда вперёд,",
+  "Eoe": "Эх...",
+  "WAS JuST ACTinG touGh:. ACTUALLY WENt ..": "Просто играл в крутого, а на самом деле...",
+  "AND |t": "И это...",
+  "#PERHAPS it WAS indeed TOO MUch OF A STRETCh .": "Возможно, это действительно было чересчур натянуто.",
+  "PERHAPS": "Может быть,",
+  "HM?": "Что?!",
+  "The Demonic Qi FLUCTUATIONS RADIATING FROM Little XUANS BoDy ARE ACTUALLY GRADUALLY SynchRONiZiNG With ThE FREQUENCY OF": "Демоническая ци с Ли Юньсяо синхронизируется с частотой...",
+  "The Demonic Qi FLUCTUATIONS RADIATING FROM Little XUANS BoDy ARE ACTUALLY GRADUALLY SynchROnizinG With ThE FREQUEnCY My HAMMER Strikes:": "Демоническая ци с Ли Юньсяо синхронизируется с частотой моих ударов молота!",
+  "The DEMONic Qi FLUCTUATIONS RADIATING FROM Little XUANS BODy ARE ACTUALLY GRADUALLY Cvncuronizing Witu Tue Epeoiencv OF MY HAMMER STRIKES,": "Демоническая ци с Ли Юньсяо синхронизируется с частотой моих ударов молота!",
+  "The DeMOnic Qi FLUCTUATIONS RADIATING FROM Little XUANS BODy ARE ACTUALLY GRADUALLY": "Демоническая ци с Ли Юньсяо синхронизируется...",
+  "Could |t Be ADJUSTING ITSELF? This IS A high-Level APPLICATIONI!": "Может, она сама настраивается? Это высокоуровневое применение!",
+  "COulD It Be AdJusTING ITSELF? This IS A high-LEvel APPLICATIONII": "Может, она сама настраивается? Это высокоуровневое применение!",
+  "Vh": "Хм.",
+  "It CAN ACTUALLY RESONATE?": "Это действительно может резонировать?",
+  "Let'S TEST It OuT!": "Давай проверим!",
+  "Let'S TEST It Outi": "Проверяем!",
+  "ThIs IS A DOMAiNI It'S EVEN STRONGER THAN Mineil": "Это домен! Он даже сильнее моего!",
+  "It'S EVEN STRONGER THAN Minell": "Он даже сильнее моего!",
+  "4X": "В 4 раза!",
+  "AFTER FLUCTUATiNG, This proFounD THuNDER Frightening ClOuD ROAR ADVANCED TO MARTIAL Supremel": "После колебаний этот устрашающий рев глубокого грома облака достиг уровня Боевого Верховного!",
+  "This proFOund ThuNDeR Supremei": "Глубокий громовый Верховный!",
+  "Ihall": "Я...",
+  "A MARTIAL GRANDMASTER DemoniC BEAST, HAVING Hung Out With YOU FOR SO lonG,": "Боевой владыка — демоническое чудовище, которое столько времени проводило с тобой,",
+  "MARTIAL GRANDMASTER DemonIC BEAST; HAVING HUNG Out LonG,;": "Боевой владыка — демоническое чудовище; столько времени проводило,",
+  "HAS ACTUALLY ADVANCED TO A RANK-Eight MARTIAL Supreme: This;._": "На самом деле поднялся до ранга Боевого Владыки восьмого ранга: это...",
+  "TO A RANK-Eight MARTIAL Supreme: This;": "До ранга Боевого Владыки восьмого ранга: это...",
+  "YOU ALSO ALMOST At": "Ты тоже почти...",
+  "In My Opinion; IF We SWORDS, Youll BE ABLE TO BREAK": "На мой взгляд; если мы будем использовать мечи, ты сможешь сломать",
+  "WHEN THe Time COMES; YOu AND YOUR MAiN BODy Will MeRGe into ONe. under The HEAVENS; EvEN Lu Congzi Or YOUR MASTER Will Be LeFt BEHInd By YOU.": "Когда придёт время; ты и твое главное тело сольёшься в одно. Под небесами; даже Лу Концзи или твой мастер останутся позади тебя.",
+  "WheN The Time": "Когда придёт время",
+  "You Should LooK Out FOR Me More in THe Future~": "Тебе стоит следить за мной в будущем~",
+  "You Should Future~": "Тебе стоит будущее~",
+  "ALTHOiGh I YOU ReFIne ARTIFACTS, I've": "Хотя я совершенствую артефакты, я",
+  "Other Anything:": "Что-нибудь ещё:",
+  "Me ABOuT Friendshipl": "О дружбе",
+  "HM? I WAS TALKiNG ABOUT Demonic BEASTS, WHAT DO You MEAN By TALKiNG ABOUT ME?!": "Хм? Я про демонов-зверей говорил, зачем ты себя подсовываешь?!",
+  "BEASTS, WHAT ABOUT ME?!": "Звери? Ты что, про меня?!",
+  "HAHAI": "ХАХАХА",
+  "HAHA": "ХАХА",
+  "2e": "Хех",
+  "Don'T BE SO HEARTLESS. It SEEMS ILL HAVE TO Build Up Our ReLATIONSHiP BEFORE Ilet YoU Out:": "Не будь таким бессердечным. Похоже, мне придется наладить наши отношения, прежде чем я тебя выпущу:",
+  "RELATIONSHIP BEFORE Ilet YoU Out:": "НАЛАДИТЬ ОТНОШЕНИЯ ПЕРЕД ТЕМ, КАК ВЫПУСТИТЬ ТЕБЯ:",
+  "RELATIONSHIP BEFORE": "НАЛАДИТЬ ОТНОШЕНИЯ ДО...",
+  "reLATiONShiP BEFORE": "Отношения до",
+  "IOnly PRAY YoU won't Suddenly Get ThE Whim To ReFine ME ToOl How IS THAT GOURd Little King KonG Doing?": "Я только молюсь, чтобы ты не вдруг захотел отточить меня, как инструмент. Как же это делает тот глупый маленький король Конг!",
+  "I Only PRAY YOU won't": "Я только молюсь, чтобы ты не",
+  "How is THAT": "Как это?",
+  "IORiginally ThoiGht it Could Climb ALl The WAY To The Nine HEAVENS REALM; Bvt AN AcciDent OCCURRED: NOW It's STuck At ThE PEAK OF ThE MARTIAL Supreme REALM. WE CAN ONly WAit FoR THE NExt Opportunity:": "Изначально я думал, что смогу взобраться до Небесных Девяти Сфер; но произошла ошибка: теперь я застрял на вершине Боевого Владыки. Мы можем только ждать следующей возможности:",
+  "I ORIGiNALLY Climb ALL THe WAY To THE": "Я Изначально взобрался до",
+  "ONLy WAit For THE NEXt": "Только жду следующей",
+  "EVER SiNCE I REFined His BODY, This SELF-RECOvERY Ability KAS BEEN GREATLY WEAKENED:": "С тех пор как я отточил его тело, эта способность самовосстановления сильно ослаблена:",
+  "SELF-RECOvERY Ability KAS BEEN GREATLY WEAKENED:": "SELF-RECOvERY Ability KAS BEEN GREATLY WEAKENED:",
+  "SELF-RECOVERY ABilITY HAS BEEN GREATLY WEAKENED:": "SELF-RECOVERY ABilITY HAS BEEN GREATLY WEAKENED:",
+  "YOur profound Thunder Frightening Cloud ROAR WAS DRAGGED ALL THE WAY FROM MARTIAL GRANDMASTER TO MARTIAL Supreme By YOu: This CAN ALSO Be Considered AN EXTRemely GREAT ACHIEVEMENT: I Will WRite It DowN in My Booklet AS A MAJOR Experience:": "YOur profound Thunder Frightening Cloud ROAR WAS DRAGGED ALL THE WAY FROM MARTIAL GRANDMASTER TO MARTIAL Supreme By YOu: This CAN ALSO Be Considered AN EXTRemely GREAT ACHIEVEMENT: I Will WRite It DowN in My Booklet AS A MAJOR Experience:",
+  "Thunder Frightening Cloud FROM MARTIAL GRANDMASTER To MARTIAL Supreme By You.": "Thunder Frightening Cloud FROM MARTIAL GRANDMASTER To MARTIAL Supreme By You.",
+  "CONSiDERed AN Extremely GREAT ACHIEVEMENT. I Will WRite": "CONSiDERed AN Extremely GREAT ACHIEVEMENT. I Will WRite",
+  "IF This Gourd Little King Kong CAN ALSO MeEt YOur ExpectatiONS; THEN WE CAN EVEN ConsiDER MASS production:": "IF This Gourd Little King Kong CAN ALSO MeEt YOur ExpectatiONS; THEN WE CAN EVEN ConsiDER MASS production:",
+  "EXPECTATIONS; THEN WE CAN EVEN Consider MASS production:": "EXPECTATIONS; THEN WE CAN EVEN Consider MASS production:",
+  "EVEN IF It's Only Twenty OF ThEm;,": "EVEN IF It's Only Twenty OF ThEm;,",
+  "EVEN IF It's": "EVEN IF It's",
+  "STOP Joking Around~~ Where Would I Get SO MANY STONE BEAST Kings~": "STOP Joking Around~~ Where Would I Get SO MANY STONE BEAST Kings~",
+  "CXGLOUSIVB GHAPTCRS FIRST @ON SCYTHESCANBCOM": "CXGLOUSIVB GHAPTCRS FIRST @ON SCYTHESCANBCOM",
+  "Htlz: {jk #4: #Sh16 'TaBF: 815110 ## hA M#E 'X 545: #1": "Юньсяо: {джк #4: #Ш16 'ТаBF: 815110 ## хА М#Е 'X 545: #1",
+  "73": "73",
+  "HmM:": "Хмм:",
+  "F WE LET HII CONTINUE To DEVELOP LIKE THIS, ONCE [I YUNXIAo RETURNS To THE PEAK of THE MARTLAL DAo, GOUPLED WITH THESE METHODS WHO INTHE HEAVENLY MARIIAL REALM WILL BE ABLE TO RESTRAN HINZ DI YUNXIAo POSSESSES THE UNIVESE GOD MONUHENII AND NUIEROUS RESOURCES HIS GROWIH IS AIREADY CAPABLE OF POSING A SIGNIFICANI ENouGH THREAT EVEN To THESANCTUARY": "Если мы позволим ему продолжать развиваться так, как есть, как только Юньсяо вернётся на пик Боевого Дао,в сочетании с этими методами, кто в Небесном Боевом Царстве сможет его сдержать? Ли Юньсяо обладает Вселенским Божественной Стелой Вселенной и бесчисленными ресурсами. Его рост уже способен представлять серьёзную угрозу даже для Святилища.",
+  "CONTINUOUSLY REFINING SWORDS WITH DIVINE FIRE IS EXTREMELY HELPFUL FOR IMPROVING MY OWN SOUL POWER  JUST AS LI YUNXIAO-SAID;-IF-|REFINE-ANOTHER-SEVEN-OR EIGHI SWORDS, [FWILL VERY LIKELY STEP INTO THE DREAMED OF-RANK NINE WHEN THE TIME COMES To MERGE WITH MY MAIN BODY WILL BE ABLE To PUSH FOR THE PEAK OF RANK NINE, IT MIGHI NOT EVEN BE IMPOSSIBLE To CATCH A GLIMPSE OF THE LEGENDARY TENTH RANK THE GOD OF ALCHEMY REALML LIttle ZHUGE OF MOUNI FANGCUN": "Непрерывное закалка мечей с помощью Божественного Огня чрезвычайно полезно для улучшения моей душевной силы, как сказал Юньсяо — если я закалю ещё семь или восемь мечей, я с высокой вероятностью ступлю на желанный Девятый Ранг. Когда наступит время слиться с моим главным телом, я смогу бросить вызов пику Девятого Ранга. И вовсе не невозможно будет мелькнуть легендарному Девятому Рангу — Богу Алхимии, Малому Чжуге с горы Фанцунь.",
+  "HS HEIPING HIM CONTINUE -LIKE THS A-BLESSING _ LM OR A CURSE?I": "Позволять ему продолжать так — это благословение или проклятие?",
+  "Right; I FORGOT TO ASK You something: The NAME Wenlin, HAVE YOu EVER HEARD OF It?": "Вон, кстати, я забыл спросить тебя о чём-то: Ты слышал имя Вэньлынь?",
+  "WAAAAHHHI": "УАААХХХИ",
+  "Ididnt ACCIDENTALLY SAY THOSE WORDS Out Loud JST NOW, Did 174": "Я не шепнул эти слова вдруг! Серьёзно, 174!",
+  "WhAT? YOu'Ve SEEN ThIS PERSON? WHERE Did YOu HEAR THIS NAME?": "Что?! Ты видел этого человека? Где ты об этом услышал?",
+  "Hehe, YOU REALLY DO Know Little:": "Ха-ха, ты действительно много знаешь: ",
+  "Tell ME, WHAT EXACTLY IS Going On With This Kid?": "Скажи мне, что с этим ребёнком происходит?",
+  "WHAT DO YOU MEAN WHAT is Going On? IDont Know WHAT You're TALKiNG ABOUT! I WAS JuST Feeling CurIOUS xk": "Что ты вообще имеешь в виду? Я ничего не знаю! Мы просто... интересовался!",
+  "Oh? ARe YOu THAT CuriouS? YOU'RE SO CuriOUS Yo'VE TURNED into AN EmOJl~": "О? Ты так любопытен? Ох, как же ты загадочен, превратился в эмо-девочку~",
+  "He WAS SENT By YOUR MASTER, TIAN ZHAO Zi, AND Within His Soul, THERE IS A RADIANT Light SEAL LOCK PLACED By TIAN ZHAO Zi. In ThE Whole World, I ONly Know OF TIAN ZHAO ZI WHO CAN USE THIS THING: AS His Disciple; Xk I Wonder IF You'VE LEARNED it?": "Его послал твой учитель, Тянь Чжао-цзы. В его душе — Печать Замка Сияющего Света, поставленная Тянь Чжао-цзы. Во всём мире только он владеет этим. Как его ученик... интересно, перенял ли ты это умение?",
+  "Li YUNXiAO: YOU ABSOLUTELY MuST NOT DO Things THAT COURT YOUR Own DEATH! YOu ACTUALLY READ HIS MEMORIES?": "Ли Юньсяо: Ты что, с ума сошёл?! Ты прочитал его воспоминания?!",
+  "You TRULY HAVE The GALL TO WRAP AROuND The HEAVENS; You REALLY Don't Know The MEANiNG OF DEATHI DAMN iti": "Ты и правда наглый до безумия... Небо в рукаве заворачиваешь! Ты вообще не знаешь, что такое смерть! Чёрт!",
+  "Don't BE NERvOUS, I Didnt Hurt Him:": "Не нервничай, я ему ничего не сделал.",
+  "MOREOVER, It WAS Him WHo COvEted My GREAT COMpASSiON Twilight Cloud MiRROR AND WANTED To USE OCULAR ARTS TO intimiDAte Me, HAHA, It's A pity THAT THE CRUCIAL PARTS WERE LOCKED By YOUR MASTER. You'Ve OBTAINED Your MASTER'S TRue ALCHEMICAL DAO INHEriTance; So it's Not Like You Didn't LEARN How To uNLOck it, Right?": "К тому же, сам он пожелал моё Зеркало Сумеречных Облаков Великой Милости и хотел запугать меня глазными искусствами, ха-ха. Жаль, что ключевые части запечатаны твоим учителем. Ты получил истинное наследие алхимии учителя, так что разблокировать это ты, конечно, умеешь, да?",
+  "IF YOU WANT ME TO UNLOCK It FOR YOu, KEEp DREAMinG!": "Хочешь, чтобы я разблокировал это для тебя? Мечтай дальше!",
+  "YOu ABSOLUTELY Must Not hurt THAT PERSON; OtherwiSe YOu ARE TRULY Like AN OlD MAN HANGING HimselF_SEEKING YOUR Own DEATHI": "Ты ни в коем случае не смей обидеть того человека. Иначе ты как старик, повесившийся сам — сам свою смерть ищешь!",
+  "EH? WHAT Did You Just SAY? HE COVETED YOUR GREAT CompASSiON Twilight ClouD MiRROR?": "Эх?! Что ты только сказал?! Он хотел твою Великую Милость! Мечта о Туманном Облаке!",
+  "THAT PRECIOus MiRROr IS On You?": "Этот дорогой Зеркальный камень — на тебя!",
+  "WHERe Did YOu Get This Thing? I've ONly SEEN This MiRROR RECORDED in SOME MATERIALS; It's ACTUALLY REAL?I": "Откуда у тебя это? Я видел этот зеркальный камень только в некоторых материалах; действительно ли он настоящий? Да-да!",
+  "MOREOVER, My MENTOR AND I Tried To FORGE A REpLICA BASED ON SPORADIC RECORDS IN ANCIENt TextS; But The ONEs We MADE WeRE All UNSATISFACTORY;": "Кроме того, мой наставник и я пытались создать копию на основе редких записей в древних текстах; но то, что мы сделали — всё недостаточно!",
+  "COuld YOu Let Me TAKE A LOOk At YOUR PRECIOUS MIRROR SO 1 CAN COnFiRm IF It's REAL?I": "Можешь давать мне взглянуть на твой драгоценный зеркальный камень, чтобы кто-то мог подтвердить, что он настоящий? Да!",
+  "Whether it's REAL Or FAKE isn't IMPOrtanT TO ME, WHAT'S IMPORTANT Is THAT it's HANDY TO USE~": "Неважно, настоящий это или фальшивый — главное, что он удобен для использования~",
+  "Oh Right; LATER THAT Wenlin FOUND SOMEONE TO ASSASSINATE ME, AND AFTERWARDS WENLIN HimSElF TRANSFORMED INTo A Monkey AND ESCAPED:": "О, да! Потом Вэнлин нашел кого-то, чтобы убить меня, а потом сам Вэнлин превратился в обезьяну и сбежал:",
+  "M-MONKEY?I": "М-монета? Я...",
+  "Yu REALLY DESERVE To Die; Li YUNXIAO! YOU ARE TRuLY A TROUBLEMAKERI": "Ты действительно заслуживаешь смерти, Ли Юньсяо! Ты настоящий гадочный мешок, Ли Юньсяо!",
+  "IF YOU WANT ME To Continue Refining SWORDS FOR You, YOu Must Let Me TAKE A LOok At The Twilight ClouD MirRor AND SWEAR NEvER To Go looking FOR TROUBLE With THAT Wenlin AGAin": "Если хочешь, чтобы я продолжал заточить мечи для тебя, дай мне посмотреть на Зеркало Тёмного Неба и клянись никогда больше не искать ссоры с этим Вэнлином!",
+  "It\"s UP To You Whether YoU reFine THEm Or NOT: IF You Don't PRODuce Thirty-Six SWORDS; YOu CAN JuST STAY Here Nicely~!": "Ты сам решаешь, хочешь ли ты их заточить или нет: если не сделаешь тридцать шесть мечей, можешь просто остаться здесь приятно~!",
+  "As FOR THAT Wenlin; Don't Get It WRONG, It'S ALWAYS BEEN Him LOOKing FOR TROuble With ME!": "Что касается Вэнлина: не ошибайся, он всегда искал ссоры со мной!",
+  "It'S EASY IF YOU WANT To See ThE Twilight Cloud MiRRor, Just Tell ME About Wenlins SituatioN: Hehe, Right NOW It's YOU WHO IS BEGGING ME~": "Если хочешь посмотреть на Зеркало Тёмного Неба, просто расскажи мне о ситуации Вэнлина: хе-хе, сейчас именно ты к мне прибегаешь~",
+  "YOU WANT TO KnOw ABOUT WENliN? No WAYI EVEN IF My SOUL DisSipATES; won't Tell YOu": "Ты хочешь узнать о Вэнлине? Ни за что! Даже если моя душа рассыплется, я не расскажу тебе!",
+  "FURTHERMORE, I'M WaRNiNG YOu; EVEN IF YOU WERE ONCE PEERLESS MARTIAL Sovereign; YOu Still Dont HAVE ThE QUALiFiCAtionS to MeDDLE in EveRYthingl!": "Кроме того, я предупреждаю тебя: даже если ты был когда-то невероятным повелителем боевых искусств, у тебя всё ещё нет прав, вмешиваться во всё!",
+  "AIYA~ SOMEONE'S Getting Anxious~": "Айя~ Кто-то трепещет~",
+  "It SEEMS YUAN GAOHAN ALSO KnOWS ABOUT WENLiN'S Situation;": "Похоже, Юань Гаохань тоже знает о положении Вэньлинь;",
+  "AlthouGh This GREAT MiRACULOuS; it's not MiRACULOUS To ThE ExTeNt THAT it Would MAKE EVEN TIAN ZHAO Zi VALUE it So Highly?": "Хотя это и замечательно, но насколько это действительно удивительно, чтобы даже Тянь Чжао Зы ценил это так высоко?",
+  "AND They'Ve EveN This Mirror DeFinitely HAS A CerTAin Function THAT They NEed:": "И они даже этот зеркальный артефакт явно имеет определённую функцию, которую они нуждаются;",
+  "HmM; This is Quite A GOOD BARGAINING Chip I might BE ABLE TO USE It WHEN I ENCOuNter TIAN ZHAO Ziin The Future:": "Хм... Это довольно хорошая торговая сделка, которую я смогу использовать, когда встречусь с Тянь Чжао Зы в будущем;",
+  "HAS This Demon not Given Up YEt?": "А этот демон ещё не сдался?",
+  "IAM A PEERLESS MARTIAL sovereign; How CAN A MERE WiSp OF YOuR CLONe TAKE possESSION OF ME? IF You're SMART; Just BEHAVE AND STAY puti": "Я — безупречный Боевой Владыка! Как клон твоего клана может захватить меня? Если ты сообразительен — просто держись и не двигайся!",
+  "ARE YOU Alright?": "Ты в порядке?",
+  "Im Finel": "Всё хорошо",
+  "THe BACKLASH FROM This DEMONIC BODy GETS STRONGER EVERY Time: I Mist Find A Complete Method TO REFIne it, Otherwise it Will EVENTUALLY BE A Kidden DANGER:": "Обратная связь от этого демонического тела усиливается с каждым мгновением: я почти нашёл полный способ его отточить, иначе это станет смертельной угрозой!",
+  "ONCE I Find This EAST SEA BRIGHT MOON PEARL, It Seems Going TO THE SEA OF SOUL ForMAtiON Is imperative": "Как только я поймаю эту жемчугь Восточного моря и Луны, мне придётся броситься в море души!",
+  "THAT Qi SHENGFENGS LiNEAGE HAS CULTivATED Demonic ARTS FOR GENERATIONS; AND Could EVEN ReFine Things Like THE Demonic Origin LoCk; He DeFinitely HAS A WAY To RESOLvE THE DEMONIC BODY IN HIS HANDS. in ThE DRAGON TRANSFORMATiON PoOL; HE ALSO OBTAINED Di Jun's REMNANT BoDy: IJust Dont Know Where He Hid TO ReFine it.": "Эта клан Бэймин уже поколениями оттачивает демонические искусства, и даже «демонический корень» у них под контролем! Он точно знает, как избавиться от демонического тела, держа в руках. В пуле трансформации дракона он также получил остаток тела Ди Цзюна — я просто не представляю, где он его спрятал, чтобы его отточить.",
+  "REGARDLESS OF HIS SUCCESS OR FAiluRE in refining Di Jun's REMNANT BoDy, He Will Definitely Return To ThE SEA OF SOUL FormAtioN; BECAUSE HE Is Qi SHENGFENGI": "Неважно, увенчается успех или провал извлечение остатков тела Ди Цзюна — он обязательно вернётся к Формации Моря Душ. Ведь он — Ци Шэнфэн!",
+  "Guest, SOMEONE HAS DelivERED Letter:": "Господин, кто-то принес письмо:",
+  "the' Outside Novth Cate 0f Red Moon City: Thvee hialed miles gWg; Neon Raibow 'Rvobing Bvidlge Jigng": "За северными воротами Города Красной Луны, на триста ли — Мост Неоновой Радуги.",
+  "IsN'T THERE Still DAY LeFt Until YOUR AGREED Time?": "До условленного времени ещё целый день остался, не так ли?",
+  "212": "212",
+  "It's MOST Likely A TRAP:": "Скорее всего, это ловушка:",
+  "Knowing It's A TRAP; Youll Still G.": "Зная, что это ловушка, ты всё равно пойдёшь.",
+  "21": "21",
+  "CORRECTI": "Верно.",
+  "You TRuLY UNDERSTAND ME; EvEn IF it's ONe Hundred PERCENT FAKE, I Will AbsOLuTely nOT BACK DOwN:": "Ты по-настоящему меня понимаешь. Даже если это на все сто процентов ловушка — я ни за что не отступлю.",
+  "IF SOMEONE WANTS To DEAL With Me, I AM VERy HAPPY TO GRANT Their Wish:": "Если кто-то хочет со мной разобраться — я с удовольствием исполню его волю.",
+  "CAN YoU Guess Who It IS?": "Сможешь угадать, кто это?",
+  "I HAVE Some Guesses; But it Doesn'T MATTER. I'LL Know ONCE I Gol": "У меня есть догадки, но это неважно. Узнаю, когда приду.",
+  "87": "87",
+  "TRuly; A Knife RESTS ABOvE THE Word 'LuSt'! I KNEW You wouldnt ComE Without A BEAvTiFUL WOMAN LeAviNG A Letter FoR YOu": "Действительно; нож лежит над словом «Люсть»! Я знал, что ты не придешь без красивой женщины, оставляющей письмо для тебя.",
+  "SEEing ME NOW; Do You REALIZE YOU'VE FALLEN InTo A TRAP? DO You REGRET It?": "Видя меня теперь; ты понимаешь, что попал в ловушку? Ты жалеешь?",
+  "HOWEVER, It's ALREADY TOO LATE FOR THATI": "Однако, уже слишком поздно для этого!",
+  "TOMBSTONE GUARDIAN OF RED MOON CITY GOU XINGGUANG": "Хранитель гробницы Города Красной Луны Гу Синьгуанг",
+  "1+": "1+",
+  "DL": "Вниз-влево",
+  "What is this technique?!": "Что это за техника?!",
+  "THIS SITuATION IS EXACTLY The SAME As MY HAMMERI": "ЭТОТ СЛУЧАЙ ТОЧНО ТАКИЙ ЖЕ, КАК МОЙ МАЛЕТ",
+  "it SeemS Everyone present including Aunt Mei AND MYSELF HAS FALLEN FOR his TEChniQue.": "ВСЕХ, КТО НАХОДИТСЯ ТУТ, ВКЛЮЧАЯ ТЕТЬ МЕЙ И МНЕСЬ, ПОВРОШИЛ ОТ ЕГОВОЙ ТЕХНИКИ.",
+  "He Couldnt Be Trying To Wipe Out ALL HiS Competitors Here, RiGht? THAT WOUlD BE TOO Stupid_": "ВОЗМОЖНО ЛИ, ЧТО ТОВАРИЩ РАЗГРЫЗЁТ ВСЕХ СВОИХ СОРОВНИКОВ ТУТ? ТАКОЕ СТОИТ СТОПАТЬ!",
+  "Then WHAT EXACTLY Is The SITuATION NoW::": "ТОТАЛЬНО, ЧТО ТОТ СЛУЧАЙ СЕЙЧАС::",
+  "REd MOON City, City LORDS MANSION": "ГОРОД КРАСНОЙ ЛУНЫ, ДВОРЕЦ ГОСУДАРСТВА",
+  "Htlz: {jk H#U: {@jk #4: #sh16 'TaBa: 815110 ## hA M#@ B ETB#: JXH FN #is mi? 898: #M": "Что? Ты думаешь, что сможешь меня победить? 815110? Ха!",
+  "Y U": "Почему?",
+  "4'(": "Чёрт!",
+  "IF YOU Kill Me; They Won't Let This Goi": "Если ты меня убьёшь, они не позволят этому уйти",
+  "7X": "7X",
+  "7a": "7a",
+  "YOU KnOw IAM FROM The SANCTUARY: The SANCTUARY IS The COMMANDER OF ThE World: How ABOut YOU Give ME SomE FACE; MORE OR LESS?": "Ты же из Святилища: Святилище — командующий миром! Как ты смеешь отдать мне лицо? Более или менее?",
+  "IFIAm DETERMiNED TO LEAVE, YOUR Abilities CAN'T TRAP ME AT All:": "Я решил уйти, твои способности не смогут меня поймать:",
+  "it's JuST THAT This Move CAUSES TOO MUch DAMAGE To Me, AND I won't Be Able To RECOVER in A SHORT Time. REALLY Did't WANT To USe It UNLESS I HAD": "Просто потому что этот приём наносит мне слишком много урона, и я не смогу восстановиться быстро. На самом деле я не хотел его использовать, пока не...",
+  "V5i": "V5i",
+  "3x 13k Q)(": "3x 13k Q)(",
+  "4e": "4е",
+  "HOWEvER, Luo QinGyun IS HeRE; SO It'S BEST NOT TO EXpose ANY MORE": "ОДНАКО, Луо Циньгун здесь; ТАК ЧТО ЛУЧШЕ НЕ РАЗНОБАЦИВАТЬСЯ ДАЛЬШЕ",
+  "AlthouGh THESE TWO HAVE impressive StreNGTh; THERE Is Still A CLEAR GAP COMPARED To ZIMAO.": "Хотя эти двое обладают впечатляющей силой; всё равно между ними есть явный разрыв по сравнению с Зимао.",
+  "YOu UNDERESTiMATe TheM TOO MLCH:": "Вы слишком сильно недооцениваете их:",
+  "ThiS MARTIAL Sovereign MonKEY From ThE southern Region HAS A FAR From Simple BACKGROLND.": "Этот боевой владыка-обезьяна из южного региона имеет далёкий, не простой фон.",
+  "As FOR THE Three MARTIAL sovereigns Who CAME With This Monkey; ONe Is From The YAO RACE SPeCiALiZiNG In Secret Evil Arts, AnD ThE Other TWO ARe Two OF The Eight MANIFESTATionS.": "Что касается трёх боевых владык, которые пришли с этой обезьяной; один из них – представитель расы Яо, специализирующейся на тайных зловещих искусствах, а остальные два – два из восьми проявлений.",
+  "I Didn't ExpeCt Him To Scheme AGAinST My ReD Moon City!": "Я не ожидал, что он будет загонять против моего Города Красной Луны!",
+  "ThE Eight MANIFESTATiONS! could ThEy HAVE Been Sent By THAT Person?!": "Восемь проявлений! Могут ли они быть посланы тем человеком?!",
+  "AlthouGh Im noT AFRAiD OF THAT person; provoking Him would inDeed bring immenSe Trolble; Even A GReAT DISASTER: UNLESS ZIMAO CAN Kill Li Yi Openly AND HONORABLY, Winning Through OTHER MEANS WilL Be A DISASTER FOR ZIMAO.": "Хотя я не боюсь того человека; провоцировать его действительно принесёт огромные проблемы; даже катастрофу. Если только Зимао не сможет убить Ли И открыто и достойно, победа другими способами будет катастрофой для Зимао.",
+  "I WilL TELL ZIMAO About ThIS. THAT person Moves A TRACE AnD resorts Without To Any MEANS To AchiEvE His GOALS. IF TARGETED By Him it's Like MAGGOTS ATTACHED To ThE BONE-ImpoSSIBLE TO SHAKE OFF!": "Я сообщу Зимао об этом. Этот человек следует за следом и не прибегает к средствам, чтобы достичь своих целей. Если его целить, это как гниль, прикреплённая к кости – невозможно от неё избавиться!",
+  "LEAvinG ASide This Monkey From The DEATH GoD PALACE, WHAT I Find STRANGE Is ThE City LORD OF YANWL City: HE CLEARLY ONLy HAS ThE CultivATiOn OF A Six-STAR MARTIAL Supreme; But WhY DO I ALWAYS FEEL THAT There is something Very Wrong With This person?": "Оставив в стороне эту обезьяну из Дома Богов Смерти, то, что меня странно, – это Городской лорд Янвил: он явно владеет только шести‑звёздной культивацией Боевого Владыки, но почему я всегда чувствую, что с этим человеком что‑то не так?",
+  "YOU ARE Being TOO SuSPICious. IT Is InDeEd uNEXPECTED FOR Two people From ThE Southern Region To APPEAR On ThE Thrones ThiS Time: Since You HAVE Determined THAT His StrenGth AS A Six-STAR MARTIAL Supreme Is Genline, He Won't Be Able To Tlrn THE World Lpside DOWN:": "Ты слишком подозрителен. Действительно неожиданно, что двое людей из Южного региона появились на троне сейчас. Поскольку ты определил, что его сила как шести‑звёздного Боевого Владыки генетическая, он не сможет...",
+  "it's nOT THAT Simple;": "Это не так просто;",
+  "So YoU DO CARE About YOuR DALGHTER,": "Так что ты заботишься о своей дочери,",
+  "I TholGht Your ONLY DAUGHTER WAS JiANG Ruobing!": "Я думал, что твоя единственная дочь – это Цзян Руобин!",
+  "THAT Silly Girl IS RuNNiNG AROnD Looking FOR VARiOuS BoDy-Sculpting Secret ARTS. Even Knowing They ARE USELESS; She StiLL PRACtiCES TheM TireLeSSly: This Child's TEMPerAMENT REALLY BREAKS My HEART AS A Mother:": "Эта глупая девочка бродит и ищет различные тайные искусства скульптуры тела. Даже зная, что они бесполезны, она всё равно упорно практикует их: темперамент этой девочки действительно разбивает моё сердце как матери:",
+  "I Wish THAT CURSE SEAL WAS ON ME INSTEAD:": "Я бы хотел, чтобы проклятый печать был на мне вместо этого:",
+  "HOw IS THAT poSsible?!": "Как это возможно?!",
+  "HONeyu; You AND I Both KnOW perFeCTLY Well": "ХОНЮ! Мы оба точно знаем!",
+  "But IN HiS PAIR OF Moon EyeS!": "Но в этих парах глаз Луны!",
+  "Besides Gu FEiyAnG HiMSELF ThErE Is NO Second PerSon In The WORLD WHO CAN DO ThIS!": "Кроме как сам ГУ ФАЙЯН... нет другого человека в мире, кто смог бы сделать это!",
+  "Gu: FEI:: YANG.": "ФАЙЯН: ЭЙ! ЯНГ.",
+  "Gu FEIYANG Died TOO EASiLY!": "ГУ ФАЙЯН УМЕРЛ ТОЛЬКО СЛЕДОЖДЕМНО!",
+  "IF This Li YLNXIAO REALLY HAS Something TO Do With Him; Then THE HEAvENS HAVE Sent Him To us To Vent Olr VEnGEANCE!!": "Если ЛИ ЮНСЯО действительно имеет что с ним дело; то НЕБАСЛИ отправили его к нам, чтобы выразить ВРЕМЕНУ ВРАТНОСТИ!!",
+  "Gu FEIYAnG Is ALREADY DEAD; WhY StilL DweLL ON ThE PAST? WhEN Everyone CAME Out OF ThE EnDs OF The EARTH BACK THEN; HE WAS HEAVILY InFLLENCED By ThE Moon Eye; GREATLY INCREAsinG His EviL NATLRE. THE HEAVY SLALGHTER WAS NOT His ORIGiNAL intention Either:": "ГУ ФАЙЯН УЖЕ МОРУТ; ПОЧЕМУ ТАК ДАЛЕКОВАТЬ? Когда все вышли из концов Земли тогда; он был сильно подавлен Луговым глазом; значительно увеличив свой злобный природный дух. Тяжелый беглец не был его изначальной целью:",
+  "I DoNt CAre}!": "Я НЕ ОН!",
+  "The NEAr ANNIHILATION Of The ruAN FAMILY BACK THEN WAS ENTIRELY CAUSED BY Gu FEIYANGI!": "Раннее уничижение семьи Чжуан было полностью вызвано Гу Фэйян!",
+  "CNN": "Гу Фэйян",
+  "We Only HAVE Some CLUES: WhEtHER WE CAN FIND TIAN Si IS Still UNCERTAIN:": "У нас есть лишь некоторые улики: где найти Тяньси пока неясно.",
+  "Even IF We Find it Im AFRAiD We Might noT Be AbLE To CONTROL It:": "Даже если мы найдём его, я боюсь, что не сможем контролировать его.",
+  "In ThE Entire Red Moon City Even I HAVE no ConFiDenCE in Being Able TO HARNESS TIAN Sl.": "Даже в самом сердце Города Красной Луны у меня нет уверенности, что смогу управлять Тяньси.",
+  "27F": "27F",
+  "THAT YOuth JuST NOw_= PERHAPS It WAS AN NOW: ESCAPE TechniQue SimiLAR To BODy INCARNATiNG Lightning?": "Этот Юноша просто сейчас! Возможно, это была та самая техника Боди Инкарнации Молнии?",
+  "APART FRom THAT ONe Time We HELpEd The GoDDesS SNATCH A young AND BEAuTIFUL MAid; NoNe OF ThEM Were SuCCESSFul. It's REALLY DemoraLiZiNGI": "Кроме того, ещё раз мы помогали Богине хватать молодую и красивую девушку; ни один из нас тогда не успел. Это действительно злобное!",
+  "it's TOO TerriFYiNG! IF It WASN'T FOR THE OBSESSION OF WANTiNG TO See ThE GoDDEsS Still Lingering In My HEART, I Would HAVE LeFt The ORGANIZATION LonG AGOI": "Какуже страшно! Если бы не одержимость желанием увидеть Богиню, всё равно давно бы отошёл от этой организации",
+  "SiGh; SomEONe WANTED To LEAvE THE ORGanizATION LAST Time, AND THe NEXt DAY Someone Found ONe OF his FEET In THe Bvshes; THE ReST OF Him WAS Gone:": "Скупую; один хотел уйти из организации, а на следующий день нашли одну из его ног в травах, а остатки его просто исчезли!",
+  "Heh~": "Хе-хе~",
+  "You ARe ThE ReD Moon City Lord, ThE LEADER OF ThE EASTERN Region; Someone OF INVALUABLE Worth: You Absolutely CANNOT Be ThE ONE TO Risk HARNESSING TIAN Si.": "Ты, Господин Красной Луны, лидер Восточного региона; человек незаменимой ценности. Ты absolutely не можешь быть тем, кто поймёт себя в опасности, рискуя прикоснуться к Tian Si.",
+  "Hongyu;": "Хонгью;",
+  "Are You Still BLAMinG ME For Refusing TO Seek Revenge AGAinST Gu FEiYAnG BACK Then?": "Ты всё ещё обвиняешь меня за то, что отказался мстить Гу Фэйяну тогда?",
+  "Wolldn't DARE.": "Не осмелюсь.",
+  "ThE Old City Lord's DECISION WAS Right: Red Moon City HAD no Grudge AGAINST Gu FEIyANG. ThE ONES With THE GrudGe Are Olr RuAN FAMILY; THErES No NEED To DRAG The Entire RED Moon City DOWN:": "Решение Старого Господина Красной Луны было правильным: Красная Луна не имела притяжения к Гу Фэйяну. Те, у кого есть обида, — это старая семья Руань; нет нужды тащить весь город Красной Луны в просаки.",
+  "IF NOT FOR THE OlD City Lord's Wise Decision; PERHAPS Red Moon City Would HAVE Long LoST its Current GLORy:": "Если бы не мудрое решение Старого Господина, возможно, Красная Луна давно потеряла бы свою должную славу:",
+  "IM Sorry, Hongyu; I Didnt Listen To ThE OLD City LORD'S WORDS. Citv WODOG": "Извините, Хонгью; я не слушал слов Старого Господина. Город ведь...",
+  "WHAT REASON DO I HAVE-": "КАКОВА ПРИЧИНА У МЕНЯ?",
+  "INSiDe LANGYAN HEAvEN; I Solght Out Gu FEIYANG.": "В Ланьянском Небе; Я заметил Гу Фэйянга.",
+  "IM Sorry, I LOST": "Извини, я проиграл",
+  "ChurAN-! !": "Чёрт! !",
+  "Even IF it COSTS My LiFe; I WilL Definitely Cure HER:": "Даже если это стоит моей жизни; я точно её вылечу:",
+  "IM SORry_. CHLRAN:.": "Извини... Чёрт:.",
+  "Over THE YEARS; I've ALWAYS Misunderstood YOu__ It WAS Me WHO WAS TOO SelFIsh AND PARANOiD:": "Всё эти годы я неправильно понял тебя__ Я был слишком эгоистичным и параноидным:",
+  "ANCIENT Records STATE THAT TiAN Si is FORMLess AND BODiLeSs; Born From ThE GAThERinG OF The Spirit OF HEAvEN AND EARTH; MAKinG it Difficllt To HARNESS. I Won't ALlOW YOu TO TAKE ThIS RISk!": "Древние записи говорят, что Тянь Си без формы и без тела; рождается из слияния духов Небес и Земли; делая его трудным для освоения. Я не позволю тебе брать этот риск!",
+  "FORGet About Being THE RED Moon City Lord, Forget About Ambitions FOR World Hegemony; I ONLY Ask FOR OuR FAMiLY To Be ToGEther HAPPILY:": "Забудь про то, чтобы быть лордом Красного Луны, забудь про амбиции мирового господства; я только прошу, чтобы наша семья была счастлива вместе:",
+  "YOU CANNOT DISAPPOINT EvERYONe!": "ТЫ НЕ МОЖЕШЬ ОСУЩЕСТВЛЕНИТЬ ВСЕХ!",
+  "With YOU AND OlR ChilDren By My Side, There Is NO ONE In This WORld Who CAN DEFEAT Me;": "С ВАМИ И ОЛР ЧИЛДРЕН НА МОЕЙ СТОРОНЕ, НИКТО В ЭТОМ МИРЕ НЕ МОЖЕТ ПРЕВЗЯТЬ МЕНЯ;",
+  "EvERYOne HAS FALLEN into The Illusion: Should I MAKE A Move To BREAK it?": "Все попали в иллюзию... Может, мне вмешаться и разрушить её?",
+  "it WilL Be Difficult; But I CAN DO It": "Будет непросто, но я справлюсь.",
+  "YOU MuST NOT!": "Ни в коем случае!",
+  "THE Young Heroes OF THE World Are GATHERED Here in REd Moon City: This Illusion Couldnt PoSSibLY Be Trying TO HARM Them": "В Городе Красной Луны сейчас собрались лучшие молодые таланты мира. Эта иллюзия не может быть направлена им во вред.",
+  "RUAN ZIMAO MLSt HAVE A purpose FoR CASTiNG This TeChniQE: IF We ACT RASHLY, WE Will ONLY invite ridicule:": "У Жуань Цзымао наверняка есть своя цель. Действуй опрометчиво — и мы лишь навлечём на себя насмешки.",
+  "My Responsibility Is To pROTect ThE Absolute SAFETY OF ThE Mother BODY: As FOR Ridicule; It HAS nothing To Do With Me.": "Моя обязанность — обеспечить абсолютную безопасность основного тела. А насмешки меня не касаются.",
+  "Hehe, You Little GirL From ThE YAO RACE PROBABLY DONT KNOW WHAT Kind OF PLACE RED Moon City IS, Right?": "Хе-хе, малышка из рода яо, ты, наверное, понятия не имеешь, что за место этот Город Красной Луны, верно?",
+  "A RANDOM powerhouse FROM This PLACE Could Kill The ThrEE OF uS IN Minutes. IF ThEy WANTED To MAKE A Move AGAiNST Li Yi; No One Could SAVE Him": "Любой сильный мастер из этого города прикончит нас троих за считанные минуты. Если бы они хотели добраться до Ли И — его бы не спас никто.",
+  "Even RED Moon City MuSt BE SOMEWHAT WARY OF ThE ChiEF Moreover; There Are MANY OuTSTANDiNG TALENTS Here WHO HAvEN'T REACTED either: red Moon City Absolutely Won'T ACT RECKLESSLY:": "Даже Красный Город Луны следует быть слегка осторожной перед главой, ведь здесь множество выдающихся талантов, которые ещё не отреагировали: Красный Город Луны, безусловно, не будет действовать безрассудно!",
+  "AAlright; The Other Hidden people Around HAvEN'T REACTED either: WE CAN ObServe A Bit LONGER:": "Ага; остальные скрытые люди вокруг тоже не реагируют: мы можем наблюдать немного дольше.",
+  "Is This THE FOrM OF The Five SKANDHAS; The KARMIC Consequences?": "Это же форма Пяти Скандхов? Каковы кармические последствия?",
+  "7es": "Хм!",
+  "WHAT IS ThIs?": "Что это?!",
+  "WE Were Both TALGHT By ThE SAME MASTER, S0 I CANT BREAK His moves?": "Нас учил один мастер — неужели я не могу пробить его техники?!",
+  "It SeemS ThE OnLY WAY To BREAK Out Of The ForMAtiON IS To DEFEAT MY Own Illusion:": "Похоже, единственный способ вырваться из формации — победить собственную иллюзию!",
+  "HEAVEN AND EARTH STIRS WIND AND CLOUDS": "Небо и Земля вздымают Ветер и Облака!",
+  "WIND AND CLOUD GOLDEN CAULDRON RIGHTEOUSNESS": "Золотой Котёл Ветра и Облаков — Праведность!"
+}
