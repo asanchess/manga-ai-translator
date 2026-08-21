@@ -65,6 +65,55 @@ def calculate_iou(box1: tuple, box2: tuple) -> float:
         return 0.0
     return inter_area / float(union_area)
 
+def split_figure_eight_bubbles(clusters: list) -> list:
+    """
+    Разделяет слитные вертикальные бабблы-«восьмерки» (h / w > 2.2) 
+    на два независимых баббла (верхний и нижний).
+    """
+    result = []
+    for c in clusters:
+        x, y, w, h = c["box"]
+        
+        # Защита от деления на ноль и некорректных размеров
+        if w <= 0:
+            result.append(c)
+            continue
+            
+        aspect_ratio = float(h) / float(w)
+        
+        # Если соотношение высоты к ширине превышает 2.2 — считаем баббл слитным
+        if aspect_ratio > 2.2:
+            half_h = h // 2
+            
+            # Разделение текста по словам
+            text = c.get("text", "").strip()
+            words = text.split()
+            
+            if len(words) > 1:
+                mid = len(words) // 2
+                text_top = " ".join(words[:mid])
+                text_bottom = " ".join(words[mid:])
+            else:
+                text_top = text
+                text_bottom = ""
+                
+            # Верхний баббл
+            top_cluster = dict(c)
+            top_cluster["box"] = (x, y, w, half_h)
+            top_cluster["text"] = text_top
+            
+            # Нижний баббл
+            bottom_cluster = dict(c)
+            bottom_cluster["box"] = (x, y + half_h, w, h - half_h)
+            bottom_cluster["text"] = text_bottom
+            
+            result.append(top_cluster)
+            result.append(bottom_cluster)
+        else:
+            result.append(c)
+            
+    return result
+
 def safe_ocr_read(chunk: np.ndarray, detail: int = 1) -> list:
     if chunk is None or chunk.size == 0 or chunk.shape[0] < 4 or chunk.shape[1] < 4:
         return []
@@ -257,6 +306,9 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                 
         if not absorbed:
             final_clusters.append(c)
+            
+    # Применяем фильтрацию слитных бабблов-восьмерок
+    final_clusters = split_figure_eight_bubbles(final_clusters)
             
     try:
         with open(cache_path, "w", encoding="utf-8") as f:
