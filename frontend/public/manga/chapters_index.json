@@ -46,7 +46,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_531/v3_translated/page_010.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_531/v3_translated/page_011.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_531/v3_translated/page_012.webp"
-          ]
+          ],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -96,7 +99,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_532/v3_translated/page_011.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_532/v3_translated/page_012.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_532/v3_translated/page_013.webp"
-          ]
+          ],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -125,7 +131,10 @@
           "v3_translated": [
             "/manga/The_Ultimate_of_All_Ages/chapter_533/v3_translated/page_001.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_533/v3_translated/page_002.webp"
-          ]
+          ],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -145,7 +154,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_534/v1_original/page_011.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -167,7 +179,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_535/v1_original/page_013.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -190,7 +205,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_536/v1_original/page_014.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -203,7 +221,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_537/v1_original/page_004.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -217,7 +238,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_538/v1_original/page_005.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -235,7 +259,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_539/v1_original/page_009.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -263,7 +290,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_540/v3_translated/page_002.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_540/v3_translated/page_003.webp",
             "/manga/The_Ultimate_of_All_Ages/chapter_540/v3_translated/page_004.webp"
-          ]
+          ],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -284,7 +314,10 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_541/v1_original/page_012.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       },
       {
@@ -301,9 +334,28 @@
             "/manga/The_Ultimate_of_All_Ages/chapter_542/v1_original/page_008.webp"
           ],
           "v2_cleaned": [],
-          "v3_translated": []
+          "v3_translated": [],
+          "v1": [],
+          "v2": [],
+          "v3": []
         }
       }
     ]
+  },
+  "v2": {
+    "manga": "v2",
+    "chapters": []
+  },
+  "v2_cleaned": {
+    "manga": "v2_cleaned",
+    "chapters": []
+  },
+  "v3": {
+    "manga": "v3",
+    "chapters": []
+  },
+  "v3_translated": {
+    "manga": "v3_translated",
+    "chapters": []
   }
 }
