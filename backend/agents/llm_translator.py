@@ -122,6 +122,83 @@ def is_english_leak(text: str) -> bool:
     return len(words) >= 2
 
 
+def parse_llm_json_response(raw_text: str, expected_count: int) -> Optional[List[str]]:
+    """
+    Robustly parses JSON array of translated dialogue objects from LLM response,
+    stripping markdown fences, trailing commas, and formatting noise.
+    """
+    if not raw_text:
+        return None
+    text = raw_text.strip()
+    # Strip markdown code fences if present
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*```$", "", text)
+        text = text.strip()
+
+    # Try direct parse
+    parsed = None
+    try:
+        data = json.loads(text)
+        if isinstance(data, list):
+            parsed = data
+        elif isinstance(data, dict) and "translations" in data:
+            parsed = data["translations"]
+    except Exception:
+        pass
+
+    # Regex extraction fallback for JSON array [...]
+    if parsed is None:
+        json_match = re.search(r'\[\s*\{.*?\}\s*\]', text, re.DOTALL)
+        if not json_match:
+            json_match = re.search(r'\[.*\]', text, re.DOTALL)
+        if json_match:
+            candidate = json_match.group(0)
+            try:
+                data = json.loads(candidate)
+                if isinstance(data, list):
+                    parsed = data
+            except Exception:
+                # Remove trailing commas before } or ]
+                candidate_fixed = re.sub(r',\s*([\}\]])', r'\1', candidate)
+                try:
+                    data = json.loads(candidate_fixed)
+                    if isinstance(data, list):
+                        parsed = data
+                except Exception:
+                    pass
+
+    # Per-object regex fallback if JSON array is malformed
+    if parsed is None:
+        object_matches = re.findall(r'\{\s*"id"\s*:\s*(\d+)\s*,\s*"translated"\s*:\s*"(.*?)"\s*\}', text, re.DOTALL)
+        if object_matches:
+            result_map = {int(m[0]): m[1].encode().decode('unicode_escape', 'ignore') if '\\u' in m[1] else m[1] for m in object_matches}
+            translations = [result_map.get(idx + 1, "").strip() for idx in range(expected_count)]
+            if all(translations):
+                return translations
+
+    if parsed and isinstance(parsed, list):
+        result_map = {}
+        for item in parsed:
+            if isinstance(item, dict):
+                item_id = item.get("id")
+                tr = item.get("translated") or item.get("translation") or item.get("text") or ""
+                if item_id is not None:
+                    try:
+                        result_map[int(item_id)] = str(tr).strip()
+                    except (ValueError, TypeError):
+                        pass
+            elif isinstance(item, str):
+                idx = len(result_map) + 1
+                result_map[idx] = item.strip()
+
+        translations = [result_map.get(idx + 1, "") for idx in range(expected_count)]
+        if all(translations):
+            return translations
+
+    return None
+
+
 class SOTALLMTranslator:
     """
     Multi-provider SOTA Manga Translation Engine.
@@ -170,15 +247,9 @@ class SOTALLMTranslator:
             )
 
             resp_text = response.text.strip()
-            # Extract JSON array
-            json_match = re.search(r'\[.*\]', resp_text, re.DOTALL)
-            if json_match:
-                parsed = json.loads(json_match.group(0))
-                # Map to sorted list
-                result_map = {item.get("id"): item.get("translated", "") for item in parsed}
-                translations = [result_map.get(idx + 1, "") for idx in range(len(bubbles))]
-                if all(translations):
-                    return translations
+            translations = parse_llm_json_response(resp_text, len(bubbles))
+            if translations:
+                return translations
         except Exception as e:
             logger.warning(f"Gemini translation failed: {e}")
 
@@ -224,13 +295,9 @@ class SOTALLMTranslator:
                 )
                 if resp.status_code == 200:
                     ans = resp.json()["choices"][0]["message"]["content"]
-                    json_match = re.search(r'\[.*\]', ans, re.DOTALL)
-                    if json_match:
-                        parsed = json.loads(json_match.group(0))
-                        result_map = {item.get("id"): item.get("translated", "") for item in parsed}
-                        translations = [result_map.get(idx + 1, "") for idx in range(len(bubbles))]
-                        if all(translations):
-                            return translations
+                    translations = parse_llm_json_response(ans, len(bubbles))
+                    if translations:
+                        return translations
         except Exception as e:
             logger.warning(f"Groq translation failed: {e}")
 

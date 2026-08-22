@@ -217,15 +217,6 @@ def compute_background_ssim(
         y2 = min(ih, y + h + pad)
         bg_mask[y1:y2, x1:x2] = 0
 
-    # Also mask dynamic difference areas (text typesetting regions) with dilation
-    diff_bgr = cv2.absdiff(v1_img, v3_img)
-    diff_gray = cv2.cvtColor(diff_bgr, cv2.COLOR_BGR2GRAY) if len(diff_bgr.shape) == 3 else diff_bgr
-    _, diff_thresh = cv2.threshold(diff_gray, 8, 255, cv2.THRESH_BINARY)
-    if np.count_nonzero(diff_thresh) > 0:
-        kernel_diff = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (25, 25))
-        diff_dilated = cv2.dilate(diff_thresh, kernel_diff)
-        bg_mask[diff_dilated > 0] = 0
-
     # 2. Convert to grayscale for structural similarity calculation
     v1_gray = cv2.cvtColor(v1_img, cv2.COLOR_BGR2GRAY) if len(v1_img.shape) == 3 else v1_img
     v3_gray = cv2.cvtColor(v3_img, cv2.COLOR_BGR2GRAY) if len(v3_img.shape) == 3 else v3_img

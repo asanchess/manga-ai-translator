@@ -53,10 +53,55 @@ Integrity mode: development
 ### Performance & Integrity
 - [ ] `ModelInferenceManager` initializes weights once (singleton).
 - [ ] All processed chapters have >= 8 pages, `pipeline_manifest.json`, and corresponding `.zip` translation archives.
-
-### Reader UI & Experience
 - [ ] Reader URL stays persistent on F5 (`?chapter=chapter_XXX`).
 - [ ] Layer hotkeys 1, 2, 3 and chapter navigation A/D, ArrowLeft/ArrowRight work seamlessly.
 - [ ] "Авто-перевод главы" button removed from reader view.
 - [ ] `Ongoing_Sync_Report.md` is populated with chapter status table.
+</USER_REQUEST>
+
+## 2026-08-22T19:11:37Z
+
+<USER_REQUEST>
+Build and execute an autonomous, scanlation-grade Manga & Manhua AI Translation and Inpainting Pipeline v4.0 that separates speech bubbles from sound effects (SFX), eliminates all English leaks, mines 10-chapter terminology graphs, and generates publication-ready Russian releases on Vercel.
+
+Working directory: c:/Users/asana/OneDrive/Desktop/Manga
+Integrity mode: development
+
+## Requirements
+
+### R1. Bubble & SFX Classification with Zero Background Art Corruption
+- Distinguish dialogue speech bubbles (SPEECH_BUBBLE) from sound effects / combat art (SFX_ART).
+- Generate per-pixel glyph masks inside detected bubble contours without rectangular fills or border erasure.
+- Sound effects (SFX) and background action strokes must remain 100% untouched (never stamped with OCR artifacts like "G2", "hx KY", "0g09").
+
+### R2. 100-Bubble Comprehensive Benchmark Verification
+- Enforce automated testing against 100 diverse bubble archetypes (light oval, dark inverted, spiky scream, borderless floating, system windows, SFX onomatopoeia, thought clouds).
+- Passing threshold: 100/100 correct detections, 0 false positive SFX text stamps, background SSIM preservation >= 99.8%.
+
+### R3. 10-Chapter Scanlation Memory Mining
+- Mine preceding 10 chapters to build and maintain persistent knowledge graph glossary_memory.json (character names, cultivation realms, sects, artifacts, speech tone).
+- Inject mined terminology and translation rules into every downstream LLM prompt.
+
+### R4. SOTA Contextual Translation & Anti-Leak Shield
+- Localize dialogues into natural literary Russian matching Xianxia genre conventions using live SOTA LLMs (Google Gemini 2.5 Flash / Groq Qwen 3.6 / No-Auth Free Routers).
+- Reject and re-prompt any output containing raw English dialogue leaks or machine translation artifacts.
+
+### R5. Vector Typography, Typesetting & Online Delivery
+- Apply elliptical chord word wrapping W(y) = 2a*sqrt(1-(y/b)^2) with Cyrillic TTF fonts (comicbd.ttf, arialbd.ttf, segoeuib.ttf) centered with dynamic contrast.
+- Maintain physical 3-layer architecture (v1_original, v2_cleaned, v3_translated), generate v3.0.0 manifests, and deploy live to Vercel reader.
+
+## Acceptance Criteria
+
+### Automated Benchmark & Safety Guards
+- [ ] python backend/tests/bubble_benchmark_100.py passes 100/100 tests with 0 errors.
+- [ ] python backend/tests/anti_patch_guard.py --all passes all chapters (0 solid rectangular patches, SSIM degradation <= 0.3%).
+- [ ] python -m unittest discover -s backend/tests passes 13/13 unit tests.
+- [ ] cd frontend && npx tsc --noEmit passes with 0 TypeScript compilation errors.
+
+### Visual Quality & Translation Fidelity
+- [ ] Zero English words remaining in speech bubbles of translated chapters (v3).
+- [ ] Zero text stamps or patches placed over background SFX / combat art.
+- [ ] Proper Xianxia terminology consistently used (Ли Юньсяо, Гу Фэйян, Даньтянь, Ци, Святилище).
+- [ ] Live publication and reader functional on https://manga-ai-translator-three.vercel.app.
+
 </USER_REQUEST>

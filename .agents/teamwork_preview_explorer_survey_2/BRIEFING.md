@@ -1,41 +1,38 @@
-# BRIEFING — 2026-08-22T12:43:45Z
+# BRIEFING — 2026-08-23T00:27:30Z
 
 ## Mission
-Frontend & Reader Explorer investigation of Manga AI Translator: analyze reader pages, layout, navigation, layer switcher, display modes, dead UI removal, URL & state persistence, and AI Studio stubs.
+Survey and deep-dive investigate R1, R2, and R5 requirements for Manga & Manhua AI Translation and Inpainting Pipeline v4.0.
 
 ## 🔒 My Identity
 - Archetype: explorer
-- Roles: Frontend & Reader Explorer
+- Roles: investigator, synthesizer
 - Working directory: c:\Users\asana\OneDrive\Desktop\Manga\.agents\teamwork_preview_explorer_survey_2
-- Original parent: 4be8c76e-b658-4e26-829b-e4212e76e510
-- Milestone: survey
+- Original parent: 8c878abc-a76d-43a8-89f9-95b67a1a161d
+- Milestone: survey_and_gap_analysis
 
 ## 🔒 Key Constraints
-- Read-only investigation — do NOT implement changes in code
-- Focus on frontend Next.js architecture, Reader UI/UX, Layer switching, State persistence, AI Studio stubs
-- Produce comprehensive survey report `survey_frontend.md` and `handoff.md`
+- Read-only investigation — do NOT implement
+- Focus specifically on R1 (Bubble vs SFX, Glyph Masking & Inpainting), R2 (100-Bubble Benchmark), R5 (Anti-Patch Guard & Elliptical Typography)
+- Deliver findings to survey_report.md, handoff.md, progress.md, and send_message to orchestrator
 
 ## Current Parent
-- Conversation ID: 4be8c76e-b658-4e26-829b-e4212e76e510
-- Updated: not yet
+- Conversation ID: 8c878abc-a76d-43a8-89f9-95b67a1a161d
+- Updated: 2026-08-23T00:27:30Z
 
 ## Investigation State
-- **Explored paths**: `frontend/src/app/reader/[manga]/page.tsx`, `page.module.css`, `src/app/page.tsx`, `src/app/studio/page.tsx`, `src/app/api/chapters/[manga]/route.ts`, `src/app/api/pipeline/`, `backend/main.py`, `backend/server.py`
+- **Explored paths**: `backend/agents/comic_bubble_detector.py`, `backend/agents/cleaner_agent.py`, `backend/agents/ocr_engine.py`, `backend/agents/translator_typesetter_agent.py`, `backend/agents/manga_pipeline_service.py`, `backend/agents/chapter_integrity_checker.py`, `backend/agents/llm_translator.py`, `backend/tests/bubble_benchmark_100.py`, `backend/tests/anti_patch_guard.py`, `backend/tests/test_typesetter_layout.py`, `backend/tests/test_glossary_and_topology.py`, `backend/tests/test_model_inference_and_integrity.py`
 - **Key findings**:
-  1. Reader currently has legacy "mission control" / auto-translate banner that must be removed.
-  2. Single-page reading mode is missing; only webtoon continuous scroll is implemented.
-  3. Width options should be expanded to 4 presets (700px, 900px, 1200px, 100%).
-  4. Layer switcher labels need standardisation to "1 RAW", "2 Clean", "3 РУС".
-  5. URL sync with `?chapter=chapter_XXX` and `localStorage` needs mount race-condition guard.
-  6. Dynamic page counter ("Страница X из Y") and top scroll progress bar are needed.
-  7. AI Studio stubs and hardcoded localhost:8000 endpoints require cleanup.
-- **Unexplored areas**: None. All frontend reader components and endpoints surveyed.
+  - R1: Fully implemented; per-pixel glyph Otsu + Telea inpainting; zero `cv2.rectangle` calls; SFX classifier intact.
+  - R2: `bubble_benchmark_100.py` passes 100/100 test cases with 0 false positive stamps in 0.47s.
+  - R5: Elliptical chord text fitting passes tests. Anti-Patch Guard Check B has a bug in lines 220-227 (`bg_mask` subtraction of `absdiff(v1, v3)` disables background corruption detection). Chapter 532 needs `page_007.webp` layers generated.
+- **Unexplored areas**: None for R1, R2, R5 scope.
 
 ## Key Decisions Made
-- Survey completed and documented in `survey_frontend.md` and `handoff.md`.
+- Fully documented evidence chains and exact line numbers for R1, R2, and R5.
+- Documented precise root cause of `anti_patch_guard.py --test-synthetic` failure and provided concrete fix recommendations.
 
 ## Artifact Index
-- `survey_frontend.md` — Detailed Frontend & Reader survey report
-- `handoff.md` — Handoff report with observations, logic chain, caveats, conclusion, verification method
-- `progress.md` — Progress log
-- `DISPATCH.md` — Dispatch record
+- survey_report.md — Detailed technical analysis report on R1, R2, R5
+- handoff.md — Formal 5-component handoff report
+- progress.md — Heartbeat and step tracker
+- DISPATCH.md — Initial dispatch log
