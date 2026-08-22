@@ -1,0 +1,249 @@
+{
+  "manga": "The_Ultimate_of_All_Ages",
+  "chapter": "531",
+  "chapter_passed": true,
+  "skipped": false,
+  "total_audited_pages": 2,
+  "passed_pages": 2,
+  "failed_pages": 0,
+  "page_results": [
+    {
+      "page_filename": "page_002.webp",
+      "overall_passed": true,
+      "check_a_solid_patch": {
+        "passed": true,
+        "boxes_inspected": 5,
+        "violations_count": 0,
+        "violations": [],
+        "min_variance": 37.8394,
+        "variance_threshold": 1.0,
+        "box_metrics": [
+          {
+            "box_index": 0,
+            "box": [
+              469,
+              445,
+              60,
+              66
+            ],
+            "mean_variance": 617.8871,
+            "channel_variance": [
+              618.4141,
+              616.1348,
+              619.1125
+            ],
+            "total_subpatches": 42,
+            "solid_subpatches": 0,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 1,
+            "box": [
+              404,
+              2024,
+              300,
+              221
+            ],
+            "mean_variance": 2490.9571,
+            "channel_variance": [
+              5644.3323,
+              740.1751,
+              1088.3638
+            ],
+            "total_subpatches": 936,
+            "solid_subpatches": 15,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 2,
+            "box": [
+              80,
+              4160,
+              226,
+              74
+            ],
+            "mean_variance": 374.018,
+            "channel_variance": [
+              374.301,
+              373.452,
+              374.301
+            ],
+            "total_subpatches": 216,
+            "solid_subpatches": 22,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 3,
+            "box": [
+              513,
+              7671,
+              260,
+              278
+            ],
+            "mean_variance": 196.981,
+            "channel_variance": [
+              64.6672,
+              182.7204,
+              343.5553
+            ],
+            "total_subpatches": 1023,
+            "solid_subpatches": 0,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 4,
+            "box": [
+              110,
+              8240,
+              156,
+              54
+            ],
+            "mean_variance": 37.8394,
+            "channel_variance": [
+              37.8394,
+              37.8394,
+              37.8394
+            ],
+            "total_subpatches": 90,
+            "solid_subpatches": 10,
+            "is_solid_patch": false
+          }
+        ]
+      },
+      "check_b_background_ssim": {
+        "passed": true,
+        "bg_ssim": 0.999507,
+        "degradation_pct": 0.0493,
+        "full_ssim": 0.987105,
+        "min_ssim_threshold": 0.995,
+        "max_degradation_threshold_pct": 0.5,
+        "bg_pixel_count": 7692752,
+        "total_pixels": 7904000
+      },
+      "v1_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v1_original\\page_002.webp",
+      "v2_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v2_cleaned\\page_002.webp",
+      "v3_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v3_translated\\page_002.webp",
+      "bubbles_count": 5
+    },
+    {
+      "page_filename": "page_008.webp",
+      "overall_passed": true,
+      "check_a_solid_patch": {
+        "passed": true,
+        "boxes_inspected": 5,
+        "violations_count": 0,
+        "violations": [],
+        "min_variance": 39.9829,
+        "variance_threshold": 1.0,
+        "box_metrics": [
+          {
+            "box_index": 0,
+            "box": [
+              456,
+              1454,
+              294,
+              174
+            ],
+            "mean_variance": 40.1284,
+            "channel_variance": [
+              40.1294,
+              40.1264,
+              40.1294
+            ],
+            "total_subpatches": 700,
+            "solid_subpatches": 69,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 1,
+            "box": [
+              118,
+              1874,
+              416,
+              118
+            ],
+            "mean_variance": 39.9829,
+            "channel_variance": [
+              39.9854,
+              39.9753,
+              39.9881
+            ],
+            "total_subpatches": 663,
+            "solid_subpatches": 69,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 2,
+            "box": [
+              214,
+              2484,
+              206,
+              56
+            ],
+            "mean_variance": 56.4322,
+            "channel_variance": [
+              56.4322,
+              56.4322,
+              56.4322
+            ],
+            "total_subpatches": 144,
+            "solid_subpatches": 15,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 3,
+            "box": [
+              197,
+              9120,
+              134,
+              81
+            ],
+            "mean_variance": 2810.1233,
+            "channel_variance": [
+              5762.2991,
+              1317.9739,
+              1350.0969
+            ],
+            "total_subpatches": 135,
+            "solid_subpatches": 0,
+            "is_solid_patch": false
+          },
+          {
+            "box_index": 4,
+            "box": [
+              73,
+              9291,
+              191,
+              31
+            ],
+            "mean_variance": 275.071,
+            "channel_variance": [
+              316.8316,
+              288.2735,
+              220.1078
+            ],
+            "total_subpatches": 44,
+            "solid_subpatches": 0,
+            "is_solid_patch": false
+          }
+        ]
+      },
+      "check_b_background_ssim": {
+        "passed": true,
+        "bg_ssim": 0.999499,
+        "degradation_pct": 0.0501,
+        "full_ssim": 0.987619,
+        "min_ssim_threshold": 0.995,
+        "max_degradation_threshold_pct": 0.5,
+        "bg_pixel_count": 7695741,
+        "total_pixels": 7868000
+      },
+      "v1_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v1_original\\page_008.webp",
+      "v2_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v2_cleaned\\page_008.webp",
+      "v3_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v3_translated\\page_008.webp",
+      "bubbles_count": 5
+    }
+  ],
+  "execution_time_sec": 8.396,
+  "timestamp": 1787403013.1930025
+}

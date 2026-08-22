@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .agents/scripts/safety_guard.py",
+            "command": "python scripts/safety_guard.py",
             "timeout": 10
           }
         ]

@@ -1,49 +1,51 @@
-# 📐 Архитектурная спецификация (Spec.md)
-## Manga AI Translator v3.0 SOTA Enterprise Reconstruction
+# Specification: Manga AI Translator v3.0 SOTA Enterprise Reconstruction
 
-**Версия:** 3.0.0  
-**Дата:** 2026-08-22  
-**Статус:** 🟡 Ожидает утверждения (Awaiting Approval)  
-**Роль:** Lead Architect (Model: Pro)
+## 1. Architectural Blueprint
+The Manga AI Translator v3.0 pipeline delivers high-fidelity end-to-end translation and reader UX:
+- **Strict Layer Isolation**: `v1_original` (RAW) $\to$ `v2_cleaned` (Telea inpaint, 0 solid fills) $\to$ `v3_translated` (Pillow vector rendering on `v2_cleaned`).
+- **Anti-Patch Quality Guard**: `backend/tests/anti_patch_guard.py` verifying $\sigma^2 \ge 1.0$ (no flat gray/white rectangles) and background structural similarity $\text{SSIM} \ge 0.995$ ($\le 0.5\%$ degradation).
+- **Dialogue Topology & Glossary**: $y_{\text{center}} \times 10000 + x_{\text{center}}$ topological sorting, 1-based sequential integer IDs, batch JSON LLM translation, persistent `glossary.json` prompt injection.
+- **Elliptical Typesetting**: Horizontal ellipse chord calculation $W(y) = 2a\sqrt{1-(y/b)^2}$, $\le 85\%$ safe oval bounds, binary search font scale ($38\to 12\text{px}$), Cyrillic TTF, auto-contrast.
+- **ML Singleton & Integrity Checker**: `ModelInferenceManager` for weights caching, `ChapterIntegrityChecker` with mirror rotation for Ch. 537 & 538 ($\ge 8$ pages), `pipeline_manifest.json` v3.0.0, and `.zip` archives.
+- **Next.js Reader Overhaul**: Multi-layer switching (1/2/3), keyboard navigation (A/D, ArrowLeft/Right), width presets (700, 900, 1200, 100%), Webtoon / Single-Page modes, dead UI removal, URL (`?chapter=chapter_XXX`) and `localStorage` persistence.
 
----
+## 2. API & Data Contracts
+### Chapter Directory Standard
+```
+backend/data/manga/{title}/
+├── glossary.json
+└── {chapter}/
+    ├── v1_original/ (page_001.webp, ...)
+    ├── v2_cleaned/ (page_001.webp, ...)
+    ├── v3_translated/ (page_001.webp, ...)
+    └── pipeline_manifest.json
+```
 
-## 1. Обзор архитектурной реконструкции
+### Manifest Schema (v3.0.0)
+```json
+{
+  "version": "3.0.0",
+  "manga": "The_Ultimate_of_All_Ages",
+  "chapter": "chapter_531",
+  "total_pages": 12,
+  "layers": {
+    "v1_original": {"page_count": 12, "sha256": "..."},
+    "v2_cleaned": {"page_count": 12, "sha256": "..."},
+    "v3_translated": {"page_count": 12, "sha256": "..."}
+  },
+  "quality_metrics": {
+    "avg_background_ssim": 0.99945,
+    "max_degradation_pct": 0.055,
+    "solid_patches_detected": 0
+  },
+  "zip_archive": "The_Ultimate_of_All_Ages_chapter_531_v3.zip",
+  "timestamp": "2026-08-22T17:45:00Z"
+}
+```
 
-Реконструкция архитектуры пайплайна и читалки Manga AI Translator для полного исключения дефектов плашек/патчей, ускорения инференса и обновления интерфейса до стандарта SOTA Enterprise.
-
----
-
-## 2. Модули и требования
-
-### 2.1. Изоляция слоев и Anti-Patch Guard
-- **Слой `v1_original`**: Неизменяемый исходник. Доступен только Scraper и Cleaner.
-- **Слой `v2_cleaned` (`backend/agents/cleaner_agent.py`)**: Попиксельная бинаризация букв (`cv2.threshold` + дилатация 2px) + `cv2.inpaint(img, mask, inpaintRadius=3, flags=cv2.INPAINT_TELEA)` / LaMa. Полный запрет `cv2.rectangle` и сплошных заливок.
-- **Слой `v3_translated` (`backend/agents/translator_typesetter_agent.py`)**: Вход строго `v2_cleaned`. Векторная отрисовка `ImageDraw.Draw` (или прозрачный RGBA-композит). Запрет непрозрачного `canvas.paste`.
-- **Программный Guard-валидатор (`backend/tests/anti_patch_guard.py`)**:
-  - Check A: Solid patch detector (детекция блоков с нулевой/низкой цветовой дисперсией вне текста).
-  - Check B: Background SSIM diff вне баблов $\le 0.5\%$ между `v3_translated` и `v1_original`.
-
-### 2.2. Топология диалогов, Batch JSON и Персистентный глоссарий
-- **Глоссарий (`backend/data/manga/The_Ultimate_of_All_Ages/glossary.json`)**: Персонажи, фракции, термины культивации. Подмешивается во все запросы к LLM.
-- **Топологическая сортировка**: `sort_key = y_center * 10000 + x_center`, сквозные `id` (1, 2, 3...), единый batch-JSON запрос на страницу.
-- **Эллиптический тайпсеттинг**: Формула хорды эллипса $2 \cdot a \cdot \sqrt{1 - (y/b)^2}$, $\le 85\%$ safe box, бинарный поиск кегля (38px–12px), межстрочный интервал $1.15 \times \text{font\_size}$, авто-контраст (черный текст на светлом, белый с обводкой 1.5px на темном).
-
-### 2.3. Синглтон-инференс и Инспектор целостности
-- **`ModelInferenceManager`**: Загрузка весов EasyOCR / Inpainting один раз при старте.
-- **`ChapterIntegrityChecker`**: Проверка объема $\ge 8$ страниц на главу (ротация зеркал MangaKatana, Comick, MangaDex при нехватке), генерация `pipeline_manifest.json` и ZIP архивов.
-
-### 2.4. Редизайн Next.js ридера (`frontend/src/app/reader/[manga]/page.tsx`)
-- Шапка / Бургер-меню ("В каталог", выпадающий список глав, кнопки Пред./След. + хоткеи A/D и $\leftarrow$/$\rightarrow$).
-- Переключатель слоев 1 RAW / 2 Clean / 3 РУС (хоткеи 1, 2, 3).
-- Режимы ширины (700px, 900px, 1200px, 100%), режим ленты скролла / постраничный.
-- Удаление кнопки "Авто-перевод главы" из ридера и ревизия AI Studio.
-- Персистентность через `?chapter=chapter_XXX` + `localStorage` + `window.history.replaceState`.
-
----
-
-## 3. План верификации и приемки
-
-1. `python backend/tests/anti_patch_guard.py` -> 0 патчей, SSIM Pass.
-2. `production_artifacts/Ongoing_Sync_Report.md` -> сводная таблица глав 531+.
-3. Проверка читалки в браузере с сохранением состояния на F5.
+## 3. Milestones & Execution Plan
+- **M1**: Layer Isolation, Directory Hygiene & Anti-Patch Guard Test Suite.
+- **M2**: Persistent Glossary, Dialogue Topology Sorting & Elliptical Typesetting.
+- **M3**: ML Inference Singleton, Chapter Integrity Checker, Mirror Rotation, Chapter Processing (531–542) & Manifests.
+- **M4**: Next.js Web Reader Overhaul, Layer Hotkeys, Width Toggles, Single-Page Mode & Persistence.
+- **M5**: E2E Verification Suite, Anti-Patch Guard Execution, `Ongoing_Sync_Report.md`, QA Report & Git Hygiene.

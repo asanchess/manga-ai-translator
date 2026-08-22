@@ -1,6 +1,6 @@
 {
   "title": "Manga AI Translation Library",
-  "last_synced": 1787399746.5338326,
+  "last_synced": 1787402858.7666807,
   "mangas": {
     "The_Ultimate_of_All_Ages": {
       "title": "The Ultimate of All Ages",
@@ -79,26 +79,6 @@
         }
       ],
       "total_chapters": 12
-    },
-    "v2": {
-      "title": "v2",
-      "chapters": [],
-      "total_chapters": 0
-    },
-    "v2_cleaned": {
-      "title": "v2 cleaned",
-      "chapters": [],
-      "total_chapters": 0
-    },
-    "v3": {
-      "title": "v3",
-      "chapters": [],
-      "total_chapters": 0
-    },
-    "v3_translated": {
-      "title": "v3 translated",
-      "chapters": [],
-      "total_chapters": 0
     }
   }
 }
