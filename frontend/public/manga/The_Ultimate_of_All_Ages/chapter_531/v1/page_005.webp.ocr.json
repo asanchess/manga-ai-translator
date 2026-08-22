@@ -1,0 +1,239 @@
+[
+  {
+    "box": [
+      112,
+      506,
+      274,
+      146
+    ],
+    "text": "I wWill GoTo The GATHERING OF HEROES, But SCuM Like You AREN'T HEROES; SO ThErE'S NO NEed FoR You TO Go-",
+    "lines": [
+      [
+        156,
+        506,
+        188,
+        30
+      ],
+      [
+        124,
+        533,
+        252,
+        31
+      ],
+      [
+        112,
+        564,
+        274,
+        30
+      ],
+      [
+        124,
+        592,
+        250,
+        30
+      ],
+      [
+        124,
+        622,
+        248,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      467,
+      1147,
+      333,
+      332
+    ],
+    "text": "7a",
+    "lines": [
+      [
+        467,
+        1147,
+        333,
+        332
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      72,
+      1372,
+      170,
+      58
+    ],
+    "text": "PROTECTOR uGly ALSO:..",
+    "lines": [
+      [
+        108,
+        1372,
+        134,
+        30
+      ],
+      [
+        72,
+        1400,
+        136,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      297,
+      1979,
+      284,
+      149
+    ],
+    "text": "STAY Here FOREVERL",
+    "lines": [
+      [
+        297,
+        1979,
+        284,
+        68
+      ],
+      [
+        300,
+        2056,
+        278,
+        72
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      121,
+      2291,
+      218,
+      109
+    ],
+    "text": "S>",
+    "lines": [
+      [
+        121,
+        2291,
+        218,
+        109
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false
+  },
+  {
+    "box": [
+      392,
+      2500,
+      104,
+      80
+    ],
+    "text": "Ah",
+    "lines": [
+      [
+        392,
+        2500,
+        104,
+        80
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false
+  },
+  {
+    "box": [
+      294,
+      5664,
+      104,
+      56
+    ],
+    "text": "It's YOUR TurN;",
+    "lines": [
+      [
+        294,
+        5664,
+        104,
+        30
+      ],
+      [
+        314,
+        5694,
+        60,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      392,
+      6682,
+      204,
+      86
+    ],
+    "text": "You .. You .. You REALLY, REALLY Killed Him?",
+    "lines": [
+      [
+        424,
+        6682,
+        138,
+        26
+      ],
+      [
+        392,
+        6710,
+        204,
+        30
+      ],
+      [
+        430,
+        6738,
+        126,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      210,
+      8128,
+      332,
+      82
+    ],
+    "text": "YOu REALLY DARED To Kill The YouNG MASTER OF The Beiming FAMily?",
+    "lines": [
+      [
+        246,
+        8128,
+        260,
+        32
+      ],
+      [
+        210,
+        8154,
+        332,
+        32
+      ],
+      [
+        252,
+        8179,
+        250,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  }
+]

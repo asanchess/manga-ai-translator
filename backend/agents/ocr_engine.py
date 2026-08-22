@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
+"""
+OCR Engine Agent with Containment NMS, Figure-8 Filter, and Topological Reading-Order Sorting.
+"""
+import os
+import sys
+import re
+import json
 import cv2
 import numpy as np
 import easyocr
-import json
-import os
-import re
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+logger = logging.getLogger("OCREngine")
 
 _reader = None
 
@@ -17,12 +25,11 @@ def get_reader():
 def is_sound_effect(text: str) -> bool:
     """
     Identifies standalone SFX/sound effects.
-    Sentences and dialogue must NEVER be classified as SFX.
+    Dialogue sentences are never classified as SFX.
     """
     t = text.lower().strip()
     words = t.split()
     
-    # Dialogue sentences with multiple words or dialogue punctuation
     if len(words) > 3 or len(t) > 20:
         return False
     if any(p in t for p in ['.', '?', '...', ',', ':', ';']):
@@ -39,7 +46,6 @@ def is_sound_effect(text: str) -> bool:
     if any(w in sfx_keywords for w in clean_words):
         return True
         
-    # Standalone 1-2 words in all-caps without punctuation
     if len(words) <= 2 and text.isupper() and len(text) <= 8 and not any(c.isdigit() for c in text):
         return True
         
@@ -58,34 +64,35 @@ def calculate_iou(box1: tuple, box2: tuple) -> float:
     inter_h = max(0, yi2 - yi1)
     inter_area = inter_w * inter_h
     
-    area1 = w1 * h1
-    area2 = w2 * h2
+    area1 = max(0, w1) * max(0, h1)
+    area2 = max(0, w2) * max(0, h2)
     union_area = area1 + area2 - inter_area
     if union_area <= 0:
         return 0.0
     return inter_area / float(union_area)
 
+def topological_reading_sort_key(box: tuple, row_height: int = 50) -> tuple:
+    """
+    Sorts boxes primarily top-to-bottom in rows, secondarily left-to-right.
+    """
+    x, y, w, h = box
+    row = y // row_height
+    return (row, x, y)
+
 def split_figure_eight_bubbles(clusters: list) -> list:
     """
-    Разделяет слитные вертикальные бабблы-«восьмерки» (h / w > 2.2) 
-    на два независимых баббла (верхний и нижний).
+    Splits joined figure-eight bubbles (aspect ratio h / w > 2.2)
+    into two distinct top and bottom speech bubbles.
     """
     result = []
     for c in clusters:
         x, y, w, h = c["box"]
-        
-        # Защита от деления на ноль и некорректных размеров
-        if w <= 0:
-            result.append(c)
+        if w <= 0 or h <= 0:
             continue
             
         aspect_ratio = float(h) / float(w)
-        
-        # Если соотношение высоты к ширине превышает 2.2 — считаем баббл слитным
         if aspect_ratio > 2.2:
             half_h = h // 2
-            
-            # Разделение текста по словам
             text = c.get("text", "").strip()
             words = text.split()
             
@@ -97,14 +104,12 @@ def split_figure_eight_bubbles(clusters: list) -> list:
                 text_top = text
                 text_bottom = ""
                 
-            # Верхний баббл
             top_cluster = dict(c)
-            top_cluster["box"] = (x, y, w, half_h)
+            top_cluster["box"] = (max(0, x), max(0, y), max(1, w), max(1, half_h))
             top_cluster["text"] = text_top
             
-            # Нижний баббл
             bottom_cluster = dict(c)
-            bottom_cluster["box"] = (x, y + half_h, w, h - half_h)
+            bottom_cluster["box"] = (max(0, x), max(0, y + half_h), max(1, w), max(1, h - half_h))
             bottom_cluster["text"] = text_bottom
             
             result.append(top_cluster)
@@ -120,15 +125,38 @@ def safe_ocr_read(chunk: np.ndarray, detail: int = 1) -> list:
     try:
         reader = get_reader()
         return reader.readtext(chunk, detail=detail)
-    except Exception:
+    except Exception as e:
+        logger.warning(f"EasyOCR read exception: {e}")
         return []
 
 def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
+    """
+    Extracts, merges, deduplicates, and sorts speech bubbles in topological reading order.
+    Returns list of dicts with sequential 1-based unique IDs:
+    [
+      {
+        "id": 1,
+        "box": (x, y, w, h),
+        "text": str,
+        "lines": list,
+        "is_sfx": bool,
+        "is_dark": bool
+      }, ...
+    ]
+    """
     cache_path = image_path + ".ocr.json"
     if use_cache and os.path.exists(cache_path):
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
-                return json.load(f)
+                cached_data = json.load(f)
+                if isinstance(cached_data, list) and len(cached_data) > 0:
+                    split_c = split_figure_eight_bubbles(cached_data)
+                    split_c.sort(key=lambda c: topological_reading_sort_key(c["box"]))
+                    for idx, c in enumerate(split_c, 1):
+                        c["id"] = idx
+                        bx, by, bw, bh = c["box"]
+                        c["box"] = (max(0, int(bx)), max(0, int(by)), max(1, int(bw)), max(1, int(bh)))
+                    return split_c
         except Exception:
             pass
             
@@ -156,8 +184,8 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
             ys = [int(p[1]) + y_start for p in bbox]
             bx = max(0, min(xs))
             by = max(0, min(ys))
-            bw = min(w - bx, max(xs) - bx)
-            bh = min(h - by, max(ys) - by)
+            bw = max(1, min(w - bx, max(xs) - bx))
+            bh = max(1, min(h - by, max(ys) - by))
             
             raw_detections.append({
                 "box": (bx, by, bw, bh),
@@ -183,8 +211,8 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                 ys = [int(p[1]) + y_start for p in bbox]
                 bx = max(0, min(xs))
                 by = max(0, min(ys))
-                bw = min(w - bx, max(xs) - bx)
-                bh = min(h - by, max(ys) - by)
+                bw = max(1, min(w - bx, max(xs) - bx))
+                bh = max(1, min(h - by, max(ys) - by))
                 
                 cy = min(h-1, by + bh // 2)
                 cx = min(w-1, bx + bw // 2)
@@ -196,14 +224,13 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                         "is_dark": True
                     })
                     
-    # --- DEDUPLICATION OF RAW DETECTIONS ---
+    # --- Deduplication ---
     deduped_detections = []
     for d in raw_detections:
         is_dup = False
         for existing in deduped_detections:
             iou = calculate_iou(d["box"], existing["box"])
             if iou > 0.35:
-                # Keep the one with higher confidence
                 if d["conf"] > existing["conf"]:
                     existing["box"] = d["box"]
                     existing["text"] = d["text"]
@@ -213,10 +240,10 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
         if not is_dup:
             deduped_detections.append(d)
             
-    # --- SPATIAL CLUSTERING INTO SPEECH BUBBLES ---
+    # --- Spatial Clustering into Bubbles ---
     clusters = []
     used = set()
-    deduped_detections.sort(key=lambda d: (d["box"][1], d["box"][0]))
+    deduped_detections.sort(key=lambda d: topological_reading_sort_key(d["box"]))
     
     for i, d1 in enumerate(deduped_detections):
         if i in used:
@@ -233,13 +260,11 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                 continue
             ox, oy, ow, oh = d2["box"]
             
-            # Check vertical and horizontal proximity for multi-line bubbles
             vert_dist = oy - (by + bh)
             overlap_y = max(0, min(by + bh, oy + oh) - max(by, oy))
             horiz_dist = max(0, max(bx, ox) - min(bx + bw, ox + ow))
             overlap_x = max(0, min(bx + bw, ox + ow) - max(bx, ox))
             
-            # If boxes overlap or are adjacent lines in the same bubble
             if (overlap_y > 0 or -10 <= vert_dist <= 75) and (overlap_x > 0 or horiz_dist <= 80):
                 used.add(j)
                 cluster_texts.append(d2["text"])
@@ -248,20 +273,20 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                 min_y = min(by, oy)
                 max_x = max(bx + bw, ox + ow)
                 max_y = max(by + bh, oy + oh)
-                bx, by, bw, bh = min_x, min_y, max_x - min_x, max_y - min_y
+                bx, by, bw, bh = min_x, min_y, max(1, max_x - min_x), max(1, max_y - min_y)
                 if d2["is_dark"]:
                     is_dark = True
                     
         full_text = " ".join(cluster_texts)
         clusters.append({
-            "box": (bx, by, bw, bh),
+            "box": (max(0, bx), max(0, by), max(1, bw), max(1, bh)),
             "text": full_text,
             "lines": cluster_boxes,
             "is_sfx": is_sound_effect(full_text),
             "is_dark": is_dark
         })
         
-    # --- FINAL STRICT CLUSTER MERGING & NON-MAXIMUM SUPPRESSION ---
+    # --- Containment NMS Merge ---
     final_clusters = []
     for c in clusters:
         x1, y1, w1, h1 = c["box"]
@@ -283,16 +308,13 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
             min_area = min(area1, area2)
             union_area = area1 + area2 - inter_area
             
-            # If one box contains the other or substantial overlap
             if min_area > 0 and (inter_area / float(min_area) > 0.30 or (union_area > 0 and inter_area / float(union_area) > 0.20)):
-                # Merge into single enclosing box
                 nx = min(x1, x2)
                 ny = min(y1, y2)
                 nw = max(x1 + w1, x2 + w2) - nx
                 nh = max(y1 + h1, y2 + h2) - ny
-                ex["box"] = (nx, ny, nw, nh)
+                ex["box"] = (max(0, nx), max(0, ny), max(1, nw), max(1, nh))
                 
-                # Keep the longer, more complete text
                 t1 = c.get("text", "").strip()
                 t2 = ex.get("text", "").strip()
                 if len(t1) > len(t2):
@@ -307,9 +329,18 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
         if not absorbed:
             final_clusters.append(c)
             
-    # Применяем фильтрацию слитных бабблов-восьмерок
+    # Apply Figure-8 splitting
     final_clusters = split_figure_eight_bubbles(final_clusters)
-            
+    
+    # Topological Reading-Order Sorting (top-to-bottom, left-to-right)
+    final_clusters.sort(key=lambda c: topological_reading_sort_key(c["box"]))
+    
+    # Assign sequential 1-based IDs
+    for idx, c in enumerate(final_clusters, 1):
+        c["id"] = idx
+        bx, by, bw, bh = c["box"]
+        c["box"] = (max(0, int(bx)), max(0, int(by)), max(1, int(bw)), max(1, int(bh)))
+        
     try:
         with open(cache_path, "w", encoding="utf-8") as f:
             json.dump(final_clusters, f, ensure_ascii=False, indent=2)

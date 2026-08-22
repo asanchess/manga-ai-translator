@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+Cleaner Agent with Adaptive Per-Pixel Glyph Inpainting (Telea).
+Replaces text with seamless background inpainting without solid rectangle fills.
+"""
+import os
 import cv2
 import numpy as np
-import os
 from PIL import Image
 import logging
 
@@ -10,7 +14,7 @@ logger = logging.getLogger("CleanerAgentSeamless")
 
 def get_bubble_background_color(img: np.ndarray, x: int, y: int, w: int, h: int) -> tuple[int, int, int]:
     """
-    Precisely samples the background color from perimeter strips outside the text bounding box.
+    Samples background color from perimeter strips outside the text bounding box.
     Returns (B, G, R) background color tuple.
     """
     ih, iw, _ = img.shape
@@ -50,13 +54,12 @@ def get_bubble_background_color(img: np.ndarray, x: int, y: int, w: int, h: int)
 
 def clean_speech_bubble_seamless(img: np.ndarray, cluster: dict):
     """
-    Cleans a single bubble cluster using adaptive background color sampling
-    and tight text stroke inpainting. NO rectangular boxes are ever drawn.
+    Cleans a single bubble cluster using adaptive per-pixel glyph inpainting.
+    NO solid rectangles are drawn.
     """
     ih, iw, _ = img.shape
     x, y, w, h = cluster["box"]
     
-    # Pad ROI by 6px
     pad = 6
     bx1 = max(0, x - pad)
     by1 = max(0, y - pad)
@@ -64,7 +67,7 @@ def clean_speech_bubble_seamless(img: np.ndarray, cluster: dict):
     by2 = min(ih, y + h + pad)
     
     roi = img[by1:by2, bx1:bx2]
-    if roi.size == 0:
+    if roi.size == 0 or roi.shape[0] < 2 or roi.shape[1] < 2:
         return
         
     bg_b, bg_g, bg_r = get_bubble_background_color(img, x, y, w, h)
@@ -75,49 +78,66 @@ def clean_speech_bubble_seamless(img: np.ndarray, cluster: dict):
     cluster["is_dark"] = is_dark
     cluster["bg_color"] = (bg_b, bg_g, bg_r)
     
-    # Calculate Euclidean color distance from true background color
-    diff = np.sqrt(np.sum((roi.astype(np.float32) - bg_color) ** 2, axis=2))
+    # 1. Color Euclidean distance from background
+    color_diff = np.sqrt(np.sum((roi.astype(np.float32) - bg_color) ** 2, axis=2))
     
-    # Text pixels are those differing from background
-    text_mask = (diff > 28).astype(np.uint8) * 255
+    # 2. Otsu thresholding on grayscale ROI
+    roi_gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    if is_dark:
+        # Light text on dark background
+        _, otsu_mask = cv2.threshold(roi_gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    else:
+        # Dark text on light background
+        _, otsu_mask = cv2.threshold(roi_gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+        
+    # Combine Otsu with color distance
+    dist_mask = (color_diff > 25).astype(np.uint8) * 255
+    text_mask = cv2.bitwise_and(otsu_mask, dist_mask)
     
     # Clean small noise artifacts
     kernel_small = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
     text_mask = cv2.morphologyEx(text_mask, cv2.MORPH_OPEN, kernel_small)
     
-    # Dilate text mask slightly to cover anti-aliasing edges
+    # Dilate text mask slightly to cover font antialiasing contours
     kernel_dilate = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     text_mask = cv2.dilate(text_mask, kernel_dilate, iterations=2)
     
-    # Inpaint with TELEA using exact text mask
-    inpainted_roi = cv2.inpaint(roi, text_mask, inpaintRadius=4, flags=cv2.INPAINT_TELEA)
-    
-    # For solid bubbles (pure white or pure black), blend text area with exact sampled background color
-    if bg_lum > 215 or bg_lum < 45:
-        solid_fill = np.full_like(roi, (bg_b, bg_g, bg_r))
-        mask_3d = np.repeat(text_mask[:, :, np.newaxis] / 255.0, 3, axis=2)
-        blended = (inpainted_roi.astype(float) * 0.25 + solid_fill.astype(float) * 0.75).astype(np.uint8)
-        inpainted_roi = np.where(mask_3d > 0.5, blended, inpainted_roi)
+    if np.count_nonzero(text_mask) == 0:
+        # Fallback if no text mask detected: use distance mask
+        text_mask = cv2.dilate((color_diff > 20).astype(np.uint8) * 255, kernel_dilate, iterations=1)
         
-    img[by1:by2, bx1:bx2] = inpainted_roi
+    if np.count_nonzero(text_mask) > 0:
+        inpainted_roi = cv2.inpaint(roi, text_mask, inpaintRadius=4, flags=cv2.INPAINT_TELEA)
+        img[by1:by2, bx1:bx2] = inpainted_roi
 
-def process_page_cleaning(img_path: str, output_path: str, clusters: list) -> str:
+def process_page_cleaning(img_input, clusters: list, output_path: str = None) -> np.ndarray:
     """
-    Cleans all speech bubbles on a manga page using background-adaptive seamless inpainting.
+    Cleans all speech bubbles on a page and returns the cleaned BGR numpy array.
+    Optionally saves the image to output_path if specified.
     """
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    img = cv2.imread(img_path)
-    if img is None:
-        return output_path
+    if isinstance(img_input, str):
+        img = cv2.imread(img_input)
+        if img is None:
+            raise FileNotFoundError(f"Cannot read image file: {img_input}")
+    elif isinstance(img_input, np.ndarray):
+        img = img_input.copy()
+    else:
+        raise ValueError("img_input must be file path or numpy.ndarray")
         
     for cluster in clusters:
         clean_speech_bubble_seamless(img, cluster)
         
-    rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    pil_img = Image.fromarray(rgb)
-    pil_img.save(output_path, "WEBP", quality=95)
-    logger.info(f"Page cleaned successfully -> {output_path}")
-    return output_path
+    if output_path:
+        os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
+        if output_path.lower().endswith(".webp"):
+            rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            pil_img = Image.fromarray(rgb)
+            pil_img.save(output_path, "WEBP", quality=95)
+        else:
+            cv2.imwrite(output_path, img)
+        logger.info(f"Page cleaned successfully -> {output_path}")
+        
+    return img
 
 if __name__ == "__main__":
-    print("CleanerAgentSeamless module loaded successfully.")
+    print("CleanerAgentSeamless module ready.")

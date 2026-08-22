@@ -82,6 +82,13 @@ def export_transcript():
     with open(out_path, "w", encoding="utf-8") as out:
         out.write("\n".join(lines))
         
+    docs_dir = os.path.join(os.path.dirname(__file__), "..", "docs")
+    if os.path.exists(docs_dir):
+        docs_out_path = os.path.join(docs_dir, "CONVERSATION_HISTORY.md")
+        with open(docs_out_path, "w", encoding="utf-8") as out_docs:
+            out_docs.write("\n".join(lines))
+        print(f"Also synced to {docs_out_path}")
+        
     print(f"Exported {len(dialogue_entries)} entries to {out_path} ({os.path.getsize(out_path)} bytes)")
 
 if __name__ == "__main__":

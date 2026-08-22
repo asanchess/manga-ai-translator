@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Manga Translation Pipeline - End-to-End Pipeline Runner
-Coordinates OCR detection, Seamless Inpainting, LLM Translation, and Typesetting.
+End-to-End Manga Translation Pipeline Runner
+Orchestrates OCR -> Bubble Cleaning -> Translation -> Typesetting -> Output
 """
-
 import os
 import sys
 import json
@@ -19,14 +18,12 @@ import numpy as np
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding='utf-8')
 
-# Ensure agents folder is in sys.path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "agents"))
 sys.path.insert(0, os.path.dirname(__file__))
 
 from agents.ocr_engine import extract_text_and_bubbles
 from agents.cleaner_agent import process_page_cleaning
 from agents.translator_typesetter_agent import process_page_translation
-from agents.llm_translator import check_ollama_available
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("PipelineRunner")
@@ -35,9 +32,9 @@ DEFAULT_FRONTEND_PUBLIC = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "frontend", "public", "manga")
 )
 
-def ensure_dirs(*paths):
-    for p in paths:
-        os.makedirs(p, exist_ok=True)
+def ensure_dirs(*dirs):
+    for d in dirs:
+        os.makedirs(d, exist_ok=True)
 
 def process_page(
     image_path: str,
@@ -49,10 +46,10 @@ def process_page(
     """
     Processes a single manga page through the full 5-stage pipeline:
     1. RAW Ingestion -> v1 (Original)
-    2. OCR & NMS Detection
+    2. OCR & NMS Detection with 1-based IDs
     3. Seamless Inpainting -> v2 (Cleaned)
-    4. LLM Translation
-    5. Typesetting -> v3 (Translated)
+    4. Batch LLM Translation (Ollama / OpenRouter / Cache)
+    5. Typesetting -> v3 (Translated, <=85% bounds, centered)
     6. Metadata update
     """
     clean_title = manga_title.replace(" ", "_")
@@ -60,7 +57,6 @@ def process_page(
     base_root = output_root or DEFAULT_FRONTEND_PUBLIC
     base_out = os.path.join(base_root, clean_title, chapter_folder)
     
-    # Destination directories for standard and legacy compatibility
     v1_dir = os.path.join(base_out, "v1")
     v1_orig_dir = os.path.join(base_out, "v1_original")
     v2_dir = os.path.join(base_out, "v2")
@@ -86,20 +82,26 @@ def process_page(
     width, height = raw_img.size
     raw_img.save(v1_path, "WEBP", quality=95)
     shutil.copy2(v1_path, v1_orig_path)
+    
+    # Check if OCR cache exists in input dir
+    src_ocr_cache = image_path + ".ocr.json"
+    dst_ocr_cache = v1_path + ".ocr.json"
+    if os.path.exists(src_ocr_cache) and not os.path.exists(dst_ocr_cache):
+        shutil.copy2(src_ocr_cache, dst_ocr_cache)
 
     # Step 2: OCR & Text Bubble Detection
     logger.info(f"[Step 2/5] Running OCR & Containment NMS on {v1_path}...")
-    clusters = extract_text_and_bubbles(v1_path, use_cache=False)
+    clusters = extract_text_and_bubbles(v1_path, use_cache=True)
     logger.info(f"Detected {len(clusters)} text clusters.")
 
     # Step 3: Seamless Speech Bubble Cleaning (v2)
     logger.info(f"[Step 3/5] Cleaning speech bubbles -> {v2_path}...")
-    process_page_cleaning(v1_path, v2_path, clusters)
+    process_page_cleaning(v1_path, clusters, output_path=v2_path)
     shutil.copy2(v2_path, v2_clean_path)
 
     # Step 4 & 5: LLM Translation & Typesetting (v3)
     logger.info(f"[Step 4-5/5] Translating & typesetting bubbles -> {v3_path}...")
-    process_page_translation(v2_path, v3_path, clusters)
+    process_page_translation(v2_path, clusters, output_path=v3_path)
     shutil.copy2(v3_path, v3_trans_path)
 
     # Step 6: Update Chapter Metadata
@@ -124,7 +126,6 @@ def process_page(
         "v3": f"/manga/{clean_title}/{chapter_folder}/v3/{page_filename}"
     }
 
-    # Update or append page entry
     updated = False
     for idx, p in enumerate(pages_list):
         if p.get("page_num") == page_num:
@@ -140,7 +141,7 @@ def process_page(
         "manga": clean_title,
         "chapter": str(chapter_num),
         "total_pages": len(pages_list),
-        "last_updated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "last_updated": time.time(),
         "pages": pages_list
     })
 
@@ -158,67 +159,83 @@ def process_page(
 
 def update_global_chapters_index(public_root: str = DEFAULT_FRONTEND_PUBLIC):
     """
-    Updates public/manga/chapters_index.json for instant consumption by Next.js.
+    Crawls public manga directory and rebuilds global chapters_index.json for the frontend.
     """
-    if not os.path.isdir(public_root):
-        return
-        
-    index_data = {}
-    for manga in os.listdir(public_root):
-        m_path = os.path.join(public_root, manga)
-        if not os.path.isdir(m_path):
-            continue
-            
-        chapters = []
-        for ch_folder in sorted(
-            os.listdir(m_path),
-            key=lambda x: int(x.replace("chapter_", "")) if x.replace("chapter_", "").isdigit() else 0
-        ):
-            ch_path = os.path.join(m_path, ch_folder)
-            if not os.path.isdir(ch_path) or not ch_folder.startswith("chapter_"):
-                continue
-                
-            ch_num = ch_folder.replace("chapter_", "")
-            versions = {}
-            for v in ["v1_original", "v2_cleaned", "v3_translated", "v1", "v2", "v3"]:
-                vp = os.path.join(ch_path, v)
-                if os.path.isdir(vp):
-                    imgs = sorted([f for f in os.listdir(vp) if f.endswith((".webp", ".png", ".jpg", ".jpeg"))])
-                    versions[v] = [f"/manga/{manga}/{ch_folder}/{v}/{img}" for img in imgs]
-                else:
-                    versions[v] = []
-                    
-            # Fallbacks for standard keys
-            if not versions.get("v1_original") and versions.get("v1"):
-                versions["v1_original"] = versions["v1"]
-            if not versions.get("v2_cleaned") and versions.get("v2"):
-                versions["v2_cleaned"] = versions["v2"]
-            if not versions.get("v3_translated") and versions.get("v3"):
-                versions["v3_translated"] = versions["v3"]
-                
-            chapters.append({"number": ch_num, "versions": versions})
-            
-        index_data[manga] = {"manga": manga, "chapters": chapters}
+    root = public_root or DEFAULT_FRONTEND_PUBLIC
+    index_file = os.path.join(root, "chapters_index.json")
+    manifest = {
+        "title": "Manga AI Translation Library",
+        "last_synced": time.time(),
+        "mangas": {}
+    }
 
-    out_file = os.path.join(public_root, "chapters_index.json")
-    with open(out_file, "w", encoding="utf-8") as f:
-        json.dump(index_data, f, ensure_ascii=False, indent=2)
-    logger.info(f"Updated global metadata -> {out_file}")
+    if not os.path.exists(public_root):
+        return manifest
+
+    for manga_name in sorted(os.listdir(public_root)):
+        manga_path = os.path.join(public_root, manga_name)
+        if not os.path.isdir(manga_path) or manga_name.startswith('.'):
+            continue
+
+        chapters = []
+        for ch_name in sorted(os.listdir(manga_path)):
+            ch_path = os.path.join(manga_path, ch_name)
+            if not os.path.isdir(ch_path) or not ch_name.startswith("chapter_"):
+                continue
+
+            meta_file = os.path.join(ch_path, "meta.json")
+            ch_num = ch_name.replace("chapter_", "")
+            pages_count = 0
+            
+            if os.path.exists(meta_file):
+                try:
+                    with open(meta_file, "r", encoding="utf-8") as mf:
+                        cdata = json.load(mf)
+                        pages_count = cdata.get("total_pages", len(cdata.get("pages", [])))
+                except Exception:
+                    pass
+            else:
+                v1_dir = os.path.join(ch_path, "v1")
+                if os.path.exists(v1_dir):
+                    pages_count = len([f for f in os.listdir(v1_dir) if f.endswith('.webp')])
+
+            chapters.append({
+                "chapter": ch_num,
+                "folder": ch_name,
+                "pages_count": pages_count,
+                "meta_url": f"/manga/{manga_name}/{ch_name}/meta.json"
+            })
+
+        chapters.sort(key=lambda c: [int(s) if s.isdigit() else s for s in re.split(r'(\d+)', c["chapter"])])
+        
+        manifest["mangas"][manga_name] = {
+            "title": manga_name.replace("_", " "),
+            "chapters": chapters,
+            "total_chapters": len(chapters)
+        }
+
+    with open(index_file, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+        
+    logger.info(f"Updated global metadata -> {index_file}")
+    return manifest
 
 def process_chapter(
     input_dir: str,
     manga_title: str,
     chapter_num: str,
-    output_root: str = None,
+    output_root: str = DEFAULT_FRONTEND_PUBLIC,
     progress_callback = None
 ) -> dict:
     """
-    Processes all pages in a raw chapter folder.
+    Processes all pages inside input_dir for a given chapter.
     """
-    valid_exts = (".webp", ".png", ".jpg", ".jpeg")
-    all_files = [f for f in os.listdir(input_dir) if f.lower().endswith(valid_exts) and not f.endswith(".ocr.json")]
+    if not os.path.isdir(input_dir):
+        raise FileNotFoundError(f"Input directory does not exist: {input_dir}")
+
+    valid_exts = {".jpg", ".jpeg", ".png", ".webp"}
+    all_files = [f for f in os.listdir(input_dir) if os.path.splitext(f)[1].lower() in valid_exts]
     
-    # Sort files naturally
     def sort_key(fn):
         digits = [int(s) for s in re.findall(r'\d+', fn)]
         return digits[0] if digits else fn
@@ -226,46 +243,40 @@ def process_chapter(
     all_files.sort(key=sort_key)
     
     total = len(all_files)
-    if total == 0:
-        logger.warning(f"No image files found in {input_dir}")
-        return {"status": "error", "message": "No images found"}
-
     logger.info(f"Starting chapter translation: {manga_title} Ch.{chapter_num} ({total} pages)")
-    results = []
     
+    results = []
     for idx, filename in enumerate(all_files, 1):
         img_path = os.path.join(input_dir, filename)
         if progress_callback:
             progress_callback(idx, total, f"Processing page {idx}/{total}: {filename}")
             
-        res = process_page(
+        page_res = process_page(
             image_path=img_path,
             manga_title=manga_title,
             chapter_num=chapter_num,
             page_num=idx,
             output_root=output_root
         )
-        results.append(res)
+        results.append(page_res)
 
-    update_global_chapters_index(output_root or DEFAULT_FRONTEND_PUBLIC)
+    target_output_root = output_root or DEFAULT_FRONTEND_PUBLIC
+    update_global_chapters_index(target_output_root)
     
-    if progress_callback:
-        progress_callback(total, total, f"Completed all {total} pages!")
-
     return {
         "status": "completed",
         "manga": manga_title,
-        "chapter": str(chapter_num),
+        "chapter": chapter_num,
         "total_pages": total,
         "pages": results
     }
 
 def main():
-    parser = argparse.ArgumentParser(description="End-to-End Manga Translation Pipeline Runner")
-    parser.add_argument("--input", "-i", required=True, help="Path to raw image file or folder")
-    parser.add_argument("--title", "-t", required=True, help="Manga title (e.g. 'solo-leveling')")
-    parser.add_argument("--chapter", "-c", required=True, help="Chapter number (e.g. '1')")
-    parser.add_argument("--output-dir", "-o", default=None, help="Custom output directory")
+    parser = argparse.ArgumentParser(description="Manga AI Translation Pipeline Runner")
+    parser.add_argument("--input", required=True, help="Path to input RAW image file or directory")
+    parser.add_argument("--title", required=True, help="Manga title (e.g. 'The_Ultimate_of_All_Ages')")
+    parser.add_argument("--chapter", required=True, help="Chapter number (e.g. '531')")
+    parser.add_argument("--output_dir", default=None, help="Custom output directory")
     
     args = parser.parse_args()
     

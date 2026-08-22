@@ -1,0 +1,115 @@
+[
+  {
+    "box": [
+      469,
+      445,
+      60,
+      66
+    ],
+    "text": "34",
+    "lines": [
+      [
+        469,
+        445,
+        60,
+        66
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      404,
+      2024,
+      300,
+      221
+    ],
+    "text": "1+",
+    "lines": [
+      [
+        404,
+        2024,
+        300,
+        221
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      80,
+      4160,
+      226,
+      74
+    ],
+    "text": "PLAYiNG With EARTH-ATTRiBUTE MARTIAL Skills in Front OF Me:",
+    "lines": [
+      [
+        134,
+        4160,
+        120,
+        26
+      ],
+      [
+        80,
+        4184,
+        226,
+        26
+      ],
+      [
+        90,
+        4210,
+        208,
+        24
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      513,
+      7671,
+      260,
+      278
+    ],
+    "text": "DL",
+    "lines": [
+      [
+        513,
+        7671,
+        260,
+        278
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false
+  },
+  {
+    "box": [
+      110,
+      8240,
+      156,
+      54
+    ],
+    "text": "POWER OF The DOMAIN",
+    "lines": [
+      [
+        110,
+        8240,
+        156,
+        28
+      ],
+      [
+        140,
+        8268,
+        96,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  }
+]

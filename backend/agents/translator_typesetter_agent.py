@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
+"""
+Typesetter Agent with Adaptive Font Sizing, Strict 85% Bounding Box Fitting, and Centering.
+"""
 import os
-import json
 import re
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import logging
-from llm_translator import translate_bubbles_with_openrouter
+from llm_translator import translate_bubbles_batch
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("TypesetterAgent")
 
-# 100% Cyrillic-verified Windows fonts
+# Windows Cyrillic-compatible fonts
 FONTS = {
     "comic": r"C:\Windows\Fonts\comicbd.ttf",
     "segoe": r"C:\Windows\Fonts\segoeuib.ttf",
@@ -25,13 +27,13 @@ def get_best_font(font_key: str, size: int):
     if not os.path.exists(fpath):
         fpath = FONTS["arial"]
     try:
-        return ImageFont.truetype(fpath, size)
+        return ImageFont.truetype(fpath, max(8, size))
     except Exception:
         return ImageFont.load_default()
 
-def wrap_text_to_bubble(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list:
+def wrap_text_to_bounds(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list:
     """
-    Wraps text into balanced lines to fit inside natural speech bubbles.
+    Wraps text into balanced lines such that no line exceeds max_w.
     """
     words = text.split()
     if not words:
@@ -40,66 +42,46 @@ def wrap_text_to_bubble(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> 
     dummy_img = Image.new("RGB", (10, 10))
     draw = ImageDraw.Draw(dummy_img)
     
-    total_len = len(words)
-    if total_len <= 3:
-        lines = []
-        cur = []
-        for w in words:
-            test = " ".join(cur + [w])
-            bbox = draw.textbbox((0, 0), test, font=font)
-            if bbox[2] - bbox[0] <= max_w:
-                cur.append(w)
-            else:
-                if cur:
-                    lines.append(" ".join(cur))
-                cur = [w]
-        if cur:
-            lines.append(" ".join(cur))
-        return lines
-
-    # Target balanced lines based on word count
-    target_lines = 2 if total_len <= 7 else (3 if total_len <= 14 else 4)
-    words_per_line = max(1, int(np.ceil(total_len / target_lines)))
-    
     lines = []
-    for i in range(0, total_len, words_per_line):
-        chunk = " ".join(words[i:i+words_per_line])
-        bbox = draw.textbbox((0, 0), chunk, font=font)
-        if bbox[2] - bbox[0] > max_w:
-            sub_words = chunk.split()
-            sub_cur = []
-            for sw in sub_words:
-                test = " ".join(sub_cur + [sw])
-                if draw.textbbox((0, 0), test, font=font)[2] <= max_w:
-                    sub_cur.append(sw)
-                else:
-                    if sub_cur:
-                        lines.append(" ".join(sub_cur))
-                    sub_cur = [sw]
-            if sub_cur:
-                lines.append(" ".join(sub_cur))
+    cur_line = []
+    for w in words:
+        test_line = " ".join(cur_line + [w])
+        bbox = draw.textbbox((0, 0), test_line, font=font)
+        line_w = bbox[2] - bbox[0]
+        if line_w <= max_w:
+            cur_line.append(w)
         else:
-            lines.append(chunk)
-            
+            if cur_line:
+                lines.append(" ".join(cur_line))
+            cur_line = [w]
+    if cur_line:
+        lines.append(" ".join(cur_line))
+        
     return lines
 
 def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dict, translated_text: str):
+    """
+    Renders translated text centered inside the cluster's bounding box,
+    strictly staying within 85% of bubble width and height.
+    """
     if not translated_text or not translated_text.strip():
         return
         
     x, y, w, h = cluster["box"]
-    is_sfx = cluster.get("is_sfx", False)
-    words = translated_text.split()
-    
-    # Remove SFX tags if LLM returned them accidentally
-    if translated_text.startswith("*[") and translated_text.endswith("]*"):
-        translated_text = translated_text[2:-2].strip()
+    if w <= 0 or h <= 0:
+        return
         
-    translated_text = re.sub(r'[\ufffd\u25a0\u25a1\u25aa\u25ab]', '', translated_text)
-    translated_text = re.sub(r'\[\s*\]', '', translated_text)
-    translated_text = re.sub(r'\s+', ' ', translated_text).strip()
+    # Clean text artifacts
+    clean_text = translated_text.strip()
+    if clean_text.startswith("*[") and clean_text.endswith("]*"):
+        clean_text = clean_text[2:-2].strip()
+    clean_text = re.sub(r'[\ufffd\u25a0\u25a1\u25aa\u25ab]', '', clean_text)
+    clean_text = re.sub(r'\[\s*\]', '', clean_text)
+    clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+    if not clean_text:
+        return
         
-    # --- Standard Dialogue Bubble Typography ---
+    # Determine background luminance
     crop_x1 = max(0, x)
     crop_y1 = max(0, y)
     crop_x2 = min(pil_img.width, x + w)
@@ -117,33 +99,38 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
     stroke_color = (0, 0, 0) if is_dark_bubble else (255, 255, 255)
     stroke_w = 2 if is_dark_bubble else 1
     
-    is_shout = ("!" in translated_text and len(words) <= 4) or translated_text.isupper()
+    words = clean_text.split()
+    is_shout = ("!" in clean_text and len(words) <= 4) or clean_text.isupper()
     font_key = "arial" if is_shout else "comic"
     
-    safe_w = max(50, int(w * 0.90))
-    safe_h = max(25, int(h * 0.90))
+    # 85% safe boundary limits
+    safe_w = max(20, int(w * 0.85))
+    safe_h = max(15, int(h * 0.85))
     
     best_font = None
     best_lines = []
     
-    # Adaptive font sizing from 24 down to 10
-    for font_size in range(24, 9, -1):
+    # Adaptive font sizing from 26 down to 8
+    for font_size in range(26, 7, -1):
         test_font = get_best_font(font_key, font_size)
-        wrapped_lines = wrap_text_to_bubble(translated_text, test_font, safe_w)
+        wrapped_lines = wrap_text_to_bounds(clean_text, test_font, safe_w)
         if not wrapped_lines:
             continue
             
-        line_heights = [draw.textbbox((0, 0), l, font=test_font)[3] - draw.textbbox((0, 0), l, font=test_font)[1] for l in wrapped_lines]
-        total_h = sum(line_heights) + (len(wrapped_lines) - 1) * 3
+        line_bboxes = [draw.textbbox((0, 0), l, font=test_font) for l in wrapped_lines]
+        line_heights = [b[3] - b[1] for b in line_bboxes]
+        line_widths = [b[2] - b[0] for b in line_bboxes]
+        total_text_h = sum(line_heights) + (len(wrapped_lines) - 1) * 3
+        max_line_w = max(line_widths) if line_widths else 0
         
-        if total_h <= safe_h:
+        if total_text_h <= safe_h and max_line_w <= safe_w:
             best_font = test_font
             best_lines = wrapped_lines
             break
             
     if best_font is None:
-        best_font = get_best_font(font_key, 11)
-        best_lines = wrap_text_to_bubble(translated_text, best_font, safe_w)
+        best_font = get_best_font(font_key, 8)
+        best_lines = wrap_text_to_bounds(clean_text, best_font, safe_w)
         
     if not best_lines:
         return
@@ -154,6 +141,7 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
     line_spacing = 3
     total_text_h = sum(line_heights) + (len(best_lines) - 1) * line_spacing
     
+    # Perfect vertical and horizontal centering
     cur_y = y + (h - total_text_h) / 2.0
     
     for i, line in enumerate(best_lines):
@@ -168,43 +156,62 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
         )
         cur_y += line_heights[i] + line_spacing
 
-def process_page_translation(cleaned_img_path: str, output_path: str, clusters: list) -> str:
+def process_page_translation(cleaned_img_input, clusters: list, output_path: str = None) -> np.ndarray:
     """
-    Translates all bubbles on the page via LLM and typesets them.
+    Translates all bubbles via batch LLM translator and typesets them centered inside boxes.
+    Returns BGR numpy array and optionally saves to output_path.
     """
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    pil_img = Image.open(cleaned_img_path).convert("RGBA")
+    if isinstance(cleaned_img_input, str):
+        cv_img = cv2.imread(cleaned_img_input)
+        if cv_img is None:
+            raise FileNotFoundError(f"Cannot read image: {cleaned_img_input}")
+        rgb = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
+        pil_img = Image.fromarray(rgb)
+    elif isinstance(cleaned_img_input, np.ndarray):
+        rgb = cv2.cvtColor(cleaned_img_input, cv2.COLOR_BGR2RGB)
+        pil_img = Image.fromarray(rgb)
+    else:
+        raise ValueError("cleaned_img_input must be file path or np.ndarray")
+        
     draw = ImageDraw.Draw(pil_img)
     
-    # 1. Collect all bubbles for batch LLM translation
-    bubbles_payload = {}
+    # 1. Prepare batch translation request linked by bubble ID
+    items_to_translate = []
     valid_clusters = []
     
-    for idx, cluster in enumerate(clusters, 1):
+    for cluster in clusters:
         raw_text = cluster.get("text", "").strip()
         if not raw_text:
             continue
-        # Filter watermarks
+        # Skip watermarks
         if "scythescans" in raw_text.lower() or "brought to you by" in raw_text.lower():
             continue
-        bubble_key = f"bubble_{idx}"
-        cluster["bubble_key"] = bubble_key
-        bubbles_payload[bubble_key] = raw_text
+        b_id = cluster["id"]
+        items_to_translate.append({"id": b_id, "text": raw_text})
         valid_clusters.append(cluster)
         
-    logger.info(f"Translating {len(bubbles_payload)} bubbles for {os.path.basename(cleaned_img_path)}...")
-    translations_map = translate_bubbles_with_openrouter(bubbles_payload)
+    logger.info(f"Translating {len(items_to_translate)} bubbles in batch...")
+    translation_results = translate_bubbles_batch(items_to_translate)
+    translations_by_id = {item["id"]: item["translated"] for item in translation_results}
     
-    # 2. Typeset each bubble
+    # 2. Render each bubble
     for cluster in valid_clusters:
-        b_key = cluster.get("bubble_key")
-        translated_text = translations_map.get(b_key, "")
-        typeset_bubble(draw, pil_img, cluster, translated_text)
+        b_id = cluster["id"]
+        trans_text = translations_by_id.get(b_id, "")
+        typeset_bubble(draw, pil_img, cluster, trans_text)
         
     final_rgb = pil_img.convert("RGB")
-    final_rgb.save(output_path, "WEBP", quality=94)
-    logger.info(f"Page translated & typeset successfully -> {output_path}")
-    return output_path
+    final_bgr = cv2.cvtColor(np.array(final_rgb), cv2.COLOR_RGB2BGR)
+    
+    if output_path:
+        os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
+        if output_path.lower().endswith(".webp"):
+            final_rgb.save(output_path, "WEBP", quality=95)
+        else:
+            cv2.imwrite(output_path, final_bgr)
+        logger.info(f"Page translated & typeset successfully -> {output_path}")
+        
+    return final_bgr
 
 if __name__ == "__main__":
-    print("TypesetterAgent loaded successfully.")
+    print("TypesetterAgent ready.")

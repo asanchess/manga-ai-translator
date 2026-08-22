@@ -1,331 +1,315 @@
 # -*- coding: utf-8 -*-
+"""
+LLM Translator Agent with Strict JSON Schema Validation and ID Integrity Guard.
+Supports Local Ollama (llama3.2:3b), OpenRouter Free Models, and Offline Glossary.
+"""
 import os
-import sys
+import re
 import json
 import time
-import re
 import requests
 import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("LLMTranslatorAgent")
 
-OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2:3b")
 
-# Active free models on OpenRouter with multi-provider fallback
-MODEL_CASCADE = [
-    "openrouter/free",
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_FREE_MODELS = [
     "meta-llama/llama-3.3-70b-instruct:free",
     "qwen/qwen-2.5-72b-instruct:free",
-    "deepseek/deepseek-chat:free",
-    "google/gemma-4-31b-it:free",
-    "z-ai/glm-5.2:free",
-    "openai/gpt-oss-20b:free",
-    "nvidia/nemotron-3-nano-30b-a3b:free",
-    "nvidia/nemotron-3-super-120b-a12b:free"
+    "google/gemini-2.0-flash-exp:free",
+    "mistralai/mistral-7b-instruct:free"
 ]
 
-CACHE_FILE = os.path.join(os.path.dirname(__file__), "translations_db.json")
+FALLBACK_GLOSSARY = {
+    "hello": "Привет",
+    "master": "Мастер",
+    "die": "Умри!",
+    "kill": "Убить!",
+    "what": "Что?!",
+    "impossible": "Невозможно...",
+    "stop": "Стой!",
+    "who": "Кто ты?",
+    "scythescans": "",
+    "chapter": "Глава"
+}
 
-GLOSSARY_PROMPT = """
-Ты — элитный переводчик и локализатор манги/маньхуа (культивация, сянься, уся) на русский язык.
-Твоя задача — перевести реплики персонажей из манги максимально живо, эмоционально, с правильным сохранением характеров персонажей, боевого пафоса и юмора.
+TRANSLATIONS_CACHE_FILE = os.path.join(os.path.dirname(__file__), "translations_db.json")
 
-ГЛОССАРИЙ ИМЁН И ТЕРМИНОВ:
-- Li Yunxiao / Yunxiao -> Ли Юньсяо (Главный герой, уверенный, саркастичный, великий мастер)
-- Yang Chen -> Ян Чэнь
-- Old Yuan -> Старый Юань
-- Beiming Clan / Beiming Family -> Клан Бэймин
-- Beiming Kang -> Бэймин Кан
-- Beiming Gong -> Бэймин Гун
-- Sanctuary -> Святилище
-- Red Moon City -> Город Красной Луны
-- Clear Bright Moon Pavilion -> Павильон Ясной Луны
-- Martial Supreme / Emperor -> Боевой Владыка
-- Earth Domain -> Домен Земли
-- Profound Artifact -> Глубинный артефакт
-- Yao Transformation -> Трансформация Демона
-- Heavenly Soul Realm -> Сфера Небесной Души
-- Divine Body -> Божественное тело
-- Qi / True Essence -> Истинная Ци / Истинная сущность
-
-ПРАВИЛА ПЕРЕВОДА:
-1. Перевод должен быть естественным литературным русским языком с комиксной динамикой (без буквализма).
-2. Длина реплики не должна быть избыточно длинной, чтобы текст комфортно помещался в бабл.
-3. Сохраняй знаки препинания и эмоциональность (!, ?, ...).
-4. Ты ПОЛУЧАЕШЬ JSON словарь с номерами баблов: {"bubble_1": "text", "bubble_2": "text", ...}.
-5. Ты ДОЛЖЕН ВЕРНУТЬ СТРОГО ВАЛИДНЫЙ JSON с теми же ключами: {"bubble_1": "перевод", "bubble_2": "перевод", ...}. Без лишнего текста, без markdown обёрток!
-"""
-
-def load_cache():
-    if os.path.exists(CACHE_FILE):
+def load_translations_cache() -> dict:
+    if os.path.exists(TRANSLATIONS_CACHE_FILE):
         try:
-            with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            with open(TRANSLATIONS_CACHE_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except Exception as e:
-            logger.warning(f"Failed to load cache: {e}")
+        except Exception:
+            pass
     return {}
 
-def save_cache(cache_data):
+def save_translations_cache(cache: dict):
     try:
-        with open(CACHE_FILE, "w", encoding="utf-8") as f:
-            json.dump(cache_data, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        logger.warning(f"Failed to save cache: {e}")
+        with open(TRANSLATIONS_CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
 
-def lookup_in_db(raw_text: str, cache_data: dict) -> str:
-    """Checks cache dictionary, structured dialogue pattern list, and SFX list."""
-    clean_text = raw_text.strip()
-    if not clean_text:
-        return ""
-    
-    # 1. Direct dictionary match
-    if clean_text in cache_data:
-        return cache_data[clean_text]
-        
-    lower_text = re.sub(r'[^a-z0-9 ]', '', clean_text.lower()).strip()
-    
-    # 2. SFX dictionary match
-    sfx_dict = cache_data.get("sfx", {})
-    if lower_text in sfx_dict:
-        return sfx_dict[lower_text]
-    for s_k, s_v in sfx_dict.items():
-        if s_k == lower_text or lower_text.startswith(s_k) or lower_text.endswith(s_k):
-            return s_v
-            
-    # 3. Structured dialogue pattern list
-    dialogues = cache_data.get("dialogue", [])
-    for entry in dialogues:
-        patterns = entry.get("patterns", [])
-        for pat in patterns:
-            pat_clean = re.sub(r'[^a-z0-9 ]', '', pat.lower()).strip()
-            if pat_clean and (pat_clean in lower_text or lower_text in pat_clean):
-                return entry.get("ru", "")
-                
-    return None
-
-def check_ollama_available(timeout: float = 3.0) -> tuple:
-    """Checks if local Ollama daemon is running with a strict timeout (3.0s)."""
+def check_ollama_status() -> tuple[bool, str]:
     try:
-        resp = requests.get("http://localhost:11434/api/tags", timeout=timeout)
-        if resp.status_code == 200:
-            models = resp.json().get("models", [])
-            model_name = models[0]["name"] if models else "llama3.2:3b"
-            return True, model_name
+        r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=3.0)
+        if r.status_code == 200:
+            models_data = r.json().get("models", [])
+            model_names = [m.get("name", "").split(":")[0] for m in models_data]
+            for m in models_data:
+                full_name = m.get("name", "")
+                if "llama3.2" in full_name or "llama3" in full_name or "qwen" in full_name:
+                    return True, full_name
+            if models_data:
+                return True, models_data[0].get("name", OLLAMA_MODEL)
+            return True, OLLAMA_MODEL
     except Exception:
         pass
     return False, ""
 
-def apply_rule_based_fallback(text: str) -> str:
-    """Smart martial arts & conversational translation fallback"""
-    text_lower = text.lower().strip()
-    
-    # Common battle SFX
-    if "boom" in text_lower or "rumble" in text_lower:
-        return "ГРОХОТ!!"
-    if "slash" in text_lower or "swish" in text_lower:
-        return "ВЖУХ!"
-    if "clash" in text_lower or "clang" in text_lower:
-        return "ДЗЫНЬ!"
-    if "pant" in text_lower or "gasp" in text_lower:
-        return "Хаа... Хаа..."
-    if "cough" in text_lower:
-        return "Кхе-кхе!"
-
-    # Specific phrase replacements
-    rules = [
-        ("li yunxiao", "Ли Юньсяо"),
-        ("yang chen", "Ян Чэнь"),
-        ("old yuan", "Старый Юань"),
-        ("beiming", "Бэймин"),
-        ("sanctuary", "Святилище"),
-        ("what?!", "Что?!"),
-        ("how is this possible?!", "Как такое возможно?!"),
-        ("impossible!", "Невозможно!"),
-        ("damn it!", "Проклятье!"),
-        ("die!", "Сдохни!"),
-        ("court death!", "Ищешь смерти!"),
-        ("martial supreme", "Боевой Владыка"),
-        ("earth domain", "Домен Земли"),
-        ("profound artifact", "Глубинный артефакт"),
-    ]
-
-    res = text
-    for eng, rus in rules:
-        if eng in res.lower():
-            res = re.sub(re.escape(eng), rus, res, flags=re.IGNORECASE)
-            
-    if res != text:
-        return res
-
-    return text
-
-def translate_bubbles_with_openrouter(bubbles_dict: dict) -> dict:
+def extract_json_array(text: str) -> list:
     """
-    Translates a dictionary of { "bubble_X": "original english text" }
-    using:
-    1. Local database cache
-    2. Local Ollama (with fast 3s connection check)
-    3. OpenRouter Free Cascade
-    4. Safe offline rule-based fallback
+    Safely parses JSON array from model responses, stripping markdown code blocks.
     """
-    if not bubbles_dict:
-        return {}
-
-    cache = load_cache()
-    result = {}
-    missing_to_translate = {}
-
-    # Check cache and pattern database first
-    for key, text in bubbles_dict.items():
-        matched = lookup_in_db(text, cache)
-        if matched:
-            result[key] = matched
-        else:
-            missing_to_translate[key] = text.strip()
-
-    if not missing_to_translate:
-        logger.info("All bubbles resolved from local translation cache & database.")
-        return result
-
-    headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "HTTP-Referer": "https://manga-translator.local",
-        "X-Title": "Manga Agentic Scanlation Pipeline",
-        "Content-Type": "application/json"
-    }
-
-    # Check local Ollama availability with 3.0s timeout
-    ollama_ok, ollama_model = check_ollama_available(timeout=3.0)
-    OLLAMA_URL = "http://localhost:11434/api/generate"
-    
-    missing_items = list(missing_to_translate.items())
-    chunk_size = 8
-    
-    for i in range(0, len(missing_items), chunk_size):
-        chunk_dict = dict(missing_items[i:i+chunk_size])
-        user_payload = {
-            "manga": "Manga Translation",
-            "bubbles": chunk_dict
-        }
-
-        translated_chunk = None
+    cleaned = text.strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```[a-zA-Z]*\n", "", cleaned)
+        cleaned = re.sub(r"```$", "", cleaned).strip()
         
-        # 1. Try Local Ollama if available
-        if ollama_ok:
-            try:
-                logger.info(f"Attempting translation via local Ollama (Model: {ollama_model})...")
-                prompt_text = f"{GLOSSARY_PROMPT}\nПереведи следующие баблы в JSON:\n{json.dumps(user_payload, ensure_ascii=False)}"
-                ollama_body = {
-                    "model": ollama_model,
-                    "prompt": prompt_text,
-                    "stream": False,
-                    "format": "json"
-                }
-                ollama_resp = requests.post(OLLAMA_URL, json=ollama_body, timeout=25)
-                if ollama_resp.status_code == 200:
-                    resp_json = ollama_resp.json()
-                    content = resp_json.get("response", "").strip()
-                    parsed = json.loads(content)
-                    if isinstance(parsed, dict):
-                        if "bubbles" in parsed and isinstance(parsed["bubbles"], dict):
-                            parsed = parsed["bubbles"]
-                        translated_chunk = parsed
-                        logger.info(f"✓ Successful translation from local Ollama ({ollama_model}).")
-            except Exception as e:
-                logger.warning(f"Local Ollama failed: {e}")
+    # Match JSON array [ ... ]
+    arr_match = re.search(r"\[\s*\{.*?\}\s*\]", cleaned, re.DOTALL)
+    if arr_match:
+        try:
+            return json.loads(arr_match.group(0))
+        except Exception:
+            pass
+            
+    # Try direct parse
+    try:
+        parsed = json.loads(cleaned)
+        if isinstance(parsed, list):
+            return parsed
+        elif isinstance(parsed, dict):
+            return [{"id": k, "translated": v} for k, v in parsed.items()]
+    except Exception:
+        pass
+        
+    return []
 
-        # 2. Fallback to OpenRouter Cloud API
-        if not translated_chunk and OPENROUTER_API_KEY:
-            for model in MODEL_CASCADE:
-                logger.info(f"Translating chunk ({len(chunk_dict)} bubbles) via model: {model}...")
-                try:
-                    body = {
-                        "model": model,
-                        "messages": [
-                            {"role": "system", "content": GLOSSARY_PROMPT},
-                            {"role": "user", "content": f"Переведи следующие баблы в JSON:\n{json.dumps(user_payload, ensure_ascii=False)}"}
-                        ],
-                        "temperature": 0.2,
-                        "response_format": {"type": "json_object"}
-                    }
+def call_ollama_batch(items: list[dict], model: str) -> list[dict]:
+    prompt = (
+        "You are an expert manga/manhua translator into Russian.\n"
+        "Translate each text bubble accurately and naturally into Russian with suitable tone.\n"
+        "Input format: JSON array of objects with 'id' and 'text'.\n"
+        "Output format: STRICT JSON array of objects with 'id' (integer) and 'translated' (string in Russian).\n"
+        "IMPORTANT: You MUST include every single 'id' from the input in the output.\n"
+        "Do NOT include explanations or markdown outside the JSON.\n\n"
+        f"Input:\n{json.dumps(items, ensure_ascii=False, indent=2)}\n\n"
+        "Output JSON:"
+    )
+    
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False,
+        "format": "json",
+        "options": {
+            "temperature": 0.2,
+            "num_predict": 1024
+        }
+    }
+    
+    resp = requests.post(f"{OLLAMA_URL}/api/generate", json=payload, timeout=25.0)
+    if resp.status_code == 200:
+        raw_res = resp.json().get("response", "")
+        return extract_json_array(raw_res)
+    return []
 
-                    resp = requests.post(
-                        "https://openrouter.ai/api/v1/chat/completions",
-                        headers=headers,
-                        json=body,
-                        timeout=10
-                    )
+def call_openrouter_batch(items: list[dict], api_key: str, model_name: str) -> list[dict]:
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://manga-ai-translator.local",
+        "X-Title": "Manga AI Translator"
+    }
+    
+    messages = [
+        {
+            "role": "system",
+            "content": "You are a manga translation engine. Translate speech bubbles into natural Russian. Output strictly a JSON array of objects with keys 'id' (int) and 'translated' (str). Every input ID must be translated."
+        },
+        {
+            "role": "user",
+            "content": f"Input:\n{json.dumps(items, ensure_ascii=False, indent=2)}"
+        }
+    ]
+    
+    payload = {
+        "model": model_name,
+        "messages": messages,
+        "temperature": 0.2,
+        "max_tokens": 1024
+    }
+    
+    resp = requests.post(OPENROUTER_URL, headers=headers, json=payload, timeout=20.0)
+    if resp.status_code == 200:
+        data = resp.json()
+        raw_text = data["choices"][0]["message"]["content"]
+        return extract_json_array(raw_text)
+    return []
 
-                    if resp.status_code == 200:
-                        resp_json = resp.json()
-                        content = resp_json["choices"][0]["message"]["content"].strip()
-                        content = re.sub(r'<think>.*?</think>', '', content, flags=re.DOTALL).strip()
-                        
-                        json_match = re.search(r'\{.*\}', content, re.DOTALL)
-                        if json_match:
-                            content = json_match.group(0)
-
-                        parsed = json.loads(content)
-                        if isinstance(parsed, dict):
-                            if "bubbles" in parsed and isinstance(parsed["bubbles"], dict):
-                                parsed = parsed["bubbles"]
-                            sanitized = {}
-                            for bk, bv in parsed.items():
-                                if isinstance(bv, str):
-                                    bv = re.sub(r'[\ufffd\u25a0\u25a1\u25aa\u25ab]', '', bv)
-                                    bv = re.sub(r'\[\s*\]', '', bv)
-                                    bv = re.sub(r'\s+', ' ', bv).strip()
-                                sanitized[bk] = bv
-                            translated_chunk = sanitized
-                            logger.info(f"✓ Successful translation from {model} for {len(translated_chunk)} bubbles.")
-                            break
-                except Exception as e:
-                    logger.warning(f"Model {model} chunk failed: {e}")
-
-        if translated_chunk:
-            for k, v in translated_chunk.items():
-                if k in chunk_dict:
-                    clean_orig = chunk_dict[k]
-                    result[k] = str(v)
-                    cache[clean_orig] = str(v)
-        else:
-            for k, orig_val in chunk_dict.items():
-                fb = apply_rule_based_fallback(orig_val)
-                result[k] = fb
-                cache[orig_val] = fb
-
-    for k, orig_text in missing_to_translate.items():
-        if k not in result:
-            fallback_text = apply_rule_based_fallback(orig_text)
-            result[k] = fallback_text
-            cache[orig_text] = fallback_text
-
-    save_cache(cache)
-    return result
-
-def translate_bubbles_batch(items: list) -> list:
+def fallback_translate_text(text: str) -> str:
     """
-    Accepts a list of dicts: [{"id": 0, "text": "..."}, ...]
-    Returns a list of dicts: [{"id": 0, "translated": "..."}]
+    Offline fallback translation for a single bubble text.
+    """
+    clean_t = text.strip()
+    if not clean_t:
+        return ""
+    words = clean_t.split()
+    translated_words = []
+    for w in words:
+        w_low = re.sub(r'[^a-zA-Z]', '', w).lower()
+        if w_low in FALLBACK_GLOSSARY:
+            rep = FALLBACK_GLOSSARY[w_low]
+            translated_words.append(rep if rep else w)
+        else:
+            translated_words.append(w)
+            
+    res = " ".join(translated_words)
+    if res == clean_t:
+        # If no words changed, add punctuation formatting
+        return clean_t.upper() if clean_t.isupper() else clean_t
+    return res
+
+def translate_bubbles_batch(items: list[dict]) -> list[dict]:
+    """
+    Strict batch translation function.
+    Input:  [{"id": 1, "text": "Hello master!"}, ...]
+    Output: [{"id": 1, "translated": "Привет, мастер!"}, ...]
+    Guarantees every input ID is present in the returned list.
     """
     if not items:
         return []
         
-    payload_dict = {f"bubble_{item['id']}": item.get("text", "") for item in items}
-    trans_map = translate_bubbles_with_openrouter(payload_dict)
+    input_ids = [item["id"] for item in items]
+    results_map = {}
     
-    result = []
+    # 1. Check local persistent translation cache
+    cache = load_translations_cache()
+    missing_items = []
+    
     for item in items:
         b_id = item["id"]
-        key = f"bubble_{b_id}"
-        result.append({
+        raw_text = item["text"].strip()
+        if not raw_text:
+            results_map[b_id] = ""
+            continue
+        if raw_text in cache:
+            results_map[b_id] = cache[raw_text]
+        else:
+            missing_items.append(item)
+            
+    if not missing_items:
+        logger.info("All bubbles resolved from local translation cache.")
+        return [{"id": i_id, "translated": results_map.get(i_id, "")} for i_id in input_ids]
+        
+    # 2. Try Local Ollama if available
+    ollama_ok, ollama_model = check_ollama_status()
+    if ollama_ok and missing_items:
+        try:
+            logger.info(f"Attempting translation via local Ollama ({ollama_model})...")
+            llm_results = call_ollama_batch(missing_items, ollama_model)
+            for res in llm_results:
+                if isinstance(res, dict) and "id" in res and "translated" in res:
+                    res_id = res["id"]
+                    try:
+                        res_id = int(res_id)
+                    except Exception:
+                        pass
+                    trans_text = str(res["translated"]).strip()
+                    if trans_text:
+                        results_map[res_id] = trans_text
+                        for orig in missing_items:
+                            if orig["id"] == res_id:
+                                cache[orig["text"].strip()] = trans_text
+            save_translations_cache(cache)
+        except Exception as e:
+            logger.warning(f"Local Ollama attempt failed: {e}")
+            
+    # Check if any IDs still missing
+    still_missing = [item for item in items if item["id"] not in results_map or not results_map[item["id"]]]
+    
+    # 3. Try OpenRouter free models if API key exists
+    openrouter_api_key = os.environ.get("OPENROUTER_API_KEY", "")
+    if still_missing and openrouter_api_key:
+        for model in OPENROUTER_FREE_MODELS:
+            try:
+                logger.info(f"Attempting OpenRouter translation via model: {model}...")
+                or_results = call_openrouter_batch(still_missing, openrouter_api_key, model)
+                for res in or_results:
+                    if isinstance(res, dict) and "id" in res and "translated" in res:
+                        res_id = res["id"]
+                        try:
+                            res_id = int(res_id)
+                        except Exception:
+                            pass
+                        trans_text = str(res["translated"]).strip()
+                        if trans_text:
+                            results_map[res_id] = trans_text
+                            for orig in still_missing:
+                                if orig["id"] == res_id:
+                                    cache[orig["text"].strip()] = trans_text
+                save_translations_cache(cache)
+                still_missing = [item for item in items if item["id"] not in results_map or not results_map[item["id"]]]
+                if not still_missing:
+                    break
+            except Exception as e:
+                logger.warning(f"OpenRouter model {model} failed: {e}")
+                
+    # 4. Offline Fallback for any remaining unmapped IDs
+    for item in items:
+        b_id = item["id"]
+        if b_id not in results_map or not results_map[b_id]:
+            fb_text = fallback_translate_text(item["text"])
+            results_map[b_id] = fb_text
+            cache[item["text"].strip()] = fb_text
+            
+    save_translations_cache(cache)
+    
+    # Assemble final guaranteed array
+    final_output = []
+    for item in items:
+        b_id = item["id"]
+        final_output.append({
             "id": b_id,
-            "translated": trans_map.get(key, item.get("text", ""))
+            "translated": results_map.get(b_id, item["text"])
         })
-    return result
+        
+    return final_output
+
+def translate_bubbles_with_openrouter(bubbles: dict) -> dict:
+    """
+    Legacy dictionary interface for backward compatibility:
+    Input:  {"bubble_1": "Hello", ...}
+    Output: {"bubble_1": "Привет", ...}
+    """
+    items = []
+    key_to_id = {}
+    for idx, (k, txt) in enumerate(bubbles.items(), 1):
+        items.append({"id": idx, "text": txt})
+        key_to_id[idx] = k
+        
+    translated_items = translate_bubbles_batch(items)
+    out_dict = {}
+    for item in translated_items:
+        k = key_to_id.get(item["id"], f"bubble_{item['id']}")
+        out_dict[k] = item["translated"]
+    return out_dict
 
 if __name__ == "__main__":
-    print("LLM Translator Agent initialized.")
-    is_up, mod = check_ollama_available()
-    print(f"Ollama status: {'Running (' + mod + ')' if is_up else 'Not running (will use OpenRouter/Rule Fallback)'}")
+    print("LLM Translator Agent ready.")

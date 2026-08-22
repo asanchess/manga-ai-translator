@@ -1,0 +1,170 @@
+[
+  {
+    "box": [
+      252,
+      112,
+      314,
+      62
+    ],
+    "text": "BRATi If YOu WANT To Cut OFf My paTH OF Survival; THEN You ShouldN't Live Eitheri",
+    "lines": [
+      [
+        294,
+        112,
+        226,
+        24
+      ],
+      [
+        252,
+        132,
+        314,
+        24
+      ],
+      [
+        306,
+        148,
+        204,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      18,
+      3636,
+      172,
+      30
+    ],
+    "text": "PERFECT Timing.",
+    "lines": [
+      [
+        18,
+        3636,
+        172,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      238,
+      4122,
+      330,
+      146
+    ],
+    "text": "USING THIS MOVE On A MARTIAL SupReme is indeed A WASTE: it's perFecTLy SUItABLE TO USE YOU AS A Test SUBJECT:",
+    "lines": [
+      [
+        312,
+        4122,
+        184,
+        30
+      ],
+      [
+        272,
+        4150,
+        262,
+        30
+      ],
+      [
+        238,
+        4180,
+        330,
+        30
+      ],
+      [
+        278,
+        4208,
+        250,
+        30
+      ],
+      [
+        320,
+        4238,
+        170,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      243,
+      8539,
+      124,
+      112
+    ],
+    "text": "44",
+    "lines": [
+      [
+        243,
+        8539,
+        124,
+        112
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      477,
+      9346,
+      306,
+      409
+    ],
+    "text": "Dig pJig]",
+    "lines": [
+      [
+        493,
+        9346,
+        290,
+        277
+      ],
+      [
+        477,
+        9595,
+        208,
+        160
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true
+  },
+  {
+    "box": [
+      218,
+      10632,
+      334,
+      116
+    ],
+    "text": "THIS COMMOTION IS TOO BIG. I MUST FINISH THIS QUICKly RED MOON City ARRIVES!!",
+    "lines": [
+      [
+        252,
+        10632,
+        268,
+        30
+      ],
+      [
+        218,
+        10660,
+        334,
+        30
+      ],
+      [
+        250,
+        10718,
+        272,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  }
+]

@@ -1,0 +1,268 @@
+[
+  {
+    "box": [
+      216,
+      51,
+      584,
+      678
+    ],
+    "text": "3/",
+    "lines": [
+      [
+        216,
+        51,
+        584,
+        678
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      311,
+      1158,
+      421,
+      340
+    ],
+    "text": "4e",
+    "lines": [
+      [
+        311,
+        1158,
+        421,
+        340
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      527,
+      7345,
+      84,
+      122
+    ],
+    "text": "V ,",
+    "lines": [
+      [
+        527,
+        7345,
+        84,
+        122
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      128,
+      7575,
+      250,
+      58
+    ],
+    "text": "He SHATTERED The Void AND ESCAPED:",
+    "lines": [
+      [
+        128,
+        7575,
+        250,
+        31
+      ],
+      [
+        162,
+        7605,
+        148,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      336,
+      8225,
+      404,
+      89
+    ],
+    "text": "UNLESS I RELEASE MY Two Disciples; THERE REALLY Isn't A GOOD WAY TO MAKE Wenlin STAY",
+    "lines": [
+      [
+        422,
+        8225,
+        276,
+        33
+      ],
+      [
+        336,
+        8256,
+        404,
+        30
+      ],
+      [
+        400,
+        8284,
+        276,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      252,
+      8422,
+      194,
+      144
+    ],
+    "text": "HOWEvER, Luo QinGyun IS HeRE; SO It'S BEST NOT TO EXpose ANY MORE",
+    "lines": [
+      [
+        292,
+        8422,
+        114,
+        30
+      ],
+      [
+        264,
+        8452,
+        170,
+        28
+      ],
+      [
+        252,
+        8480,
+        194,
+        30
+      ],
+      [
+        264,
+        8508,
+        172,
+        30
+      ],
+      [
+        290,
+        8538,
+        116,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      266,
+      8916,
+      318,
+      336
+    ],
+    "text": "LEAVE This PLACE ImmeDiately: THE Commotion JuST now WAS Simply Too huGe: Im AFRaiD The people OF RED MOON City ARe On Their WAY Here:",
+    "lines": [
+      [
+        326,
+        8916,
+        116,
+        30
+      ],
+      [
+        282,
+        8944,
+        206,
+        30
+      ],
+      [
+        266,
+        8974,
+        236,
+        30
+      ],
+      [
+        294,
+        9002,
+        180,
+        30
+      ],
+      [
+        322,
+        9032,
+        120,
+        28
+      ],
+      [
+        440,
+        9108,
+        114,
+        28
+      ],
+      [
+        414,
+        9136,
+        168,
+        30
+      ],
+      [
+        412,
+        9166,
+        172,
+        28
+      ],
+      [
+        426,
+        9194,
+        142,
+        28
+      ],
+      [
+        444,
+        9222,
+        108,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  },
+  {
+    "box": [
+      30,
+      9628,
+      346,
+      116
+    ],
+    "text": "HOWEVER, With The WAY Wenlin LookS, Recovering Won't Be Something THAT CAN Be DONe In A SHORT Time",
+    "lines": [
+      [
+        96,
+        9628,
+        208,
+        30
+      ],
+      [
+        30,
+        9656,
+        346,
+        30
+      ],
+      [
+        36,
+        9685,
+        332,
+        31
+      ],
+      [
+        64,
+        9714,
+        272,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
+  }
+]
