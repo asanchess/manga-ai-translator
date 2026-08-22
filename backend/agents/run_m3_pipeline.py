@@ -63,7 +63,7 @@ def main():
         v3_files = sorted([f for f in os.listdir(v3_dir) if f.lower().endswith((".webp", ".png", ".jpg", ".jpeg")) and not f.endswith(".ocr.json")]) if os.path.exists(v3_dir) else []
 
         # Process if missing v3 pages or if re-cleaning required
-        needs_proc = (len(v3_files) != len(v1_files)) or (len(v1_files) == 0) or (ch_num in [533, 536, 537, 538, 539, 540, 541, 542])
+        needs_proc = (len(v3_files) != len(v1_files)) or (len(v1_files) == 0)
 
         if needs_proc:
             logger.info(f"Processing {ch_name} ({len(v1_files)} pages) via ModelInferenceManager...")

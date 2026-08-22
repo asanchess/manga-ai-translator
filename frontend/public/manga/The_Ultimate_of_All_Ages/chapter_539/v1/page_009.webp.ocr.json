@@ -1,0 +1,120 @@
+[
+  {
+    "box": [
+      142,
+      3290,
+      166,
+      138
+    ],
+    "text": "(N",
+    "lines": [
+      [
+        142,
+        3290,
+        166,
+        138
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      56,
+      3621,
+      55,
+      63
+    ],
+    "text": "16",
+    "lines": [
+      [
+        56,
+        3621,
+        55,
+        63
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      70,
+      7920,
+      194,
+      30
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        70,
+        7920,
+        194,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      257,
+      8309,
+      286,
+      122
+    ],
+    "text": "THIS CHAPTER IS BROUGHT T0 YOU BY SCYTHE TEAM",
+    "lines": [
+      [
+        261,
+        8309,
+        276,
+        42
+      ],
+      [
+        257,
+        8347,
+        284,
+        44
+      ],
+      [
+        271,
+        8387,
+        272,
+        44
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      232,
+      8572,
+      334,
+      58
+    ],
+    "text": "GXcLOSIB GHAPTCRS (IRSD OU SOYTHESCANBCOD",
+    "lines": [
+      [
+        232,
+        8572,
+        334,
+        32
+      ],
+      [
+        266,
+        8600,
+        274,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  }
+]

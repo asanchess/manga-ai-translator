@@ -1,23 +1,23 @@
 [
   {
     "box": [
-      62,
-      119,
-      551,
-      294
+      61,
+      122,
+      552,
+      291
     ],
-    "text": "ThIS CHAPTERIS BROUGHT TO YOU BY SCYTHE TEAM excusive chapters DN scythescaNs cDM",
+    "text": "THIS CHAPTER IS BROUGHT To YOU BY SCYTHE TEAM excusive chapters DN scythescaNs cDM",
     "lines": [
       [
-        65,
-        119,
-        409,
-        57
+        66,
+        122,
+        406,
+        56
       ],
       [
-        62,
+        61,
         175,
-        415,
+        416,
         57
       ],
       [
@@ -40,8 +40,26 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false,
-    "id": 1
+    "is_dark": false
+  },
+  {
+    "box": [
+      299,
+      1389,
+      224,
+      112
+    ],
+    "text": "#x",
+    "lines": [
+      [
+        299,
+        1389,
+        224,
+        112
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false
   },
   {
     "box": [
@@ -50,7 +68,7 @@
       213,
       55
     ],
-    "text": "The ULTIMATE of AII Ages",
+    "text": "The ULTIMATE Ages of AlI",
     "lines": [
       [
         348,
@@ -59,21 +77,20 @@
         30
       ],
       [
-        455,
-        1637,
-        52,
-        20
-      ],
-      [
         503,
         1623,
         58,
         42
+      ],
+      [
+        455,
+        1637,
+        52,
+        20
       ]
     ],
     "is_sfx": false,
-    "is_dark": false,
-    "id": 2
+    "is_dark": false
   },
   {
     "box": [
@@ -82,7 +99,7 @@
       446,
       322
     ],
-    "text": "Htlz: {jk Hi#: {@jk 'TaBF: 815110 ## hA M#@ AB ERB#: JXH FN #is mi? 398: #m",
+    "text": "Htlz: {jk H#U: {@jk #4: #sh16 'TaBa: 815110 ## hA M#@ B ETB#: JXH FN #is mi? 898: #M",
     "lines": [
       [
         259,
@@ -95,6 +112,12 @@
         2349,
         150,
         38
+      ],
+      [
+        261,
+        2393,
+        208,
+        40
       ],
       [
         259,
@@ -115,35 +138,33 @@
         42
       ],
       [
-        261,
+        259,
         2587,
-        148,
+        150,
         36
       ]
     ],
     "is_sfx": false,
-    "is_dark": false,
-    "id": 3
+    "is_dark": false
   },
   {
     "box": [
-      56,
+      55,
       6840,
       196,
-      140
+      145
     ],
-    "text": "YU",
+    "text": "Y U",
     "lines": [
       [
-        56,
+        55,
         6840,
         196,
-        140
+        145
       ]
     ],
     "is_sfx": true,
-    "is_dark": false,
-    "id": 4
+    "is_dark": false
   },
   {
     "box": [
@@ -152,7 +173,7 @@
       123,
       200
     ],
-    "text": "4(",
+    "text": "4'(",
     "lines": [
       [
         677,
@@ -162,7 +183,6 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false,
-    "id": 5
+    "is_dark": false
   }
 ]

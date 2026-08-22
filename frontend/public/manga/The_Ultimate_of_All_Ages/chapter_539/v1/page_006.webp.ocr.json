@@ -1,0 +1,774 @@
+[
+  {
+    "box": [
+      355,
+      103,
+      202,
+      59
+    ],
+    "text": "WHAT'S WronG, ALNT Jil?",
+    "lines": [
+      [
+        355,
+        103,
+        202,
+        31
+      ],
+      [
+        398,
+        133,
+        124,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      33,
+      248,
+      204,
+      106
+    ],
+    "text": "AUNt Jiu Is ACTUALLY AskinG FoR Li YunXiAO'S Opinionl",
+    "lines": [
+      [
+        70,
+        248,
+        129,
+        26
+      ],
+      [
+        35,
+        271,
+        200,
+        33
+      ],
+      [
+        33,
+        300,
+        204,
+        27
+      ],
+      [
+        80,
+        327,
+        111,
+        27
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      583,
+      395,
+      91,
+      29
+    ],
+    "text": "Where",
+    "lines": [
+      [
+        583,
+        395,
+        91,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      535,
+      425,
+      184,
+      89
+    ],
+    "text": "Did This Iron Piece Come FROM?",
+    "lines": [
+      [
+        535,
+        425,
+        184,
+        29
+      ],
+      [
+        548,
+        455,
+        161,
+        29
+      ],
+      [
+        583,
+        485,
+        91,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      100,
+      1225,
+      474,
+      392
+    ],
+    "text": "It Is SAID To HAVE COme From ThE Bone BuRIAL Grounds. now THAT CHANGES HAVE Occurred In THAT AREA, ITS SPIRITuAL ENerGy Is GRADUALLY FADinG. It is ESTIMATED THAT It Will Become A WASTELAND Before Lon6.",
+    "lines": [
+      [
+        130,
+        1225,
+        242,
+        29
+      ],
+      [
+        100,
+        1255,
+        302,
+        29
+      ],
+      [
+        100,
+        1285,
+        302,
+        29
+      ],
+      [
+        120,
+        1315,
+        262,
+        29
+      ],
+      [
+        125,
+        1345,
+        249,
+        29
+      ],
+      [
+        213,
+        1375,
+        76,
+        29
+      ],
+      [
+        328,
+        1438,
+        179,
+        29
+      ],
+      [
+        275,
+        1468,
+        289,
+        31
+      ],
+      [
+        263,
+        1498,
+        311,
+        29
+      ],
+      [
+        267,
+        1525,
+        303,
+        37
+      ],
+      [
+        288,
+        1557,
+        261,
+        29
+      ],
+      [
+        375,
+        1588,
+        87,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      68,
+      2110,
+      206,
+      89
+    ],
+    "text": "ALNt Jil; WHAT EXACTLY Is ThIs ThING?",
+    "lines": [
+      [
+        75,
+        2110,
+        192,
+        32
+      ],
+      [
+        68,
+        2140,
+        206,
+        29
+      ],
+      [
+        123,
+        2168,
+        96,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      193,
+      2735,
+      376,
+      179
+    ],
+    "text": "YounG MASTER ZIMAO; Dont ASk.This item is Shouldnt KEEp it With You Extremely Ominous:You It AS SooN As possible_ either; Try To Dispose OF",
+    "lines": [
+      [
+        235,
+        2735,
+        284,
+        32
+      ],
+      [
+        225,
+        2765,
+        312,
+        29
+      ],
+      [
+        193,
+        2825,
+        376,
+        29
+      ],
+      [
+        215,
+        2795,
+        334,
+        29
+      ],
+      [
+        215,
+        2885,
+        327,
+        29
+      ],
+      [
+        195,
+        2855,
+        372,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      333,
+      3308,
+      214,
+      89
+    ],
+    "text": "CoulD You Let At this Item? Me HAVE A Look",
+    "lines": [
+      [
+        335,
+        3308,
+        207,
+        31
+      ],
+      [
+        345,
+        3368,
+        187,
+        29
+      ],
+      [
+        333,
+        3338,
+        214,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      443,
+      3783,
+      216,
+      119
+    ],
+    "text": "Young MASTER YLNXiAO Recognizes ThiS item?",
+    "lines": [
+      [
+        500,
+        3783,
+        92,
+        29
+      ],
+      [
+        443,
+        3812,
+        216,
+        32
+      ],
+      [
+        460,
+        3843,
+        172,
+        31
+      ],
+      [
+        475,
+        3873,
+        144,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      358,
+      4173,
+      251,
+      89
+    ],
+    "text": "I CAN'T Be Sure MAY I Pick It Up TO EXAMINE It?",
+    "lines": [
+      [
+        368,
+        4173,
+        216,
+        31
+      ],
+      [
+        358,
+        4203,
+        251,
+        29
+      ],
+      [
+        408,
+        4233,
+        151,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
+  },
+  {
+    "box": [
+      180,
+      4678,
+      104,
+      59
+    ],
+    "text": "PLEASE Do_",
+    "lines": [
+      [
+        180,
+        4678,
+        104,
+        29
+      ],
+      [
+        205,
+        4708,
+        49,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 11
+  },
+  {
+    "box": [
+      0,
+      5093,
+      553,
+      776
+    ],
+    "text": "1) Vpl",
+    "lines": [
+      [
+        112,
+        5093,
+        187,
+        323
+      ],
+      [
+        0,
+        5272,
+        553,
+        597
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 12
+  },
+  {
+    "box": [
+      272,
+      6652,
+      296,
+      150
+    ],
+    "text": "3839 23)",
+    "lines": [
+      [
+        272,
+        6652,
+        296,
+        96
+      ],
+      [
+        295,
+        6742,
+        75,
+        60
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 13
+  },
+  {
+    "box": [
+      315,
+      7338,
+      209,
+      31
+    ],
+    "text": "AS EXPectedi",
+    "lines": [
+      [
+        315,
+        7338,
+        209,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 14
+  },
+  {
+    "box": [
+      299,
+      8777,
+      339,
+      43
+    ],
+    "text": "DHARMA BODYII",
+    "lines": [
+      [
+        299,
+        8777,
+        339,
+        43
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 15
+  },
+  {
+    "box": [
+      330,
+      8725,
+      282,
+      51
+    ],
+    "text": "True Demon",
+    "lines": [
+      [
+        330,
+        8725,
+        282,
+        51
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 16
+  },
+  {
+    "box": [
+      18,
+      10184,
+      497,
+      422
+    ],
+    "text": "3S",
+    "lines": [
+      [
+        18,
+        10184,
+        497,
+        422
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 17
+  },
+  {
+    "box": [
+      186,
+      10966,
+      184,
+      36
+    ],
+    "text": "EXCELlENt!",
+    "lines": [
+      [
+        186,
+        10966,
+        184,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 18
+  },
+  {
+    "box": [
+      37,
+      11667,
+      303,
+      110
+    ],
+    "text": "KILL THEM All AND SNATCH The ITEMi",
+    "lines": [
+      [
+        57,
+        11667,
+        261,
+        38
+      ],
+      [
+        37,
+        11702,
+        303,
+        41
+      ],
+      [
+        124,
+        11739,
+        124,
+        38
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 19
+  },
+  {
+    "box": [
+      425,
+      12108,
+      347,
+      149
+    ],
+    "text": "Idiot; This 1s RACE. Solving problems The ERA OF The HLMAN Requires Civilized MethoDs;",
+    "lines": [
+      [
+        510,
+        12108,
+        177,
+        31
+      ],
+      [
+        425,
+        12167,
+        347,
+        32
+      ],
+      [
+        448,
+        12138,
+        304,
+        29
+      ],
+      [
+        468,
+        12198,
+        261,
+        29
+      ],
+      [
+        528,
+        12228,
+        141,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 20
+  },
+  {
+    "box": [
+      349,
+      12751,
+      254,
+      147
+    ],
+    "text": "You REALLY HAVE The NErve TO Mention \"Civilized\" .",
+    "lines": [
+      [
+        384,
+        12751,
+        183,
+        39
+      ],
+      [
+        349,
+        12787,
+        254,
+        38
+      ],
+      [
+        379,
+        12822,
+        196,
+        38
+      ],
+      [
+        372,
+        12859,
+        173,
+        39
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 21
+  },
+  {
+    "box": [
+      112,
+      13510,
+      555,
+      354
+    ],
+    "text": "This iron piece Comes From The Bone BuriAL Grounds; Then The CultivATiON METhoD The Demon Demonic SHADOW AnD The True Demon Lord USed To MAniFEST THAT GiANT DHARMA body MUSt SHARE The SAME ORIGINI DEAR; How This? MuCh FOR",
+    "lines": [
+      [
+        178,
+        13510,
+        349,
+        29
+      ],
+      [
+        155,
+        13538,
+        397,
+        29
+      ],
+      [
+        130,
+        13565,
+        447,
+        27
+      ],
+      [
+        112,
+        13618,
+        477,
+        26
+      ],
+      [
+        133,
+        13589,
+        436,
+        32
+      ],
+      [
+        165,
+        13643,
+        372,
+        29
+      ],
+      [
+        270,
+        13670,
+        167,
+        27
+      ],
+      [
+        520,
+        13770,
+        147,
+        29
+      ],
+      [
+        552,
+        13828,
+        83,
+        36
+      ],
+      [
+        526,
+        13802,
+        136,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 22
+  },
+  {
+    "box": [
+      558,
+      14594,
+      194,
+      30
+    ],
+    "text": "SCYTHESCANS COM",
+    "lines": [
+      [
+        558,
+        14594,
+        194,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 23
+  }
+]

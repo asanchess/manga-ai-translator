@@ -1,0 +1,140 @@
+[
+  {
+    "box": [
+      124,
+      859,
+      542,
+      96
+    ],
+    "text": "YOu AGAINI",
+    "lines": [
+      [
+        124,
+        859,
+        542,
+        96
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      584,
+      1189,
+      111,
+      79
+    ],
+    "text": "GOOD TEA,",
+    "lines": [
+      [
+        584,
+        1189,
+        111,
+        39
+      ],
+      [
+        598,
+        1224,
+        84,
+        44
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      184,
+      1752,
+      296,
+      113
+    ],
+    "text": "Still ThE SAME FAMILIAR TASTE: Recipe; Still The",
+    "lines": [
+      [
+        204,
+        1752,
+        259,
+        38
+      ],
+      [
+        207,
+        1827,
+        248,
+        38
+      ],
+      [
+        184,
+        1789,
+        296,
+        39
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      522,
+      3892,
+      78,
+      43
+    ],
+    "text": "HM?",
+    "lines": [
+      [
+        522,
+        3892,
+        78,
+        43
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      286,
+      3951,
+      82,
+      72
+    ],
+    "text": "2Y",
+    "lines": [
+      [
+        286,
+        3951,
+        82,
+        72
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      93,
+      4300,
+      194,
+      29
+    ],
+    "text": "SGYTHESCANS.COM",
+    "lines": [
+      [
+        93,
+        4300,
+        194,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

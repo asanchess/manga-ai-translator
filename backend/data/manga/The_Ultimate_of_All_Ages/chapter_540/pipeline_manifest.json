@@ -1,0 +1,161 @@
+{
+  "schema_version": "3.0.0",
+  "manga_title": "The_Ultimate_of_All_Ages",
+  "chapter": "chapter_540",
+  "chapter_number": "540",
+  "total_pages": 8,
+  "layers": {
+    "v1_original": 8,
+    "v2_cleaned": 8,
+    "v3_translated": 8
+  },
+  "integrity_status": "PASSED",
+  "generated_at": 1787421050.143948,
+  "iso_timestamp": "2026-08-22T17:50:50Z",
+  "pages": [
+    {
+      "page_num": 1,
+      "filename": "page_001.webp",
+      "v1_sha256": "57b4d71f06afe16bd33f646df0347de5f68cb4c90d1e17579dbde909d8d12de2",
+      "v2_sha256": "a2fb9eb676b7c343e36bca9e9a241be144b1d8957044b92c8f24a513df9b65b6",
+      "v3_sha256": "cc93ebdd3be7d86157413c1bd8de8ce1dc28798045a98ad15807d342c01e49e5",
+      "dimensions": {
+        "width": 800,
+        "height": 12154
+      },
+      "bubbles_count": 7,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 2,
+      "filename": "page_002.webp",
+      "v1_sha256": "e845b50c73533624b954d082cf07fc79ef02251b59b1c194ac4a270c5387b910",
+      "v2_sha256": "d9f3afb2af9f3048598ecb210e54ff9baa6f6128798eeb4449218e1fab33d51e",
+      "v3_sha256": "a268ae7eff0921c24e032e924c9765135f4eeb92b8ae9cd7f470a1e2808779ad",
+      "dimensions": {
+        "width": 800,
+        "height": 14645
+      },
+      "bubbles_count": 21,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 3,
+      "filename": "page_003.webp",
+      "v1_sha256": "6813a2e477fef36815a5b0469f77f6dc9995e3d32a0fa08d07220b93c57463d2",
+      "v2_sha256": "3e2627ff3e43f05017380f41038ec26cf273142a4836deafae65bd811df11a79",
+      "v3_sha256": "9b108b5b52789dab9a750fabaf33d90784ae0d8673f612a0955309fff9a32c52",
+      "dimensions": {
+        "width": 800,
+        "height": 14510
+      },
+      "bubbles_count": 21,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 4,
+      "filename": "page_004.webp",
+      "v1_sha256": "8b0cb82502523009a6a4f3aaccaf74a3f0ca63f3220fef7363063c5ed30d2259",
+      "v2_sha256": "ef14796d3d6cedffc9b8e5b09ce507c2b176466a94fc717e3c1dae481bf9432a",
+      "v3_sha256": "71b6c336ae8d6c58c42313e1d10218d22088af7518f9ff1cb790a6c439af039f",
+      "dimensions": {
+        "width": 800,
+        "height": 14805
+      },
+      "bubbles_count": 18,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 5,
+      "filename": "page_005.webp",
+      "v1_sha256": "63a4ab341a03e3411e800e90152154416a39cc03fbba032d3acc2b3e140ea2d0",
+      "v2_sha256": "37d222d56038f6710fb8e25e585394b883424a4f95ec0d5b43c4c74ff57149db",
+      "v3_sha256": "009932160526ad8e88b541a63d822e3ff0882701df9873a730a7e07b23476841",
+      "dimensions": {
+        "width": 800,
+        "height": 14835
+      },
+      "bubbles_count": 14,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 6,
+      "filename": "page_006.webp",
+      "v1_sha256": "fa8ebab878befca5cf0b400bba82104eabcc9ac6baceb422fabcadb0f6a5a96d",
+      "v2_sha256": "67425972b196ea76e8e493a60ba07b218dd1f0359878379845bf97d52ba6521e",
+      "v3_sha256": "34e60995ab6f672496fcf3b7c8f9f4ff0df59f13519d3dd111fa5e3aada06197",
+      "dimensions": {
+        "width": 800,
+        "height": 14825
+      },
+      "bubbles_count": 14,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 7,
+      "filename": "page_007.webp",
+      "v1_sha256": "aadbf42b5e3756618f3166c89d375f69154ddc0949449cec7a03e7dd62f681d2",
+      "v2_sha256": "b3beb7b67d22028278c5ea660a2584196f1ab4327e2e3ef6f4d2745869e0e45a",
+      "v3_sha256": "49443c2c2e6d84bcb1a1f58bea429d4f576b2fb0d68bbdeaccfc2cdcc2d34469",
+      "dimensions": {
+        "width": 800,
+        "height": 11625
+      },
+      "bubbles_count": 15,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 8,
+      "filename": "page_008.webp",
+      "v1_sha256": "e411434b1ac3aff012fb5d6742b9e7c7fbb88faf6041ea8392bc7eb8fb6279ff",
+      "v2_sha256": "e9d1cb241ea611d1a9b590bfa054cb38a9b14db567ebbbc239209347fee83e1e",
+      "v3_sha256": "a08e44ff09c06223b5c3b3055d9db258a650976fef5beb69165f516063792f5b",
+      "dimensions": {
+        "width": 800,
+        "height": 13130
+      },
+      "bubbles_count": 8,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    }
+  ]
+}

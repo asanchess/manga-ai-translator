@@ -1,6 +1,6 @@
 {
   "title": "Manga AI Translation Library",
-  "last_synced": 1787402858.7666807,
+  "last_synced": 1787421061.9676292,
   "mangas": {
     "The_Ultimate_of_All_Ages": {
       "title": "The Ultimate of All Ages",
@@ -38,43 +38,43 @@
         {
           "chapter": "536",
           "folder": "chapter_536",
-          "pages_count": 0,
+          "pages_count": 14,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_536/meta.json"
         },
         {
           "chapter": "537",
           "folder": "chapter_537",
-          "pages_count": 0,
+          "pages_count": 8,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_537/meta.json"
         },
         {
           "chapter": "538",
           "folder": "chapter_538",
-          "pages_count": 0,
+          "pages_count": 8,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_538/meta.json"
         },
         {
           "chapter": "539",
           "folder": "chapter_539",
-          "pages_count": 0,
+          "pages_count": 9,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_539/meta.json"
         },
         {
           "chapter": "540",
           "folder": "chapter_540",
-          "pages_count": 4,
+          "pages_count": 8,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_540/meta.json"
         },
         {
           "chapter": "541",
           "folder": "chapter_541",
-          "pages_count": 0,
+          "pages_count": 12,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_541/meta.json"
         },
         {
           "chapter": "542",
           "folder": "chapter_542",
-          "pages_count": 0,
+          "pages_count": 8,
           "meta_url": "/manga/The_Ultimate_of_All_Ages/chapter_542/meta.json"
         }
       ],

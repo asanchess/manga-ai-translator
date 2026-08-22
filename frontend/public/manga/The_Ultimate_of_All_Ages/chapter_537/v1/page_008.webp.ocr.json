@@ -1,0 +1,166 @@
+[
+  {
+    "box": [
+      124,
+      317,
+      261,
+      111
+    ],
+    "text": "SPEAKiNG OF HEROES, WHO Is A HERO?",
+    "lines": [
+      [
+        187,
+        317,
+        133,
+        38
+      ],
+      [
+        124,
+        354,
+        261,
+        39
+      ],
+      [
+        199,
+        389,
+        116,
+        39
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      413,
+      1725,
+      386,
+      144
+    ],
+    "text": "The EASTERN ReGion's USELESS SKILLS. FROwNiNG in Misery SEVEN COWARDS HAVE FLASHY But The Five GHOSTS FRom ThE West ARE BEARS, NOT HEROES.",
+    "lines": [
+      [
+        488,
+        1725,
+        241,
+        29
+      ],
+      [
+        413,
+        1783,
+        386,
+        29
+      ],
+      [
+        435,
+        1753,
+        349,
+        31
+      ],
+      [
+        433,
+        1810,
+        351,
+        32
+      ],
+      [
+        480,
+        1840,
+        259,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      20,
+      2290,
+      357,
+      117
+    ],
+    "text": "Region's FOUR TRASHES REMAiN; Only ThE northerN But ALAS,THEY ARE Too UGLy AND SUGGEST PLASTICSURGERY:",
+    "lines": [
+      [
+        33,
+        2320,
+        344,
+        29
+      ],
+      [
+        98,
+        2290,
+        216,
+        32
+      ],
+      [
+        20,
+        2350,
+        354,
+        29
+      ],
+      [
+        65,
+        2378,
+        282,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      287,
+      2752,
+      366,
+      216
+    ],
+    "text": "Counting ThE They ARe AlLGhOSTS AND Distinguished FIGuRes, Goblins; MAKinG MELAUGH At ALL THESE So-CALLED HEROES~~",
+    "lines": [
+      [
+        369,
+        2752,
+        201,
+        38
+      ],
+      [
+        299,
+        2824,
+        339,
+        39
+      ],
+      [
+        312,
+        2787,
+        316,
+        38
+      ],
+      [
+        287,
+        2859,
+        366,
+        39
+      ],
+      [
+        309,
+        2897,
+        321,
+        38
+      ],
+      [
+        394,
+        2932,
+        149,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  }
+]

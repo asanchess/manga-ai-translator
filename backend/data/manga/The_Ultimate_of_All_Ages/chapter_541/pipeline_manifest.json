@@ -1,0 +1,233 @@
+{
+  "schema_version": "3.0.0",
+  "manga_title": "The_Ultimate_of_All_Ages",
+  "chapter": "chapter_541",
+  "chapter_number": "541",
+  "total_pages": 12,
+  "layers": {
+    "v1_original": 12,
+    "v2_cleaned": 12,
+    "v3_translated": 12
+  },
+  "integrity_status": "PASSED",
+  "generated_at": 1787421052.1190896,
+  "iso_timestamp": "2026-08-22T17:50:52Z",
+  "pages": [
+    {
+      "page_num": 1,
+      "filename": "page_001.webp",
+      "v1_sha256": "bfb4afa59982c23131529e6b56ea9a07d18c230c386b368e215f4fbf6ae3a264",
+      "v2_sha256": "cfd445db485af7d06276a83af98bd517ac598b34c4c2bd63fb0fba9082f1cd8c",
+      "v3_sha256": "e3b159792a4b134148d448723606275538f13e6f9463cdb6dd85a047038b5b0c",
+      "dimensions": {
+        "width": 800,
+        "height": 10090
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 2,
+      "filename": "page_002.webp",
+      "v1_sha256": "51c7c862ba22fdca8c5661113d3a39de5a561d7d8e69eb58af8fe9e28e9609d0",
+      "v2_sha256": "630f32e6424bd45a823c2eecd9245f94707ccd3c9ae3fd91a1c01ab23ad056a0",
+      "v3_sha256": "e82c018b2e8dbeb8bf157d1aeeca0c972f39151a30bfb3f2bde5b2b8f58b82e6",
+      "dimensions": {
+        "width": 800,
+        "height": 9410
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 3,
+      "filename": "page_003.webp",
+      "v1_sha256": "cce5b1aee556cd0bc4810fe0867a5b3af1791ca7ee35cc264bf5f9a79a869ab3",
+      "v2_sha256": "3e51e0aa26735d29ede3370ee43c51be0c6f9abecd62c30a840fe49a6f7f5a29",
+      "v3_sha256": "e2aa57de2ac948ead34c5b14ad5b62853c0fb5ac734cd86adc3d780cff3e3808",
+      "dimensions": {
+        "width": 800,
+        "height": 9995
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 4,
+      "filename": "page_004.webp",
+      "v1_sha256": "e57c4f1b2d08e961ca0fedeeea853ab307210889140789f28c40ec99779de67b",
+      "v2_sha256": "3eae654a77ce5d7ad52d3c0d46b4d9474efd309bd14cb7cd600701474a5b59b7",
+      "v3_sha256": "2718db0642de2954e028a7b01fb9fa97f52675795480ae52d27148cbe21a0a3f",
+      "dimensions": {
+        "width": 800,
+        "height": 10000
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 5,
+      "filename": "page_005.webp",
+      "v1_sha256": "c3085e53f290e2d4b4a11c987970803110f2bdc18248db5a96c573792792c847",
+      "v2_sha256": "bab8ee6fefd5caea45d9cfa9a48d4804f43bba7dee5d96dd25bb86b65345bc4c",
+      "v3_sha256": "7aa9b350ee0870a11eb4cf45da032da4930a51d8954a377828219c5c14f87d18",
+      "dimensions": {
+        "width": 800,
+        "height": 9935
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 6,
+      "filename": "page_006.webp",
+      "v1_sha256": "5b47fb10e80d2455038ea4c2e8e6ea8afe3f4dad34a5e2ae5593372617381ac2",
+      "v2_sha256": "273666f823b9d6a6c59a5667fbb193d36430ace0f06895cc36bf990ffcb2b785",
+      "v3_sha256": "ac665da6f9158fe978c06a33d432f7854dcb0452c900cb6c30e09d9be0ecc5d9",
+      "dimensions": {
+        "width": 800,
+        "height": 8820
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 7,
+      "filename": "page_007.webp",
+      "v1_sha256": "717d551a89c55e55fd2743e84541b216ed50cc3a7f7797bf7f41a878592234fa",
+      "v2_sha256": "6952d45ab557c45e52d4582bc37168596b328885696207d1b9c58b69ecc8c7ee",
+      "v3_sha256": "efd1c423dcd57869d22c0107dc9a00798a39ed3284fccbd80d95c3ae011e8933",
+      "dimensions": {
+        "width": 800,
+        "height": 9570
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 8,
+      "filename": "page_008.webp",
+      "v1_sha256": "73d725048c7676867d6a443daa91820efefc34a91d659e5821c7848b1aa60e82",
+      "v2_sha256": "219b9a532d2b74dc5b520957e60a18f0a7a9d6c5c76f0c7d4d694d1d5c85cb19",
+      "v3_sha256": "5ec429f7cf840b03177864977d1de5dcbf8168de04b43bd0acedbb61d6bc0d04",
+      "dimensions": {
+        "width": 800,
+        "height": 8140
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 9,
+      "filename": "page_009.webp",
+      "v1_sha256": "4990a7c78c54d6f51529f03eb4f4f2205d052a6e5b5a8247d6f59c17ecc3d815",
+      "v2_sha256": "ce3c3e078609419da055789619c3d3a2035d9b72313088f46c84a6fa9a4a8f82",
+      "v3_sha256": "b101141853fa14e37c1d39acf7063b6ca107d2c2715c2d22070522aa0b09cbdb",
+      "dimensions": {
+        "width": 800,
+        "height": 8125
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 10,
+      "filename": "page_010.webp",
+      "v1_sha256": "5b09cdef5d942ccf1439b18bd214de3ff1ed4ded767e984ce6ad0269d4942c1e",
+      "v2_sha256": "11a51a7de25eaa0deca16c279106ab70cab87bd8fa980a0cdde31dbd65775734",
+      "v3_sha256": "61a7373c17f46c1c30f9b500c6af4c14275c6310d0adc4e9de1bb77a6eb948b4",
+      "dimensions": {
+        "width": 800,
+        "height": 10290
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 11,
+      "filename": "page_011.webp",
+      "v1_sha256": "f22df8c0381943bf3ffcb7a1a0623a706121969ae512cff64e8b3140c9f27b80",
+      "v2_sha256": "27cdff282d0544f8177c5cefc5a97fa73939d64a64033dcf5d32af03277fbc24",
+      "v3_sha256": "0e88722ddd81b4123ed8615a9600fc36dbc6a959ab93f515f55f6a435a0211be",
+      "dimensions": {
+        "width": 800,
+        "height": 5413
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 12,
+      "filename": "page_012.webp",
+      "v1_sha256": "6585012e1ce33abbe8b94f245b06faf99350255aa9650df0e42e33b6b805bdf4",
+      "v2_sha256": "4a83046748b9347b260b05a2868480fd1b3717681606b6ce4bcbd5714de36d31",
+      "v3_sha256": "ae88b09fe0706ea4bdf682ca821a56a409d0edba6ba9196a1a554792970c6bc7",
+      "dimensions": {
+        "width": 800,
+        "height": 446
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "box": [
+      139,
+      3484,
+      214,
+      41
+    ],
+    "text": "AS EXPECTED~",
+    "lines": [
+      [
+        139,
+        3484,
+        214,
+        41
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      231,
+      5016,
+      339,
+      144
+    ],
+    "text": "ThIS CHAPTER IS BROUGHT To YOU By SCYTHE TEAM",
+    "lines": [
+      [
+        236,
+        5016,
+        328,
+        48
+      ],
+      [
+        231,
+        5056,
+        337,
+        56
+      ],
+      [
+        246,
+        5107,
+        324,
+        53
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      201,
+      5329,
+      398,
+      68
+    ],
+    "text": "CxcLOSIB GHAPTERS FUDSD ON SCYHESGANSGON",
+    "lines": [
+      [
+        201,
+        5329,
+        398,
+        36
+      ],
+      [
+        239,
+        5361,
+        328,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  }
+]

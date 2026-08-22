@@ -1,0 +1,886 @@
+[
+  {
+    "box": [
+      210,
+      68,
+      167,
+      92
+    ],
+    "text": "EXCuSe Me~",
+    "lines": [
+      [
+        210,
+        68,
+        167,
+        50
+      ],
+      [
+        249,
+        117,
+        84,
+        43
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      290,
+      1170,
+      212,
+      117
+    ],
+    "text": "WhY ARe You Is Bi6 BrotheR ALONE? WheRE Qingyun?",
+    "lines": [
+      [
+        315,
+        1170,
+        167,
+        29
+      ],
+      [
+        290,
+        1226,
+        212,
+        33
+      ],
+      [
+        303,
+        1200,
+        189,
+        29
+      ],
+      [
+        335,
+        1258,
+        124,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      462,
+      1880,
+      285,
+      117
+    ],
+    "text": "Who KnowS~ MAYBE HE Went To BEd LATE Gotten Up Yet~ YESTERDAY AND HASNT",
+    "lines": [
+      [
+        475,
+        1880,
+        262,
+        29
+      ],
+      [
+        468,
+        1910,
+        276,
+        29
+      ],
+      [
+        495,
+        1968,
+        217,
+        29
+      ],
+      [
+        462,
+        1938,
+        285,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      203,
+      2143,
+      221,
+      31
+    ],
+    "text": "S0 RUTHLESS!",
+    "lines": [
+      [
+        203,
+        2143,
+        221,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      73,
+      2925,
+      134,
+      32
+    ],
+    "text": "TAKE This.",
+    "lines": [
+      [
+        73,
+        2925,
+        134,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      202,
+      3339,
+      273,
+      76
+    ],
+    "text": "ShE HeLd HIs HANDII !!!!!!",
+    "lines": [
+      [
+        254,
+        3339,
+        169,
+        39
+      ],
+      [
+        202,
+        3377,
+        273,
+        38
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      143,
+      4138,
+      224,
+      79
+    ],
+    "text": "eighteen EAST SEA Bright Moon PEARLSI!",
+    "lines": [
+      [
+        160,
+        4138,
+        187,
+        26
+      ],
+      [
+        143,
+        4163,
+        224,
+        29
+      ],
+      [
+        195,
+        4190,
+        119,
+        27
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      439,
+      4730,
+      269,
+      120
+    ],
+    "text": "Miss Ruobing, The items ARe Correct GRATEFUL; I AM infinitely",
+    "lines": [
+      [
+        458,
+        4730,
+        244,
+        29
+      ],
+      [
+        439,
+        4754,
+        269,
+        37
+      ],
+      [
+        508,
+        4813,
+        140,
+        37
+      ],
+      [
+        488,
+        4788,
+        184,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      33,
+      5007,
+      419,
+      147
+    ],
+    "text": "SOMEONe WAS A GReAT HeLp in ObTAininG ThESE items, ShE ASkED Me To TeLL You THAT Worth A THOUSAND GolD: A GENTLEMANS Agreement Is",
+    "lines": [
+      [
+        92,
+        5007,
+        297,
+        30
+      ],
+      [
+        35,
+        5035,
+        407,
+        32
+      ],
+      [
+        33,
+        5065,
+        419,
+        29
+      ],
+      [
+        73,
+        5123,
+        336,
+        31
+      ],
+      [
+        55,
+        5095,
+        374,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      368,
+      5980,
+      259,
+      147
+    ],
+    "text": "TeLL Her To ReST AsSuRed; My WORd HAS ALWAYS CARRIED ThE Weight OF Nine Tripods.",
+    "lines": [
+      [
+        378,
+        5980,
+        236,
+        32
+      ],
+      [
+        373,
+        6010,
+        246,
+        29
+      ],
+      [
+        368,
+        6040,
+        256,
+        29
+      ],
+      [
+        368,
+        6068,
+        259,
+        29
+      ],
+      [
+        435,
+        6095,
+        122,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
+  },
+  {
+    "box": [
+      248,
+      6378,
+      405,
+      116
+    ],
+    "text": "I Couldn't TELL THAT You KNOW So MANY people; To Even KnOw HER, Your Abilities Are Truly noT SMALL;",
+    "lines": [
+      [
+        313,
+        6378,
+        276,
+        31
+      ],
+      [
+        248,
+        6408,
+        404,
+        29
+      ],
+      [
+        249,
+        6432,
+        404,
+        38
+      ],
+      [
+        308,
+        6465,
+        286,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 11
+  },
+  {
+    "box": [
+      165,
+      7190,
+      239,
+      64
+    ],
+    "text": "COUSin WHAT Is THAT emotion?",
+    "lines": [
+      [
+        165,
+        7190,
+        239,
+        32
+      ],
+      [
+        173,
+        7223,
+        229,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 12
+  },
+  {
+    "box": [
+      55,
+      7628,
+      282,
+      86
+    ],
+    "text": "cousin! How Did You GEt TO KNOW ThIS Li YUNXIAO?",
+    "lines": [
+      [
+        113,
+        7628,
+        169,
+        29
+      ],
+      [
+        55,
+        7655,
+        282,
+        29
+      ],
+      [
+        93,
+        7685,
+        206,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 13
+  },
+  {
+    "box": [
+      433,
+      7763,
+      246,
+      86
+    ],
+    "text": "We Just GoT To KNOW EACH Other WHAT'S Wrong?",
+    "lines": [
+      [
+        448,
+        7763,
+        219,
+        29
+      ],
+      [
+        433,
+        7793,
+        246,
+        29
+      ],
+      [
+        455,
+        7820,
+        204,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 14
+  },
+  {
+    "box": [
+      298,
+      8308,
+      339,
+      171
+    ],
+    "text": "cousin Is ALSO Going To ACTUALLY I HEARD THAT PARTICIPATE in ThE ARENA TOLRNAMENT This Time, I WonDEr WHAT Cousin MEANS By This?",
+    "lines": [
+      [
+        298,
+        8335,
+        339,
+        29
+      ],
+      [
+        320,
+        8308,
+        297,
+        29
+      ],
+      [
+        308,
+        8365,
+        321,
+        29
+      ],
+      [
+        315,
+        8392,
+        300,
+        33
+      ],
+      [
+        318,
+        8423,
+        301,
+        29
+      ],
+      [
+        365,
+        8450,
+        207,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 15
+  },
+  {
+    "box": [
+      453,
+      8750,
+      344,
+      92
+    ],
+    "text": "Cousin Ruobing! DO YOL Still NOT UNDERSTAND MY BroTher'S FeeLinGS?",
+    "lines": [
+      [
+        490,
+        8750,
+        267,
+        32
+      ],
+      [
+        453,
+        8780,
+        344,
+        29
+      ],
+      [
+        462,
+        8806,
+        326,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 16
+  },
+  {
+    "box": [
+      30,
+      8966,
+      444,
+      216
+    ],
+    "text": "COUSIN rUOBING! MY SweetheArts, IN OrDer To Get Brother AND You Are CHILDHOOD Tke CHANCE To PARTICIPATE IN The TourNAMENT; He BeGgeD MY UNcle I DoNt KNOw How MANY TIMES Before FINALLY GETTING THIS OpporTuNITY!",
+    "lines": [
+      [
+        103,
+        8968,
+        243,
+        29
+      ],
+      [
+        346,
+        8966,
+        49,
+        32
+      ],
+      [
+        35,
+        9020,
+        424,
+        32
+      ],
+      [
+        30,
+        8995,
+        444,
+        29
+      ],
+      [
+        40,
+        9048,
+        417,
+        29
+      ],
+      [
+        35,
+        9071,
+        429,
+        33
+      ],
+      [
+        40,
+        9100,
+        414,
+        29
+      ],
+      [
+        34,
+        9121,
+        429,
+        38
+      ],
+      [
+        115,
+        9153,
+        264,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 17
+  },
+  {
+    "box": [
+      183,
+      9283,
+      281,
+      81
+    ],
+    "text": "How Could You Not KNow MY Brother's SINCere FeeLINGS?",
+    "lines": [
+      [
+        185,
+        9283,
+        279,
+        29
+      ],
+      [
+        183,
+        9308,
+        281,
+        29
+      ],
+      [
+        188,
+        9335,
+        274,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 18
+  },
+  {
+    "box": [
+      415,
+      10048,
+      374,
+      89
+    ],
+    "text": "You Guys FIGHT IN Your ArENA; DoNt DrAG MY MARRIAGE INto Iti",
+    "lines": [
+      [
+        415,
+        10048,
+        374,
+        31
+      ],
+      [
+        433,
+        10078,
+        341,
+        31
+      ],
+      [
+        453,
+        10105,
+        299,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 19
+  },
+  {
+    "box": [
+      65,
+      10993,
+      452,
+      171
+    ],
+    "text": "IwoNt MArrY SomeoNe IDoNt LIKE, EVEN IF HE'S The Number ONE IN The Worldi IF They WANT A MARRIAGe, let MY PAreNtS MArrY HIM themSelves}",
+    "lines": [
+      [
+        109,
+        10993,
+        359,
+        37
+      ],
+      [
+        73,
+        11025,
+        441,
+        32
+      ],
+      [
+        68,
+        11053,
+        444,
+        29
+      ],
+      [
+        65,
+        11080,
+        452,
+        32
+      ],
+      [
+        143,
+        11108,
+        291,
+        29
+      ],
+      [
+        198,
+        11135,
+        184,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 20
+  },
+  {
+    "box": [
+      319,
+      12220,
+      346,
+      82
+    ],
+    "text": "HAHAI Not BAD, MY reAlly Not BADI EXACTLY Typel!!",
+    "lines": [
+      [
+        383,
+        12220,
+        209,
+        32
+      ],
+      [
+        418,
+        12271,
+        49,
+        31
+      ],
+      [
+        319,
+        12242,
+        346,
+        38
+      ],
+      [
+        465,
+        12273,
+        107,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 21
+  },
+  {
+    "box": [
+      73,
+      13252,
+      374,
+      177
+    ],
+    "text": "Little GirL, WAIT FoR Me At Home. After I DEFEAT ThESE So-CALLED Heroes; I WILL Come AnD TAKE You AS A Subject BENEATH My CROTCH, HAHAI!",
+    "lines": [
+      [
+        122,
+        13252,
+        276,
+        36
+      ],
+      [
+        78,
+        13285,
+        366,
+        29
+      ],
+      [
+        78,
+        13313,
+        369,
+        31
+      ],
+      [
+        73,
+        13343,
+        374,
+        29
+      ],
+      [
+        123,
+        13370,
+        276,
+        29
+      ],
+      [
+        165,
+        13398,
+        192,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 22
+  },
+  {
+    "box": [
+      538,
+      13378,
+      216,
+      81
+    ],
+    "text": "Forcing himself REALLY PATHETIC :. TO ACT touGh Is",
+    "lines": [
+      [
+        543,
+        13378,
+        209,
+        29
+      ],
+      [
+        538,
+        13430,
+        216,
+        29
+      ],
+      [
+        545,
+        13403,
+        207,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 23
+  },
+  {
+    "box": [
+      106,
+      13998,
+      212,
+      32
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        106,
+        13998,
+        212,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 24
+  },
+  {
+    "box": [
+      279,
+      14127,
+      214,
+      80
+    ],
+    "text": "Shut Up_- ughi",
+    "lines": [
+      [
+        279,
+        14127,
+        214,
+        42
+      ],
+      [
+        351,
+        14167,
+        100,
+        40
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 25
+  }
+]

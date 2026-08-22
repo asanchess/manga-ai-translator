@@ -1,0 +1,206 @@
+[
+  {
+    "box": [
+      468,
+      41,
+      311,
+      103
+    ],
+    "text": "ADVANCED T0 SIXSTAR MARILAL SUPREE",
+    "lines": [
+      [
+        468,
+        41,
+        311,
+        56
+      ],
+      [
+        498,
+        93,
+        251,
+        51
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      97,
+      88,
+      231,
+      97
+    ],
+    "text": "HAHA; I ADVANCED~",
+    "lines": [
+      [
+        142,
+        88,
+        147,
+        51
+      ],
+      [
+        97,
+        142,
+        231,
+        43
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      119,
+      1642,
+      229,
+      76
+    ],
+    "text": "YUNXIAO?I! You?i LI",
+    "lines": [
+      [
+        119,
+        1677,
+        229,
+        41
+      ],
+      [
+        149,
+        1642,
+        174,
+        38
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      48,
+      2325,
+      287,
+      95
+    ],
+    "text": "Youl Youl YOU.es How DID You GEt Out?!!",
+    "lines": [
+      [
+        48,
+        2325,
+        276,
+        32
+      ],
+      [
+        51,
+        2355,
+        284,
+        36
+      ],
+      [
+        136,
+        2388,
+        114,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      471,
+      2551,
+      285,
+      157
+    ],
+    "text": "I Didn't ExpeCt To Meet BRoTher Li Yi Here Here~ MANY THANKS, GooD Friend, FoR CLEARinG ThE WAY:",
+    "lines": [
+      [
+        480,
+        2551,
+        270,
+        33
+      ],
+      [
+        478,
+        2583,
+        278,
+        32
+      ],
+      [
+        472,
+        2616,
+        74,
+        30
+      ],
+      [
+        471,
+        2613,
+        280,
+        36
+      ],
+      [
+        484,
+        2646,
+        264,
+        32
+      ],
+      [
+        488,
+        2678,
+        256,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 5
+  },
+  {
+    "box": [
+      71,
+      3321,
+      423,
+      151
+    ],
+    "text": "THOSE Three Gou Brothers FOOLPROOF! HoW COUlD Three CLEARLY GuARANTEED It WAS MARTIAL Sovereigns LEt A MARTIAL Supreme ESCAPE!",
+    "lines": [
+      [
+        85,
+        3321,
+        397,
+        31
+      ],
+      [
+        71,
+        3381,
+        423,
+        31
+      ],
+      [
+        100,
+        3352,
+        366,
+        30
+      ],
+      [
+        106,
+        3412,
+        352,
+        30
+      ],
+      [
+        110,
+        3439,
+        348,
+        33
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

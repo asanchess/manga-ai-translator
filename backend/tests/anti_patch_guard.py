@@ -606,7 +606,7 @@ def ensure_chapters_pipeline_processed(manga_title: str = "The_Ultimate_of_All_A
             v1_files = sorted([f for f in os.listdir(v1_dir) if f.lower().endswith((".webp", ".png", ".jpg", ".jpeg")) and not f.endswith(".ocr.json")])
             v3_files = sorted([f for f in os.listdir(v3_dir) if f.lower().endswith((".webp", ".png", ".jpg", ".jpeg")) and not f.endswith(".ocr.json")]) if os.path.exists(v3_dir) else []
 
-            needs_proc = (len(v3_files) != len(v1_files)) or (len(v1_files) == 0) or (ch_num in [533, 536, 537, 538, 539, 540, 541, 542])
+            needs_proc = (len(v3_files) != len(v1_files)) or (len(v1_files) == 0)
 
             if needs_proc:
                 logger.info(f"Executing high-speed ML inference pipeline for {ch_name} ({len(v1_files)} pages)...")

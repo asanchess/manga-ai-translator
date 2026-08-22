@@ -1,0 +1,80 @@
+{
+  "manga": "The_Ultimate_of_All_Ages",
+  "chapter": "537",
+  "total_pages": 8,
+  "last_updated": 1787421058.852261,
+  "pages": [
+    {
+      "page_num": 1,
+      "filename": "page_001.webp",
+      "width": 800,
+      "height": 2898,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_001.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_001.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_001.webp"
+    },
+    {
+      "page_num": 2,
+      "filename": "page_002.webp",
+      "width": 800,
+      "height": 6017,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_002.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_002.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_002.webp"
+    },
+    {
+      "page_num": 3,
+      "filename": "page_003.webp",
+      "width": 800,
+      "height": 3106,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_003.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_003.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_003.webp"
+    },
+    {
+      "page_num": 4,
+      "filename": "page_004.webp",
+      "width": 800,
+      "height": 6079,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_004.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_004.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_004.webp"
+    },
+    {
+      "page_num": 5,
+      "filename": "page_005.webp",
+      "width": 800,
+      "height": 3438,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_005.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_005.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_005.webp"
+    },
+    {
+      "page_num": 6,
+      "filename": "page_006.webp",
+      "width": 800,
+      "height": 4082,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_006.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_006.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_006.webp"
+    },
+    {
+      "page_num": 7,
+      "filename": "page_007.webp",
+      "width": 800,
+      "height": 4346,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_007.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_007.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_007.webp"
+    },
+    {
+      "page_num": 8,
+      "filename": "page_008.webp",
+      "width": 800,
+      "height": 4684,
+      "v1": "/manga/The_Ultimate_of_All_Ages/chapter_537/v1/page_008.webp",
+      "v2": "/manga/The_Ultimate_of_All_Ages/chapter_537/v2/page_008.webp",
+      "v3": "/manga/The_Ultimate_of_All_Ages/chapter_537/v3/page_008.webp"
+    }
+  ]
+}
