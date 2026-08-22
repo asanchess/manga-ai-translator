@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.log
+.env
+.env.local
+.env.*
+
 
 # Node & Next.js
 node_modules/
