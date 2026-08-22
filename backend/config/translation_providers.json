@@ -1,0 +1,50 @@
+{
+  "active_provider": "gemini_pro",
+  "providers": {
+    "deepseek": {
+      "name": "DeepSeek-V3 / DeepSeek-R1",
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "env_key": "DEEPSEEK_API_KEY"
+    },
+    "openai": {
+      "name": "OpenAI GPT-4o / GPT-4o-mini",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o",
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "env_key": "OPENAI_API_KEY"
+    },
+    "gemini_pro": {
+      "name": "Google Gemini 1.5/2.0 Pro",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-1.5-pro",
+      "temperature": 0.2,
+      "max_tokens": 4096,
+      "env_key": "GEMINI_API_KEY"
+    },
+    "openrouter": {
+      "name": "OpenRouter Multi-Model Gateway",
+      "base_url": "https://openrouter.ai/api/v1",
+      "model": "anthropic/claude-3.5-sonnet",
+      "temperature": 0.3,
+      "max_tokens": 4096,
+      "env_key": "OPENROUTER_API_KEY"
+    }
+  },
+  "detection_and_inpainting": {
+    "bubble_detector": "comic-text-detector",
+    "bubble_mask_mode": "contour_connected_components",
+    "inpainter": "lama_onnx",
+    "fallback_inpainter": "telea_morphological",
+    "sfx_filtering": true,
+    "confidence_threshold": 0.45
+  },
+  "scanlation_memory": {
+    "auto_mine_preceding_chapters": 10,
+    "glossary_path": "backend/data/manga/{title}/glossary_memory.json",
+    "strict_id_contract": true
+  }
+}
