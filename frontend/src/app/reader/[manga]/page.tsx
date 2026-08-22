@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useEffect, useCallback } from 'react';
+
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 
@@ -17,34 +18,70 @@ interface MangaApiResponse {
   chapters: ChapterData[];
 }
 
-interface PipelineState {
-  status: 'idle' | 'running' | 'completed' | 'error';
-  current_agent: string;
-  progress: number;
-  current_page: number;
-  total_pages: number;
-  logs: string[];
-}
+type LayerVersion = 'v1_original' | 'v2_cleaned' | 'v3_translated';
+type WidthPreset = '700px' | '900px' | '1200px' | '100%';
+type ReadingMode = 'webtoon' | 'single';
 
 export default function ReaderPage({ params }: { params: Promise<{ manga: string }> }) {
   const unwrappedParams = React.use(params);
   const [data, setData] = useState<MangaApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [currentVersion, setCurrentVersion] = useState<'v1_original' | 'v2_cleaned' | 'v3_translated'>('v3_translated');
-  const [selectedChapterIdx, setSelectedChapterIdx] = useState(0);
-  const [maxWidth, setMaxWidth] = useState<'narrow' | 'medium' | 'wide'>('medium');
   
-  // Pipeline State
-  const [pipeline, setPipeline] = useState<PipelineState>({
-    status: 'idle',
-    current_agent: '',
-    progress: 0,
-    current_page: 0,
-    total_pages: 0,
-    logs: []
-  });
-  const [showLogs, setShowLogs] = useState(false);
+  // User Preferences
+  const [currentVersion, setCurrentVersion] = useState<LayerVersion>('v3_translated');
+  const [selectedChapterIdx, setSelectedChapterIdx] = useState(0);
+  const [maxWidthPreset, setMaxWidthPreset] = useState<WidthPreset>('900px');
+  const [readingMode, setReadingMode] = useState<ReadingMode>('webtoon');
+  
+  // Single page & Progress state
+  const [currentSinglePageIdx, setCurrentSinglePageIdx] = useState(0);
+  const [visibleWebtoonPage, setVisibleWebtoonPage] = useState(1);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  
+  const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Load user preferences from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedLayer = localStorage.getItem('manga_reader_layer') as LayerVersion | null;
+      if (savedLayer && ['v1_original', 'v2_cleaned', 'v3_translated'].includes(savedLayer)) {
+        setCurrentVersion(savedLayer);
+      }
+      const savedWidth = localStorage.getItem('manga_reader_width') as WidthPreset | null;
+      if (savedWidth && ['700px', '900px', '1200px', '100%'].includes(savedWidth)) {
+        setMaxWidthPreset(savedWidth);
+      }
+      const savedMode = localStorage.getItem('manga_reader_mode') as ReadingMode | null;
+      if (savedMode && ['webtoon', 'single'].includes(savedMode)) {
+        setReadingMode(savedMode);
+      }
+    } catch (e) {
+      console.warn('localStorage not accessible:', e);
+    }
+  }, []);
+
+  const handleSetVersion = (ver: LayerVersion) => {
+    setCurrentVersion(ver);
+    try {
+      localStorage.setItem('manga_reader_layer', ver);
+    } catch {}
+  };
+
+  const handleSetWidth = (w: WidthPreset) => {
+    setMaxWidthPreset(w);
+    try {
+      localStorage.setItem('manga_reader_width', w);
+    } catch {}
+  };
+
+  const handleSetReadingMode = (m: ReadingMode) => {
+    setReadingMode(m);
+    try {
+      localStorage.setItem('manga_reader_mode', m);
+    } catch {}
+  };
+
+  // Fetch chapter data
   const fetchChapterData = useCallback(() => {
     fetch(`/api/chapters/${unwrappedParams.manga}`)
       .then((res) => res.json())
@@ -58,14 +95,17 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
           
           if (chParam) {
             const cleanNum = chParam.replace('chapter_', '');
-            foundIdx = resData.chapters.findIndex(c => c.number === cleanNum);
+            foundIdx = resData.chapters.findIndex((c) => c.number === cleanNum);
           }
           
           // Fallback to localStorage
           if (foundIdx === -1) {
-            const savedChapter = localStorage.getItem(`manga_${unwrappedParams.manga}_last_chapter`);
+            const savedChapter =
+              localStorage.getItem(`manga_${unwrappedParams.manga}_last_chapter`) ||
+              localStorage.getItem('last_read_chapter');
             if (savedChapter) {
-              foundIdx = resData.chapters.findIndex(c => c.number === savedChapter);
+              const cleanSaved = savedChapter.replace('chapter_', '');
+              foundIdx = resData.chapters.findIndex((c) => c.number === cleanSaved);
             }
           }
           
@@ -94,87 +134,164 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
         const chapterNumber = currentChapter.number;
         const newUrl = `${window.location.pathname}?chapter=chapter_${chapterNumber}`;
         window.history.replaceState({ path: newUrl }, '', newUrl);
-        localStorage.setItem(`manga_${unwrappedParams.manga}_last_chapter`, chapterNumber);
+        try {
+          localStorage.setItem(`manga_${unwrappedParams.manga}_last_chapter`, chapterNumber);
+          localStorage.setItem('last_read_chapter', chapterNumber);
+        } catch {}
       }
     }
   }, [selectedChapterIdx, data, unwrappedParams.manga]);
 
-  // Polling pipeline status
-  useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
-    if (pipeline.status === 'running') {
-      interval = setInterval(() => {
-        fetch('/api/pipeline/status')
-          .then((res) => res.json())
-          .then((pState: PipelineState) => {
-            setPipeline(pState);
-            if (pState.status === 'completed') {
-              fetchChapterData();
-            }
-          })
-          .catch((err) => console.error('Status poll error:', err));
-      }, 1200);
-    }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [pipeline.status, fetchChapterData]);
-
-  const handleRunPipeline = async () => {
-    const currentChapter = data?.chapters[selectedChapterIdx];
-    const chapterNum = currentChapter ? currentChapter.number : '531';
-    
-    setPipeline((prev) => ({
-      ...prev,
-      status: 'running',
-      progress: 5,
-      current_agent: 'Initializing',
-      logs: ['[00:00:00] Запрос на запуск 5-агентного конвейера отправлен...']
-    }));
-
-    try {
-      await fetch('/api/pipeline/run', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          manga: unwrappedParams.manga,
-          chapter: chapterNum
-        })
-      });
-    } catch (e) {
-      console.error('Failed to trigger pipeline:', e);
-    }
-  };
-
+  // Chapter Navigation Handlers
   const handlePrevChapter = useCallback(() => {
     if (selectedChapterIdx > 0) {
-      setSelectedChapterIdx(selectedChapterIdx - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setSelectedChapterIdx((prev) => prev - 1);
+      setCurrentSinglePageIdx(0);
+      setVisibleWebtoonPage(1);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [selectedChapterIdx]);
 
   const handleNextChapter = useCallback(() => {
     if (data && selectedChapterIdx < data.chapters.length - 1) {
-      setSelectedChapterIdx(selectedChapterIdx + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setSelectedChapterIdx((prev) => prev + 1);
+      setCurrentSinglePageIdx(0);
+      setVisibleWebtoonPage(1);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [data, selectedChapterIdx]);
 
-  // Keyboard shortcut support (1 = Original, 2 = Cleaned, 3 = Translated, ArrowLeft/Right = Chapters)
+  const handleChapterSelect = (idx: number) => {
+    setSelectedChapterIdx(idx);
+    setCurrentSinglePageIdx(0);
+    setVisibleWebtoonPage(1);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  // Current images resolution
+  const currentChapter = data?.chapters?.[selectedChapterIdx] || data?.chapters?.[0];
+  const requestedImages = currentChapter?.versions?.[currentVersion] || [];
+  const images = requestedImages.length > 0 ? requestedImages : (currentChapter?.versions?.v1_original || []);
+
+  // Single Page Navigation Handlers
+  const handlePrevSinglePage = useCallback(() => {
+    if (currentSinglePageIdx > 0) {
+      setCurrentSinglePageIdx((prev) => prev - 1);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (selectedChapterIdx > 0) {
+      handlePrevChapter();
+    }
+  }, [currentSinglePageIdx, selectedChapterIdx, handlePrevChapter]);
+
+  const handleNextSinglePage = useCallback(() => {
+    if (currentSinglePageIdx < images.length - 1) {
+      setCurrentSinglePageIdx((prev) => prev + 1);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (data && selectedChapterIdx < data.chapters.length - 1) {
+      handleNextChapter();
+    }
+  }, [currentSinglePageIdx, images.length, data, selectedChapterIdx, handleNextChapter]);
+
+  // Scroll Progress Calculation (Webtoon Mode)
+  useEffect(() => {
+    if (readingMode !== 'webtoon') return;
+    
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollHeight <= 0) {
+        setScrollProgress(100);
+      } else {
+        const pct = (window.scrollY / scrollHeight) * 100;
+        setScrollProgress(Math.min(100, Math.max(0, pct)));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [readingMode, data, selectedChapterIdx, currentVersion, images.length]);
+
+  // Progress Calculation (Single Page Mode)
+  useEffect(() => {
+    if (readingMode === 'single') {
+      const total = Math.max(1, images.length);
+      const pct = ((currentSinglePageIdx + 1) / total) * 100;
+      setScrollProgress(pct);
+    }
+  }, [readingMode, currentSinglePageIdx, images.length]);
+
+  // Dynamic IntersectionObserver for Webtoon Page Indicator
+  useEffect(() => {
+    if (readingMode !== 'webtoon' || images.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const pageIndexAttr = entry.target.getAttribute('data-page-index');
+            if (pageIndexAttr !== null) {
+              const pageIdx = parseInt(pageIndexAttr, 10);
+              if (!isNaN(pageIdx)) {
+                setVisibleWebtoonPage(pageIdx + 1);
+              }
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -50% 0px',
+        threshold: 0.05
+      }
+    );
+
+    pageRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, [readingMode, images, currentVersion]);
+
+  // Global Keyboard Shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement || e.target instanceof HTMLSelectElement) {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement
+      ) {
         return;
       }
-      if (e.key === '1') setCurrentVersion('v1_original');
-      if (e.key === '2') setCurrentVersion('v2_cleaned');
-      if (e.key === '3') setCurrentVersion('v3_translated');
-      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') handlePrevChapter();
-      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') handleNextChapter();
+
+      // Layer shortcuts: 1, 2, 3
+      if (e.key === '1') handleSetVersion('v1_original');
+      if (e.key === '2') handleSetVersion('v2_cleaned');
+      if (e.key === '3') handleSetVersion('v3_translated');
+
+      // Chapter hotkeys: A, D
+      if (e.key === 'a' || e.key === 'A') handlePrevChapter();
+      if (e.key === 'd' || e.key === 'D') handleNextChapter();
+
+      // Arrow keys
+      if (e.key === 'ArrowLeft') {
+        if (readingMode === 'single') {
+          handlePrevSinglePage();
+        } else {
+          handlePrevChapter();
+        }
+      }
+      if (e.key === 'ArrowRight') {
+        if (readingMode === 'single') {
+          handleNextSinglePage();
+        } else {
+          handleNextChapter();
+        }
+      }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handlePrevChapter, handleNextChapter]);
+  }, [readingMode, handlePrevChapter, handleNextChapter, handlePrevSinglePage, handleNextSinglePage]);
 
   if (loading) {
     return (
@@ -199,28 +316,35 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
     );
   }
 
-  const currentChapter = data.chapters[selectedChapterIdx] || data.chapters[0];
-  const requestedImages = currentChapter.versions[currentVersion] || [];
-  const images = requestedImages.length > 0 ? requestedImages : (currentChapter.versions.v1_original || []);
+  const activePageNumber = readingMode === 'single' ? currentSinglePageIdx + 1 : visibleWebtoonPage;
+  const totalPages = Math.max(1, images.length);
 
   return (
     <div className={styles.readerContainer}>
+      {/* 3px Top Scroll Progress Bar */}
+      <div
+        className={styles.topProgressBar}
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
       {/* Sticky Top Header */}
       <header className={styles.readerHeader}>
         <div className={styles.headerLeft}>
-          <Link href="/" className={styles.backLink} title="В каталог">
-            <span className={styles.backIcon}>←</span> Каталог
+          <Link href="/" className={styles.backLink} title="Вернуться в каталог">
+            <span className={styles.backIcon}>←</span> В каталог
           </Link>
-          <Link href="/studio" className={styles.backLink} style={{ color: '#38bdf8' }} title="Manga AI Studio">
+          <Link href="/studio" className={styles.studioLink} title="Manga AI Studio">
             ⚡ Studio
           </Link>
           <div className={styles.titleInfo}>
-            <h1>{data.manga.replace(/_/g, ' ')}</h1>
+            <h1 title={data.manga.replace(/_/g, ' ')}>{data.manga.replace(/_/g, ' ')}</h1>
             <div className={styles.chapterSelectWrapper}>
               <select
                 className={styles.chapterSelect}
                 value={selectedChapterIdx}
-                onChange={(e) => setSelectedChapterIdx(Number(e.target.value))}
+                onChange={(e) => handleChapterSelect(Number(e.target.value))}
+                aria-label="Выбор главы"
               >
                 {data.chapters.map((ch, idx) => (
                   <option key={idx} value={idx}>
@@ -230,147 +354,241 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
               </select>
             </div>
           </div>
+
+          {/* Quick Header Prev / Next Chapter Buttons */}
+          <div className={styles.headerNavButtons}>
+            <button
+              className={styles.navChapterBtn}
+              onClick={handlePrevChapter}
+              disabled={selectedChapterIdx === 0}
+              title="Предыдущая глава (A / ←)"
+              aria-label="Предыдущая глава"
+            >
+              ← Пред
+            </button>
+            <button
+              className={styles.navChapterBtn}
+              onClick={handleNextChapter}
+              disabled={selectedChapterIdx >= data.chapters.length - 1}
+              title="Следующая глава (D / →)"
+              aria-label="Следующая глава"
+            >
+              След →
+            </button>
+          </div>
         </div>
 
-        {/* Version Switcher */}
-        <div className={styles.versionSelector}>
+        {/* Center: Standardized Layer Switcher */}
+        <div className={styles.versionSelector} role="radiogroup" aria-label="Переключение слоев">
           <button
             className={currentVersion === 'v1_original' ? styles.activeBtn : styles.btn}
-            onClick={() => setCurrentVersion('v1_original')}
-            title="Горячая клавиша: 1"
+            onClick={() => handleSetVersion('v1_original')}
+            title="Горячая клавиша: 1 (Оригинальный скан)"
+            role="radio"
+            aria-checked={currentVersion === 'v1_original'}
           >
-            <span className={styles.btnTag}>1</span> Оригинал
+            <span className={styles.btnTag}>1</span> RAW
           </button>
           <button
             className={currentVersion === 'v2_cleaned' ? styles.activeBtn : styles.btn}
-            onClick={() => setCurrentVersion('v2_cleaned')}
-            title="Горячая клавиша: 2"
+            onClick={() => handleSetVersion('v2_cleaned')}
+            title="Горячая клавиша: 2 (Клининг баблов)"
+            role="radio"
+            aria-checked={currentVersion === 'v2_cleaned'}
           >
-            <span className={styles.btnTag}>2</span> Клининг
+            <span className={styles.btnTag}>2</span> Clean
           </button>
           <button
             className={currentVersion === 'v3_translated' ? styles.activeBtn : styles.btn}
-            onClick={() => setCurrentVersion('v3_translated')}
-            title="Горячая клавиша: 3"
+            onClick={() => handleSetVersion('v3_translated')}
+            title="Горячая клавиша: 3 (Смысловой перевод)"
+            role="radio"
+            aria-checked={currentVersion === 'v3_translated'}
           >
-            <span className={styles.btnTag}>3</span> Перевод (РУС)
+            <span className={styles.btnTag}>3</span> РУС
           </button>
         </div>
 
-        {/* Width Controls */}
+        {/* Right: Reading Mode & Width Controls */}
         <div className={styles.headerRight}>
-          <div className={styles.widthControls}>
+          {/* Dual Reading Mode Switcher */}
+          <div className={styles.modeControls} role="group" aria-label="Режим чтения">
             <button
-              className={maxWidth === 'narrow' ? styles.activeWidthBtn : styles.widthBtn}
-              onClick={() => setMaxWidth('narrow')}
-              title="700px"
+              className={readingMode === 'webtoon' ? styles.activeModeBtn : styles.modeBtn}
+              onClick={() => handleSetReadingMode('webtoon')}
+              title="Режим вебтуна: непрерывный вертикальный скролл"
             >
-              S
+              📜 Лента
             </button>
             <button
-              className={maxWidth === 'medium' ? styles.activeWidthBtn : styles.widthBtn}
-              onClick={() => setMaxWidth('medium')}
-              title="850px"
+              className={readingMode === 'single' ? styles.activeModeBtn : styles.modeBtn}
+              onClick={() => handleSetReadingMode('single')}
+              title="Постраничный режим: перелистывание страниц"
             >
-              M
+              📄 Постранично
+            </button>
+          </div>
+
+          {/* 4 Width Presets */}
+          <div className={styles.widthControls} role="group" aria-label="Ширина страницы">
+            <button
+              className={maxWidthPreset === '700px' ? styles.activeWidthBtn : styles.widthBtn}
+              onClick={() => handleSetWidth('700px')}
+              title="Узкий (700px)"
+            >
+              700px
             </button>
             <button
-              className={maxWidth === 'wide' ? styles.activeWidthBtn : styles.widthBtn}
-              onClick={() => setMaxWidth('wide')}
-              title="100% Full"
+              className={maxWidthPreset === '900px' ? styles.activeWidthBtn : styles.widthBtn}
+              onClick={() => handleSetWidth('900px')}
+              title="Стандарт (900px)"
             >
-              L
+              900px
+            </button>
+            <button
+              className={maxWidthPreset === '1200px' ? styles.activeWidthBtn : styles.widthBtn}
+              onClick={() => handleSetWidth('1200px')}
+              title="Широкий (1200px)"
+            >
+              1200px
+            </button>
+            <button
+              className={maxWidthPreset === '100%' ? styles.activeWidthBtn : styles.widthBtn}
+              onClick={() => handleSetWidth('100%')}
+              title="На весь экран (100%)"
+            >
+              100%
             </button>
           </div>
         </div>
       </header>
 
-      {/* Agent Mission Control Banner */}
-      <section className={styles.missionControl}>
-        <div className={styles.controlTop}>
-          <div className={styles.agentCards}>
-            <div className={`${styles.agentBadge} ${pipeline.status === 'completed' ? styles.done : (pipeline.current_agent.includes('Asset') ? styles.active : '')}`}>
-              📥 Scraper
-            </div>
-            <div className={`${styles.agentBadge} ${pipeline.status === 'completed' ? styles.done : (pipeline.current_agent.includes('Cleaner') ? styles.active : '')}`}>
-              🧹 5-Pass Cleaner
-            </div>
-            <div className={`${styles.agentBadge} ${pipeline.status === 'completed' ? styles.done : (pipeline.current_agent.includes('LLM') ? styles.active : '')}`}>
-              🤖 OpenRouter LLM
-            </div>
-            <div className={`${styles.agentBadge} ${pipeline.status === 'completed' ? styles.done : (pipeline.current_agent.includes('Typesetter') ? styles.active : '')}`}>
-              ✍️ Pro Typesetter
-            </div>
-            <div className={`${styles.agentBadge} ${pipeline.status === 'completed' ? styles.done : (pipeline.current_agent.includes('QA') ? styles.active : '')}`}>
-              🛡️ QA Inspector
-            </div>
-          </div>
-
-          <div className={styles.controlActions}>
-            <button
-              className={styles.triggerBtn}
-              onClick={handleRunPipeline}
-              disabled={pipeline.status === 'running'}
-            >
-              {pipeline.status === 'running' ? (
-                <>⏳ Обработка ({pipeline.progress}%)</>
-              ) : (
-                <>⚡ Запустить автоперевод главы {currentChapter.number}</>
-              )}
-            </button>
-            <button
-              className={styles.toggleLogBtn}
-              onClick={() => setShowLogs(!showLogs)}
-            >
-              {showLogs ? 'Скрыть логи ▲' : 'Логи агентов ▼'}
-            </button>
-          </div>
+      {/* Floating Sub-Header / Page Indicator */}
+      <div className={styles.subBar}>
+        <div className={styles.pageIndicator}>
+          <span>
+            Страница <strong className={styles.highlightNumber}>{activePageNumber}</strong> из{' '}
+            <strong>{totalPages}</strong>
+          </span>
         </div>
 
-        {pipeline.status === 'running' && (
-          <div className={styles.progressContainer}>
-            <div
-              className={styles.progressBar}
-              style={{ width: `${Math.max(5, pipeline.progress)}%` }}
-            />
-          </div>
-        )}
+        {readingMode === 'single' && (
+          <div className={styles.singlePageControls}>
+            <button
+              className={styles.singleNavBtn}
+              onClick={handlePrevSinglePage}
+              disabled={currentSinglePageIdx === 0 && selectedChapterIdx === 0}
+              title="Предыдущая страница (← / Click Left)"
+            >
+              ◀ Назад
+            </button>
 
-        {showLogs && (
-          <div className={styles.logDrawer}>
-            {pipeline.logs.length === 0 ? (
-              <div className={styles.logLine}>Логи агентов появятся здесь после запуска конвейера...</div>
-            ) : (
-              pipeline.logs.map((log, lIdx) => (
-                <div key={lIdx} className={styles.logLine}>
-                  {log}
-                </div>
-              ))
-            )}
+            <select
+              className={styles.pageJumpSelect}
+              value={currentSinglePageIdx}
+              onChange={(e) => {
+                setCurrentSinglePageIdx(Number(e.target.value));
+                window.scrollTo({ top: 0, behavior: 'instant' });
+              }}
+              aria-label="Перейти на страницу"
+            >
+              {images.map((_, i) => (
+                <option key={i} value={i}>
+                  Стр. {i + 1}
+                </option>
+              ))}
+            </select>
+
+            <button
+              className={styles.singleNavBtn}
+              onClick={handleNextSinglePage}
+              disabled={currentSinglePageIdx >= images.length - 1 && selectedChapterIdx >= data.chapters.length - 1}
+              title="Следующая страница (→ / Click Right)"
+            >
+              Вперед ▶
+            </button>
           </div>
         )}
-      </section>
+      </div>
 
       {/* Pages Container */}
       <main className={styles.mainContent}>
-        <div className={`${styles.mangaPages} ${styles[maxWidth]}`}>
+        <div
+          className={styles.mangaPages}
+          style={{ maxWidth: maxWidthPreset === '100%' ? '100%' : maxWidthPreset }}
+        >
           {images.length === 0 ? (
             <div className={styles.noPagesMessage}>
               <p>В этой версии страницы отсутствуют.</p>
             </div>
-          ) : (
+          ) : readingMode === 'webtoon' ? (
+            /* Webtoon Continuous Scroll Mode */
             images.map((imgUrl, i) => (
-              <div key={i} className={styles.pageWrapper}>
+              <div
+                key={`${currentVersion}-${selectedChapterIdx}-${i}`}
+                ref={(el) => {
+                  pageRefs.current[i] = el;
+                }}
+                data-page-index={i}
+                className={styles.pageWrapper}
+              >
                 <div className={styles.pageNumberBadge}>Стр. {i + 1}</div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={imgUrl}
-                  alt={`Глава ${currentChapter.number} - Страница ${i + 1}`}
+                  alt={`Глава ${currentChapter?.number} - Страница ${i + 1}`}
                   className={styles.pageImage}
                   loading={i > 2 ? 'lazy' : 'eager'}
                 />
               </div>
             ))
+          ) : (
+            /* Single Page Flip Mode with Click Zones */
+            <div className={styles.singlePageWrapper}>
+              {/* Floating Side Arrows */}
+              <button
+                className={`${styles.sideFloatingBtn} ${styles.sideLeft}`}
+                onClick={handlePrevSinglePage}
+                disabled={currentSinglePageIdx === 0 && selectedChapterIdx === 0}
+                title="Предыдущая страница (←)"
+                aria-label="Предыдущая страница"
+              >
+                ‹
+              </button>
+
+              <button
+                className={`${styles.sideFloatingBtn} ${styles.sideRight}`}
+                onClick={handleNextSinglePage}
+                disabled={currentSinglePageIdx >= images.length - 1 && selectedChapterIdx >= data.chapters.length - 1}
+                title="Следующая страница (→)"
+                aria-label="Следующая страница"
+              >
+                ›
+              </button>
+
+              {/* Click Zones */}
+              <div
+                className={styles.clickZoneLeft}
+                onClick={handlePrevSinglePage}
+                title="Нажмите для перехода на предыдущую страницу"
+              />
+              <div
+                className={styles.clickZoneRight}
+                onClick={handleNextSinglePage}
+                title="Нажмите для перехода на следующую страницу"
+              />
+
+              <div className={styles.pageNumberBadge}>
+                Стр. {currentSinglePageIdx + 1} / {images.length}
+              </div>
+
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={images[currentSinglePageIdx]}
+                alt={`Глава ${currentChapter?.number} - Страница ${currentSinglePageIdx + 1}`}
+                className={styles.pageImage}
+              />
+            </div>
           )}
         </div>
       </main>
@@ -382,7 +600,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
             className={styles.navChapterBtn}
             onClick={handlePrevChapter}
             disabled={selectedChapterIdx === 0}
-            title="Предыдущая глава (Клавиша: ←)"
+            title="Предыдущая глава (Клавиши: A / ←)"
           >
             ← Пред. глава
           </button>
@@ -390,7 +608,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
             className={styles.navChapterBtn}
             onClick={handleNextChapter}
             disabled={!data || selectedChapterIdx >= data.chapters.length - 1}
-            title="Следующая глава (Клавиша: →)"
+            title="Следующая глава (Клавиши: D / →)"
           >
             След. глава →
           </button>
@@ -398,19 +616,20 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
 
         <div className={styles.bottomInfo}>
           <span>
-            Глава <strong>{currentChapter.number}</strong> • {images.length} страниц •{' '}
+            Глава <strong>{currentChapter?.number}</strong> • {images.length} страниц •{' '}
             <span className={styles.activeVersionText}>
-              {currentVersion === 'v1_original' && 'Оригинал (ENG)'}
-              {currentVersion === 'v2_cleaned' && 'Клининг (Очищенные баблы)'}
+              {currentVersion === 'v1_original' && 'Оригинал (RAW)'}
+              {currentVersion === 'v2_cleaned' && 'Клининг (Чистые баблы)'}
               {currentVersion === 'v3_translated' && 'Смысловой перевод (РУС)'}
-            </span>
+            </span>{' '}
+            • Стр. <strong className={styles.highlightNumber}>{activePageNumber}</strong>/{totalPages}
           </span>
         </div>
 
         <button
           className={styles.scrollTopBtn}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          title="Наверх"
+          title="Прокрутить наверх"
         >
           ▲ Наверх
         </button>

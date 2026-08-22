@@ -1,4 +1,4 @@
-# BRIEFING — 2026-08-22T12:51:00Z
+# BRIEFING — 2026-08-22T13:07:30Z
 
 ## Mission
 Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to v3.0 SOTA Enterprise standards according to ORIGINAL_REQUEST.md and AGENTS.md.
@@ -23,12 +23,12 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 - **Work items**:
   0. Survey Codebase [done]
   1. M1: Layer Isolation & Anti-Patch Guard [done]
-  2. M2: Dialogue Topology, Batch JSON & Persistent Glossary [in-progress]
-  3. M3: ML Inference Singleton & Chapter Integrity Checker [pending]
-  4. M4: Next.js Web Reader Overhaul & UI Persistence [pending]
-  5. M5: E2E Verification & Sync Reporting [pending]
-- **Current phase**: 2 (Milestone M2)
-- **Current focus**: Milestone M2 Builder Worker implementing glossary.json, batch JSON LLM translation, dialogue topological sorting, and elliptical typography.
+  2. M2: Dialogue Topology, Batch JSON & Persistent Glossary [done]
+  3. M3: ML Inference Singleton & Chapter Integrity Checker [done]
+  4. M4: Next.js Web Reader Overhaul & UI Persistence [done]
+  5. M5: E2E Verification & Sync Reporting [in-progress]
+- **Current phase**: 5 (Milestone M5: E2E Verification & Forensic Integrity Audit)
+- **Current focus**: E2E Reviewer running full test suites and generating sync reports; Forensic Auditor conducting adversarial verification.
 
 ## 🔒 Key Constraints
 - NEVER write, modify, or create source code files directly.
@@ -42,8 +42,8 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 - Updated: 2026-08-22T12:41:00Z
 
 ## Key Decisions Made
-- Milestone M1 completed and verified (Anti-Patch Guard Check A & Check B passing, directory cleanup completed, git pushed).
-- Milestone M2 Builder Worker dispatched.
+- Milestones M1, M2, M3, M4 all completed with 100% verified unit and build tests.
+- Dispatched E2E Reviewer / QA Lead and Forensic Integrity Auditor for final Gate verification.
 
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
@@ -52,12 +52,16 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 | frontend_explorer_1 | teamwork_preview_explorer | Survey Frontend Codebase | completed | 79ffdaed-dde1-4389-9115-b39a0a791f46 |
 | spec_miner_1 | teamwork_preview_spec_miner | Survey Tests & Data Specs | completed | 098efbc7-cf88-4fc1-8fc2-44d48fd310f4 |
 | m1_worker_1 | teamwork_preview_worker | Implement Anti-Patch Guard & Layer Isolation | completed | 733e3aff-7f6c-4797-ae5c-025c64cc9221 |
-| m2_worker_1 | teamwork_preview_worker | Implement Glossary, Topology, Batch JSON & Typesetting | in-progress | dd3dc66f-76ab-4bb1-a6de-9765f37d04fe |
+| m2_worker_1 | teamwork_preview_worker | Implement Glossary, Topology, Batch JSON & Typesetting | completed | dd3dc66f-76ab-4bb1-a6de-9765f37d04fe |
+| m3_worker_1 | teamwork_preview_worker | Implement Inference Singleton, Chapter Auditor, Manifests & Zips | completed | 75128754-1a7c-4d27-971f-a0b8a8f99f41 |
+| m4_worker_1 | teamwork_preview_worker | Overhaul Next.js Reader UX, Modes, Hotkeys & Persistence | completed | 06743d93-2197-410e-8d8b-9d527f230c99 |
+| m5_reviewer_1 | teamwork_preview_reviewer | Full E2E Test Execution, Sync Report, QA Report, Git Push | in-progress | 7a534ae4-e126-4b41-924c-2a60ddfdf491 |
+| m5_auditor_1 | teamwork_preview_auditor | Deep Forensic Integrity Audit & Anti-Cheat Verification | in-progress | 2395eb31-3823-4d1c-94d2-026dd35c5aae |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 5 / 16
-- Pending subagents: dd3dc66f-76ab-4bb1-a6de-9765f37d04fe
+- Spawn count: 9 / 16
+- Pending subagents: 7a534ae4-e126-4b41-924c-2a60ddfdf491, 2395eb31-3823-4d1c-94d2-026dd35c5aae
 - Predecessor: none
 - Successor: not yet spawned
 
@@ -73,3 +77,5 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 - c:\Users\asana\OneDrive\Desktop\Manga\.agents\teamwork_preview_orchestrator_1\BRIEFING.md — Working memory
 - c:\Users\asana\OneDrive\Desktop\Manga\.agents\teamwork_preview_orchestrator_1\progress.md — Progress and heartbeat
 - c:\Users\asana\OneDrive\Desktop\Manga\backend\tests\anti_patch_guard.py — Anti-Patch Guard test harness
+- c:\Users\asana\OneDrive\Desktop\Manga\backend\data\manga\The_Ultimate_of_All_Ages\glossary.json — Xianxia dictionary
+- c:\Users\asana\OneDrive\Desktop\Manga\production_artifacts\Ongoing_Sync_Report.md — E2E Chapter Sync & Quality Report

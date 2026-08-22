@@ -18,9 +18,13 @@ _reader = None
 
 def get_reader():
     global _reader
-    if _reader is None:
-        _reader = easyocr.Reader(['en'], gpu=False)
-    return _reader
+    try:
+        from model_inference_manager import ModelInferenceManager
+        return ModelInferenceManager.get_instance().get_ocr_reader()
+    except Exception:
+        if _reader is None:
+            _reader = easyocr.Reader(['en'], gpu=False)
+        return _reader
 
 def is_sound_effect(text: str) -> bool:
     """
