@@ -82,13 +82,63 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
   };
 
   // Fetch chapter data
-  const fetchChapterData = useCallback(() => {
-    fetch(`/api/chapters/${unwrappedParams.manga}`)
-      .then((res) => res.json())
-      .then((resData: MangaApiResponse) => {
+  const fetchChapterData = useCallback(async () => {
+    try {
+      let resData: MangaApiResponse | null = null;
+      try {
+        const res = await fetch(`/api/chapters/${unwrappedParams.manga}`);
+        if (res.ok) {
+          const parsed = await res.json();
+          if (parsed && parsed.chapters && parsed.chapters.length > 0) {
+            resData = parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('API route fetch failed, falling back to static index:', e);
+      }
+
+      // Fallback to static /manga/chapters_index.json
+      if (!resData || !resData.chapters || resData.chapters.length === 0) {
+        const indexRes = await fetch('/manga/chapters_index.json');
+        if (indexRes.ok) {
+          const indexJson = await indexRes.json();
+          const cleanManga = unwrappedParams.manga.replace(/ /g, '_');
+          const mangaEntry = indexJson.mangas?.[cleanManga] || indexJson.mangas?.['The_Ultimate_of_All_Ages'];
+          if (mangaEntry && mangaEntry.chapters) {
+            const staticChapters: ChapterData[] = mangaEntry.chapters.map((ch: any) => {
+              const chNum = String(ch.chapter);
+              const chFolder = ch.folder || `chapter_${chNum}`;
+              const count = ch.pages_count || 12;
+              const v1: string[] = [];
+              const v2: string[] = [];
+              const v3: string[] = [];
+              for (let i = 1; i <= count; i++) {
+                const p = `page_${String(i).padStart(3, '0')}.webp`;
+                v1.push(`/manga/${cleanManga}/${chFolder}/v1/${p}`);
+                v2.push(`/manga/${cleanManga}/${chFolder}/v2/${p}`);
+                v3.push(`/manga/${cleanManga}/${chFolder}/v3/${p}`);
+              }
+              return {
+                number: chNum,
+                versions: {
+                  v1_original: v1,
+                  v2_cleaned: v2,
+                  v3_translated: v3,
+                }
+              };
+            });
+            resData = {
+              manga: cleanManga,
+              chapters: staticChapters
+            };
+          }
+        }
+      }
+
+      if (resData && resData.chapters) {
         setData(resData);
         setLoading(false);
-        if (typeof window !== 'undefined' && resData.chapters && resData.chapters.length > 0) {
+        if (typeof window !== 'undefined' && resData.chapters.length > 0) {
           const urlParams = new URLSearchParams(window.location.search);
           const chParam = urlParams.get('chapter');
           let foundIdx = -1;
@@ -115,11 +165,13 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
             setSelectedChapterIdx(0);
           }
         }
-      })
-      .catch((err) => {
-        console.error('Fetch error:', err);
+      } else {
         setLoading(false);
-      });
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setLoading(false);
+    }
   }, [unwrappedParams.manga]);
 
   useEffect(() => {
