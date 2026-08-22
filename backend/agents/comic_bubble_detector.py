@@ -19,6 +19,7 @@ SFX_AND_NOISE_PATTERNS = [
     r'^[a-zA-Z0-9]{1,3}$',          # 1-3 char random noise: G2, hx, KY, 0g, etc.
     r'^(hx|ky|g2|0g|09|og|ix|xk|fk|zk|qk|pk|vk)$',
     r'^(boom|bang|crash|slash|whoosh|swish|clash|roar|thud|crack|creak|pant|gasp|sigh|ah|oh|tch|uh|urgh|argh|grr|humph|ha|heh|hm|hmm|hiss|shh|puff|giggle|sob|sniff)$',
+    r'^[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{3,}$', # Consonant strings like KHHK, TCH, ZZZ, GRR
     r'^[0-9]+[a-zA-Z]+[0-9]*$',     # 0g09, 1a2, etc.
 ]
 

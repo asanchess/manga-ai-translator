@@ -149,8 +149,18 @@ def detect_solid_patches(
                     if sub_var < variance_threshold:
                         solid_subpatches += 1
 
-        is_solid_box = (mean_var < variance_threshold) or (
-            total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.85
+        # Check if the crop has an enclosing bubble contour / outline
+        gray_crop = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY) if crop.shape[2] == 3 else crop
+        has_dark_outline = np.any(gray_crop < 60)
+
+        # Solid patch condition:
+        # A) Entire box is solid (mean_var < variance_threshold)
+        # B) 85%+ of the box is solid subpatches without an outline
+        # C) A prominent solid block without any bubble contour (e.g. raw cv2.rectangle on background)
+        is_solid_box = (
+            (mean_var < variance_threshold) or
+            (total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.85 and not has_dark_outline) or
+            (solid_subpatches >= 10 and not has_dark_outline and mean_var > 10.0)
         )
 
         box_metric = {

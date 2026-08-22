@@ -39,3 +39,4 @@ backend/scripts/
 Thumbs.db
 
 .agents/exhaust/
+.agents/teamwork_preview_*/
