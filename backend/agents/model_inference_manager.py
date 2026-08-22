@@ -228,8 +228,10 @@ class ModelInferenceManager:
         # Stage 2: OCR
         t_ocr_start = time.time()
         clusters = extract_text_and_bubbles(v1_p, use_cache=True)
+        from comic_bubble_detector import get_bubble_detector
+        detector = get_bubble_detector()
         for c in clusters:
-            c["is_sfx"] = is_sound_effect(c.get("text", ""))
+            c["is_sfx"] = detector.is_sound_effect_or_noise(c.get("text", ""), cluster=c)
         t_ocr_ms = (time.time() - t_ocr_start) * 1000.0
 
         # Stage 3: Cleaning -> v2

@@ -31,6 +31,7 @@ backend/*.webp
 !backend/data/**
 !frontend/public/**
 backend/tests/tmp/
+backend/scripts/
 *.zip
 
 # System

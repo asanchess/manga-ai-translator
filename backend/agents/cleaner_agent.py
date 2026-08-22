@@ -136,8 +136,14 @@ def process_page_cleaning(img_input, clusters: list, output_path: str = None) ->
         img = img_input.copy()
     else:
         raise ValueError("img_input must be file path or numpy.ndarray")
-        
+
+    from comic_bubble_detector import get_bubble_detector
+    detector = get_bubble_detector()
+
     for cluster in clusters:
+        text = cluster.get("text", "").strip()
+        if cluster.get("is_sfx", False) or detector.is_sound_effect_or_noise(text, cluster=cluster, img_bgr=img):
+            continue
         clean_speech_bubble_seamless(img, cluster)
         
     if output_path:

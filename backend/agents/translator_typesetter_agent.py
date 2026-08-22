@@ -291,19 +291,20 @@ def process_page_translation(
         # Skip watermarks
         if "scythescans" in raw_text.lower() or "brought to you by" in raw_text.lower():
             continue
-        b_id = cluster["id"]
-        items_to_translate.append({"id": b_id, "text": raw_text})
+        b_id = cluster.get("id")
+        items_to_translate.append(cluster)
         valid_clusters.append(cluster)
         
     logger.info(f"Translating {len(items_to_translate)} bubbles in batch for '{manga_title}'...")
     translation_results = translate_bubbles_batch(items_to_translate, manga_title=manga_title)
-    translations_by_id = {item["id"]: item["translated"] for item in translation_results}
     
     # 2. Render each bubble strictly where dialogue.id == bubble.id
-    for cluster in valid_clusters:
-        b_id = cluster["id"]
-        trans_text = translations_by_id.get(b_id, "")
-        typeset_bubble(draw, pil_img, cluster, trans_text)
+    for cluster in translation_results:
+        if cluster.get("is_sfx", False):
+            continue
+        trans_text = cluster.get("translated_text") or cluster.get("translated", "")
+        if trans_text:
+            typeset_bubble(draw, pil_img, cluster, trans_text)
         
     final_rgb = pil_img.convert("RGB")
     final_bgr = cv2.cvtColor(np.array(final_rgb), cv2.COLOR_RGB2BGR)
