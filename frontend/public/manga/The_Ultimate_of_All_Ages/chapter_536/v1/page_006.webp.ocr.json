@@ -1,0 +1,316 @@
+[
+  {
+    "box": [
+      126,
+      3664,
+      380,
+      311
+    ],
+    "text": "212",
+    "lines": [
+      [
+        126,
+        3664,
+        380,
+        311
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      85,
+      4560,
+      342,
+      147
+    ],
+    "text": "THOSE WHO ENTER THe CLEAR BReeze, ThOSE Who My paviliON; Only HAVE THE Bright MooN, Drink With Me, ONly HAVE",
+    "lines": [
+      [
+        153,
+        4560,
+        209,
+        27
+      ],
+      [
+        85,
+        4615,
+        342,
+        32
+      ],
+      [
+        128,
+        4585,
+        259,
+        32
+      ],
+      [
+        150,
+        4675,
+        209,
+        32
+      ],
+      [
+        113,
+        4645,
+        289,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      330,
+      5113,
+      347,
+      153
+    ],
+    "text": "This GATHERiNG OF HEROES Is SET UP By This City's YounG MASTER RUAN THE WORlD's HEROES_ ZiMaO, intended TO Meet With",
+    "lines": [
+      [
+        395,
+        5113,
+        217,
+        29
+      ],
+      [
+        365,
+        5143,
+        277,
+        31
+      ],
+      [
+        355,
+        5173,
+        297,
+        29
+      ],
+      [
+        377,
+        5230,
+        243,
+        36
+      ],
+      [
+        330,
+        5203,
+        347,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      553,
+      5686,
+      247,
+      113
+    ],
+    "text": "3re",
+    "lines": [
+      [
+        553,
+        5686,
+        247,
+        113
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      42,
+      6137,
+      301,
+      62
+    ],
+    "text": "BEIMing PROFOUND PAlace BeIMing LAIFENG",
+    "lines": [
+      [
+        42,
+        6137,
+        301,
+        36
+      ],
+      [
+        98,
+        6168,
+        189,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      88,
+      7078,
+      251,
+      151
+    ],
+    "text": "WHAT? BROther LAIFENG HAS SOmE Opinion On The LEADER OF RED Moon City?",
+    "lines": [
+      [
+        178,
+        7078,
+        74,
+        31
+      ],
+      [
+        113,
+        7108,
+        199,
+        31
+      ],
+      [
+        88,
+        7138,
+        251,
+        31
+      ],
+      [
+        104,
+        7164,
+        219,
+        37
+      ],
+      [
+        143,
+        7198,
+        141,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      507,
+      8149,
+      241,
+      63
+    ],
+    "text": "SOUL DEVOURING SECT CHENG HAOMiAo",
+    "lines": [
+      [
+        507,
+        8149,
+        241,
+        36
+      ],
+      [
+        538,
+        8180,
+        179,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      348,
+      8633,
+      349,
+      181
+    ],
+    "text": "DOES BROTHER HAOMIAO Like provoking The RelAtionship Between RED Moon City AND My Beiming proFound PALACE This MUch AND NEveR Tire OF it?",
+    "lines": [
+      [
+        438,
+        8633,
+        171,
+        29
+      ],
+      [
+        375,
+        8663,
+        294,
+        29
+      ],
+      [
+        348,
+        8693,
+        349,
+        31
+      ],
+      [
+        370,
+        8723,
+        307,
+        29
+      ],
+      [
+        362,
+        8752,
+        322,
+        32
+      ],
+      [
+        403,
+        8783,
+        241,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      60,
+      9588,
+      192,
+      30
+    ],
+    "text": "HAHAHAHA~ DO I?",
+    "lines": [
+      [
+        60,
+        9588,
+        192,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      527,
+      9813,
+      40,
+      20
+    ],
+    "text": "73",
+    "lines": [
+      [
+        527,
+        9813,
+        40,
+        20
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
+  }
+]

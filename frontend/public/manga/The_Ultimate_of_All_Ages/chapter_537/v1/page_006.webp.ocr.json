@@ -1,0 +1,208 @@
+[
+  {
+    "box": [
+      283,
+      98,
+      231,
+      84
+    ],
+    "text": "It WAS This Little BROTHER'S NeGligence:",
+    "lines": [
+      [
+        363,
+        98,
+        71,
+        29
+      ],
+      [
+        283,
+        125,
+        231,
+        29
+      ],
+      [
+        330,
+        153,
+        134,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      100,
+      525,
+      189,
+      29
+    ],
+    "text": "SCYTHESCANS COM",
+    "lines": [
+      [
+        100,
+        525,
+        189,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      676,
+      2158,
+      50,
+      51
+    ],
+    "text": "00",
+    "lines": [
+      [
+        676,
+        2158,
+        50,
+        51
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      253,
+      2316,
+      106,
+      36
+    ],
+    "text": "PLEASEL",
+    "lines": [
+      [
+        253,
+        2316,
+        106,
+        36
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      415,
+      2663,
+      210,
+      69
+    ],
+    "text": "BROTHER ZIMAO; PLEASE:",
+    "lines": [
+      [
+        415,
+        2663,
+        210,
+        36
+      ],
+      [
+        472,
+        2700,
+        96,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      261,
+      3063,
+      316,
+      180
+    ],
+    "text": "IF THIS MATTER ISN'T HANDLED Well, THEN I Will LOSE A AND CAUSES A CONFLICT; LOT OF FACE",
+    "lines": [
+      [
+        319,
+        3063,
+        198,
+        36
+      ],
+      [
+        281,
+        3099,
+        272,
+        36
+      ],
+      [
+        295,
+        3171,
+        246,
+        36
+      ],
+      [
+        261,
+        3135,
+        316,
+        38
+      ],
+      [
+        325,
+        3207,
+        180,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      166,
+      3645,
+      325,
+      180
+    ],
+    "text": "COuld it Be THAT SOMEONe In ThE FAMiLY DELIBERATELY ARRANGED This SCENE TO TEST My CAPABILITIES?",
+    "lines": [
+      [
+        214,
+        3645,
+        232,
+        33
+      ],
+      [
+        171,
+        3679,
+        320,
+        38
+      ],
+      [
+        166,
+        3716,
+        325,
+        36
+      ],
+      [
+        180,
+        3754,
+        302,
+        32
+      ],
+      [
+        239,
+        3789,
+        182,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  }
+]

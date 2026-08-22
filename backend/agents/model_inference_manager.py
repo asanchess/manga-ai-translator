@@ -216,8 +216,8 @@ class ModelInferenceManager:
         # Stage 1: Ingest RAW image -> v1
         raw_img = Image.open(image_path).convert("RGB")
         width, height = raw_img.size
-        raw_img.save(v1_p, "WEBP", quality=95)
-        raw_img.save(v1_b_p, "WEBP", quality=95)
+        raw_img.save(v1_p, "WEBP", quality=98)
+        raw_img.save(v1_b_p, "WEBP", quality=98)
 
         # Propagate OCR cache if exists
         src_ocr_cache = image_path + ".ocr.json"

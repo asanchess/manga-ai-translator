@@ -233,7 +233,7 @@ class ChapterIntegrityChecker:
                 img_url = f"{cdn_base}/{p_idx}.webp"
                 req = urllib.request.Request(img_url, headers={'User-Agent': 'Mozilla/5.0'})
                 try:
-                    with urllib.request.urlopen(req, timeout=4) as resp:
+                    with urllib.request.urlopen(req, timeout=1) as resp:
                         data = resp.read()
                         if len(data) > 10000:
                             out_p = os.path.join(v1_dir, f"page_{p_idx:03d}.webp")
@@ -319,7 +319,7 @@ class ChapterIntegrityChecker:
             out_fp = os.path.join(v1_dir, out_fn)
             rgb = cv2.cvtColor(seg_img, cv2.COLOR_BGR2RGB)
             pil_img = Image.fromarray(rgb)
-            pil_img.save(out_fp, "WEBP", quality=95)
+            pil_img.save(out_fp, "WEBP", quality=98)
 
         new_count = len(new_page_segments)
         logger.info(f"Successfully resolved deficit: {os.path.basename(chapter_dir)} now has {new_count} pages (>= {min_pages})!")

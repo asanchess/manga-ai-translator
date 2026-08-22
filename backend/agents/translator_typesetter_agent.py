@@ -311,7 +311,7 @@ def process_page_translation(
     if output_path:
         os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
         if output_path.lower().endswith(".webp"):
-            final_rgb.save(output_path, "WEBP", quality=95)
+            final_rgb.save(output_path, "WEBP", quality=98)
         else:
             cv2.imwrite(output_path, final_bgr)
         logger.info(f"Page translated & typeset successfully -> {output_path}")

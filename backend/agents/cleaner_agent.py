@@ -105,6 +105,19 @@ def clean_speech_bubble_seamless(img: np.ndarray, cluster: dict):
     if np.count_nonzero(text_mask) == 0:
         # Fallback if no text mask detected: use distance mask
         text_mask = cv2.dilate((color_diff > 20).astype(np.uint8) * 255, kernel_dilate, iterations=1)
+
+    # Safety: If text mask covers > 50% of the ROI, Otsu captured background; clamp with stricter threshold
+    if text_mask.size > 0 and (np.count_nonzero(text_mask) / text_mask.size) > 0.50:
+        dist_mask_strict = (color_diff > 45).astype(np.uint8) * 255
+        text_mask = cv2.bitwise_and(otsu_mask, dist_mask_strict)
+        text_mask = cv2.dilate(text_mask, kernel_dilate, iterations=1)
+
+    # Safety: Keep 2px outer boundary of ROI untouched to guarantee genuine Telea inpainting reference pixels
+    if text_mask.shape[0] > 4 and text_mask.shape[1] > 4:
+        text_mask[0:2, :] = 0
+        text_mask[-2:, :] = 0
+        text_mask[:, 0:2] = 0
+        text_mask[:, -2:] = 0
         
     if np.count_nonzero(text_mask) > 0:
         inpainted_roi = cv2.inpaint(roi, text_mask, inpaintRadius=4, flags=cv2.INPAINT_TELEA)
@@ -132,7 +145,7 @@ def process_page_cleaning(img_input, clusters: list, output_path: str = None) ->
         if output_path.lower().endswith(".webp"):
             rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             pil_img = Image.fromarray(rgb)
-            pil_img.save(output_path, "WEBP", quality=95)
+            pil_img.save(output_path, "WEBP", quality=98)
         else:
             cv2.imwrite(output_path, img)
         logger.info(f"Page cleaned successfully -> {output_path}")

@@ -1,0 +1,146 @@
+[
+  {
+    "box": [
+      0,
+      2343,
+      297,
+      366
+    ],
+    "text": "KX",
+    "lines": [
+      [
+        0,
+        2343,
+        297,
+        366
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      464,
+      2887,
+      109,
+      96
+    ],
+    "text": "Yf",
+    "lines": [
+      [
+        464,
+        2887,
+        109,
+        96
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      28,
+      3443,
+      750,
+      383
+    ],
+    "text": "THE PRESTIGE OF THE HOSTV",
+    "lines": [
+      [
+        40,
+        3443,
+        736,
+        185
+      ],
+      [
+        28,
+        3658,
+        750,
+        168
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      390,
+      4343,
+      104,
+      29
+    ],
+    "text": "Taets#ko",
+    "lines": [
+      [
+        390,
+        4343,
+        104,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      230,
+      4982,
+      340,
+      144
+    ],
+    "text": "THIS CHAPTER IS BROUGHT T0 YOU By SCYTHE TEAM",
+    "lines": [
+      [
+        236,
+        4982,
+        328,
+        50
+      ],
+      [
+        230,
+        5028,
+        338,
+        50
+      ],
+      [
+        246,
+        5076,
+        324,
+        50
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      202,
+      5298,
+      396,
+      65
+    ],
+    "text": "CXGLOSIVB CHaPuEDS FIDST ON SCYTHESGANBGOD",
+    "lines": [
+      [
+        202,
+        5298,
+        396,
+        32
+      ],
+      [
+        239,
+        5327,
+        328,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

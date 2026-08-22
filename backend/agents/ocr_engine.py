@@ -6,6 +6,7 @@ import os
 import sys
 import re
 import json
+import threading
 import cv2
 import numpy as np
 import easyocr
@@ -15,6 +16,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(na
 logger = logging.getLogger("OCREngine")
 
 _reader = None
+_ocr_lock = threading.Lock()
 
 def get_reader():
     global _reader
@@ -135,12 +137,13 @@ def split_figure_eight_bubbles(clusters: list) -> list:
             
     return result
 
-def safe_ocr_read(chunk: np.ndarray, detail: int = 1) -> list:
+def safe_ocr_read(chunk: np.ndarray, detail: int = 1, batch_size: int = 8, mag_ratio: float = 1.0) -> list:
     if chunk is None or chunk.size == 0 or chunk.shape[0] < 4 or chunk.shape[1] < 4:
         return []
     try:
-        reader = get_reader()
-        return reader.readtext(chunk, detail=detail)
+        with _ocr_lock:
+            reader = get_reader()
+            return reader.readtext(chunk, detail=detail, batch_size=batch_size, mag_ratio=mag_ratio, canvas_size=1920)
     except Exception as e:
         logger.warning(f"EasyOCR read exception: {e}")
         return []
@@ -192,7 +195,7 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True, direction:
         y_end = min(h, y_start + chunk_h)
         chunk = img[y_start:y_end, :]
         
-        results = safe_ocr_read(chunk, detail=1)
+        results = safe_ocr_read(chunk, detail=1, batch_size=8, mag_ratio=1.0)
         for bbox, text, conf in results:
             clean_t = text.strip()
             if conf < 0.10 or len(clean_t) < 2:
@@ -211,15 +214,15 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True, direction:
                 "is_dark": False
             })
             
-    # Pass 2: Inverted pass for white-on-dark text
+    # Pass 2: Inverted pass for white-on-dark text (only if significant dark area exists)
     for y_start in range(0, h, chunk_h - overlap):
         y_end = min(h, y_start + chunk_h)
         chunk = img[y_start:y_end, :]
         chunk_gray = cv2.cvtColor(chunk, cv2.COLOR_BGR2GRAY)
         
-        if np.sum(chunk_gray < 50) > 1000:
+        if np.sum(chunk_gray < 50) > (chunk_gray.size * 0.10):
             inverted_chunk = 255 - chunk
-            results_inv = safe_ocr_read(inverted_chunk, detail=1)
+            results_inv = safe_ocr_read(inverted_chunk, detail=1, batch_size=8, mag_ratio=1.0)
             for bbox, text, conf in results_inv:
                 clean_t = text.strip()
                 if conf < 0.10 or len(clean_t) < 2:

@@ -1,0 +1,398 @@
+[
+  {
+    "box": [
+      106,
+      117,
+      161,
+      98
+    ],
+    "text": "TRY THIS MOvEi",
+    "lines": [
+      [
+        106,
+        117,
+        161,
+        51
+      ],
+      [
+        119,
+        171,
+        134,
+        44
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      181,
+      1404,
+      92,
+      77
+    ],
+    "text": "IC",
+    "lines": [
+      [
+        181,
+        1404,
+        92,
+        77
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      10,
+      3080,
+      427,
+      413
+    ],
+    "text": "11",
+    "lines": [
+      [
+        10,
+        3080,
+        427,
+        413
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      469,
+      4434,
+      229,
+      126
+    ],
+    "text": "WhY Did It REFLECT My ATTACK?",
+    "lines": [
+      [
+        517,
+        4434,
+        133,
+        41
+      ],
+      [
+        469,
+        4477,
+        229,
+        41
+      ],
+      [
+        512,
+        4519,
+        141,
+        41
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      270,
+      5028,
+      272,
+      154
+    ],
+    "text": "Who ARE YOu? To ACTUALLY BREAK The TAIHuA GOLDEN AND TAKE AWAY The TALISMAN LOCk ARRAY NEON StONei",
+    "lines": [
+      [
+        313,
+        5028,
+        186,
+        29
+      ],
+      [
+        283,
+        5053,
+        244,
+        29
+      ],
+      [
+        283,
+        5078,
+        249,
+        29
+      ],
+      [
+        280,
+        5128,
+        247,
+        29
+      ],
+      [
+        270,
+        5100,
+        272,
+        32
+      ],
+      [
+        318,
+        5153,
+        174,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      129,
+      5299,
+      228,
+      72
+    ],
+    "text": "put YouR City Lordi",
+    "lines": [
+      [
+        129,
+        5299,
+        34,
+        19
+      ],
+      [
+        219,
+        5299,
+        49,
+        19
+      ],
+      [
+        313,
+        5330,
+        44,
+        24
+      ],
+      [
+        169,
+        5351,
+        57,
+        20
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 6
+  },
+  {
+    "box": [
+      320,
+      6138,
+      422,
+      119
+    ],
+    "text": "TO ACTUALLY DARE TURN YOUR BACK ON ME, WHAT AN ARROGANT BRAT in His Own STRENGTH? DOES He HAVE ABSOLuTE CONFiDence",
+    "lines": [
+      [
+        370,
+        6138,
+        322,
+        29
+      ],
+      [
+        320,
+        6167,
+        422,
+        30
+      ],
+      [
+        403,
+        6228,
+        254,
+        29
+      ],
+      [
+        328,
+        6195,
+        409,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      130,
+      6693,
+      222,
+      121
+    ],
+    "text": "This Monument OF Mine FORMS A WORlD OF ITS Own;",
+    "lines": [
+      [
+        213,
+        6693,
+        54,
+        29
+      ],
+      [
+        130,
+        6723,
+        222,
+        31
+      ],
+      [
+        148,
+        6753,
+        184,
+        29
+      ],
+      [
+        168,
+        6782,
+        145,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      224,
+      7322,
+      244,
+      126
+    ],
+    "text": "IF YOU WANT ME To Go With You; Fine,",
+    "lines": [
+      [
+        244,
+        7322,
+        196,
+        41
+      ],
+      [
+        224,
+        7364,
+        244,
+        41
+      ],
+      [
+        264,
+        7407,
+        161,
+        41
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      357,
+      7942,
+      321,
+      111
+    ],
+    "text": "inside IF YOU HAVE CATCH ME The Abilityi",
+    "lines": [
+      [
+        357,
+        7974,
+        321,
+        44
+      ],
+      [
+        434,
+        7942,
+        169,
+        43
+      ],
+      [
+        417,
+        8012,
+        206,
+        41
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
+  },
+  {
+    "box": [
+      310,
+      9436,
+      352,
+      55
+    ],
+    "text": "WHATTI FoRMS WORLD Its Ownf Doesn'T That MEAN It\"S A TRANSCENDENT GRADE profound ArtifACTTi",
+    "lines": [
+      [
+        327,
+        9437,
+        126,
+        20
+      ],
+      [
+        466,
+        9436,
+        66,
+        24
+      ],
+      [
+        561,
+        9437,
+        86,
+        20
+      ],
+      [
+        310,
+        9452,
+        352,
+        24
+      ],
+      [
+        361,
+        9471,
+        252,
+        20
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 11
+  },
+  {
+    "box": [
+      512,
+      9760,
+      162,
+      56
+    ],
+    "text": "IS This BRAT Stupid",
+    "lines": [
+      [
+        512,
+        9760,
+        162,
+        30
+      ],
+      [
+        544,
+        9786,
+        104,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 12
+  }
+]

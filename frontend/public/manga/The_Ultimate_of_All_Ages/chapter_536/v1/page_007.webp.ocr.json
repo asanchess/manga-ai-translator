@@ -1,0 +1,222 @@
+[
+  {
+    "box": [
+      98,
+      890,
+      154,
+      32
+    ],
+    "text": "SO FRAGRANT,",
+    "lines": [
+      [
+        98,
+        890,
+        154,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      283,
+      1415,
+      174,
+      63
+    ],
+    "text": "OF COURSE It's FRAGRANT;",
+    "lines": [
+      [
+        283,
+        1415,
+        174,
+        29
+      ],
+      [
+        308,
+        1442,
+        125,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      463,
+      1700,
+      314,
+      125
+    ],
+    "text": "Just TAKING A Light SNIFF MAKES ONe Feel Light in BODv; Full OF VitaLiTY AlL Over!",
+    "lines": [
+      [
+        540,
+        1700,
+        159,
+        32
+      ],
+      [
+        488,
+        1730,
+        264,
+        32
+      ],
+      [
+        463,
+        1760,
+        314,
+        32
+      ],
+      [
+        516,
+        1788,
+        209,
+        37
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      313,
+      1940,
+      344,
+      87
+    ],
+    "text": "Worthy OF Being One OF THE Top ThrEe FAMOUS TEAS In The World TODAY:",
+    "lines": [
+      [
+        360,
+        1940,
+        249,
+        32
+      ],
+      [
+        313,
+        1970,
+        344,
+        29
+      ],
+      [
+        370,
+        1998,
+        227,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      123,
+      2535,
+      224,
+      89
+    ],
+    "text": "This Time You REALLY Spent A Lot, BROTHER ZiMaO~",
+    "lines": [
+      [
+        155,
+        2535,
+        157,
+        29
+      ],
+      [
+        123,
+        2565,
+        224,
+        32
+      ],
+      [
+        135,
+        2595,
+        197,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      568,
+      2830,
+      174,
+      59
+    ],
+    "text": "Heh~ WHAT ARE YOU SAYiNG.",
+    "lines": [
+      [
+        568,
+        2830,
+        174,
+        29
+      ],
+      [
+        585,
+        2860,
+        137,
+        29
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      486,
+      4196,
+      162,
+      132
+    ],
+    "text": "Fk",
+    "lines": [
+      [
+        486,
+        4196,
+        162,
+        132
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      442,
+      5152,
+      120,
+      60
+    ],
+    "text": "YOU Two, PLEASE Sit:",
+    "lines": [
+      [
+        444,
+        5152,
+        114,
+        30
+      ],
+      [
+        442,
+        5182,
+        120,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  }
+]

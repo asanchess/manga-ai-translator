@@ -179,8 +179,8 @@ class MangaPipelineService:
         logger.info(f"[Step 1/5] Ingesting RAW image -> {v1_p}")
         raw_img = Image.open(image_path).convert("RGB")
         width, height = raw_img.size
-        raw_img.save(v1_p, "WEBP", quality=95)
-        raw_img.save(v1_b_p, "WEBP", quality=95)
+        raw_img.save(v1_p, "WEBP", quality=98)
+        raw_img.save(v1_b_p, "WEBP", quality=98)
 
         # Propagate OCR cache if present
         src_ocr_cache = image_path + ".ocr.json"
