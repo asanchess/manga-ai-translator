@@ -71,13 +71,25 @@ def calculate_iou(box1: tuple, box2: tuple) -> float:
         return 0.0
     return inter_area / float(union_area)
 
-def topological_reading_sort_key(box: tuple, row_height: int = 50) -> tuple:
+def topological_reading_sort_key(box: tuple, row_height: int = 50, direction: str = "ltr") -> float:
     """
-    Sorts boxes primarily top-to-bottom in rows, secondarily left-to-right.
+    Sorts boxes in topological reading order:
+    Calculates y_center * 10000 + x_center (or row-banded (y_center // row_height) * 10000 + x_center).
+    Supports LTR (manhua / webtoon) and RTL (traditional manga).
     """
     x, y, w, h = box
-    row = y // row_height
-    return (row, x, y)
+    x_center = float(x) + (float(w) / 2.0)
+    y_center = float(y) + (float(h) / 2.0)
+    
+    if row_height and row_height > 0:
+        y_band = (y_center // row_height)
+    else:
+        y_band = y_center
+        
+    if direction == "rtl":
+        return y_band * 10000.0 - x_center
+    return y_band * 10000.0 + x_center
+
 
 def split_figure_eight_bubbles(clusters: list) -> list:
     """
@@ -129,7 +141,7 @@ def safe_ocr_read(chunk: np.ndarray, detail: int = 1) -> list:
         logger.warning(f"EasyOCR read exception: {e}")
         return []
 
-def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
+def extract_text_and_bubbles(image_path: str, use_cache: bool = True, direction: str = "ltr", row_height: int = 50) -> list:
     """
     Extracts, merges, deduplicates, and sorts speech bubbles in topological reading order.
     Returns list of dicts with sequential 1-based unique IDs:
@@ -151,7 +163,7 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                 cached_data = json.load(f)
                 if isinstance(cached_data, list) and len(cached_data) > 0:
                     split_c = split_figure_eight_bubbles(cached_data)
-                    split_c.sort(key=lambda c: topological_reading_sort_key(c["box"]))
+                    split_c.sort(key=lambda c: topological_reading_sort_key(c["box"], row_height=row_height, direction=direction))
                     for idx, c in enumerate(split_c, 1):
                         c["id"] = idx
                         bx, by, bw, bh = c["box"]
@@ -159,6 +171,7 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
                     return split_c
         except Exception:
             pass
+
             
     img = cv2.imread(image_path)
     if img is None:
@@ -243,7 +256,7 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
     # --- Spatial Clustering into Bubbles ---
     clusters = []
     used = set()
-    deduped_detections.sort(key=lambda d: topological_reading_sort_key(d["box"]))
+    deduped_detections.sort(key=lambda d: topological_reading_sort_key(d["box"], row_height=row_height, direction=direction))
     
     for i, d1 in enumerate(deduped_detections):
         if i in used:
@@ -332,8 +345,8 @@ def extract_text_and_bubbles(image_path: str, use_cache: bool = True) -> list:
     # Apply Figure-8 splitting
     final_clusters = split_figure_eight_bubbles(final_clusters)
     
-    # Topological Reading-Order Sorting (top-to-bottom, left-to-right)
-    final_clusters.sort(key=lambda c: topological_reading_sort_key(c["box"]))
+    # Topological Reading-Order Sorting (top-to-bottom, left-to-right / right-to-left)
+    final_clusters.sort(key=lambda c: topological_reading_sort_key(c["box"], row_height=row_height, direction=direction))
     
     # Assign sequential 1-based IDs
     for idx, c in enumerate(final_clusters, 1):

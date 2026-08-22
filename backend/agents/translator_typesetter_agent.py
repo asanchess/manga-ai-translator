@@ -188,16 +188,22 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
     best_font = None
     best_lines = []
     
-    # 1. Adaptive Sizing via Elliptical Word Wrapping (Range 38px down to 12px)
-    for font_size in range(38, 11, -1):
-        test_font = get_best_font(font_key, font_size)
+    # 1. Binary Search for optimal font size in range [12, 38] using elliptical chord wrapping
+    low_size = 12
+    high_size = 38
+    
+    while low_size <= high_size:
+        mid_size = (low_size + high_size) // 2
+        test_font = get_best_font(font_key, mid_size)
         candidate_lines = wrap_text_elliptic(words, test_font, safe_w, safe_h)
         if candidate_lines:
             best_font = test_font
             best_lines = candidate_lines
-            break
+            low_size = mid_size + 1  # Try finding a larger legible font size
+        else:
+            high_size = mid_size - 1  # Reduce font size to fit inside oval chords
             
-    # 2. If not fitted yet, try lower range 11px down to 8px with elliptical wrapping
+    # 2. If not fitted in [12, 38], try lower range 11px down to 8px
     if best_font is None:
         for font_size in range(11, 7, -1):
             test_font = get_best_font(font_key, font_size)
@@ -222,7 +228,7 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
     if is_dark_bubble:
         text_color = (255, 255, 255)
         stroke_color = (0, 0, 0)
-        stroke_w = 2 if font_size_val >= 22 else 1
+        stroke_w = 2 if font_size_val >= 22 else 1  # ~1.5px average stroke outline
     else:
         text_color = (0, 0, 0)
         stroke_color = (255, 255, 255)
@@ -249,9 +255,15 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
         )
         cur_y += line_heights[i] + line_spacing
 
-def process_page_translation(cleaned_img_input, clusters: list, output_path: str = None) -> np.ndarray:
+def process_page_translation(
+    cleaned_img_input, 
+    clusters: list, 
+    output_path: str = None, 
+    manga_title: str = "The_Ultimate_of_All_Ages"
+) -> np.ndarray:
     """
-    Translates all bubbles via batch LLM translator and typesets them centered inside boxes.
+    Translates all bubbles via batch LLM translator with glossary injection
+    and typesets them centered inside boxes strictly paired by bubble ID.
     Returns BGR numpy array and optionally saves to output_path.
     """
     if isinstance(cleaned_img_input, str):
@@ -268,7 +280,7 @@ def process_page_translation(cleaned_img_input, clusters: list, output_path: str
         
     draw = ImageDraw.Draw(pil_img)
     
-    # 1. Prepare batch translation request linked by bubble ID
+    # 1. Prepare batch translation request linked strictly by bubble ID
     items_to_translate = []
     valid_clusters = []
     
@@ -283,11 +295,11 @@ def process_page_translation(cleaned_img_input, clusters: list, output_path: str
         items_to_translate.append({"id": b_id, "text": raw_text})
         valid_clusters.append(cluster)
         
-    logger.info(f"Translating {len(items_to_translate)} bubbles in batch...")
-    translation_results = translate_bubbles_batch(items_to_translate)
+    logger.info(f"Translating {len(items_to_translate)} bubbles in batch for '{manga_title}'...")
+    translation_results = translate_bubbles_batch(items_to_translate, manga_title=manga_title)
     translations_by_id = {item["id"]: item["translated"] for item in translation_results}
     
-    # 2. Render each bubble
+    # 2. Render each bubble strictly where dialogue.id == bubble.id
     for cluster in valid_clusters:
         b_id = cluster["id"]
         trans_text = translations_by_id.get(b_id, "")

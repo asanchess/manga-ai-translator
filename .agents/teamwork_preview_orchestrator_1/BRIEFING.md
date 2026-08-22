@@ -1,4 +1,4 @@
-# BRIEFING — 2026-08-22T12:45:50Z
+# BRIEFING — 2026-08-22T12:51:00Z
 
 ## Mission
 Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to v3.0 SOTA Enterprise standards according to ORIGINAL_REQUEST.md and AGENTS.md.
@@ -22,13 +22,13 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 4. **Succession**: Threshold at 16 spawns, write handoff.md, cancel crons, spawn successor.
 - **Work items**:
   0. Survey Codebase [done]
-  1. M1: Layer Isolation & Anti-Patch Guard [in-progress]
-  2. M2: Dialogue Topology, Batch JSON & Persistent Glossary [pending]
+  1. M1: Layer Isolation & Anti-Patch Guard [done]
+  2. M2: Dialogue Topology, Batch JSON & Persistent Glossary [in-progress]
   3. M3: ML Inference Singleton & Chapter Integrity Checker [pending]
   4. M4: Next.js Web Reader Overhaul & UI Persistence [pending]
   5. M5: E2E Verification & Sync Reporting [pending]
-- **Current phase**: 1 (Milestone M1)
-- **Current focus**: Milestone M1 Worker implementing `anti_patch_guard.py` and layer cleanup.
+- **Current phase**: 2 (Milestone M2)
+- **Current focus**: Milestone M2 Builder Worker implementing glossary.json, batch JSON LLM translation, dialogue topological sorting, and elliptical typography.
 
 ## 🔒 Key Constraints
 - NEVER write, modify, or create source code files directly.
@@ -42,9 +42,8 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 - Updated: 2026-08-22T12:41:00Z
 
 ## Key Decisions Made
-- Completed Survey Phase with 3 Explorers (Backend, Frontend, Test/Data).
-- Generated PROJECT.md and production_artifacts/Spec.md.
-- Dispatched M1 Builder Worker to create anti_patch_guard.py and verify layer isolation.
+- Milestone M1 completed and verified (Anti-Patch Guard Check A & Check B passing, directory cleanup completed, git pushed).
+- Milestone M2 Builder Worker dispatched.
 
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
@@ -52,12 +51,13 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 | backend_explorer_1 | teamwork_preview_explorer | Survey Backend Codebase | completed | bbd34e6f-dde0-48cd-98c5-9715b4735211 |
 | frontend_explorer_1 | teamwork_preview_explorer | Survey Frontend Codebase | completed | 79ffdaed-dde1-4389-9115-b39a0a791f46 |
 | spec_miner_1 | teamwork_preview_spec_miner | Survey Tests & Data Specs | completed | 098efbc7-cf88-4fc1-8fc2-44d48fd310f4 |
-| m1_worker_1 | teamwork_preview_worker | Implement Anti-Patch Guard & Layer Isolation | in-progress | 733e3aff-7f6c-4797-ae5c-025c64cc9221 |
+| m1_worker_1 | teamwork_preview_worker | Implement Anti-Patch Guard & Layer Isolation | completed | 733e3aff-7f6c-4797-ae5c-025c64cc9221 |
+| m2_worker_1 | teamwork_preview_worker | Implement Glossary, Topology, Batch JSON & Typesetting | in-progress | dd3dc66f-76ab-4bb1-a6de-9765f37d04fe |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 4 / 16
-- Pending subagents: 733e3aff-7f6c-4797-ae5c-025c64cc9221
+- Spawn count: 5 / 16
+- Pending subagents: dd3dc66f-76ab-4bb1-a6de-9765f37d04fe
 - Predecessor: none
 - Successor: not yet spawned
 
@@ -72,3 +72,4 @@ Orchestrate the end-to-end upgrade of Manga AI Translator and Next.js reader to 
 - c:\Users\asana\OneDrive\Desktop\Manga\production_artifacts\Spec.md — SOTA specification
 - c:\Users\asana\OneDrive\Desktop\Manga\.agents\teamwork_preview_orchestrator_1\BRIEFING.md — Working memory
 - c:\Users\asana\OneDrive\Desktop\Manga\.agents\teamwork_preview_orchestrator_1\progress.md — Progress and heartbeat
+- c:\Users\asana\OneDrive\Desktop\Manga\backend\tests\anti_patch_guard.py — Anti-Patch Guard test harness

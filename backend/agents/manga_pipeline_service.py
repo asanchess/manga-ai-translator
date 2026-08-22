@@ -202,8 +202,9 @@ class MangaPipelineService:
 
         # Step 4 & 5: LLM Translation & Typesetting -> v3
         logger.info(f"[Step 4-5/5] Translating & typesetting bubbles -> {v3_p}...")
-        process_page_translation(v2_p, clusters, output_path=v3_p)
+        process_page_translation(v2_p, clusters, output_path=v3_p, manga_title=clean_title)
         shutil.copy2(v3_p, v3_b_p)
+
 
         # Step 6: Update Metadata
         meta_path = os.path.join(pub_chapter_dir, "meta.json")

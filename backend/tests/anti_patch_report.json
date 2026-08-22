@@ -112,12 +112,12 @@
       },
       "check_b_background_ssim": {
         "passed": true,
-        "bg_ssim": 0.999507,
-        "degradation_pct": 0.0493,
+        "bg_ssim": 0.99958,
+        "degradation_pct": 0.042,
         "full_ssim": 0.987105,
         "min_ssim_threshold": 0.995,
         "max_degradation_threshold_pct": 0.5,
-        "bg_pixel_count": 7692752,
+        "bg_pixel_count": 7674248,
         "total_pixels": 7904000
       },
       "v1_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v1_original\\page_002.webp",
@@ -230,12 +230,12 @@
       },
       "check_b_background_ssim": {
         "passed": true,
-        "bg_ssim": 0.999499,
-        "degradation_pct": 0.0501,
+        "bg_ssim": 0.9995,
+        "degradation_pct": 0.05,
         "full_ssim": 0.987619,
         "min_ssim_threshold": 0.995,
         "max_degradation_threshold_pct": 0.5,
-        "bg_pixel_count": 7695741,
+        "bg_pixel_count": 7680925,
         "total_pixels": 7868000
       },
       "v1_path": "C:\\Users\\asana\\OneDrive\\Desktop\\Manga\\backend\\data\\manga\\The_Ultimate_of_All_Ages\\chapter_531\\v1_original\\page_008.webp",
@@ -244,6 +244,6 @@
       "bubbles_count": 5
     }
   ],
-  "execution_time_sec": 8.396,
-  "timestamp": 1787403013.1930025
+  "execution_time_sec": 6.077,
+  "timestamp": 1787403370.4385755
 }
