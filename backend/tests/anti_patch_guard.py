@@ -154,16 +154,30 @@ def detect_solid_patches(
         bx2, by2 = min(iw, x + w + 10), min(ih, y + h + 10)
         padded_crop = cleaned_img[by1:by2, bx1:bx2]
         gray_padded = cv2.cvtColor(padded_crop, cv2.COLOR_BGR2GRAY) if padded_crop.shape[2] == 3 else padded_crop
-        has_dark_outline = bool(np.any(gray_padded < 60))
+        has_dark_outline = bool(np.any(gray_padded < 80))
+
+        # Check contiguous flat mask (detects monolithic solid rectangle fills)
+        gray_crop = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY) if crop.shape[2] == 3 else crop
+        dx = cv2.Sobel(gray_crop, cv2.CV_64F, 1, 0, ksize=3)
+        dy = cv2.Sobel(gray_crop, cv2.CV_64F, 0, 1, ksize=3)
+        mag = np.sqrt(dx**2 + dy**2)
+        flat_mask = (mag < 1.0).astype(np.uint8)
+        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(flat_mask)
+        max_flat_ratio = 0.0
+        for i in range(1, num_labels):
+            area = stats[i, cv2.CC_STAT_AREA]
+            ratio = area / max(1, w * h)
+            if ratio > max_flat_ratio:
+                max_flat_ratio = ratio
 
         # Solid patch condition:
         # A) Entire box is solid (mean_var < variance_threshold)
         # B) 80%+ of the box is solid subpatches without an outline
-        # C) A prominent solid block (>= 25% of box) without any bubble contour (e.g. raw cv2.rectangle on background)
+        # C) A prominent contiguous solid block (>= 30% of box) without outline on textured background
         is_solid_box = (
             (mean_var < variance_threshold) or
             (total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.80 and not has_dark_outline) or
-            (total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.25 and not has_dark_outline and mean_var > 30.0)
+            (max_flat_ratio >= 0.30 and not has_dark_outline and mean_var > 30.0)
         )
 
         box_metric = {
@@ -173,6 +187,7 @@ def detect_solid_patches(
             "channel_variance": [round(float(v), 4) for v in var_per_channel],
             "total_subpatches": total_subpatches,
             "solid_subpatches": solid_subpatches,
+            "max_flat_ratio": round(max_flat_ratio, 4),
             "is_solid_patch": bool(is_solid_box)
         }
         box_metrics.append(box_metric)
