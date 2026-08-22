@@ -1,0 +1,100 @@
+[
+  {
+    "box": [
+      126,
+      158,
+      312,
+      85
+    ],
+    "text": "It's ABSOLUTELY ImpossiBLeIi",
+    "lines": [
+      [
+        126,
+        158,
+        312,
+        48
+      ],
+      [
+        154,
+        199,
+        254,
+        44
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      82,
+      3651,
+      215,
+      39
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        82,
+        3651,
+        215,
+        39
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      495,
+      6153,
+      242,
+      90
+    ],
+    "text": "IS ThIs  . Feeling? THAT",
+    "lines": [
+      [
+        495,
+        6153,
+        136,
+        42
+      ],
+      [
+        534,
+        6199,
+        162,
+        44
+      ],
+      [
+        649,
+        6153,
+        88,
+        42
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      183,
+      6840,
+      252,
+      47
+    ],
+    "text": "4 | \"",
+    "lines": [
+      [
+        183,
+        6840,
+        252,
+        47
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 4
+  }
+]

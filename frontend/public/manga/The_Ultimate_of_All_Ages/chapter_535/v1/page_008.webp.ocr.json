@@ -1,0 +1,100 @@
+[
+  {
+    "box": [
+      131,
+      493,
+      242,
+      88
+    ],
+    "text": "True DemoN DHARMA BoDy:",
+    "lines": [
+      [
+        145,
+        493,
+        216,
+        42
+      ],
+      [
+        131,
+        539,
+        242,
+        42
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      210,
+      3651,
+      290,
+      295
+    ],
+    "text": "33",
+    "lines": [
+      [
+        210,
+        3651,
+        290,
+        295
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      520,
+      6628,
+      228,
+      54
+    ],
+    "text": "True DEMOn DHARMA BODyl True DemON DhIRMA Bodyt",
+    "lines": [
+      [
+        522,
+        6628,
+        226,
+        24
+      ],
+      [
+        520,
+        6658,
+        226,
+        24
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      292,
+      7208,
+      206,
+      56
+    ],
+    "text": "It\"S AbsOluTELY impossiBLel",
+    "lines": [
+      [
+        292,
+        7208,
+        206,
+        30
+      ],
+      [
+        314,
+        7232,
+        162,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  }
+]

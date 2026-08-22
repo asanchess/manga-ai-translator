@@ -1,0 +1,118 @@
+[
+  {
+    "box": [
+      129,
+      573,
+      356,
+      370
+    ],
+    "text": "WN",
+    "lines": [
+      [
+        129,
+        573,
+        356,
+        370
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      125,
+      5025,
+      294,
+      110
+    ],
+    "text": "RED MOON CITY NEON STONE GUARDIAN GOU RIGUANG",
+    "lines": [
+      [
+        171,
+        5025,
+        204,
+        38
+      ],
+      [
+        125,
+        5059,
+        294,
+        40
+      ],
+      [
+        185,
+        5097,
+        178,
+        38
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      316,
+      6649,
+      320,
+      69
+    ],
+    "text": "DAMN iti DAMN it! How DARE YOU Kill My RuAN FAmily's PRIvATE Soldiersh!",
+    "lines": [
+      [
+        361,
+        6649,
+        233,
+        28
+      ],
+      [
+        316,
+        6669,
+        320,
+        30
+      ],
+      [
+        380,
+        6692,
+        194,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      72,
+      7270,
+      388,
+      76
+    ],
+    "text": "Into This River; COulD He USE This UNCLE Gou, Li YuNXiAo FELl Opportunity TO ESCAPE?I",
+    "lines": [
+      [
+        72,
+        7290,
+        388,
+        32
+      ],
+      [
+        112,
+        7270,
+        306,
+        30
+      ],
+      [
+        122,
+        7316,
+        292,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  }
+]

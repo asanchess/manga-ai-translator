@@ -1,0 +1,224 @@
+[
+  {
+    "box": [
+      209,
+      0,
+      532,
+      535
+    ],
+    "text": "Vl",
+    "lines": [
+      [
+        209,
+        0,
+        532,
+        535
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      78,
+      1440,
+      198,
+      32
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        78,
+        1440,
+        198,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      5,
+      2643,
+      356,
+      252
+    ],
+    "text": "12",
+    "lines": [
+      [
+        5,
+        2643,
+        356,
+        252
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      152,
+      3936,
+      200,
+      122
+    ],
+    "text": "This STONE Is STRANGE: EVEN I Feel Extremely UNCOMFORTABLE!",
+    "lines": [
+      [
+        186,
+        3936,
+        130,
+        32
+      ],
+      [
+        154,
+        3968,
+        194,
+        30
+      ],
+      [
+        156,
+        3998,
+        192,
+        30
+      ],
+      [
+        152,
+        4028,
+        200,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      394,
+      4176,
+      350,
+      82
+    ],
+    "text": "DAMN it! I AM A DemoN LORD, I Don't BeLieve I CAN'T BREAK OpEN This BROKEN ARRAYI",
+    "lines": [
+      [
+        458,
+        4176,
+        224,
+        28
+      ],
+      [
+        394,
+        4201,
+        350,
+        31
+      ],
+      [
+        442,
+        4230,
+        254,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      129,
+      5130,
+      120,
+      62
+    ],
+    "text": "Let's Give It A TRYI",
+    "lines": [
+      [
+        129,
+        5130,
+        120,
+        36
+      ],
+      [
+        142,
+        5164,
+        96,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      112,
+      6040,
+      504,
+      359
+    ],
+    "text": "TKV/",
+    "lines": [
+      [
+        112,
+        6040,
+        504,
+        359
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      31,
+      7123,
+      426,
+      230
+    ],
+    "text": "1 e",
+    "lines": [
+      [
+        31,
+        7123,
+        426,
+        230
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      158,
+      8770,
+      392,
+      382
+    ],
+    "text": "7F 05",
+    "lines": [
+      [
+        158,
+        8770,
+        201,
+        173
+      ],
+      [
+        428,
+        9012,
+        122,
+        140
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  }
+]

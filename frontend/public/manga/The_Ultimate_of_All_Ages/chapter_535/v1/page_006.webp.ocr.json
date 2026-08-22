@@ -1,0 +1,60 @@
+[
+  {
+    "box": [
+      285,
+      2664,
+      172,
+      60
+    ],
+    "text": "THIS IS._",
+    "lines": [
+      [
+        285,
+        2664,
+        172,
+        60
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      207,
+      9166,
+      412,
+      108
+    ],
+    "text": "None OF THOSe TRuMp CARDS In STOp CALCULAtiNG: YOUR UNiveRSe GOD Monument CAN DEAL With it:",
+    "lines": [
+      [
+        207,
+        9189,
+        412,
+        36
+      ],
+      [
+        290,
+        9166,
+        240,
+        32
+      ],
+      [
+        212,
+        9218,
+        402,
+        30
+      ],
+      [
+        304,
+        9244,
+        216,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  }
+]

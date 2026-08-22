@@ -55,9 +55,9 @@ def save_translations_cache(cache: dict):
     except Exception:
         pass
 
-def check_ollama_status() -> tuple[bool, str]:
+def check_ollama_status(timeout: float = 3.0) -> tuple[bool, str]:
     try:
-        r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=3.0)
+        r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=timeout)
         if r.status_code == 200:
             models_data = r.json().get("models", [])
             model_names = [m.get("name", "").split(":")[0] for m in models_data]
@@ -71,6 +71,8 @@ def check_ollama_status() -> tuple[bool, str]:
     except Exception:
         pass
     return False, ""
+
+check_ollama_available = check_ollama_status
 
 def extract_json_array(text: str) -> list:
     """

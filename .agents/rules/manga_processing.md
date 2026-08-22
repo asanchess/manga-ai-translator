@@ -16,3 +16,7 @@ When working on manga image processing, cleaning, or typesetting scripts, you MU
 - **No Programmer Artifacts:** Do not render programmer/markup tags like `*[ ]*` or HTML tags into the final image. Text should be rendered cleanly as standard manga dialogue.
 - **Fonts:** Only use high-quality, Cyrillic-verified TrueType fonts for Russian text (e.g., Comic Sans, Arial Bold, Segoe UI). Never use fonts that do not support Cyrillic characters.
 - **SFX (Sound Effects):** Render SFX naturally blending into the background or ignore them. Do not create ugly box badges for them unless explicitly requested.
+
+## 3. Git & Workflow Hygiene
+- **Always push changes:** Automatically stage, commit, and push all changes (`git add .`, `git commit`, `git push`) after completing any feature, fix, or processing batch.
+

@@ -1,0 +1,272 @@
+[
+  {
+    "box": [
+      23,
+      2945,
+      681,
+      413
+    ],
+    "text": "05",
+    "lines": [
+      [
+        23,
+        2945,
+        681,
+        413
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      640,
+      4230,
+      74,
+      26
+    ],
+    "text": "This.",
+    "lines": [
+      [
+        640,
+        4230,
+        74,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      272,
+      5096,
+      242,
+      82
+    ],
+    "text": "ThiS IS A DOMAiNI It\"S EVEN STRONGER THAN Minell",
+    "lines": [
+      [
+        288,
+        5096,
+        214,
+        30
+      ],
+      [
+        272,
+        5121,
+        242,
+        31
+      ],
+      [
+        324,
+        5146,
+        144,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      0,
+      6624,
+      188,
+      174
+    ],
+    "text": "44",
+    "lines": [
+      [
+        0,
+        6624,
+        188,
+        174
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      302,
+      6709,
+      316,
+      109
+    ],
+    "text": "Frightening ClOuD ROAR This proFound THuNDER ADVANCED TO MARTIAL Supremei",
+    "lines": [
+      [
+        302,
+        6738,
+        316,
+        30
+      ],
+      [
+        307,
+        6709,
+        306,
+        36
+      ],
+      [
+        324,
+        6760,
+        269,
+        36
+      ],
+      [
+        402,
+        6788,
+        118,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 5
+  },
+  {
+    "box": [
+      9,
+      6887,
+      68,
+      38
+    ],
+    "text": "Ihall",
+    "lines": [
+      [
+        9,
+        6887,
+        68,
+        38
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      290,
+      7436,
+      262,
+      144
+    ],
+    "text": "MARTIAL BEAST, HAVING HUNG Out GRANDMASTER DemoniC With YOU FOR SO lonG,",
+    "lines": [
+      [
+        388,
+        7436,
+        88,
+        28
+      ],
+      [
+        290,
+        7494,
+        262,
+        28
+      ],
+      [
+        294,
+        7464,
+        256,
+        30
+      ],
+      [
+        328,
+        7522,
+        188,
+        30
+      ],
+      [
+        384,
+        7550,
+        76,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      422,
+      7686,
+      270,
+      88
+    ],
+    "text": "HAS ACTUALLY ADVANCED TO A RANK-Eight MARTIAL Supreme: This _",
+    "lines": [
+      [
+        428,
+        7686,
+        256,
+        30
+      ],
+      [
+        422,
+        7714,
+        270,
+        30
+      ],
+      [
+        470,
+        7744,
+        158,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      81,
+      8231,
+      332,
+      179
+    ],
+    "text": "Don't SAY THAT, HAVING hung Out With Me FoR So long; Aren't YOU ALSO ALMOST At RANK-nine~~~",
+    "lines": [
+      [
+        141,
+        8231,
+        214,
+        36
+      ],
+      [
+        95,
+        8266,
+        306,
+        38
+      ],
+      [
+        81,
+        8302,
+        332,
+        37
+      ],
+      [
+        105,
+        8338,
+        282,
+        37
+      ],
+      [
+        150,
+        8378,
+        192,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  }
+]

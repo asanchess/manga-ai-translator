@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Typesetter Agent with Adaptive Font Sizing, Strict 85% Bounding Box Fitting, and Centering.
+Typesetter Agent with Elliptical / Diamond Word Wrapping, 
+Adaptive Font Sizing (12px - 38px), Safe Oval Padding, and Auto-Contrast.
 """
 import os
 import re
+import math
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -13,7 +15,7 @@ from llm_translator import translate_bubbles_batch
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("TypesetterAgent")
 
-# Windows Cyrillic-compatible fonts
+# Validated Windows Cyrillic-compatible fonts
 FONTS = {
     "comic": r"C:\Windows\Fonts\comicbd.ttf",
     "segoe": r"C:\Windows\Fonts\segoeuib.ttf",
@@ -31,9 +33,83 @@ def get_best_font(font_key: str, size: int):
     except Exception:
         return ImageFont.load_default()
 
-def wrap_text_to_bounds(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list:
+def wrap_text_elliptic(words: list, font: ImageFont.FreeTypeFont, safe_w: int, safe_h: int) -> list:
     """
-    Wraps text into balanced lines such that no line exceeds max_w.
+    Wraps words into balanced lines tailored for elliptical/oval speech bubbles.
+    Lines near the top and bottom are shorter, while lines in the center are wider.
+    Returns a list of lines if a valid packing is found, or an empty list otherwise.
+    """
+    if not words:
+        return []
+        
+    dummy_img = Image.new("RGB", (10, 10))
+    draw = ImageDraw.Draw(dummy_img)
+    
+    # Calculate representative line height and spacing
+    sample_bbox = draw.textbbox((0, 0), "АбвГд123!?", font=font)
+    line_h = max(10, sample_bbox[3] - sample_bbox[1])
+    line_spacing = max(2, int(0.15 * font.size if hasattr(font, 'size') else line_h * 0.15))
+    line_step = line_h + line_spacing
+    
+    max_lines = int(safe_h // line_step)
+    if max_lines < 1:
+        return []
+        
+    a_semi = safe_w / 2.0
+    b_semi = safe_h / 2.0
+    
+    # Try different target line counts starting from most balanced
+    for N in range(1, max_lines + 1):
+        total_text_h = N * line_step - line_spacing
+        if total_text_h > safe_h:
+            continue
+            
+        allowed_widths = []
+        for i in range(N):
+            # Midpoint y of line i relative to vertical center
+            y_mid = - (total_text_h / 2.0) + i * line_step + (line_h / 2.0)
+            u = abs(y_mid) / max(1.0, b_semi)
+            if u >= 1.0:
+                allowed_w = 0
+            else:
+                # Ellipse horizontal chord length at y_mid
+                allowed_w = int(2.0 * a_semi * math.sqrt(1.0 - u * u))
+            allowed_widths.append(max(0, allowed_w))
+            
+        # Attempt to greedily pack words into these N elliptical chords
+        words_idx = 0
+        candidate_lines = []
+        possible = True
+        
+        for i in range(N):
+            cur_line_words = []
+            cur_max_w = allowed_widths[i]
+            
+            while words_idx < len(words):
+                test_str = " ".join(cur_line_words + [words[words_idx]])
+                bbox = draw.textbbox((0, 0), test_str, font=font)
+                test_w = bbox[2] - bbox[0]
+                
+                if test_w <= cur_max_w:
+                    cur_line_words.append(words[words_idx])
+                    words_idx += 1
+                else:
+                    break
+                    
+            if cur_line_words:
+                candidate_lines.append(" ".join(cur_line_words))
+            else:
+                possible = False
+                break
+                
+        if possible and words_idx == len(words):
+            return candidate_lines
+            
+    return []
+
+def wrap_text_rectangular(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list:
+    """
+    Standard rectangular wrap fallback when elliptical packing requires fallback.
     """
     words = text.split()
     if not words:
@@ -59,10 +135,14 @@ def wrap_text_to_bounds(text: str, font: ImageFont.FreeTypeFont, max_w: int) -> 
         
     return lines
 
+# Alias for backwards compatibility with tests
+wrap_text_to_bounds = wrap_text_rectangular
+
 def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dict, translated_text: str):
     """
     Renders translated text centered inside the cluster's bounding box,
-    strictly staying within 85% of bubble width and height.
+    strictly staying within 85% of bubble oval width and height.
+    Applies auto-contrast and stroke based on bubble background luminance.
     """
     if not translated_text or not translated_text.strip():
         return
@@ -81,7 +161,7 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
     if not clean_text:
         return
         
-    # Determine background luminance
+    # Determine background luminance for smart auto-contrast
     crop_x1 = max(0, x)
     crop_y1 = max(0, y)
     crop_x2 = min(pil_img.width, x + w)
@@ -95,56 +175,69 @@ def typeset_bubble(draw: ImageDraw.ImageDraw, pil_img: Image.Image, cluster: dic
         avg_luma = 255
         
     is_dark_bubble = avg_luma < 120 or cluster.get("is_dark", False)
-    text_color = (255, 255, 255) if is_dark_bubble else (15, 15, 15)
-    stroke_color = (0, 0, 0) if is_dark_bubble else (255, 255, 255)
-    stroke_w = 2 if is_dark_bubble else 1
     
+    # Font style selection
     words = clean_text.split()
-    is_shout = ("!" in clean_text and len(words) <= 4) or clean_text.isupper()
+    is_shout = ("!" in clean_text and len(words) <= 4) or (clean_text.isupper() and len(words) <= 5)
     font_key = "arial" if is_shout else "comic"
     
-    # 85% safe boundary limits
+    # 85% safe boundary limits (8-10% internal padding from boundary)
     safe_w = max(20, int(w * 0.85))
     safe_h = max(15, int(h * 0.85))
     
     best_font = None
     best_lines = []
     
-    # Adaptive font sizing from 26 down to 8
-    for font_size in range(26, 7, -1):
+    # 1. Adaptive Sizing via Elliptical Word Wrapping (Range 38px down to 12px)
+    for font_size in range(38, 11, -1):
         test_font = get_best_font(font_key, font_size)
-        wrapped_lines = wrap_text_to_bounds(clean_text, test_font, safe_w)
-        if not wrapped_lines:
-            continue
-            
-        line_bboxes = [draw.textbbox((0, 0), l, font=test_font) for l in wrapped_lines]
-        line_heights = [b[3] - b[1] for b in line_bboxes]
-        line_widths = [b[2] - b[0] for b in line_bboxes]
-        total_text_h = sum(line_heights) + (len(wrapped_lines) - 1) * 3
-        max_line_w = max(line_widths) if line_widths else 0
-        
-        if total_text_h <= safe_h and max_line_w <= safe_w:
+        candidate_lines = wrap_text_elliptic(words, test_font, safe_w, safe_h)
+        if candidate_lines:
             best_font = test_font
-            best_lines = wrapped_lines
+            best_lines = candidate_lines
             break
             
+    # 2. If not fitted yet, try lower range 11px down to 8px with elliptical wrapping
+    if best_font is None:
+        for font_size in range(11, 7, -1):
+            test_font = get_best_font(font_key, font_size)
+            candidate_lines = wrap_text_elliptic(words, test_font, safe_w, safe_h)
+            if candidate_lines:
+                best_font = test_font
+                best_lines = candidate_lines
+                break
+                
+    # 3. Final Fallback: standard rectangular wrapping if text is exceptionally long
     if best_font is None:
         best_font = get_best_font(font_key, 8)
-        best_lines = wrap_text_to_bounds(clean_text, best_font, safe_w)
+        best_lines = wrap_text_rectangular(clean_text, best_font, safe_w)
         
     if not best_lines:
         return
         
+    # Determine exact text styling
+    font_size_val = best_font.size if hasattr(best_font, 'size') else 14
+    line_spacing = max(2, int(0.15 * font_size_val))
+    
+    if is_dark_bubble:
+        text_color = (255, 255, 255)
+        stroke_color = (0, 0, 0)
+        stroke_w = 2 if font_size_val >= 22 else 1
+    else:
+        text_color = (0, 0, 0)
+        stroke_color = (255, 255, 255)
+        stroke_w = 0  # Clean black text on light background
+        
     line_bboxes = [draw.textbbox((0, 0), l, font=best_font) for l in best_lines]
     line_heights = [b[3] - b[1] for b in line_bboxes]
     line_widths = [b[2] - b[0] for b in line_bboxes]
-    line_spacing = 3
     total_text_h = sum(line_heights) + (len(best_lines) - 1) * line_spacing
     
-    # Perfect vertical and horizontal centering
+    # Perfect vertical centering inside bubble box
     cur_y = y + (h - total_text_h) / 2.0
     
     for i, line in enumerate(best_lines):
+        # Perfect horizontal centering for each line (diamond silhouette)
         cur_x = x + (w - line_widths[i]) / 2.0
         draw.text(
             (cur_x, cur_y), 

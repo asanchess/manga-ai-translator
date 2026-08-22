@@ -1,0 +1,190 @@
+[
+  {
+    "box": [
+      82,
+      910,
+      206,
+      32
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        82,
+        910,
+        206,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      491,
+      2507,
+      309,
+      278
+    ],
+    "text": "G2",
+    "lines": [
+      [
+        491,
+        2507,
+        309,
+        278
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      244,
+      4636,
+      158,
+      96
+    ],
+    "text": "Ahi",
+    "lines": [
+      [
+        244,
+        4636,
+        158,
+        96
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      520,
+      6104,
+      186,
+      144
+    ],
+    "text": "EXAMiNED Your I'VE JusT SyMPTOMS; AND I BASICALLY HAVE AN IDEA:",
+    "lines": [
+      [
+        530,
+        6132,
+        166,
+        30
+      ],
+      [
+        564,
+        6104,
+        98,
+        30
+      ],
+      [
+        520,
+        6162,
+        186,
+        30
+      ],
+      [
+        534,
+        6192,
+        160,
+        28
+      ],
+      [
+        568,
+        6220,
+        88,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      66,
+      6948,
+      342,
+      116
+    ],
+    "text": "I'VE ALREADY Tried TO ELiminate HALF OF The EFFeCtS LEFT in Your Mother's WOMB BACK THEN:",
+    "lines": [
+      [
+        168,
+        6948,
+        138,
+        28
+      ],
+      [
+        66,
+        6976,
+        342,
+        30
+      ],
+      [
+        68,
+        7004,
+        340,
+        30
+      ],
+      [
+        140,
+        7034,
+        192,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      260,
+      7196,
+      278,
+      58
+    ],
+    "text": "CiRCulATiNG YOUR Origin POWER TO FEEL It.",
+    "lines": [
+      [
+        260,
+        7196,
+        278,
+        30
+      ],
+      [
+        302,
+        7224,
+        194,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      330,
+      7166,
+      138,
+      30
+    ],
+    "text": "YOU CAN TRY",
+    "lines": [
+      [
+        330,
+        7166,
+        138,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  }
+]

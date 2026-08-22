@@ -1,0 +1,420 @@
+[
+  {
+    "box": [
+      397,
+      1865,
+      194,
+      68
+    ],
+    "text": "HMM?I",
+    "lines": [
+      [
+        397,
+        1865,
+        194,
+        68
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      473,
+      2280,
+      244,
+      103
+    ],
+    "text": "VA",
+    "lines": [
+      [
+        473,
+        2280,
+        244,
+        103
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      121,
+      2502,
+      155,
+      166
+    ],
+    "text": "72",
+    "lines": [
+      [
+        121,
+        2502,
+        155,
+        166
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      0,
+      3377,
+      193,
+      254
+    ],
+    "text": "To",
+    "lines": [
+      [
+        0,
+        3377,
+        193,
+        254
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      431,
+      3529,
+      358,
+      260
+    ],
+    "text": "Xy",
+    "lines": [
+      [
+        431,
+        3529,
+        358,
+        260
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      79,
+      4375,
+      198,
+      182
+    ],
+    "text": "AY",
+    "lines": [
+      [
+        79,
+        4375,
+        198,
+        182
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      62,
+      5350,
+      96,
+      128
+    ],
+    "text": "Uly",
+    "lines": [
+      [
+        62,
+        5350,
+        96,
+        128
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  },
+  {
+    "box": [
+      530,
+      5628,
+      270,
+      308
+    ],
+    "text": "472",
+    "lines": [
+      [
+        530,
+        5628,
+        270,
+        308
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 8
+  },
+  {
+    "box": [
+      190,
+      6214,
+      213,
+      121
+    ],
+    "text": "WHAT IS ThiS?I",
+    "lines": [
+      [
+        190,
+        6214,
+        213,
+        66
+      ],
+      [
+        203,
+        6273,
+        188,
+        62
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      464,
+      7298,
+      178,
+      60
+    ],
+    "text": "puppet? WHAT'S Going On:..",
+    "lines": [
+      [
+        464,
+        7298,
+        178,
+        30
+      ],
+      [
+        480,
+        7328,
+        144,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
+  },
+  {
+    "box": [
+      502,
+      7268,
+      98,
+      30
+    ],
+    "text": "IS THIS A",
+    "lines": [
+      [
+        502,
+        7268,
+        98,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 11
+  },
+  {
+    "box": [
+      80,
+      7468,
+      150,
+      60
+    ],
+    "text": "It Should Be A puppet?",
+    "lines": [
+      [
+        80,
+        7468,
+        150,
+        30
+      ],
+      [
+        100,
+        7498,
+        110,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 12
+  },
+  {
+    "box": [
+      282,
+      7890,
+      246,
+      60
+    ],
+    "text": "COulD A puppet ROAR Continvously?",
+    "lines": [
+      [
+        282,
+        7890,
+        246,
+        30
+      ],
+      [
+        314,
+        7920,
+        182,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 13
+  },
+  {
+    "box": [
+      350,
+      7860,
+      110,
+      30
+    ],
+    "text": "But, HOW",
+    "lines": [
+      [
+        350,
+        7860,
+        110,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 14
+  },
+  {
+    "box": [
+      158,
+      8176,
+      312,
+      92
+    ],
+    "text": "Young MASTER Ziling; WHAT EXACTLY Is This PERsONs BACKGROUND?",
+    "lines": [
+      [
+        228,
+        8176,
+        172,
+        30
+      ],
+      [
+        158,
+        8206,
+        312,
+        32
+      ],
+      [
+        176,
+        8236,
+        276,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 15
+  },
+  {
+    "box": [
+      368,
+      8382,
+      428,
+      150
+    ],
+    "text": "looking AT His prECIOUS The preciovs ARMOR THAT MAnifested SWORD; PRECIOUS MiRRor; AND EvEn EARLiER, THey ARE ALl RANK-Nine proFound ARTIFACTS'",
+    "lines": [
+      [
+        438,
+        8382,
+        290,
+        30
+      ],
+      [
+        368,
+        8442,
+        428,
+        30
+      ],
+      [
+        378,
+        8409,
+        409,
+        36
+      ],
+      [
+        406,
+        8472,
+        350,
+        32
+      ],
+      [
+        458,
+        8502,
+        250,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 16
+  },
+  {
+    "box": [
+      14,
+      9100,
+      392,
+      120
+    ],
+    "text": "DESCENDANTS OF ThE JIANG FAMiLY EveN The Direct COulDNT possibly HAVE This Kind OF Luxurious TREATMENT'",
+    "lines": [
+      [
+        14,
+        9127,
+        392,
+        33
+      ],
+      [
+        118,
+        9100,
+        186,
+        30
+      ],
+      [
+        20,
+        9158,
+        382,
+        32
+      ],
+      [
+        66,
+        9188,
+        292,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 17
+  }
+]

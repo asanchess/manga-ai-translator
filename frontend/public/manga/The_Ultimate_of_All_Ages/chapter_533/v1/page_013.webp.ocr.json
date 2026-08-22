@@ -1,0 +1,60 @@
+[
+  {
+    "box": [
+      229,
+      343,
+      342,
+      149
+    ],
+    "text": "ThIS CHAPTER I5 BROUGHT To YOU By SCYTHE TEAM",
+    "lines": [
+      [
+        234,
+        343,
+        330,
+        54
+      ],
+      [
+        229,
+        389,
+        339,
+        55
+      ],
+      [
+        246,
+        439,
+        325,
+        53
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      201,
+      661,
+      398,
+      68
+    ],
+    "text": "CXCLOSIE CHAPTERB FIRST ON SCYHESGANBCOD",
+    "lines": [
+      [
+        201,
+        661,
+        398,
+        36
+      ],
+      [
+        239,
+        693,
+        328,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  }
+]

@@ -32,3 +32,5 @@ backend/tests/tmp/
 # System
 .DS_Store
 Thumbs.db
+
+.agents/exhaust/

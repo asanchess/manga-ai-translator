@@ -1,0 +1,206 @@
+[
+  {
+    "box": [
+      326,
+      2294,
+      280,
+      92
+    ],
+    "text": "I HAVE Arrived: ThE PERSON WHO invited Me, Come Out.",
+    "lines": [
+      [
+        384,
+        2294,
+        164,
+        30
+      ],
+      [
+        326,
+        2324,
+        280,
+        30
+      ],
+      [
+        384,
+        2354,
+        166,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      84,
+      4204,
+      214,
+      32
+    ],
+    "text": "SCYTHESCANS.COM",
+    "lines": [
+      [
+        84,
+        4204,
+        214,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      350,
+      7198,
+      238,
+      210
+    ],
+    "text": "TRuly, A Knife RESTS ABOvE THE You wouldnt Come Word 'LuSt'! I KNEW Without A BEAvTiFUL WOMAN LeAviNG A Letter For YOu",
+    "lines": [
+      [
+        390,
+        7198,
+        158,
+        30
+      ],
+      [
+        372,
+        7228,
+        194,
+        30
+      ],
+      [
+        350,
+        7286,
+        238,
+        32
+      ],
+      [
+        354,
+        7258,
+        230,
+        30
+      ],
+      [
+        352,
+        7318,
+        236,
+        30
+      ],
+      [
+        370,
+        7348,
+        198,
+        30
+      ],
+      [
+        374,
+        7376,
+        192,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      364,
+      7942,
+      266,
+      122
+    ],
+    "text": "SEEing ME NOW; Do You REALIZE YOU'VE FALLEN INTo A TRAP? DO You REGRET It?",
+    "lines": [
+      [
+        406,
+        7942,
+        184,
+        32
+      ],
+      [
+        368,
+        7974,
+        256,
+        30
+      ],
+      [
+        364,
+        8004,
+        266,
+        30
+      ],
+      [
+        408,
+        8032,
+        176,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      177,
+      8568,
+      253,
+      60
+    ],
+    "text": "HOWEVER, It's ALREADY TOO LATE FOR THATI",
+    "lines": [
+      [
+        177,
+        8568,
+        253,
+        30
+      ],
+      [
+        190,
+        8598,
+        228,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      385,
+      9495,
+      287,
+      114
+    ],
+    "text": "TOMBSTONE GUARDIAN OF RED MOON CITY GOU XINGGUANG",
+    "lines": [
+      [
+        385,
+        9495,
+        287,
+        42
+      ],
+      [
+        405,
+        9533,
+        248,
+        40
+      ],
+      [
+        423,
+        9569,
+        214,
+        40
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

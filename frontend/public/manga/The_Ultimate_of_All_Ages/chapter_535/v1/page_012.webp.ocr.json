@@ -1,0 +1,60 @@
+[
+  {
+    "box": [
+      230,
+      4710,
+      340,
+      144
+    ],
+    "text": "THIS CHAPTER IS BROUGHT T0 YOU By SCYTHE TEAM",
+    "lines": [
+      [
+        236,
+        4710,
+        328,
+        50
+      ],
+      [
+        230,
+        4756,
+        338,
+        50
+      ],
+      [
+        246,
+        4804,
+        324,
+        50
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      202,
+      5026,
+      396,
+      66
+    ],
+    "text": "CXGLOSIVB CHAPUCDS FIDST ON SCYTHESCANBGOCU",
+    "lines": [
+      [
+        202,
+        5026,
+        396,
+        32
+      ],
+      [
+        237,
+        5053,
+        330,
+        39
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  }
+]

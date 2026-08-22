@@ -6,7 +6,7 @@
       356,
       325
     ],
-    "text": "Right; I FORGOT TO ASK You something: The NAME Wenlin, HAVE YOu EVER HEARD OF It?",
+    "text": "Right; I FORGOT TO ASK You something: The YOu EVER HEARD OF It?",
     "lines": [
       [
         335,
@@ -33,12 +33,6 @@
         36
       ],
       [
-        175,
-        294,
-        248,
-        37
-      ],
-      [
         189,
         331,
         218,
@@ -47,47 +41,43 @@
       [
         254,
         370,
-        88,
+        90,
         32
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 1
   },
   {
     "box": [
-      577,
+      575,
       599,
-      162,
+      164,
       36
     ],
     "text": "WAAAAHHHI",
     "lines": [
       [
-        577,
+        575,
         599,
-        162,
+        164,
         36
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 2
   },
   {
     "box": [
       466,
-      1262,
+      1290,
       284,
-      80
+      52
     ],
-    "text": "Ididnt ACCIDENTALLY SAY THOSE WORDS Out Loud JST NOW, Did 174",
+    "text": "SAY THOSE WORDS Out Loud JuST NOW, Did 174",
     "lines": [
-      [
-        498,
-        1262,
-        220,
-        28
-      ],
       [
         466,
         1290,
@@ -102,7 +92,28 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      498,
+      1262,
+      220,
+      28
+    ],
+    "text": "Ididnt ACCIDENTALLY",
+    "lines": [
+      [
+        498,
+        1262,
+        220,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
   },
   {
     "box": [
@@ -121,7 +132,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 5
   },
   {
     "box": [
@@ -140,7 +152,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 6
   },
   {
     "box": [
@@ -149,19 +162,19 @@
       296,
       129
     ],
-    "text": "WhAT? YOu'Ve SEEN ThIS PERSON? WHERE Did YOu HEAR THIS NAME?",
+    "text": "SEEN ThIS PERSON? WhAT? YOu've WHERE Did YOu HEAR THIS NAME?",
     "lines": [
-      [
-        105,
-        2507,
-        202,
-        38
-      ],
       [
         65,
         2538,
         280,
         37
+      ],
+      [
+        105,
+        2507,
+        202,
+        38
       ],
       [
         57,
@@ -177,7 +190,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 7
   },
   {
     "box": [
@@ -186,7 +200,7 @@
       230,
       110
     ],
-    "text": "Hehe, YOU REALLY DO Know Little:",
+    "text": "Hehe; YOU REALLY DO Know Little:",
     "lines": [
       [
         565,
@@ -208,23 +222,18 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 8
   },
   {
     "box": [
       473,
-      3309,
+      3345,
       288,
-      105
+      69
     ],
-    "text": "Tell ME, WHAT EXACTLY IS Going On With This Kid?",
+    "text": "EXACTLY IS Going On With This Kid?",
     "lines": [
-      [
-        521,
-        3309,
-        192,
-        36
-      ],
       [
         473,
         3345,
@@ -232,14 +241,35 @@
         36
       ],
       [
-        522,
+        520,
         3382,
-        190,
+        192,
         32
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 9
+  },
+  {
+    "box": [
+      521,
+      3309,
+      192,
+      36
+    ],
+    "text": "Tell ME, WHAT",
+    "lines": [
+      [
+        521,
+        3309,
+        192,
+        36
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 10
   },
   {
     "box": [
@@ -248,7 +278,7 @@
       434,
       398
     ],
-    "text": "WHAT DO YOU MEAN WHAT is Going On? IDont Know WHAT You're TALKiNG ABOUT! I WAS JuST Feeling CurIOUS xk",
+    "text": "WHAT DO YOU MEAN WHAT is Going On? IDont Know WHAT You're TALKiNG ABOUT! I WAS JuST FEEling CURIOUS! xk",
     "lines": [
       [
         197,
@@ -275,10 +305,10 @@
         36
       ],
       [
-        171,
-        3787,
-        238,
-        36
+        168,
+        3786,
+        241,
+        37
       ],
       [
         39,
@@ -288,7 +318,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 11
   },
   {
     "box": [
@@ -297,19 +328,19 @@
       270,
       180
     ],
-    "text": "Oh? ARe YOu THAT CuriouS? YOU'RE SO CuriOUS Yo'VE TURNED into AN EmOJl~",
+    "text": "YOu THAT CuriouS? Oh? ARe YOU'RE SO CuriOUS You'VE TURNED into AN EmOJl~",
     "lines": [
-      [
-        489,
-        4359,
-        116,
-        36
-      ],
       [
         417,
         4394,
         258,
         38
+      ],
+      [
+        489,
+        4359,
+        116,
+        36
       ],
       [
         417,
@@ -331,23 +362,18 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 12
   },
   {
     "box": [
-      46,
-      4710,
-      609,
-      586
+      67,
+      4743,
+      588,
+      412
     ],
-    "text": "He WAS SENT By YOUR MASTER, TIAN ZHAO Zi, AND Within His Soul, THERE IS A RADIANT Light SEAL LOCK PLACED By TIAN ZHAO Zi. In ThE Whole World, I ONly Know OF TIAN ZHAO ZI WHO CAN USE THIS THING: AS His Disciple; Xk I Wonder IF You'VE LEARNED it?",
+    "text": "YOUR MASTER, TIAN ZHAO Zi, AND Within His Soul, THERE IS A RADIANT Light SEAL LOCK PLACED By TIAN ZHAO Zi. in ThE Whole World; I ONly Know OF ThIS THING: AS His Disciple; TIAN ZHAO ZI WHO CAN USE I Wonder IF You'VE LEARNED |t?",
     "lines": [
-      [
-        172,
-        4710,
-        204,
-        32
-      ],
       [
         95,
         4743,
@@ -373,15 +399,21 @@
         36
       ],
       [
-        379,
-        4939,
-        188,
-        36
+        380,
+        4940,
+        186,
+        32
       ],
       [
         305,
         4973,
         338,
+        38
+      ],
+      [
+        293,
+        5045,
+        362,
         38
       ],
       [
@@ -391,41 +423,50 @@
         36
       ],
       [
-        293,
-        5045,
-        362,
-        38
-      ],
-      [
-        46,
-        5060,
-        222,
-        236
-      ],
-      [
         344,
         5084,
         260,
         32
       ],
       [
-        391,
-        5117,
-        162,
-        38
+        390,
+        5115,
+        163,
+        40
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 13
+  },
+  {
+    "box": [
+      172,
+      4710,
+      204,
+      32
+    ],
+    "text": "He WAS SENT By",
+    "lines": [
+      [
+        172,
+        4710,
+        204,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 14
   },
   {
     "box": [
       51,
       6427,
-      448,
-      159
+      446,
+      158
     ],
-    "text": "Li YUNXiAO: YOU ABSOLUTELY MuST NOT DO Things THAT COURT YOUR Own DEATH! YOu ACTUALLY READ HIS MEMORIES?",
+    "text": "Li YUNXiAO: YOU Things THAT COURt YOUR Own ABSOLUTELY MuST NOT DO DEATH! YOu ACTUALLY READ HIS MEMORIES?",
     "lines": [
       [
         159,
@@ -434,16 +475,16 @@
         36
       ],
       [
+        51,
+        6487,
+        446,
+        38
+      ],
+      [
         85,
         6451,
         376,
         44
-      ],
-      [
-        51,
-        6487,
-        448,
-        36
       ],
       [
         82,
@@ -455,11 +496,12 @@
         161,
         6546,
         222,
-        40
+        39
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 15
   },
   {
     "box": [
@@ -468,14 +510,8 @@
       410,
       102
     ],
-    "text": "You TRULY HAVE The GALL TO WRAP AROuND The HEAVENS; You REALLY Don't Know The MEANiNG OF DEATHI DAMN iti",
+    "text": "TO WRAP AROuND The HEAVENS; You REALLY Don't Know The MEANiNG You TRULY HAVE The GALL OF DEATHI DAMN iti",
     "lines": [
-      [
-        270,
-        6700,
-        290,
-        30
-      ],
       [
         212,
         6724,
@@ -489,6 +525,12 @@
         30
       ],
       [
+        270,
+        6700,
+        290,
+        30
+      ],
+      [
         304,
         6772,
         226,
@@ -496,7 +538,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 16
   },
   {
     "box": [
@@ -527,7 +570,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 17
   },
   {
     "box": [
@@ -536,7 +580,7 @@
       607,
       487
     ],
-    "text": "MOREOVER, It WAS Him WHo COvEted My GREAT COMpASSiON Twilight Cloud MiRROR AND WANTED To USE OCULAR ARTS TO intimiDAte Me, HAHA, It's A pity THAT THE CRUCIAL PARTS WERE LOCKED By YOUR MASTER. You'Ve OBTAINED Your MASTER'S TRue ALCHEMICAL DAO INHEriTance; So it's Not Like You Didn't LEARN How To uNLOck it, Right?",
+    "text": "MOREOVER, It WAS COMpASSiON Twilight Cloud MiRROR Him WHo COvEted My GREAT AND WANTED To USE OCULAR ARTS TO intimiDAte Me, HAHA, It's A PARTS WERE LOCKED By YOUR pity THAT ThE CRUCIAL MASTER. You'Ve OBTAINED Your MASTER'S TRue ALCHEMICAL DAO INHEritance; So it's Not Like You Didn't LEARN How TO uNLOck it, Right?",
     "lines": [
       [
         131,
@@ -545,16 +589,16 @@
         28
       ],
       [
-        78,
-        7352,
-        306,
-        30
-      ],
-      [
         28,
         7379,
         408,
         31
+      ],
+      [
+        78,
+        7352,
+        306,
+        30
       ],
       [
         54,
@@ -575,16 +619,16 @@
         38
       ],
       [
-        279,
-        7559,
-        296,
-        36
-      ],
-      [
         237,
         7595,
         380,
         36
+      ],
+      [
+        280,
+        7560,
+        294,
+        32
       ],
       [
         219,
@@ -605,10 +649,10 @@
         38
       ],
       [
-        254,
-        7740,
-        344,
-        32
+        253,
+        7739,
+        346,
+        36
       ],
       [
         305,
@@ -618,7 +662,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 18
   },
   {
     "box": [
@@ -627,19 +672,19 @@
       294,
       84
     ],
-    "text": "IF YOU WANT ME TO UNLOCK It FOR YOu, KEEp DREAMinG!",
+    "text": "TO UNLOCK It FOR YOu; IF YOU WANT ME KEEp DREAMinG!",
     "lines": [
-      [
-        336,
-        8274,
-        200,
-        32
-      ],
       [
         289,
         8299,
         294,
         36
+      ],
+      [
+        336,
+        8274,
+        200,
+        32
       ],
       [
         332,
@@ -649,16 +694,37 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 19
+  },
+  {
+    "box": [
+      534,
+      8784,
+      266,
+      272
+    ],
+    "text": "IA",
+    "lines": [
+      [
+        534,
+        8784,
+        266,
+        272
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 20
   },
   {
     "box": [
       67,
       9293,
       400,
-      187
+      185
     ],
-    "text": "YOu ABSOLUTELY Must Not hurt THAT PERSON; OtherwiSe YOu ARE TRULY Like AN OlD MAN HANGING HimselF_SEEKING YOUR Own DEATHI",
+    "text": "YOu ABSOLUTELY Must Not Hurt THAT ARE TRULY Like AN OlD MAN PERSON; OtherwiSe YOu HANGING HimselF_SEEKING YOUR Own DEATHI",
     "lines": [
       [
         145,
@@ -673,16 +739,16 @@
         36
       ],
       [
-        84,
-        9351,
-        364,
-        41
-      ],
-      [
         73,
         9383,
         390,
         36
+      ],
+      [
+        84,
+        9351,
+        364,
+        41
       ],
       [
         67,
@@ -691,13 +757,14 @@
         40
       ],
       [
-        133,
-        9444,
-        267,
-        36
+        134,
+        9445,
+        265,
+        33
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 21
   }
 ]

@@ -1,0 +1,196 @@
+[
+  {
+    "box": [
+      33,
+      1610,
+      229,
+      154
+    ],
+    "text": "3 ! !",
+    "lines": [
+      [
+        33,
+        1610,
+        229,
+        154
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 1
+  },
+  {
+    "box": [
+      438,
+      2236,
+      244,
+      152
+    ],
+    "text": "DAMN it! I AM Don't Believe I CAN'T A Demon LORD, I BREAK Open This BROKEN ARRAYI",
+    "lines": [
+      [
+        486,
+        2236,
+        150,
+        30
+      ],
+      [
+        438,
+        2296,
+        244,
+        32
+      ],
+      [
+        468,
+        2266,
+        188,
+        32
+      ],
+      [
+        466,
+        2326,
+        190,
+        30
+      ],
+      [
+        476,
+        2356,
+        172,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      164,
+      2690,
+      439,
+      368
+    ],
+    "text": "AN",
+    "lines": [
+      [
+        164,
+        2690,
+        439,
+        368
+      ]
+    ],
+    "is_sfx": true,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      14,
+      4766,
+      586,
+      308
+    ],
+    "text": "DEMON IORD S DESTRRUGTN SIRI@",
+    "lines": [
+      [
+        202,
+        4766,
+        208,
+        98
+      ],
+      [
+        14,
+        4870,
+        586,
+        96
+      ],
+      [
+        190,
+        4978,
+        232,
+        96
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      165,
+      6809,
+      342,
+      420
+    ],
+    "text": "Xl . VX",
+    "lines": [
+      [
+        189,
+        6809,
+        318,
+        151
+      ],
+      [
+        165,
+        6965,
+        260,
+        264
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      64,
+      8494,
+      262,
+      84
+    ],
+    "text": "Ohnoi This ARRAY IS ACTUALLY NOt THAT Killing ARRAYI",
+    "lines": [
+      [
+        83,
+        8494,
+        228,
+        36
+      ],
+      [
+        64,
+        8522,
+        262,
+        32
+      ],
+      [
+        106,
+        8548,
+        180,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  },
+  {
+    "box": [
+      572,
+      8924,
+      210,
+      32
+    ],
+    "text": "SCYTHESCANS.GOM",
+    "lines": [
+      [
+        572,
+        8924,
+        210,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 7
+  }
+]

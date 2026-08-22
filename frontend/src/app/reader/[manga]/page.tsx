@@ -51,15 +51,28 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
       .then((resData: MangaApiResponse) => {
         setData(resData);
         setLoading(false);
-        if (typeof window !== 'undefined') {
+        if (typeof window !== 'undefined' && resData.chapters && resData.chapters.length > 0) {
           const urlParams = new URLSearchParams(window.location.search);
           const chParam = urlParams.get('chapter');
-          if (chParam && resData.chapters) {
+          let foundIdx = -1;
+          
+          if (chParam) {
             const cleanNum = chParam.replace('chapter_', '');
-            const foundIdx = resData.chapters.findIndex(c => c.number === cleanNum);
-            if (foundIdx !== -1) {
-              setSelectedChapterIdx(foundIdx);
+            foundIdx = resData.chapters.findIndex(c => c.number === cleanNum);
+          }
+          
+          // Fallback to localStorage
+          if (foundIdx === -1) {
+            const savedChapter = localStorage.getItem(`manga_${unwrappedParams.manga}_last_chapter`);
+            if (savedChapter) {
+              foundIdx = resData.chapters.findIndex(c => c.number === savedChapter);
             }
+          }
+          
+          if (foundIdx !== -1) {
+            setSelectedChapterIdx(foundIdx);
+          } else {
+            setSelectedChapterIdx(0);
           }
         }
       })
@@ -72,6 +85,19 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
   useEffect(() => {
     fetchChapterData();
   }, [fetchChapterData]);
+
+  // Sync selected chapter to URL and localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined' && data && data.chapters && data.chapters.length > selectedChapterIdx) {
+      const currentChapter = data.chapters[selectedChapterIdx];
+      if (currentChapter) {
+        const chapterNumber = currentChapter.number;
+        const newUrl = `${window.location.pathname}?chapter=chapter_${chapterNumber}`;
+        window.history.replaceState({ path: newUrl }, '', newUrl);
+        localStorage.setItem(`manga_${unwrappedParams.manga}_last_chapter`, chapterNumber);
+      }
+    }
+  }, [selectedChapterIdx, data, unwrappedParams.manga]);
 
   // Polling pipeline status
   useEffect(() => {

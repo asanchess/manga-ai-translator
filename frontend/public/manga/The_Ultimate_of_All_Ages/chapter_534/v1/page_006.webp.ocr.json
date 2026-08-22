@@ -1,0 +1,176 @@
+[
+  {
+    "box": [
+      440,
+      304,
+      294,
+      69
+    ],
+    "text": "DEMONic HEAVEN ARMOR LOOKS Like EVEN A BATTLE Suit Like The it CaN'T Quite Handle it:",
+    "lines": [
+      [
+        440,
+        326,
+        294,
+        24
+      ],
+      [
+        476,
+        304,
+        220,
+        26
+      ],
+      [
+        486,
+        347,
+        198,
+        26
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      112,
+      1172,
+      274,
+      150
+    ],
+    "text": "How STRANGE: How COuld GOOD River HAVE SUCH A VICIOUS KIlLING ARRAY Inside It?",
+    "lines": [
+      [
+        166,
+        1172,
+        166,
+        30
+      ],
+      [
+        112,
+        1202,
+        140,
+        30
+      ],
+      [
+        112,
+        1232,
+        274,
+        30
+      ],
+      [
+        128,
+        1262,
+        248,
+        30
+      ],
+      [
+        194,
+        1292,
+        110,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      607,
+      4291,
+      193,
+      162
+    ],
+    "text": "Vz",
+    "lines": [
+      [
+        607,
+        4291,
+        193,
+        162
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      167,
+      4627,
+      360,
+      325
+    ],
+    "text": "23",
+    "lines": [
+      [
+        167,
+        4627,
+        360,
+        325
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      284,
+      6618,
+      310,
+      99
+    ],
+    "text": "pull YOURSELF ToGetherll",
+    "lines": [
+      [
+        284,
+        6618,
+        310,
+        52
+      ],
+      [
+        314,
+        6657,
+        251,
+        60
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      274,
+      7940,
+      270,
+      104
+    ],
+    "text": "It CAN EvEN CORRODE MY Divine SENSE!",
+    "lines": [
+      [
+        330,
+        7940,
+        158,
+        32
+      ],
+      [
+        274,
+        7976,
+        270,
+        32
+      ],
+      [
+        358,
+        8012,
+        106,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

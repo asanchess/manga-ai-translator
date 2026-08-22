@@ -1,0 +1,152 @@
+[
+  {
+    "box": [
+      324,
+      3610,
+      296,
+      73
+    ],
+    "text": "OBliteraTInG ThE PERSON The NEON StONEIS Trying To COlleCT Iti",
+    "lines": [
+      [
+        324,
+        3632,
+        296,
+        30
+      ],
+      [
+        362,
+        3610,
+        216,
+        32
+      ],
+      [
+        344,
+        3655,
+        254,
+        28
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 1
+  },
+  {
+    "box": [
+      112,
+      4434,
+      260,
+      84
+    ],
+    "text": "Give YOuR BODy To Me Quickly, 1 HAVE A WAY TO DEAl With it;",
+    "lines": [
+      [
+        115,
+        4434,
+        254,
+        36
+      ],
+      [
+        112,
+        4461,
+        256,
+        31
+      ],
+      [
+        112,
+        4487,
+        260,
+        31
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      398,
+      4603,
+      244,
+      207
+    ],
+    "text": "71",
+    "lines": [
+      [
+        398,
+        4603,
+        244,
+        207
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 3
+  },
+  {
+    "box": [
+      460,
+      4936,
+      278,
+      56
+    ],
+    "text": "OtherwiSe BOth YOU AND I Will Die HeREI",
+    "lines": [
+      [
+        460,
+        4936,
+        278,
+        30
+      ],
+      [
+        468,
+        4960,
+        262,
+        32
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 4
+  },
+  {
+    "box": [
+      194,
+      5440,
+      100,
+      30
+    ],
+    "text": "Shut Up!",
+    "lines": [
+      [
+        194,
+        5440,
+        100,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 5
+  },
+  {
+    "box": [
+      82,
+      7542,
+      206,
+      30
+    ],
+    "text": "SGYTHESGANS.COM",
+    "lines": [
+      [
+        82,
+        7542,
+        206,
+        30
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 6
+  }
+]

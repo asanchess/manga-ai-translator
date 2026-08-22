@@ -1,19 +1,13 @@
 [
   {
     "box": [
-      61,
-      26,
-      552,
-      387
+      60,
+      122,
+      609,
+      291
     ],
-    "text": "Ci THIS CHAPTER IS BROUGHT TO YOU BY SCYTHE TEAM excLusive chapters DN scythescaNs cDM",
+    "text": "THIS CHAPTER IS BROUGHT TO YOU BY SCYTHE TEAM excLusive chapters first DN scythescaNs cDM",
     "lines": [
-      [
-        346,
-        26,
-        40,
-        35
-      ],
       [
         66,
         122,
@@ -21,10 +15,10 @@
         56
       ],
       [
-        61,
-        175,
-        416,
-        57
+        60,
+        172,
+        418,
+        62
       ],
       [
         70,
@@ -39,6 +33,12 @@
         41
       ],
       [
+        555,
+        337,
+        114,
+        38
+      ],
+      [
         187,
         371,
         426,
@@ -46,23 +46,18 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": true
+    "is_dark": false,
+    "id": 1
   },
   {
     "box": [
-      295,
-      1387,
-      266,
-      278
+      323,
+      1499,
+      238,
+      166
     ],
-    "text": "22 54 The ULTIMATE Ages of AII",
+    "text": "54 The ULTIMATE of AII Ages",
     "lines": [
-      [
-        295,
-        1387,
-        228,
-        113
-      ],
       [
         323,
         1499,
@@ -76,29 +71,30 @@
         30
       ],
       [
-        503,
-        1623,
-        58,
-        42
-      ],
-      [
         455,
         1637,
         52,
         20
+      ],
+      [
+        503,
+        1623,
+        58,
+        42
       ]
     ],
     "is_sfx": false,
-    "is_dark": true
+    "is_dark": true,
+    "id": 2
   },
   {
     "box": [
       259,
       2301,
       386,
-      322
+      228
     ],
-    "text": "Htlz: {jk #4: #Sh16 'TaBF: 815110 ## hA M#E 'X 545: #1",
+    "text": "Htlz: {jk H#: {@jjk #4: #Sh16 'TaBF: 815110 ## hA M*E 'Z",
     "lines": [
       [
         259,
@@ -108,8 +104,14 @@
       ],
       [
         261,
+        2349,
+        148,
+        38
+      ],
+      [
+        261,
         2393,
-        208,
+        206,
         40
       ],
       [
@@ -123,35 +125,31 @@
         2491,
         192,
         38
-      ],
-      [
-        261,
-        2585,
-        148,
-        38
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 3
   },
   {
     "box": [
-      414,
-      5190,
-      250,
-      96
+      406,
+      5177,
+      249,
+      121
     ],
-    "text": "73",
+    "text": "77",
     "lines": [
       [
-        414,
-        5190,
-        250,
-        96
+        406,
+        5177,
+        249,
+        121
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 4
   },
   {
     "box": [
@@ -160,7 +158,7 @@
       72,
       32
     ],
-    "text": "HmM:",
+    "text": "Hmm:",
     "lines": [
       [
         268,
@@ -170,16 +168,17 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 5
   },
   {
     "box": [
-      4,
+      3,
       6134,
-      782,
+      783,
       716
     ],
-    "text": "F WE LET HII CONTINUE To DEVELOP LIKE THIS, ONCE [I YUNXIAo RETURNS To THE PEAK of THE MARTLAL DAo, GOUPLED WITH THESE METHODS WHO INTHE HEAVENLY MARIIAL REALM WILL BE ABLE TO RESTRAN HINZ DI YUNXIAo POSSESSES THE UNIVESE GOD MONUHENII AND NUIEROUS RESOURCES HIS GROWIH IS AIREADY CAPABLE OF POSING A SIGNIFICANI ENouGH THREAT EVEN To THESANCTUARY",
+    "text": "F WE LET HII CONTINUE To DEVELOP @IKE THIS, ONCE LI YUNXIAo RETURNS To THE PEAK of THE MARTLAL DAo, COUPLED WITH THESE METHODS WHO INTHE HEAVENLY MARIIAL REALM WILL BE ABLE TO RESTRAN HINZ DI YUNXIAo POSSESSES THE UNIVESE GOD MONUHENII AND NUIEROUS RESOURCES HIS GROWIH IS AIREADY CAPABLE OF POSING A SIGNIFICANI ENouGH THREAT EVEN To THESANCTUARY",
     "lines": [
       [
         222,
@@ -188,9 +187,9 @@
         52
       ],
       [
-        68,
+        67,
         6188,
-        692,
+        693,
         56
       ],
       [
@@ -230,10 +229,10 @@
         56
       ],
       [
-        4,
-        6630,
-        526,
-        54
+        3,
+        6627,
+        530,
+        61
       ],
       [
         24,
@@ -255,16 +254,17 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 6
   },
   {
     "box": [
       0,
       7364,
       794,
-      882
+      884
     ],
-    "text": "CONTINUOUSLY REFINING SWORDS WITH DIVINE FIRE IS EXTREMELY HELPFUL FOR IMPROVING MY OWN SOUL POWER  JUST AS LI YUNXIAO-SAID;-IF-|REFINE-ANOTHER-SEVEN-OR EIGHI SWORDS, [FWILL VERY LIKELY STEP INTO THE DREAMED OF-RANK NINE WHEN THE TIME COMES To MERGE WITH MY MAIN BODY WILL BE ABLE To PUSH FOR THE PEAK OF RANK NINE, IT MIGHI NOT EVEN BE IMPOSSIBLE To CATCH A GLIMPSE OF THE LEGENDARY TENTH RANK THE GOD OF ALCHEMY REALML LIttle ZHUGE OF MOUNI FANGCUN",
+    "text": "CONTINUOUSLY REFINING SWORDS WITH DIVINE FIRE IS EXTREMELY HELPFUL FOR IMPROVING MY OWN SOUL POWER. JUST AS LI YUNXIAO-SAID;-IF-|REFINE -ANOTHER-SEVEN-OR EIGHI SWORDS; [=WILL VERY LIKELY STEP INTO THE DREAMED OF-RANK NINE WHEN THE TIME COMES To MERGE WITH MY MAN BODY D WILL Be WILL BE ABLE To PUSH FOR THE PEAK OF RANK NINE, IT MIGHI NOT EVEN BE IMPOSSIBLE To CATCH A GLMPSE OF THE LEGENDARY TENTH RANK LIttLe THE GOD OF ALCHEMY REALML ZHUGE OF MOUNI FANGCUN",
     "lines": [
       [
         107,
@@ -280,9 +280,9 @@
       ],
       [
         30,
-        7474,
+        7476,
         628,
-        52
+        50
       ],
       [
         26,
@@ -291,9 +291,9 @@
         50
       ],
       [
-        22,
+        24,
         7582,
-        640,
+        638,
         56
       ],
       [
@@ -310,15 +310,15 @@
       ],
       [
         210,
-        7781,
-        394,
-        57
+        7782,
+        526,
+        56
       ],
       [
         620,
         7782,
         116,
-        50
+        52
       ],
       [
         154,
@@ -333,22 +333,22 @@
         54
       ],
       [
-        185,
-        7941,
-        575,
-        57
+        184,
+        7940,
+        577,
+        61
+      ],
+      [
+        23,
+        8029,
+        103,
+        53
       ],
       [
         268,
         8000,
         412,
         50
-      ],
-      [
-        23,
-        8029,
-        104,
-        53
       ],
       [
         24,
@@ -363,14 +363,15 @@
         54
       ],
       [
-        4,
-        8190,
-        142,
+        6,
+        8192,
+        140,
         56
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 7
   },
   {
     "box": [
@@ -379,7 +380,7 @@
       656,
       222
     ],
-    "text": "BUT AT THAT TIME, LI YUNXIAO WILL POSSESS THIRTY-SIX RANK NINE PROFOUND ARTIFACTS; FORMING THE SHENXIAo PALACE S SECT-GUARDING TREASURE, THE HEAVENLY SWORD DLAGRAM  WHAT KIND OF POWER WILL THAT BE? [M AFRAID THAI BY THEN, NOI ONLY Ao CHANG KONgS GOLDEN BODY WILL BE COMPLETELY STRANGLEDL ,",
+    "text": "BUT AT THAT TIME, LI YUNXIAO WILL POSSESS THIRTY-SIX RANK NINE PROFOUND ARTIFACTS; FORMING THE SHENXIAo PALACE S SECT-GUARDING TREASURE, THE HEAVENLY SWORD DLAGRAM   WHAT KIND OF POWER WILL THAT BE? [M AFRAID THAI BY THEN, NOT ONLY Ao CHANG KONgS GOLDEN BODY WILL BE COMPLETELY STRANGLEDL ,",
     "lines": [
       [
         167,
@@ -419,7 +420,8 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 8
   },
   {
     "box": [
@@ -428,7 +430,7 @@
       443,
       158
     ],
-    "text": "HS HEIPING HIM CONTINUE -LIKE THS A-BLESSING _ LM OR A CURSE?I",
+    "text": "HS HEIPING HM CONTINUE LIKE-THIS A-BLESSING OR A CURSE?I LM",
     "lines": [
       [
         452,
@@ -440,22 +442,23 @@
         348,
         9087,
         443,
-        51
-      ],
-      [
-        491,
-        9120,
-        60,
-        15
+        53
       ],
       [
         468,
         9144,
         202,
         48
+      ],
+      [
+        491,
+        9120,
+        60,
+        15
       ]
     ],
     "is_sfx": false,
-    "is_dark": false
+    "is_dark": false,
+    "id": 9
   }
 ]
