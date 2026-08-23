@@ -4,15 +4,16 @@ Cleaner Agent with Adaptive Per-Pixel Glyph Inpainting (Telea).
 Replaces text with seamless background inpainting without solid rectangle fills.
 """
 import os
+import logging
+from typing import Tuple, List, Dict, Any, Optional
 import cv2
 import numpy as np
 from PIL import Image
-import logging
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("CleanerAgentSeamless")
 
-def get_bubble_background_color(img: np.ndarray, x: int, y: int, w: int, h: int) -> tuple[int, int, int]:
+def get_bubble_background_color(img: np.ndarray, x: int, y: int, w: int, h: int) -> Tuple[int, int, int]:
     """
     Samples background color from perimeter strips outside the text bounding box.
     Returns (B, G, R) background color tuple.

@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import styles from './page.module.css';
 
 interface ChapterData {
@@ -22,43 +23,70 @@ type LayerVersion = 'v1_original' | 'v2_cleaned' | 'v3_translated';
 type WidthPreset = '700px' | '900px' | '1200px' | '100%';
 type ReadingMode = 'webtoon' | 'single';
 
-export default function ReaderPage({ params }: { params: Promise<{ manga: string }> }) {
-  const unwrappedParams = React.use(params);
+export default function ReaderPage() {
+  const params = useParams();
+  const rawMangaParam = typeof params?.manga === 'string' ? params.manga : Array.isArray(params?.manga) ? params.manga[0] : 'The_Ultimate_of_All_Ages';
+  const cleanManga = useMemo(() => decodeURIComponent(rawMangaParam).replace(/ /g, '_'), [rawMangaParam]);
+
   const [data, setData] = useState<MangaApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   // User Preferences
   const [currentVersion, setCurrentVersion] = useState<LayerVersion>('v3_translated');
   const [selectedChapterIdx, setSelectedChapterIdx] = useState(0);
   const [maxWidthPreset, setMaxWidthPreset] = useState<WidthPreset>('900px');
   const [readingMode, setReadingMode] = useState<ReadingMode>('webtoon');
-  
+
   // Single page & Progress state
   const [currentSinglePageIdx, setCurrentSinglePageIdx] = useState(0);
   const [visibleWebtoonPage, setVisibleWebtoonPage] = useState(1);
   const [scrollProgress, setScrollProgress] = useState(0);
-  
-  const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Load user preferences from localStorage on mount
+  const pageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const initialTargetChapterRef = useRef<string | null>(null);
+
+  // Read initial target chapter synchronously on mount from URL search or localStorage
   useEffect(() => {
-    try {
-      const savedLayer = localStorage.getItem('manga_reader_layer') as LayerVersion | null;
-      if (savedLayer && ['v1_original', 'v2_cleaned', 'v3_translated'].includes(savedLayer)) {
-        setCurrentVersion(savedLayer);
+    if (typeof window !== 'undefined') {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const chParam = urlParams.get('chapter');
+        if (chParam) {
+          initialTargetChapterRef.current = chParam.replace(/^chapter_/, '');
+        } else {
+          const savedChapter =
+            localStorage.getItem(`manga_reader_chapter_${cleanManga}`) ||
+            localStorage.getItem(`manga_${cleanManga}_last_chapter`) ||
+            localStorage.getItem('last_read_chapter');
+          if (savedChapter) {
+            initialTargetChapterRef.current = savedChapter.replace(/^chapter_/, '');
+          }
+        }
+      } catch (e) {
+        console.warn('Initial chapter resolution error:', e);
       }
-      const savedWidth = localStorage.getItem('manga_reader_width') as WidthPreset | null;
-      if (savedWidth && ['700px', '900px', '1200px', '100%'].includes(savedWidth)) {
-        setMaxWidthPreset(savedWidth);
+
+      // Load saved preferences
+      try {
+        const savedLayer = localStorage.getItem('manga_reader_layer') as LayerVersion | null;
+        if (savedLayer && ['v1_original', 'v2_cleaned', 'v3_translated'].includes(savedLayer)) {
+          setCurrentVersion(savedLayer);
+        }
+        const savedWidth = localStorage.getItem('manga_reader_width') as WidthPreset | null;
+        if (savedWidth && ['700px', '900px', '1200px', '100%'].includes(savedWidth)) {
+          setMaxWidthPreset(savedWidth);
+        }
+        const savedMode = localStorage.getItem('manga_reader_mode') as ReadingMode | null;
+        if (savedMode && ['webtoon', 'single'].includes(savedMode)) {
+          setReadingMode(savedMode);
+        }
+      } catch (e) {
+        console.warn('localStorage preferences load error:', e);
       }
-      const savedMode = localStorage.getItem('manga_reader_mode') as ReadingMode | null;
-      if (savedMode && ['webtoon', 'single'].includes(savedMode)) {
-        setReadingMode(savedMode);
-      }
-    } catch (e) {
-      console.warn('localStorage not accessible:', e);
     }
-  }, []);
+  }, [cleanManga]);
 
   const handleSetVersion = (ver: LayerVersion) => {
     setCurrentVersion(ver);
@@ -86,7 +114,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
     try {
       let resData: MangaApiResponse | null = null;
       try {
-        const res = await fetch(`/api/chapters/${unwrappedParams.manga}`);
+        const res = await fetch(`/api/chapters/${cleanManga}`);
         if (res.ok) {
           const parsed = await res.json();
           if (parsed && parsed.chapters && parsed.chapters.length > 0) {
@@ -102,11 +130,14 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
         const indexRes = await fetch('/manga/chapters_index.json');
         if (indexRes.ok) {
           const indexJson = await indexRes.json();
-          const cleanManga = unwrappedParams.manga.replace(/ /g, '_');
-          const mangaEntry = indexJson.mangas?.[cleanManga] || indexJson.mangas?.['The_Ultimate_of_All_Ages'];
+          const mangaEntry =
+            indexJson.mangas?.[cleanManga] ||
+            indexJson.mangas?.[cleanManga.replace(/_/g, ' ')] ||
+            indexJson.mangas?.['The_Ultimate_of_All_Ages'];
+
           if (mangaEntry && mangaEntry.chapters) {
             const staticChapters: ChapterData[] = mangaEntry.chapters.map((ch: any) => {
-              const chNum = String(ch.chapter);
+              const chNum = String(ch.chapter || ch.number || '531');
               const chFolder = ch.folder || `chapter_${chNum}`;
               const count = ch.pages_count || 12;
               const v1: string[] = [];
@@ -123,7 +154,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
                 versions: {
                   v1_original: v1,
                   v2_cleaned: v2,
-                  v3_translated: v3,
+                  v3_translated: v3
                 }
               };
             });
@@ -135,64 +166,57 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
         }
       }
 
-      if (resData && resData.chapters) {
+      if (resData && resData.chapters && resData.chapters.length > 0) {
         setData(resData);
         setLoading(false);
-        if (typeof window !== 'undefined' && resData.chapters.length > 0) {
-          const urlParams = new URLSearchParams(window.location.search);
-          const chParam = urlParams.get('chapter');
-          let foundIdx = -1;
-          
-          if (chParam) {
-            const cleanNum = chParam.replace('chapter_', '');
-            foundIdx = resData.chapters.findIndex((c) => c.number === cleanNum);
-          }
-          
-          // Fallback to localStorage
-          if (foundIdx === -1) {
-            const savedChapter =
-              localStorage.getItem(`manga_${unwrappedParams.manga}_last_chapter`) ||
-              localStorage.getItem('last_read_chapter');
-            if (savedChapter) {
-              const cleanSaved = savedChapter.replace('chapter_', '');
-              foundIdx = resData.chapters.findIndex((c) => c.number === cleanSaved);
-            }
-          }
-          
+
+        // Resolve requested chapter index
+        const targetChapterNum = initialTargetChapterRef.current;
+        let resolvedIdx = 0;
+        if (targetChapterNum) {
+          const foundIdx = resData.chapters.findIndex((c) => String(c.number) === String(targetChapterNum));
           if (foundIdx !== -1) {
-            setSelectedChapterIdx(foundIdx);
-          } else {
-            setSelectedChapterIdx(0);
+            resolvedIdx = foundIdx;
           }
         }
+        setSelectedChapterIdx(resolvedIdx);
+        setIsInitialized(true);
       } else {
         setLoading(false);
+        setIsInitialized(true);
       }
     } catch (err) {
       console.error('Fetch error:', err);
       setLoading(false);
+      setIsInitialized(true);
     }
-  }, [unwrappedParams.manga]);
+  }, [cleanManga]);
 
   useEffect(() => {
     fetchChapterData();
   }, [fetchChapterData]);
 
-  // Sync selected chapter to URL and localStorage
+  // Sync selected chapter to URL and localStorage only after initial resolution
   useEffect(() => {
-    if (typeof window !== 'undefined' && data && data.chapters && data.chapters.length > selectedChapterIdx) {
-      const currentChapter = data.chapters[selectedChapterIdx];
-      if (currentChapter) {
-        const chapterNumber = currentChapter.number;
-        const newUrl = `${window.location.pathname}?chapter=chapter_${chapterNumber}`;
-        window.history.replaceState({ path: newUrl }, '', newUrl);
-        try {
-          localStorage.setItem(`manga_${unwrappedParams.manga}_last_chapter`, chapterNumber);
-          localStorage.setItem('last_read_chapter', chapterNumber);
-        } catch {}
-      }
+    if (!isInitialized || !data || !data.chapters || data.chapters.length === 0) return;
+    const currentChapter = data.chapters[selectedChapterIdx];
+    if (!currentChapter) return;
+
+    const chapterNumber = String(currentChapter.number);
+    const targetUrl = `${window.location.pathname}?chapter=chapter_${chapterNumber}`;
+
+    // Only update history if query is different
+    const currentSearch = window.location.search;
+    if (currentSearch !== `?chapter=chapter_${chapterNumber}` && currentSearch !== `?chapter=${chapterNumber}`) {
+      window.history.replaceState({ path: targetUrl }, '', targetUrl);
     }
-  }, [selectedChapterIdx, data, unwrappedParams.manga]);
+
+    try {
+      localStorage.setItem(`manga_reader_chapter_${cleanManga}`, chapterNumber);
+      localStorage.setItem(`manga_${cleanManga}_last_chapter`, chapterNumber);
+      localStorage.setItem('last_read_chapter', chapterNumber);
+    } catch {}
+  }, [selectedChapterIdx, isInitialized, data, cleanManga]);
 
   // Chapter Navigation Handlers
   const handlePrevChapter = useCallback(() => {
@@ -217,13 +241,19 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
     setSelectedChapterIdx(idx);
     setCurrentSinglePageIdx(0);
     setVisibleWebtoonPage(1);
+    setIsDrawerOpen(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Current images resolution
   const currentChapter = data?.chapters?.[selectedChapterIdx] || data?.chapters?.[0];
   const requestedImages = currentChapter?.versions?.[currentVersion] || [];
-  const images = requestedImages.length > 0 ? requestedImages : (currentChapter?.versions?.v1_original || []);
+  const images = requestedImages.length > 0 ? requestedImages : currentChapter?.versions?.v1_original || [];
+
+  // Release ZIP download URL
+  const chapterNumStr = currentChapter?.number || '531';
+  const releaseZipUrl = `/manga/${cleanManga}/chapter_${chapterNumStr}/${cleanManga}_Chapter_${chapterNumStr}_Russian.zip`;
+  const releaseZipBackendFallback = `http://localhost:8000/api/studio/download/${cleanManga}/chapter_${chapterNumStr}/v3`;
 
   // Single Page Navigation Handlers
   const handlePrevSinglePage = useCallback(() => {
@@ -247,7 +277,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
   // Scroll Progress Calculation (Webtoon Mode)
   useEffect(() => {
     if (readingMode !== 'webtoon') return;
-    
+
     const handleScroll = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight <= 0) {
@@ -315,6 +345,11 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
         return;
       }
 
+      // Drawer close on Escape
+      if (e.key === 'Escape') {
+        setIsDrawerOpen(false);
+      }
+
       // Layer shortcuts: 1, 2, 3
       if (e.key === '1') handleSetVersion('v1_original');
       if (e.key === '2') handleSetVersion('v2_cleaned');
@@ -359,7 +394,7 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
       <div className={styles.centerContainer}>
         <div className={styles.errorCard}>
           <h2>Главы не найдены</h2>
-          <p>Манга &quot;{unwrappedParams.manga.replace(/_/g, ' ')}&quot; пока не имеет обработанных глав.</p>
+          <p>Манга &quot;{cleanManga.replace(/_/g, ' ')}&quot; пока не имеет обработанных глав.</p>
           <Link href="/" className={styles.backBtn}>
             ← Вернуться в каталог
           </Link>
@@ -374,21 +409,198 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
   return (
     <div className={styles.readerContainer}>
       {/* 3px Top Scroll Progress Bar */}
+      <div className={styles.topProgressBar} style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
+
+      {/* Slide-out Burger Navigation Drawer */}
       <div
-        className={styles.topProgressBar}
-        style={{ width: `${scrollProgress}%` }}
+        className={`${styles.drawerBackdrop} ${isDrawerOpen ? styles.drawerBackdropVisible : ''}`}
+        onClick={() => setIsDrawerOpen(false)}
         aria-hidden="true"
       />
+
+      <aside
+        className={`${styles.drawer} ${isDrawerOpen ? styles.drawerOpen : ''}`}
+        aria-label="Навигационное меню"
+        role="dialog"
+      >
+        <div className={styles.drawerHeader}>
+          <div className={styles.drawerTitleBox}>
+            <div className={styles.drawerTitle}>{data.manga.replace(/_/g, ' ')}</div>
+            <div className={styles.drawerBadge}>{data.chapters.length} глав доступно</div>
+          </div>
+          <button
+            className={styles.drawerCloseBtn}
+            onClick={() => setIsDrawerOpen(false)}
+            aria-label="Закрыть меню"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className={styles.drawerContent}>
+          {/* Quick links */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Быстрый переход</div>
+            <div className={styles.drawerLinksRow}>
+              <Link href="/" className={styles.drawerLinkBtn}>
+                <span>←</span> В каталог
+              </Link>
+              <Link href="/studio" className={`${styles.drawerLinkBtn} ${styles.drawerLinkStudio}`}>
+                <span>⚡</span> Studio
+              </Link>
+            </div>
+          </div>
+
+          {/* Download Current Chapter */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Релиз главы {currentChapter?.number}</div>
+            <a
+              href={releaseZipUrl}
+              download={`${cleanManga}_Chapter_${chapterNumStr}_Russian.zip`}
+              className={styles.drawerDownloadBtn}
+              onClick={() => {
+                fetch(releaseZipUrl, { method: 'HEAD' }).then((res) => {
+                  if (!res.ok) window.open(releaseZipBackendFallback, '_blank');
+                });
+              }}
+            >
+              <span>📥</span> Скачать главу (ZIP)
+            </a>
+          </div>
+
+          {/* Layer Selector */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Активный слой (1 / 2 / 3)</div>
+            <div className={styles.drawerLayerGrid}>
+              <button
+                className={currentVersion === 'v1_original' ? styles.activeDrawerLayerBtn : styles.drawerLayerBtn}
+                onClick={() => handleSetVersion('v1_original')}
+              >
+                <strong>1</strong> RAW Скан
+              </button>
+              <button
+                className={currentVersion === 'v2_cleaned' ? styles.activeDrawerLayerBtn : styles.drawerLayerBtn}
+                onClick={() => handleSetVersion('v2_cleaned')}
+              >
+                <strong>2</strong> Чистый Клининг
+              </button>
+              <button
+                className={currentVersion === 'v3_translated' ? styles.activeDrawerLayerBtn : styles.drawerLayerBtn}
+                onClick={() => handleSetVersion('v3_translated')}
+              >
+                <strong>3</strong> Русский Перевод
+              </button>
+            </div>
+          </div>
+
+          {/* Reading Mode & Width */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Режим отображения</div>
+            <div className={styles.drawerButtonRow}>
+              <button
+                className={readingMode === 'webtoon' ? styles.activeDrawerBtn : styles.drawerBtn}
+                onClick={() => handleSetReadingMode('webtoon')}
+              >
+                📜 Вебтун
+              </button>
+              <button
+                className={readingMode === 'single' ? styles.activeDrawerBtn : styles.drawerBtn}
+                onClick={() => handleSetReadingMode('single')}
+              >
+                📄 Постранично
+              </button>
+            </div>
+
+            <div className={styles.drawerWidthGrid}>
+              {(['700px', '900px', '1200px', '100%'] as WidthPreset[]).map((w) => (
+                <button
+                  key={w}
+                  className={maxWidthPreset === w ? styles.activeDrawerBtn : styles.drawerBtn}
+                  onClick={() => handleSetWidth(w)}
+                >
+                  {w}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Direct Chapter Jump List */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Список всех глав</div>
+            <div className={styles.drawerChapterList}>
+              {data.chapters.map((ch, idx) => {
+                const isCurrent = idx === selectedChapterIdx;
+                const hasV1 = !!ch.versions?.v1_original?.length;
+                const hasV2 = !!ch.versions?.v2_cleaned?.length;
+                const hasV3 = !!ch.versions?.v3_translated?.length;
+
+                return (
+                  <button
+                    key={ch.number}
+                    className={`${styles.drawerChapterItem} ${isCurrent ? styles.drawerChapterItemActive : ''}`}
+                    onClick={() => handleChapterSelect(idx)}
+                  >
+                    <div className={styles.drawerChapterItemLeft}>
+                      <span className={styles.drawerChapterNum}>Глава {ch.number}</span>
+                      {isCurrent && <span className={styles.drawerActiveBadge}>Читаете</span>}
+                    </div>
+                    <div className={styles.drawerChapterBadges}>
+                      {hasV1 && <span className={styles.tagV1}>RAW</span>}
+                      {hasV2 && <span className={styles.tagV2}>Clean</span>}
+                      {hasV3 && <span className={styles.tagV3}>РУС</span>}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Keyboard Shortcuts Cheat Sheet */}
+          <div className={styles.drawerSection}>
+            <div className={styles.drawerSectionTitle}>Горячие клавиши</div>
+            <div className={styles.shortcutsBox}>
+              <div className={styles.shortcutRow}>
+                <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>
+                <span>Переключение слоев (RAW / Clean / РУС)</span>
+              </div>
+              <div className={styles.shortcutRow}>
+                <kbd>A</kbd> / <kbd>D</kbd>
+                <span>Предыдущая / Следующая глава</span>
+              </div>
+              <div className={styles.shortcutRow}>
+                <kbd>←</kbd> / <kbd>→</kbd>
+                <span>Перелистывание страниц / Глав</span>
+              </div>
+              <div className={styles.shortcutRow}>
+                <kbd>Esc</kbd>
+                <span>Закрыть меню</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
 
       {/* Sticky Top Header */}
       <header className={styles.readerHeader}>
         <div className={styles.headerLeft}>
+          {/* Burger Button */}
+          <button
+            className={styles.burgerBtn}
+            onClick={() => setIsDrawerOpen(true)}
+            title="Открыть меню навигации и список глав (☰)"
+            aria-label="Открыть меню"
+          >
+            <span className={styles.burgerIcon}>☰</span>
+            <span className={styles.burgerText}>Меню</span>
+          </button>
+
           <Link href="/" className={styles.backLink} title="Вернуться в каталог">
             <span className={styles.backIcon}>←</span> В каталог
           </Link>
           <Link href="/studio" className={styles.studioLink} title="Manga AI Studio">
             ⚡ Studio
           </Link>
+
           <div className={styles.titleInfo}>
             <h1 title={data.manga.replace(/_/g, ' ')}>{data.manga.replace(/_/g, ' ')}</h1>
             <div className={styles.chapterSelectWrapper}>
@@ -461,8 +673,24 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
           </button>
         </div>
 
-        {/* Right: Reading Mode & Width Controls */}
+        {/* Right: Prominent ZIP Download Button + Reading Mode & Width Controls */}
         <div className={styles.headerRight}>
+          {/* Prominent Скачать главу (ZIP) Button */}
+          <a
+            href={releaseZipUrl}
+            download={`${cleanManga}_Chapter_${chapterNumStr}_Russian.zip`}
+            className={styles.downloadZipBtn}
+            title={`Скачать архив главы ${chapterNumStr} (.ZIP)`}
+            onClick={() => {
+              fetch(releaseZipUrl, { method: 'HEAD' }).then((res) => {
+                if (!res.ok) window.open(releaseZipBackendFallback, '_blank');
+              });
+            }}
+          >
+            <span className={styles.downloadIcon}>📥</span>
+            <span className={styles.downloadText}>Скачать ZIP</span>
+          </a>
+
           {/* Dual Reading Mode Switcher */}
           <div className={styles.modeControls} role="group" aria-label="Режим чтения">
             <button
@@ -488,21 +716,21 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
               onClick={() => handleSetWidth('700px')}
               title="Узкий (700px)"
             >
-              700px
+              700
             </button>
             <button
               className={maxWidthPreset === '900px' ? styles.activeWidthBtn : styles.widthBtn}
               onClick={() => handleSetWidth('900px')}
               title="Стандарт (900px)"
             >
-              900px
+              900
             </button>
             <button
               className={maxWidthPreset === '1200px' ? styles.activeWidthBtn : styles.widthBtn}
               onClick={() => handleSetWidth('1200px')}
               title="Широкий (1200px)"
             >
-              1200px
+              1200
             </button>
             <button
               className={maxWidthPreset === '100%' ? styles.activeWidthBtn : styles.widthBtn}
@@ -678,13 +906,23 @@ export default function ReaderPage({ params }: { params: Promise<{ manga: string
           </span>
         </div>
 
-        <button
-          className={styles.scrollTopBtn}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          title="Прокрутить наверх"
-        >
-          ▲ Наверх
-        </button>
+        <div className={styles.bottomRightGroup}>
+          <a
+            href={releaseZipUrl}
+            download={`${cleanManga}_Chapter_${chapterNumStr}_Russian.zip`}
+            className={styles.bottomDownloadBtn}
+            title="Скачать ZIP главы"
+          >
+            📥 ZIP
+          </a>
+          <button
+            className={styles.scrollTopBtn}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            title="Прокрутить наверх"
+          >
+            ▲ Наверх
+          </button>
+        </div>
       </footer>
     </div>
   );

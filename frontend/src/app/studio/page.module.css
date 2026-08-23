@@ -14,8 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
-  background: rgba(13, 15, 24, 0.85);
+  padding: 14px 32px;
+  background: rgba(13, 15, 24, 0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -37,12 +37,18 @@
 }
 
 .logoTitle {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.5px;
   background: linear-gradient(90deg, #fff, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.logoSub {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
 }
 
 .navActions {
@@ -87,8 +93,8 @@
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 48px 20px 32px;
-  max-width: 900px;
+  padding: 42px 20px 28px;
+  max-width: 920px;
   margin: 0 auto;
 }
 
@@ -125,11 +131,17 @@
   color: #c084fc;
 }
 
+.badgeBlue {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+}
+
 .heroTitle {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: -1px;
 }
 
@@ -140,10 +152,10 @@
 }
 
 .heroSub {
-  font-size: 17px;
+  font-size: 16px;
   color: #94a3b8;
   line-height: 1.6;
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -154,16 +166,16 @@
   padding: 0 20px;
 }
 
-/* Options Bar (Inspired by MangaTranslate) */
+/* Options Bar */
 .optionsCard {
-  background: rgba(18, 22, 34, 0.8);
+  background: rgba(18, 22, 34, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -174,8 +186,8 @@
 }
 
 .optionLabel {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #94a3b8;
@@ -187,15 +199,117 @@
   border-radius: 8px;
   padding: 10px 14px;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   outline: none;
   cursor: pointer;
   transition: border-color 0.2s ease;
+  width: 100%;
 }
 
 .selectInput:focus {
   border-color: #007aff;
+}
+
+/* Launcher Mode Card (Batch Range vs Single) */
+.launcherModeCard {
+  background: rgba(18, 22, 34, 0.9);
+  border: 1px solid rgba(0, 122, 255, 0.35);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.15);
+}
+
+.launcherModeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.launcherModeTitle {
+  font-size: 16px;
+  font-weight: 800;
+  color: #f0f6fc;
+}
+
+.modeToggleGroup {
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 4px;
+}
+
+.modeToggleBtn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #8b949e;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modeToggleBtn:hover {
+  color: #fff;
+}
+
+.modeToggleActive {
+  background: linear-gradient(135deg, #007aff, #0051d5);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 122, 255, 0.4);
+}
+
+.batchControlsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+@media (max-width: 900px) {
+  .batchControlsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .batchActionCol {
+    grid-column: 1 / -1;
+  }
+}
+
+.singleControlsGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .singleControlsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.singleInputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.batchInputCol, .singleInputCol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.batchActionCol, .singleActionCol {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Ingestion Tabs */
@@ -236,7 +350,7 @@
   background: rgba(18, 22, 34, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 28px;
+  padding: 24px;
   margin-bottom: 32px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -249,7 +363,7 @@
 
 .inputGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   gap: 16px;
 }
 
@@ -263,7 +377,7 @@
   background: #0f131f;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 11px 14px;
   color: #fff;
   font-size: 14px;
   outline: none;
@@ -276,27 +390,27 @@
 }
 
 .uploadDropzone {
-  border: 2px dashed rgba(0, 122, 255, 0.3);
+  border: 2px dashed rgba(0, 122, 255, 0.35);
   border-radius: 14px;
-  padding: 48px 24px;
+  padding: 36px 20px;
   text-align: center;
-  background: rgba(0, 122, 255, 0.02);
+  background: rgba(0, 122, 255, 0.03);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .uploadDropzone:hover {
   border-color: #007aff;
-  background: rgba(0, 122, 255, 0.06);
+  background: rgba(0, 122, 255, 0.08);
 }
 
 .uploadIcon {
-  font-size: 48px;
-  margin-bottom: 12px;
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
 .uploadTitle {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -304,6 +418,45 @@
 .uploadSub {
   font-size: 13px;
   color: #64748b;
+  margin-bottom: 16px;
+}
+
+.uploadButtonsRow {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.uploadActionBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f0f6fc;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.uploadActionBtn:hover {
+  background: rgba(0, 122, 255, 0.25);
+  border-color: #007aff;
+  color: #fff;
+}
+
+.uploadSummaryBadge {
+  margin-top: 16px;
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .actionBtnRow {
@@ -311,67 +464,149 @@
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .btnPrimaryLarge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 14px 28px;
+  padding: 13px 26px;
   border-radius: 10px;
   background: linear-gradient(135deg, #007aff, #0051d5);
   border: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
   transition: all 0.2s ease;
+  width: 100%;
 }
 
-.btnPrimaryLarge:hover {
+.btnPrimaryLarge:hover:not(:disabled) {
   background: linear-gradient(135deg, #258cfb, #0062ff);
   transform: translateY(-1px);
   box-shadow: 0 8px 25px rgba(0, 122, 255, 0.6);
 }
 
 .btnPrimaryLarge:disabled {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: not-allowed;
   transform: none;
 }
 
-/* Progress Area */
+/* Live SSE Telemetry Progress Area */
 .progressCard {
-  background: rgba(18, 22, 34, 0.9);
-  border: 1px solid rgba(0, 122, 255, 0.3);
+  background: rgba(18, 22, 34, 0.95);
+  border: 1px solid rgba(0, 122, 255, 0.4);
   border-radius: 16px;
   padding: 24px;
-  margin-bottom: 32px;
-  box-shadow: 0 10px 40px rgba(0, 122, 255, 0.15);
+  margin-bottom: 36px;
+  box-shadow: 0 10px 40px rgba(0, 122, 255, 0.2);
+}
+
+.progressCardOffline {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 10px 40px rgba(239, 68, 68, 0.15);
 }
 
 .progressHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .progressTitle {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #38bdf8;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.pulseDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow: 0 0 10px #00d2ff;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
 }
 
 .progressPercent {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 900;
   color: #fff;
+}
+
+/* 5-Stage Visualizer */
+.stagesPipeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.stageStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.stageStepActive {
+  opacity: 1;
+}
+
+.stageNum {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stageStepActive .stageNum {
+  background: #007aff;
+  box-shadow: 0 0 8px rgba(0, 122, 255, 0.6);
+}
+
+.stageName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.stageStepActive .stageName {
+  color: #38bdf8;
+}
+
+.stageArrow {
+  color: #475569;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .progressBarTrack {
@@ -384,23 +619,286 @@
 
 .progressBarFill {
   height: 100%;
-  background: linear-gradient(90deg, #007aff, #a855f7);
+  background: linear-gradient(90deg, #007aff, #a855f7 70%, #10b981 100%);
   transition: width 0.3s ease;
 }
 
+/* Offline Banner */
+.offlineBanner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  color: #fca5a5;
+  font-size: 13px;
+}
+
+.offlineIcon {
+  font-size: 20px;
+}
+
+.offlineText {
+  flex: 1;
+}
+
+.offlineText code {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #fff;
+}
+
+.retryBtn {
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.retryBtn:hover {
+  background: rgba(239, 68, 68, 0.4);
+}
+
 .logBox {
-  background: #090b12;
+  background: #080a10;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 12px 16px;
   font-family: monospace;
   font-size: 12px;
   color: #94a3b8;
-  max-height: 120px;
+  max-height: 140px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .logLine {
   line-height: 1.5;
+}
+
+.completedActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.completedBadge {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+.completedBtns {
+  display: flex;
+  gap: 10px;
+}
+
+.btnPrimarySmall {
+  background: linear-gradient(135deg, #007aff, #0051d5);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btnSecondarySmall {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Chapter Library Grid Section */
+.librarySection {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.libraryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.libraryTitle {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.librarySub {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.librarySearchBox {
+  width: 260px;
+}
+
+.searchInput {
+  background: #0f131f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 9px 14px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  border-color: #007aff;
+}
+
+.chapterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.chapterCard {
+  background: rgba(18, 22, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.chapterCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 122, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.chapterCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chapterCardBadge {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.layerIndicators {
+  display: flex;
+  gap: 4px;
+}
+
+.layerBadgeRaw, .layerBadgeClean, .layerBadgeRus {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.layerBadgeRaw {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+.layerBadgeClean {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+.layerBadgeRus {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.chapterCardMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.chapterCardActions {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.cardReadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(0, 122, 255, 0.15);
+  border: 1px solid rgba(0, 122, 255, 0.35);
+  color: #38bdf8;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cardReadBtn:hover {
+  background: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+.cardZipBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cardZipBtn:hover {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
 }
 
 /* Interactive Split-Slider Section */
@@ -410,7 +908,7 @@
 }
 
 .sectionTitle {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   margin-bottom: 8px;
   display: flex;
@@ -428,6 +926,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .sliderBtn {

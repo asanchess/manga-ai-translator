@@ -1,0 +1,143 @@
+{
+  "schema_version": "3.0.0",
+  "manga_title": "Test_Manga",
+  "chapter": "chapter_1",
+  "chapter_number": "1",
+  "total_pages": 7,
+  "layers": {
+    "v1_original": 7,
+    "v2_cleaned": 7,
+    "v3_translated": 7
+  },
+  "integrity_status": "DEFICIT",
+  "generated_at": 1787481793.5213153,
+  "iso_timestamp": "2026-08-23T10:43:13Z",
+  "pages": [
+    {
+      "page_num": 1,
+      "filename": "page_001.webp",
+      "v1_sha256": "7d8bf6b2abb282d436700c3feffe1ba24eb3719b03e4178843277057a13d8e62",
+      "v2_sha256": "f1c6112ffa7545e2ed036adaaee7521dc394003c1a02573c517e325d78ba7a3d",
+      "v3_sha256": "759e78537604fbbcfba91ba0a88c63d7b94609b92eb204abad8ba9043c21f935",
+      "dimensions": {
+        "width": 800,
+        "height": 1736
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 2,
+      "filename": "page_002.webp",
+      "v1_sha256": "82a0e655ea6ac9ea7778bca3ff6ec10afe1a955a67b63e1664baee3044500ab0",
+      "v2_sha256": "d441fca9e3132b2faf9dd739b6c642f8dc0d15abad14934f79457d7d3f107561",
+      "v3_sha256": "4f4456e8fe7773d1aa0c40e7a9674c85075cb7513d58b41c4e027b7b5bf4bb4f",
+      "dimensions": {
+        "width": 800,
+        "height": 1132
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 3,
+      "filename": "page_003.webp",
+      "v1_sha256": "bfb5438b71bd249d20d9493d3a914b3b6de898e3752309f6b5c5bfc3b27ceecf",
+      "v2_sha256": "89e18f6c3f0c53c01f5c44aa9e78b7579ab120acdc5c5575863dea2a80c6eb0f",
+      "v3_sha256": "cb47b20cebb77fe67d05db0448ba0be820bfbf63874dbd3cf50101b1cb0e8870",
+      "dimensions": {
+        "width": 800,
+        "height": 1225
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 4,
+      "filename": "page_004.webp",
+      "v1_sha256": "09a760e87f28789c4aab4a6a9a59446aac275ce6beea4374be9b25024b043643",
+      "v2_sha256": "887cb41f8a11627768b152144faea0063437355f93ccfcf8ea64d8c781900e09",
+      "v3_sha256": "6e02a1d7617072e1e38f1ebf3d5c2bd0f815192f06c5da894dfa00afca66aa8e",
+      "dimensions": {
+        "width": 800,
+        "height": 982
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 5,
+      "filename": "page_005.webp",
+      "v1_sha256": "734be48d6baded31c3cb53f7fe53c12552af57cdaec0562b0c9f11b21e724b50",
+      "v2_sha256": "11f43969ed1e74c5bdb13e3f97ee9b450579e24514d812c784ee1e42bc77a496",
+      "v3_sha256": "39bf9f35ca65379f5a75260c5896905c3700524c88670f452ee2921fd301686a",
+      "dimensions": {
+        "width": 800,
+        "height": 1444
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 6,
+      "filename": "page_006.webp",
+      "v1_sha256": "3736f7c17add7a5fc8e85fea389d842e8749b1fd45129e0d46ea7fa0d11b065d",
+      "v2_sha256": "c8fe319b6821e70964e0026a9f78a215e76a2c2a0125d162f0fa13c90f736587",
+      "v3_sha256": "7e6b64e268a51daa01194e8837ba514676a35efcb87aa179405044001297890a",
+      "dimensions": {
+        "width": 800,
+        "height": 1555
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    },
+    {
+      "page_num": 7,
+      "filename": "page_007.webp",
+      "v1_sha256": "d747162d62ca8ee9eadc3184672d85e00129b1681d205520d18fe649e60b9226",
+      "v2_sha256": "1d4f7261c97aa324ad6e9b0cd5b81d997c303cb154476f984465fe44bb95ae87",
+      "v3_sha256": "b4c313cd778209ce15f88a8f6a4d047c80e8ff62dd353b6e658ebf51c9363f14",
+      "dimensions": {
+        "width": 800,
+        "height": 751
+      },
+      "bubbles_count": 0,
+      "quality_metrics": {
+        "solid_patches": 0,
+        "ssim_score": 0.9985,
+        "degradation_pct": 0.15,
+        "anti_patch_guard": "PASSED"
+      }
+    }
+  ]
+}

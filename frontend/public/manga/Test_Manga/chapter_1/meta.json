@@ -1,0 +1,71 @@
+{
+  "manga": "Test_Manga",
+  "chapter": "1",
+  "total_pages": 7,
+  "last_updated": 1787481793.9794564,
+  "pages": [
+    {
+      "page_num": 1,
+      "filename": "page_001.webp",
+      "width": 800,
+      "height": 1736,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_001.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_001.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_001.webp"
+    },
+    {
+      "page_num": 2,
+      "filename": "page_002.webp",
+      "width": 800,
+      "height": 1132,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_002.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_002.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_002.webp"
+    },
+    {
+      "page_num": 3,
+      "filename": "page_003.webp",
+      "width": 800,
+      "height": 1225,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_003.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_003.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_003.webp"
+    },
+    {
+      "page_num": 4,
+      "filename": "page_004.webp",
+      "width": 800,
+      "height": 982,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_004.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_004.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_004.webp"
+    },
+    {
+      "page_num": 5,
+      "filename": "page_005.webp",
+      "width": 800,
+      "height": 1444,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_005.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_005.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_005.webp"
+    },
+    {
+      "page_num": 6,
+      "filename": "page_006.webp",
+      "width": 800,
+      "height": 1555,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_006.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_006.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_006.webp"
+    },
+    {
+      "page_num": 7,
+      "filename": "page_007.webp",
+      "width": 800,
+      "height": 751,
+      "v1": "/manga/Test_Manga/chapter_1/v1/page_007.webp",
+      "v2": "/manga/Test_Manga/chapter_1/v2/page_007.webp",
+      "v3": "/manga/Test_Manga/chapter_1/v3/page_007.webp"
+    }
+  ]
+}

@@ -1,7 +1,19 @@
 {
   "title": "Manga AI Translation Library",
-  "last_synced": 1787478106.3191717,
+  "last_synced": 1787482541.211936,
   "mangas": {
+    "Test_Manga": {
+      "title": "Test Manga",
+      "chapters": [
+        {
+          "chapter": "1",
+          "folder": "chapter_1",
+          "pages_count": 7,
+          "meta_url": "/manga/Test_Manga/chapter_1/meta.json"
+        }
+      ],
+      "total_chapters": 1
+    },
     "The_Ultimate_of_All_Ages": {
       "title": "The Ultimate of All Ages",
       "chapters": [

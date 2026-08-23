@@ -1,0 +1,90 @@
+[
+  {
+    "box": [
+      62,
+      24,
+      607,
+      389
+    ],
+    "text": "(Jt4 THIS CHAPTER IS BROUGHT TO YOU BY SCYTHE TEAM exclusive chapters first DN scythescaNs cDM",
+    "lines": [
+      [
+        345,
+        24,
+        43,
+        38
+      ],
+      [
+        66,
+        122,
+        406,
+        54
+      ],
+      [
+        62,
+        175,
+        415,
+        57
+      ],
+      [
+        70,
+        232,
+        402,
+        56
+      ],
+      [
+        129,
+        335,
+        540,
+        40
+      ],
+      [
+        187,
+        371,
+        426,
+        42
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 1
+  },
+  {
+    "box": [
+      346,
+      1436,
+      334,
+      229
+    ],
+    "text": "76 The ULTIMATE of AII Ages",
+    "lines": [
+      [
+        516,
+        1436,
+        164,
+        128
+      ],
+      [
+        346,
+        1610,
+        150,
+        30
+      ],
+      [
+        455,
+        1637,
+        52,
+        20
+      ],
+      [
+        503,
+        1623,
+        58,
+        42
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": true,
+    "id": 2
+  }
+]

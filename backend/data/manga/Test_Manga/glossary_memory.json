@@ -1,0 +1,63 @@
+{
+  "manga_title": "Test_Manga",
+  "lookback_chapters": 10,
+  "characters": {
+    "gu feiyang": "Гу Фэйян",
+    "li yunxiao": "Ли Юньсяо",
+    "luo yunshang": "Ло Юньшан",
+    "jiang ruobing": "Цзян Жобин",
+    "jiang riobingil": "Цзян Жобин",
+    "beimin yuan": "Бэймин Юань",
+    "beimin clan": "Клан Бэймин",
+    "duanmu cang": "Дуаньму Цан",
+    "ning keyun": "Нин Кэюнь",
+    "ao changkong": "Ао Чанкун",
+    "mo huaxuan": "Мо Хуасюань",
+    "qu hongyan": "Цюй Хунъянь",
+    "ling er": "Лин-эр",
+    "yan luo": "Янь Ло",
+    "ye fan": "Е Фань",
+    "chen zhen": "Чэнь Чжэнь"
+  },
+  "cultivation_terms": {
+    "curse mark": "метка проклятия",
+    "lift the curse": "снять проклятие",
+    "mother's womb": "утроба матери",
+    "womb": "утроба",
+    "origin power": "изначальная сила",
+    "qi": "Ци",
+    "circulate qi": "направить Ци по меридианам",
+    "circulating your origin power": "направив изначальную силу",
+    "dantian": "Даньтянь",
+    "meridian": "меридиан",
+    "meridians": "меридианы",
+    "martial sovereign": "Боевой Владыка",
+    "martial emperor": "Боевой Император",
+    "martial king": "Боевой Король",
+    "martial lord": "Боевой Лорд",
+    "martial master": "Боевой Мастер",
+    "nine heavens": "Девять Небес",
+    "yao beast": "Демонический Зверь",
+    "demon beast": "Демонический Зверь",
+    "spirit grass": "Духовная Трава",
+    "divine pill": "Божественная Пилюля",
+    "breakthrough": "прорыв в культивации",
+    "primordial": "первозданный",
+    "void": "пустота"
+  },
+  "factions_and_places": {
+    "sanctuary": "Святилище",
+    "sacred zone": "Священная Зона",
+    "heavenly water nation": "Страна Небесной Воды",
+    "beimin clan": "Клан Бэймин",
+    "alchemist association": "Ассоциация Алхимиков",
+    "divine realm": "Божественное Царство",
+    "battle soul mountain": "Гора Боевых Душ"
+  },
+  "translation_rules": [
+    "Никогда не оставлять английские слова в русских баблах.",
+    "Использовать принятую терминологию культивации (Ци с заглавной, Даньтянь, меридианы).",
+    "Переводить реплики живым литературным языком без кальки с английского.",
+    "Запрещено переводить звуковые эффекты (SFX) как текст речи."
+  ]
+}

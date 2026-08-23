@@ -15,23 +15,143 @@ from llm_translator import translate_bubbles_batch
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 logger = logging.getLogger("TypesetterAgent")
 
-# Validated Windows Cyrillic-compatible fonts
-FONTS = {
-    "comic": r"C:\Windows\Fonts\comicbd.ttf",
-    "segoe": r"C:\Windows\Fonts\segoeuib.ttf",
-    "arial": r"C:\Windows\Fonts\arialbd.ttf",
-    "trebuchet": r"C:\Windows\Fonts\trebucbd.ttf",
-    "tahoma": r"C:\Windows\Fonts\tahomabd.ttf"
+from typing import List, Dict, Any, Optional, Tuple
+
+# Multi-platform Cyrillic-compatible font candidate resolution
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ASSETS_FONTS_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "assets", "fonts"))
+BUNDLED_COMIC_FONT = os.path.join(ASSETS_FONTS_DIR, "ComicNeue-Bold.ttf")
+
+WIN_DIR = os.environ.get("WINDIR", r"C:\Windows")
+WIN_FONTS = os.path.join(WIN_DIR, "Fonts")
+LOCAL_APP_FONTS = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\Windows\Fonts")
+
+FONT_CANDIDATE_MAP: Dict[str, List[str]] = {
+    "comic": [
+        os.path.join(WIN_FONTS, "comicbd.ttf"),
+        os.path.join(WIN_FONTS, "comic.ttf"),
+        os.path.join(LOCAL_APP_FONTS, "comicbd.ttf"),
+        BUNDLED_COMIC_FONT,
+        "/usr/share/fonts/truetype/comic-neue/ComicNeue-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+        "/System/Library/Fonts/Supplemental/Comic Sans MS Bold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/Library/Fonts/Arial Bold.ttf"
+    ],
+    "arial": [
+        os.path.join(WIN_FONTS, "arialbd.ttf"),
+        os.path.join(WIN_FONTS, "arial.ttf"),
+        os.path.join(LOCAL_APP_FONTS, "arialbd.ttf"),
+        BUNDLED_COMIC_FONT,
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+        "/Library/Fonts/Arial Bold.ttf"
+    ],
+    "segoe": [
+        os.path.join(WIN_FONTS, "segoeuib.ttf"),
+        os.path.join(WIN_FONTS, "segoeui.ttf"),
+        os.path.join(LOCAL_APP_FONTS, "segoeuib.ttf"),
+        BUNDLED_COMIC_FONT,
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/System/Library/Fonts/Supplemental/Arial.ttf"
+    ],
+    "trebuchet": [
+        os.path.join(WIN_FONTS, "trebucbd.ttf"),
+        os.path.join(WIN_FONTS, "trebuc.ttf"),
+        BUNDLED_COMIC_FONT,
+        os.path.join(WIN_FONTS, "arialbd.ttf"),
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    ],
+    "tahoma": [
+        os.path.join(WIN_FONTS, "tahomabd.ttf"),
+        os.path.join(WIN_FONTS, "tahoma.ttf"),
+        BUNDLED_COMIC_FONT,
+        os.path.join(WIN_FONTS, "arialbd.ttf"),
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    ]
 }
 
+# Backwards compatible FONTS mapping dictionary
+FONTS: Dict[str, str] = {
+    "comic": FONT_CANDIDATE_MAP["comic"][0],
+    "segoe": FONT_CANDIDATE_MAP["segoe"][0],
+    "arial": FONT_CANDIDATE_MAP["arial"][0],
+    "trebuchet": FONT_CANDIDATE_MAP["trebuchet"][0],
+    "tahoma": FONT_CANDIDATE_MAP["tahoma"][0]
+}
+
+_RESOLVED_FONT_PATHS: Dict[str, str] = {}
+_FONT_INSTANCE_CACHE: Dict[Tuple[str, int], ImageFont.FreeTypeFont] = {}
+
+def resolve_font_path(font_key: str) -> str:
+    """
+    Resolves the best available font file path across Windows, Linux, macOS,
+    and bundled assets with robust multi-platform fallbacks.
+    """
+    if font_key in _RESOLVED_FONT_PATHS:
+        return _RESOLVED_FONT_PATHS[font_key]
+        
+    candidates = FONT_CANDIDATE_MAP.get(font_key, FONT_CANDIDATE_MAP["comic"])
+    for p in candidates:
+        if p and os.path.isfile(p):
+            _RESOLVED_FONT_PATHS[font_key] = p
+            return p
+            
+    # Fallback to bundled font if present
+    if os.path.isfile(BUNDLED_COMIC_FONT):
+        _RESOLVED_FONT_PATHS[font_key] = BUNDLED_COMIC_FONT
+        return BUNDLED_COMIC_FONT
+        
+    # Search bundled directory for any .ttf / .otf
+    if os.path.isdir(ASSETS_FONTS_DIR):
+        for fname in os.listdir(ASSETS_FONTS_DIR):
+            if fname.lower().endswith((".ttf", ".otf")):
+                found = os.path.join(ASSETS_FONTS_DIR, fname)
+                _RESOLVED_FONT_PATHS[font_key] = found
+                return found
+                
+    # Fallback to standard arial or first candidate string
+    fallback_path = candidates[0] if candidates else FONTS.get("comic", "arialbd.ttf")
+    _RESOLVED_FONT_PATHS[font_key] = fallback_path
+    return fallback_path
+
 def get_best_font(font_key: str, size: int):
-    fpath = FONTS.get(font_key, FONTS["comic"])
-    if not os.path.exists(fpath):
-        fpath = FONTS["arial"]
-    try:
-        return ImageFont.truetype(fpath, max(8, size))
-    except Exception:
-        return ImageFont.load_default()
+    """
+    Loads and caches a Cyrillic-compatible TrueType font with cross-platform fallback.
+    """
+    target_size = max(8, size)
+    fpath = resolve_font_path(font_key)
+    
+    cache_key = (fpath, target_size)
+    if cache_key in _FONT_INSTANCE_CACHE:
+        return _FONT_INSTANCE_CACHE[cache_key]
+        
+    font_inst = None
+    if fpath and os.path.isfile(fpath):
+        try:
+            font_inst = ImageFont.truetype(fpath, target_size)
+        except Exception as e:
+            logger.debug(f"Failed to load font from {fpath}: {e}")
+            
+    if font_inst is None and os.path.isfile(BUNDLED_COMIC_FONT):
+        try:
+            font_inst = ImageFont.truetype(BUNDLED_COMIC_FONT, target_size)
+        except Exception:
+            pass
+            
+    if font_inst is None:
+        try:
+            font_inst = ImageFont.load_default()
+        except Exception:
+            pass
+            
+    _FONT_INSTANCE_CACHE[cache_key] = font_inst
+    return font_inst
 
 def wrap_text_elliptic(words: list, font: ImageFont.FreeTypeFont, safe_w: int, safe_h: int) -> list:
     """
