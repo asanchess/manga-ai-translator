@@ -39,7 +39,7 @@ from agents.cleaner_agent import (
 from agents.llm_translator import (
     check_ollama_status,
     translate_bubbles_batch,
-    extract_json_array
+    parse_llm_json_response
 )
 from agents.translator_typesetter_agent import (
     get_best_font,

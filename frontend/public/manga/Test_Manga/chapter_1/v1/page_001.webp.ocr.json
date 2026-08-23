@@ -1,19 +1,13 @@
 [
   {
     "box": [
-      62,
-      24,
-      607,
-      389
+      61,
+      122,
+      608,
+      291
     ],
-    "text": "(Jt4 THIS CHAPTER IS BROUGHT TO YOU BY SCYTHE TEAM exclusive chapters first DN scythescaNs cDM",
+    "text": "THIS CHAPTER IS BROUGHT TO YOU BY SCYTHE TEAM exclusive chapters first DN scythescaNs cDM",
     "lines": [
-      [
-        345,
-        24,
-        43,
-        38
-      ],
       [
         66,
         122,
@@ -21,10 +15,10 @@
         54
       ],
       [
-        62,
-        175,
-        415,
-        57
+        61,
+        174,
+        417,
+        61
       ],
       [
         70,
@@ -46,24 +40,38 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": true,
+    "is_dark": false,
     "id": 1
   },
   {
     "box": [
-      346,
-      1436,
-      334,
-      229
+      295,
+      1388,
+      232,
+      114
     ],
-    "text": "76 The ULTIMATE of AII Ages",
+    "text": "22",
     "lines": [
       [
-        516,
-        1436,
-        164,
-        128
-      ],
+        295,
+        1388,
+        232,
+        114
+      ]
+    ],
+    "is_sfx": false,
+    "is_dark": false,
+    "id": 2
+  },
+  {
+    "box": [
+      346,
+      1610,
+      215,
+      55
+    ],
+    "text": "The ULTIMATE of AII Ages",
+    "lines": [
       [
         346,
         1610,
@@ -84,7 +92,7 @@
       ]
     ],
     "is_sfx": false,
-    "is_dark": true,
-    "id": 2
+    "is_dark": false,
+    "id": 3
   }
 ]

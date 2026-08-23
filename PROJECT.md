@@ -49,13 +49,13 @@ Every feature from the Survey phase is mapped to a designated milestone.
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| 1 | **CLI & Turnkey Launch Scripts** | Implement `backend/cli.py`, `start_service.bat`, and `start_service.sh` | None | PLANNED |
-| 2 | **Multi-Provider LLM Cascade & Glossary** | Implement OpenRouter & DeepSeek in `llm_translator.py`, wire 4-tier cascade, reinforce 10-chapter terminology graph injection | None | PLANNED |
-| 3 | **FastAPI Consolidation & Real-Time SSE Stream** | Consolidate `backend/server.py`, implement `GET /api/pipeline/stream/{task_id}` for live SSE telemetry, honest error diagnostics | M2 | PLANNED |
-| 4 | **Production ZIP Packaging & Release Endpoints** | Verify `{title}_Chapter_{num}_Russian.zip` packaging and standard download routes | M1, M3 | PLANNED |
-| 5 | **SOTA Anti-Patch Inpainting & Elliptical Typesetting** | Ensure zero `cv2.rectangle`, cross-platform font loading, verify SSIM >= 99.5% and elliptical math $W(y)$ | None | PLANNED |
-| 6 | **Next.js Studio Dashboard & Reader Overhaul** | Overhaul `studio/page.tsx` (batch launcher, chapter library, SSE visualizer), overhaul `reader/[manga]/page.tsx` (refresh URL/localStorage persistence, burger drawer, top bar ZIP button), fix `api/studio/mangas/route.ts` | M3, M4 | PLANNED |
-| 7 | **Final Verification, Test Track & Git Push** | Fix `verify_pipeline.py`, run all AC tests (Anti-Patch 13 chs, Bubble 100, unit tests, TypeScript compile, CLI execution 531-532), git commit & push to GitHub | M1, M2, M3, M4, M5, M6 | PLANNED |
+| 1 | **CLI & Turnkey Launch Scripts** | Implement `backend/cli.py`, `start_service.bat`, and `start_service.sh` | None | **DONE** |
+| 2 | **Multi-Provider LLM Cascade & Glossary** | Implement OpenRouter & DeepSeek in `llm_translator.py`, wire 4-tier cascade, reinforce 10-chapter terminology graph injection | None | **DONE** |
+| 3 | **FastAPI Consolidation & Real-Time SSE Stream** | Consolidate `backend/server.py`, implement `GET /api/pipeline/stream/{task_id}` for live SSE telemetry, honest error diagnostics | M2 | **DONE** |
+| 4 | **Production ZIP Packaging & Release Endpoints** | Verify `{title}_Chapter_{num}_Russian.zip` packaging and standard download routes | M1, M3 | **DONE** |
+| 5 | **SOTA Anti-Patch Inpainting & Elliptical Typesetting** | Ensure zero `cv2.rectangle`, cross-platform font loading, verify SSIM >= 99.5% and elliptical math $W(y)$ | None | **DONE** |
+| 6 | **Next.js Studio Dashboard & Reader Overhaul** | Overhaul `studio/page.tsx` (batch launcher, chapter library, SSE visualizer), overhaul `reader/[manga]/page.tsx` (refresh URL/localStorage persistence, burger drawer, top bar ZIP button), fix `api/studio/mangas/route.ts` | M3, M4 | **DONE** |
+| 7 | **Final Verification, Test Track & Git Push** | Fix `verify_pipeline.py`, run all AC tests (Anti-Patch 13 chs, Bubble 100, unit tests, TypeScript compile, CLI execution 531-532), git commit & push to GitHub | M1, M2, M3, M4, M5, M6 | **IN_PROGRESS** |
 
 ---
 
@@ -86,14 +86,3 @@ Every feature from the Survey phase is mapped to a designated milestone.
 - URL Format: `/reader/{manga}?chapter=chapter_{num}`
 - Storage Key: `manga_reader_chapter_{manga}`
 - On Load: Prioritize URL `?chapter=...`, then `localStorage`, then default to first available chapter. Never overwrite URL on initial render before data resolves.
-
----
-
-## Code Layout & Write Boundaries
-- `backend/cli.py` -> Owned by M1 Worker
-- `start_service.bat` & `start_service.sh` -> Owned by M1 Worker
-- `backend/agents/llm_translator.py` -> Owned by M2 Worker
-- `backend/server.py` & `backend/main.py` -> Owned by M3 Worker
-- `backend/agents/cleaner_agent.py` & `backend/agents/translator_typesetter_agent.py` -> Owned by M5 Worker
-- `frontend/src/app/studio/page.tsx` & `frontend/src/app/reader/[manga]/page.tsx` & `frontend/src/app/api/studio/mangas/route.ts` -> Owned by M6 Worker
-- `backend/tests/verify_pipeline.py` & `backend/tests/test_typesetter_layout.py` -> Owned by M7 Worker

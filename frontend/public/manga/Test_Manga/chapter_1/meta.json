@@ -2,7 +2,7 @@
   "manga": "Test_Manga",
   "chapter": "1",
   "total_pages": 7,
-  "last_updated": 1787481793.9794564,
+  "last_updated": 1787485304.296399,
   "pages": [
     {
       "page_num": 1,
@@ -35,7 +35,7 @@
       "page_num": 4,
       "filename": "page_004.webp",
       "width": 800,
-      "height": 982,
+      "height": 981,
       "v1": "/manga/Test_Manga/chapter_1/v1/page_004.webp",
       "v2": "/manga/Test_Manga/chapter_1/v2/page_004.webp",
       "v3": "/manga/Test_Manga/chapter_1/v3/page_004.webp"
@@ -44,7 +44,7 @@
       "page_num": 5,
       "filename": "page_005.webp",
       "width": 800,
-      "height": 1444,
+      "height": 1445,
       "v1": "/manga/Test_Manga/chapter_1/v1/page_005.webp",
       "v2": "/manga/Test_Manga/chapter_1/v2/page_005.webp",
       "v3": "/manga/Test_Manga/chapter_1/v3/page_005.webp"

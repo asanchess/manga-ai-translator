@@ -1,4 +1,4 @@
-# BRIEFING — 2026-08-23T15:44:00Z
+# BRIEFING — 2026-08-23T16:02:00Z
 
 ## Mission
 Lead, decompose, and orchestrate the full turnkey implementation and verification of «Manga AI Translator Studio» meeting requirements R1-R6 and all acceptance criteria.
@@ -16,21 +16,22 @@ Lead, decompose, and orchestrate the full turnkey implementation and verificatio
 1. **Decompose**: Survey completed -> Synthesized PROJECT.md, Spec.md, implementation_plan.md -> Decomposed into 7 milestones.
 2. **Dispatch & Execute**:
    - **Wave 1**: M1 (CLI & Scripts), M2 (LLM Cascade), M5 (Inpainting & Typography) — ALL COMPLETED & VERIFIED.
-   - **Wave 2**: M3 & M4 (Server & SSE Stream - `f3328062`), M6 (Frontend Studio & Reader Overhaul - `85226f9e`) — IN PROGRESS.
-   - **Wave 3**: M7 (Acceptance Verification, QA Audit & Git Push).
+   - **Wave 2**: M3 & M4 (Server & SSE Stream - `f3328062`), M6 (Frontend Studio & Reader Overhaul - `85226f9e`) — ALL COMPLETED & VERIFIED.
+   - **Wave 3**: M7 (Final Acceptance Suite, Test Remediation & Git Push - `07612a07`) — IN PROGRESS.
+   - **Next Wave**: Independent Reviewers (2), Challengers (2), Forensic Auditor (1) -> Final Gate.
 3. **On failure**: Retry -> Replace -> Skip -> Redistribute -> Redesign -> Escalate.
 4. **Succession**: Self-succeed at 16 spawns.
 - **Work items**:
   1. Survey & Architecture Audit [done]
   2. Milestone 1: CLI & Turnkey Scripts (R1) [done]
   3. Milestone 2: Multi-Provider LLM Cascade & Failover (R2) [done]
-  4. Milestone 3: Consolidated Server & SSE Diagnostics (R3) [in-progress]
-  5. Milestone 4: ZIP Packaging & Releases (R4) [in-progress]
+  4. Milestone 3: Consolidated Server & SSE Diagnostics (R3) [done]
+  5. Milestone 4: ZIP Packaging & Releases (R4) [done]
   6. Milestone 5: Anti-Patch Inpainting & Elliptical Typesetting (R5) [done]
-  7. Milestone 6: Overhauled Next.js Web Reader & Studio Dashboard (R6) [in-progress]
-  8. Milestone 7: Final Test Suite, Acceptance & Git Push [pending]
-- **Current phase**: 1 (Implementation)
-- **Current focus**: Executing M3/M4 (FastAPI + SSE) and M6 (Frontend Overhaul) workers.
+  7. Milestone 6: Overhauled Next.js Web Reader & Studio Dashboard (R6) [done]
+  8. Milestone 7: Final Test Suite, Acceptance & Git Push [in-progress]
+- **Current phase**: 2 (Final Verification & Acceptance)
+- **Current focus**: Executing M7 acceptance worker and preparing QA review/audit gate.
 
 ## 🔒 Key Constraints
 - NEVER write, modify, or create source code files directly.
@@ -44,11 +45,11 @@ Lead, decompose, and orchestrate the full turnkey implementation and verificatio
 
 ## Current Parent
 - Conversation ID: 859165ae-ee69-4701-b101-95a8cb36cc90
-- Updated: 2026-08-23T15:44:00Z
+- Updated: 2026-08-23T16:02:00Z
 
 ## Key Decisions Made
-- M1, M2, and M5 completed and verified.
-- Dispatched M3/M4 (FastAPI Server + SSE) and M6 (Next.js Studio & Reader) concurrently.
+- All milestones M1 through M6 are complete and verified.
+- Dispatched M7 final acceptance worker (`07612a07`) to run full test battery, verify CLI execution on 531-532, and push all commits to GitHub.
 
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
@@ -59,13 +60,14 @@ Lead, decompose, and orchestrate the full turnkey implementation and verificatio
 | worker_m1_1 | teamwork_preview_worker | Milestone 1: CLI & Turnkey Scripts | completed | 2272c5fb-2675-44ff-87ec-9c36ed07f1e5 |
 | worker_m2_1 | teamwork_preview_worker | Milestone 2: Multi-Provider LLM Cascade | completed | 9db10fe9-46e4-4958-8e34-c603dcefb23b |
 | worker_m5_1 | teamwork_preview_worker | Milestone 5: Anti-Patch & Typography | completed | 0fd3ffcb-3a19-4425-8a35-6f2a44e69b20 |
-| worker_m3_m4_1 | teamwork_preview_worker | Milestone 3 & 4: Server & SSE Stream | in-progress | f3328062-a5bc-4549-aeeb-b9d6e0aca9a5 |
-| worker_m6_1 | teamwork_preview_worker | Milestone 6: Frontend Studio & Reader | in-progress | 85226f9e-ef71-4830-8b70-62f4bd540515 |
+| worker_m3_m4_1 | teamwork_preview_worker | Milestone 3 & 4: Server & SSE Stream | completed | f3328062-a5bc-4549-aeeb-b9d6e0aca9a5 |
+| worker_m6_1 | teamwork_preview_worker | Milestone 6: Frontend Studio & Reader | completed | 85226f9e-ef71-4830-8b70-62f4bd540515 |
+| worker_m7_1 | teamwork_preview_worker | Milestone 7: Final Acceptance & Git Push | in-progress | 07612a07-74a5-4a4f-9ba8-24140be57847 |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 8 / 16
-- Pending subagents: f3328062-a5bc-4549-aeeb-b9d6e0aca9a5, 85226f9e-ef71-4830-8b70-62f4bd540515
+- Spawn count: 9 / 16
+- Pending subagents: 07612a07-74a5-4a4f-9ba8-24140be57847
 - Predecessor: none
 - Successor: not yet spawned
 
