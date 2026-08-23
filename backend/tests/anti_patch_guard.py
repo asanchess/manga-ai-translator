@@ -149,14 +149,17 @@ def detect_solid_patches(
                     if sub_var < variance_threshold:
                         solid_subpatches += 1
 
-        # Check if the crop or its padded contour has an enclosing bubble outline
-        bx1, by1 = max(0, x - 10), max(0, y - 10)
-        bx2, by2 = min(iw, x + w + 10), min(ih, y + h + 10)
+        # Outline & Bubble Context Detection
+        pad_dist = max(35, int(max(w, h) * 0.35))
+        bx1, by1 = max(0, x - pad_dist), max(0, y - pad_dist)
+        bx2, by2 = min(iw, x + w + pad_dist), min(ih, y + h + pad_dist)
         padded_crop = cleaned_img[by1:by2, bx1:bx2]
         gray_padded = cv2.cvtColor(padded_crop, cv2.COLOR_BGR2GRAY) if padded_crop.shape[2] == 3 else padded_crop
-        has_dark_outline = bool(np.any(gray_padded < 80))
+        has_dark_outline = bool(np.any(gray_padded < 90))
+        is_light_gutter = bool(np.mean(gray_padded) > 235 and np.std(gray_padded) < 20)
+        has_valid_bubble_context = has_dark_outline or is_light_gutter
 
-        # Check contiguous flat mask (detects monolithic solid rectangle fills)
+        # Contiguous Flat Region & Contrast Measurement
         gray_crop = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY) if crop.shape[2] == 3 else crop
         dx = cv2.Sobel(gray_crop, cv2.CV_64F, 1, 0, ksize=3)
         dy = cv2.Sobel(gray_crop, cv2.CV_64F, 0, 1, ksize=3)
@@ -164,20 +167,24 @@ def detect_solid_patches(
         flat_mask = (mag < 1.0).astype(np.uint8)
         num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(flat_mask)
         max_flat_ratio = 0.0
+        flat_contrast = 0.0
         for i in range(1, num_labels):
             area = stats[i, cv2.CC_STAT_AREA]
             ratio = area / max(1, w * h)
             if ratio > max_flat_ratio:
                 max_flat_ratio = ratio
+                comp_mask = (labels == i)
+                flat_pixels = gray_crop[comp_mask]
+                non_flat_pixels = gray_crop[~comp_mask]
+                if len(flat_pixels) > 0 and len(non_flat_pixels) > 0:
+                    flat_contrast = abs(float(np.mean(flat_pixels)) - float(np.mean(non_flat_pixels)))
 
-        # Solid patch condition:
-        # A) Entire box is solid (mean_var < variance_threshold)
-        # B) 80%+ of the box is solid subpatches without an outline
-        # C) A prominent contiguous solid block (>= 30% of box) without outline on textured background
+        # Solid Patch Condition:
         is_solid_box = (
             (mean_var < variance_threshold) or
-            (total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.80 and not has_dark_outline) or
-            (max_flat_ratio >= 0.30 and not has_dark_outline and mean_var > 30.0)
+            (total_subpatches > 0 and (solid_subpatches / total_subpatches) >= 0.80 and not has_valid_bubble_context) or
+            (max_flat_ratio >= 0.30 and flat_contrast >= 15.0 and not has_valid_bubble_context and mean_var > 30.0) or
+            (max_flat_ratio >= 0.70 and not has_valid_bubble_context)
         )
 
         box_metric = {
@@ -188,6 +195,8 @@ def detect_solid_patches(
             "total_subpatches": total_subpatches,
             "solid_subpatches": solid_subpatches,
             "max_flat_ratio": round(max_flat_ratio, 4),
+            "flat_contrast": round(flat_contrast, 4),
+            "has_valid_bubble_context": has_valid_bubble_context,
             "is_solid_patch": bool(is_solid_box)
         }
         box_metrics.append(box_metric)

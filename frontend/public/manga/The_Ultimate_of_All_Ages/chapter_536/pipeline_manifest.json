@@ -10,15 +10,15 @@
     "v3_translated": 14
   },
   "integrity_status": "PASSED",
-  "generated_at": 1787433299.7766597,
-  "iso_timestamp": "2026-08-22T21:14:59Z",
+  "generated_at": 1787478085.9923127,
+  "iso_timestamp": "2026-08-23T09:41:25Z",
   "pages": [
     {
       "page_num": 1,
       "filename": "page_001.webp",
-      "v1_sha256": "313726df8894f690d13f2a177f0e7af91c5354502093c90de0335abf2b30e0f6",
-      "v2_sha256": "4a821f1a4a635edac5ed310bdaf8ff4f657aedaa01d4ccf5312695daa65a8269",
-      "v3_sha256": "699b9ca4e266cd5e41740f6cdcf71f9c0c2a735fe676d14616147d43003ff346",
+      "v1_sha256": "80a716a8e11cb30dc41057c9b5a1135fc14d0dddf80949eba8d4575d85f667e2",
+      "v2_sha256": "d1d038c1b16a7c5f8d0cb25f4c000e27eb4be77499243dcec1574a4fd558ec89",
+      "v3_sha256": "2f18a0cd0bfccfae5bcf16c444a5c13a883e3bc37f65c8179d5c93ea105d842d",
       "dimensions": {
         "width": 800,
         "height": 9565
@@ -34,9 +34,9 @@
     {
       "page_num": 2,
       "filename": "page_002.webp",
-      "v1_sha256": "ef5370c010a5af31345fc11468a54b92a6553d291b48b7f247943d68b1f630d6",
-      "v2_sha256": "bdba05e9623c2653b0c102444571a135ed40c00129286a840db1b6fa32e58a4d",
-      "v3_sha256": "9b167b3d1400aeafa258277f23a32d6f1ec16cb4d1178217c189eb96659bdd65",
+      "v1_sha256": "552849de1f784b9d6f9d5947a92ac8758c4cceb8deb725417c58cd3e88c956c6",
+      "v2_sha256": "4df74e77b507a8b733bbd3a787d38dba13dbcf639fd41b8adc72fd895dbc2b66",
+      "v3_sha256": "79359b2dfb44277496fb9ed7671a37f01eb76f32852cfe7b7418a926280c5e51",
       "dimensions": {
         "width": 800,
         "height": 10000
@@ -52,9 +52,9 @@
     {
       "page_num": 3,
       "filename": "page_003.webp",
-      "v1_sha256": "2b43f31f420ef6d656f30857940edddc07e3ffe01a0b3449d99bdf431614b68f",
-      "v2_sha256": "b42e672783d1f432561694eb32ef58087201834d0c94d8ceacbe956f28dae18d",
-      "v3_sha256": "e45f5ed6d0f99676da43876ecc32e4285a5cd8b756342b59ca51a3aba6d0a66e",
+      "v1_sha256": "a77b797868490426b92eeb1ab54cb2da510e15d3e51db68b98698729d5ef6dbf",
+      "v2_sha256": "bd5268464fa7a6f1c05a3e7d217ba2bf5c94986ba7ce931084fcb08dd0d1931c",
+      "v3_sha256": "90c6b739af3d585b41444c44ff9cb1be02575aad4fd5b106f464c5a0a54f188d",
       "dimensions": {
         "width": 800,
         "height": 9255
@@ -70,9 +70,9 @@
     {
       "page_num": 4,
       "filename": "page_004.webp",
-      "v1_sha256": "74aac8672c6c5d148ad7a35295cfd49d0d4d2f87a5191e82cc45a494861137ed",
-      "v2_sha256": "34f35fcb0c6d7120a920e338cab575a3c8d9b7689a5d64dda7be4e9363016cb9",
-      "v3_sha256": "fa0d174c592b2ab1d6970b11f8ff0e62b78712586fbb2643497b612139eaf4d9",
+      "v1_sha256": "ae890f9c781bd554c874ac3b155f6a8ffb6bd134f3c22c8cbb34c6c2e07a56fa",
+      "v2_sha256": "cac6326a116bb2e6e822dac1ba6b2fb7d9247eaa5df2e8fc91274036f0d84457",
+      "v3_sha256": "9fc04f30da8f82779b69a6c9ebe99de7c265c52c1537b92abaec3c441b89d62b",
       "dimensions": {
         "width": 800,
         "height": 8140
@@ -88,9 +88,9 @@
     {
       "page_num": 5,
       "filename": "page_005.webp",
-      "v1_sha256": "9d091bb4402e42439c69f929d7af564f3944c18491eae8ee1ebf1a2e3ef0bb6f",
-      "v2_sha256": "9903b19dd85a45e2ac32f1debdce56161a4a6a2e45a7dc15b3790bf54fd30dd6",
-      "v3_sha256": "2b05cc034fb5ed273652cd93438168b724576ea627d0e94b0ad97411a034bd96",
+      "v1_sha256": "b043fbc47790428b3bea464368a594c67520c0f5be5c85459a5a2bbe95cc04f9",
+      "v2_sha256": "3d56ca436f0388b088517dddabb202568afd20af742a625c8e9dab4a0b5579b0",
+      "v3_sha256": "2bbbe5ba35b9737c6d1dbcb03af307208b75f545b1dfc63c0cfce81c35a78697",
       "dimensions": {
         "width": 800,
         "height": 4305
@@ -106,9 +106,9 @@
     {
       "page_num": 6,
       "filename": "page_006.webp",
-      "v1_sha256": "7bef72f45d8c2d16fef844f1bbc466e5221df1dfe0c109ffd3b1167369236162",
-      "v2_sha256": "d621dcc4bffc632f5affca8a47b7c12d05b5c3fa7e977e7f1a70813f2e479532",
-      "v3_sha256": "695d9cd8d6ebbeb21318083f97329831d31863b5e72f05e432c51080d788a20e",
+      "v1_sha256": "541b9d767882d25bdddc7c5c9ba1f9210c99385f2a00bcfffe83c93aad6b22a0",
+      "v2_sha256": "607bfeb8c3dac3e89dbc4ee1eb5fbcf6381263a131702676f98b51d518e29f6d",
+      "v3_sha256": "8449a7724e9c075aafbf19c18285ed32b61849f55f33252e1fe966f0c8e80812",
       "dimensions": {
         "width": 800,
         "height": 10000
@@ -124,9 +124,9 @@
     {
       "page_num": 7,
       "filename": "page_007.webp",
-      "v1_sha256": "1d0d62fe52ba5170e68782918b2080588076ddbe8ca077888cfdd8d0fa0ca791",
-      "v2_sha256": "dcad07106b9a042516272d5135e050169bf2fea9b76c8b06037591d0152d1837",
-      "v3_sha256": "0c6d994d00cf60526aa536952efbf4e28b957982867cfe602b90c2ad926cf7d9",
+      "v1_sha256": "f3dcbdf9aae2b399de3446a7d3916e3962de4371c22d184879b5215f3a55ef9d",
+      "v2_sha256": "a3ff8299202a12bf03f95112d6e631a054acc2af74a4ebdca27f314ee992dc84",
+      "v3_sha256": "cc9ef5629f239162a70aaf4368f838a40f5626f5b83c1f21ea137c0633c197c0",
       "dimensions": {
         "width": 800,
         "height": 6455
@@ -142,9 +142,9 @@
     {
       "page_num": 8,
       "filename": "page_008.webp",
-      "v1_sha256": "56fc38ec923bb84fe27f3db953d360c447f23456b5989bce68f18239ae656dee",
-      "v2_sha256": "6471681cb4c3370e2df2ea6baa65e0f3628f8b1f0cff4d7d35e2f6ca32c90d36",
-      "v3_sha256": "d693383015c8f0e45f2ac743ad6540d0e4e5e14b3051688ab0a33d37a10266be",
+      "v1_sha256": "319babb02a3bdfdae65631dbfb0083b8082b79d2e2eba0efe92d8e9a78f7d4ac",
+      "v2_sha256": "ded71f0847daa49f2815dc8783317e2e6250a044939c35a14e9389fa416bc38f",
+      "v3_sha256": "577665de5bda0186d841fdb1bd7e445a1e7bf22f932438ca3e0d3aeead4614be",
       "dimensions": {
         "width": 800,
         "height": 8995
@@ -160,9 +160,9 @@
     {
       "page_num": 9,
       "filename": "page_009.webp",
-      "v1_sha256": "008f602b8a1da1a207214f02e8ee1ea6add1cff5691c75314a827c85b8c150d8",
-      "v2_sha256": "bb8e4e04585320107cee114eff66ec9a07245d81ef9e8636ba1b34b52927d696",
-      "v3_sha256": "eccb3ebe7ac55e4b675de39865dfd9ba09e5a314ef765468f57d26c8a5150c8c",
+      "v1_sha256": "d965f39f7f82984846b5b1c03606c54e760e1ff6558297af4e26f989c0fda067",
+      "v2_sha256": "cad4b60354c3468a7bcb898b79bfc6fac526abfb5b68a226d819de485abcf88d",
+      "v3_sha256": "b03e73e1aa308e9a2e372863b1212579bd4100e18dcbd312ac5de3a894c26ac4",
       "dimensions": {
         "width": 800,
         "height": 10000
@@ -178,9 +178,9 @@
     {
       "page_num": 10,
       "filename": "page_010.webp",
-      "v1_sha256": "e2a26d95ec25419b1c5af2eb99930f35fe1398300fa5cbf022b32cf91de8de6b",
-      "v2_sha256": "de4cc205b8bc0ff59eeb3f515296de4f79508c3766e1536197d7db06e66618ad",
-      "v3_sha256": "618e4d998baf50bf3a9dc8b1bcfff360996c48d231e20e8162dc95b7eee97306",
+      "v1_sha256": "5598420023f1046210c8b5fefe46d947b7d24076907893d685aab2721c126ca7",
+      "v2_sha256": "1cba7949914b0125febeb7d292d0f6f84bcad10c6ddd6e5954dfbf3936c33929",
+      "v3_sha256": "b18ab7d3953e1730ded9113bf7d39cde015a44f81f594b9f33a0820a9c029e4c",
       "dimensions": {
         "width": 800,
         "height": 9685
@@ -196,9 +196,9 @@
     {
       "page_num": 11,
       "filename": "page_011.webp",
-      "v1_sha256": "5dc41582eeef865552d9a79c4d0f410deea56288b6c6e31a6435bb99a566e54e",
-      "v2_sha256": "545ac625175265be6911052aec8c82c21e7e19a679e961f74208688491186dcc",
-      "v3_sha256": "5e41346be2b7c36780e8c6f192fbb8519d8b2f48d455c4a976f8458bb20f8e06",
+      "v1_sha256": "8cc88ca13ddc2738b92dc5dff536e175e5426942aa2d2a94a008156140945f4c",
+      "v2_sha256": "2411f07e2bb2f62aa8c466e828b61700e9b013e7ae82d257bf10e3f9db4616a3",
+      "v3_sha256": "ce7c23e0fedfab92edbb91721ec14b08cd5494fd5b06cc7701c7a14c59554a5c",
       "dimensions": {
         "width": 800,
         "height": 9665
@@ -214,9 +214,9 @@
     {
       "page_num": 12,
       "filename": "page_012.webp",
-      "v1_sha256": "7fd777337439ddacce3f9316e373a5c47b763d1dfd6e05005699136b7752163b",
-      "v2_sha256": "250ebf7b42f2d47e964c035285ce14c66b57215bd3f46aebc2e6e6214cd2e970",
-      "v3_sha256": "2a2615355e781f682b589fb32e194699aa72e863901b5fae12c3a23f5c1d6ea9",
+      "v1_sha256": "4fa8ed910df45e279cbdb1c2e7777e6cf3e0eb909ad7bcf13b09128bdad1bf9e",
+      "v2_sha256": "1df2cba8ae2824de1da378bfcf51f48558408d1320ce321d67d720b44d905187",
+      "v3_sha256": "7c1d7e2c138e32f369ee62800935e25e94366084c8136b977a2b114eeb786bcd",
       "dimensions": {
         "width": 800,
         "height": 8805
@@ -232,9 +232,9 @@
     {
       "page_num": 13,
       "filename": "page_013.webp",
-      "v1_sha256": "c184bacb872d7c0b9f9ed83920c28e740ac8675a381ba5c39de76de734ab9d9f",
-      "v2_sha256": "a6158d4ae48185dc7fd94e313365bcac07dc71556f90e998516212f0f2b8ddf6",
-      "v3_sha256": "61dae4ac74d54f9ddecdab781ca6225d65c6274591becc2aed6c967f1d673b22",
+      "v1_sha256": "04f27debc12dc4967edb168dde01a60806a90d7a41545933f8a3d78223ec5bff",
+      "v2_sha256": "c12a49a1fd0edae56dfdb46d832598f1986e717a03779f40173b6876d2cf67fe",
+      "v3_sha256": "c1c76860242391c74b42b374ae1e20c8d15fa4ce79e1e3660c70db90f3c282dc",
       "dimensions": {
         "width": 800,
         "height": 5380
@@ -250,9 +250,9 @@
     {
       "page_num": 14,
       "filename": "page_014.webp",
-      "v1_sha256": "199c3f40fe8e27eeb7ee43a91429139324747dea6be89ce457f959cb003592cd",
-      "v2_sha256": "6dc98290cb0c1aed4e57fa193a8f74468922c9ab58859827e83c0835a8b9092a",
-      "v3_sha256": "749269713dec16e2c969afc28b98cdd4bf7970d485212d001158ba5c402a3e66",
+      "v1_sha256": "e8345f6ba67dc6ba0ee14ecc124b6cb02eda7c93311655837a3555c420aee472",
+      "v2_sha256": "9641f0031d6eece91130545a2b6c364cb2ea5aad2c340d1cf4c052c0e1678665",
+      "v3_sha256": "8037a769befcb8cb82665bdff21fc95135c6b1acf509430205ad2edc9b3f02b5",
       "dimensions": {
         "width": 800,
         "height": 446
